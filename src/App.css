@@ -1,10 +1,61 @@
 .App {
   text-align: center;
+  color:#222;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.sidebar {
+float: left;
+    width: 17%;
+}
+
+input {
+  width: 200px;
+  height: 38px;
+}
+
+.btn.btn-primary-submit {
+  width: 205px;
+  height: 38px;
+  color: green;
+  font-size: 13px;
+  border-image: none;
+  border: 1px solid green;
+}
+
+header p img {
+  margin-right: 8px;
+  max-width: 22px;
+  margin-bottom: -3px;
+}
+
+
+header p a{
+  font-size: 19px;
+  /* font-weight: 100; */
+  float: left;
+  color: black;
+  text-decoration:none;
+}
+
+.logo {
+  width: 49%;
+  margin-top: 19px;
+  margin-bottom: 10px;
+}
+
+html {
+  background-color: #f7f7f7;
+}
+
+.main {
+  width: 81.5%;
+    float: right;
+    margin-top:0.7%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,14 +65,15 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  width:18.5%;
+  float:left;
 }
 
 .App-link {
