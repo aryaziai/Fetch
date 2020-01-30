@@ -24,9 +24,10 @@ export default class Login extends Component {
 
   render() {
     return (
-
+      <div class="logincontainer">
+      <div class="Formlife" align="center">
         <Form onSubmit={(e) => {this.props.handleLoginSubmit(e, this.state) }}>
-                    <h1>Login</h1>
+                    <h2>Login</h2>
         <Form.Group controlId="formBasicEmail">
           <Form.Control type='text' name="username" placeholder="Username" onChange={(e) => this.handleChange (e)} value={this.state.username}/>
         
@@ -34,14 +35,16 @@ export default class Login extends Component {
 
         <br></br>
       
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group controlId="formBasicEmail">
           <Form.Control type='password' name="password" placeholder="Password" onChange={(e) => this.handleChange(e)} value={this.state.password}/>
         </Form.Group>
-        <br></br>
+
         <Button variant="primary-submit" type="submit">
           Login
         </Button>
       </Form>
+      </div>
+      </div>
     );
   }
 }

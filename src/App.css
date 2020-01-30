@@ -1,16 +1,48 @@
-.App {
-  text-align: center;
-  color:#222;
-}
+
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-.sidebar {
-float: left;
-    width: 17%;
+#formBasicFirstName.form-control, #formBasicLastName.form-control {
+  width: 85%;
+  margin-left: 15.5px;
+  margin-right: 15.6px;
+}
+
+#formBasicUsername.form-control,#formBasicPassword.form-control {
+  width: 64%;
+    margin-left: 8px;
+}
+
+
+.signupstuff {
+  display: inline-flex;
+}
+.App {
+  text-align: center;
+  color: #222;
+  background: #F5F8FA;
+  min-height: 800px;
+}
+
+.logincontainer { 
+  background-color:#f5f8fa;
+  min-height: 800px; 
+  margin-top: -25px; 
+  padding-top: 60px; 
+}
+
+.Formlife {
+  margin-left: 34%;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-right: 34%;
+  border-radius: 18px;
+  padding-bottom: 70px;
+  margin-top: 5.5%;
+  padding-top: 10px;
 }
 
 input {
@@ -18,14 +50,38 @@ input {
   height: 38px;
 }
 
-.btn.btn-primary-submit {
-  width: 205px;
-  height: 38px;
-  color: green;
-  font-size: 13px;
-  border-image: none;
-  border: 1px solid green;
+.form-control {
+  border-bottom: 2px solid #ccc;
+  border-left:0px;
+  border-top:0px;
+  border-right:0px;
+  background:transparent;
 }
+
+input:after {
+    color: red;
+    content: "*";
+}
+
+.btn.btn-primary-submit {
+  background: #002e76;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 65px;
+  padding-right: 65px;
+  border-radius: 100px;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 28px;
+  }
 
 header p img {
   margin-right: 8px;
@@ -43,20 +99,201 @@ header p a{
 }
 
 .logo {
-  width: 49%;
+  width: 10.3%;
   margin-top: 19px;
   margin-bottom: 10px;
+  float: left;
+  margin-left: 2%;
+}
+
+
+
+
+
+.brands img {
+  max-width: 169px;
+  padding-left: 6%;
+  padding-right: 6%;
+  vertical-align: middle;
+  max-height: 124px;
 }
 
 html {
-  background-color: #f7f7f7;
+  background-color: #fff;
+}
+
+#formBasicSearch.form-control {
+  background-color: #f5f8fa;
+  border-radius: 21px;
+  border: 1px solid #e6ecf0;
+  box-sizing: border-box;
+  color: #14171a;
+  font-size: 12px;
+  height: 40px;
+  line-height: 16px;
+  padding: 8px 32px 8px 12px;
+  transition: all .2s ease-in-out;
+  width: 36%;
+  margin-top: 1.3%;
+  margin-right: 23%;
+}
+
+
+.brands {
+  background: #f5f8fa;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.brands h1 {
+  font-size: 39px;
+    font-weight: 200;
 }
 
 .main {
-  width: 81.5%;
-    float: right;
-    margin-top:0.7%;
+  width: 100%;
+  margin-top: 2.7%;
+  display: inline-block;
 }
+
+.rightsidebar {
+  FLOAT: RIGHT;
+  background: #fff;
+  width: 18%;
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  border-left: 1px solid #ccc;
+}
+
+h1 {
+      font-weight: 100;
+    font-size: 50px;
+}
+
+.align-buttons {
+  display: inline-flex;
+}
+
+.right-align-buttons {
+  display: inline-flex;
+  float: right;
+  margin-top: -35px;
+  padding-right: 1%;
+}
+a.dropdown-item {
+  font-weight: 100 !important;
+  color: #14171a;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px 16px;
+}
+
+.topcoolbutton {
+  padding-right: 30px;
+  float: right;
+  margin-top: 6.5px;
+}
+
+.topcoolbutton a {
+  background: #002e76;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 65px;
+  padding-right: 65px;
+  border-radius: 100px;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 20px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  text-decoration: none;
+}
+
+.topcoolbutton a:hover{
+  background:#00183A;
+}
+
+.coolbutton {
+  padding: 30px;
+}
+
+.blurbs {
+  padding-top:10px;
+  padding-bottom:50px;
+}
+.blurbs img {
+  width: 60px;
+}
+
+.create_experience {
+  padding-top: 90px;
+  padding-bottom: 100px;
+  background-image: url(https://www.digitalartsonline.co.uk/cmsdata/features/3674560/malika_favre_desktop_2.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: #fff;
+}
+.coolbutton a {
+background: #002e76;
+padding-top: 12px;
+padding-bottom: 12px;
+padding-left: 65px;
+padding-right: 65px;
+border-radius: 100px;
+box-shadow: none;
+cursor: pointer;
+font-size: 16px;
+font-weight: bold;
+line-height: 20px;
+position: relative;
+text-align: center;
+white-space: nowrap;
+color: #fff;
+text-decoration: none;
+}
+
+.profile-nav a {
+  text-decoration: none;
+  font-weight:700;
+}
+
+input, textarea, select, p,button { 
+  outline: none;
+}
+
+.topbar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  -webkit-backface-visibility: hidden;
+  z-index: 1000;
+  font-size: 17px;
+  background: #fff;
+  position: fixed;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 6px rgba(60,65,70,0.1);
+  margin-bottom: 30px;
+  height: 74px;
+}
+
+.profile-nav img {
+  width: 33px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-bottom: -9px;
+}
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -64,16 +301,217 @@ html {
   }
 }
 
+
+.App-header a {
+  text-decoration: none;
+  padding: 5px;
+  font-size:17px;
+}
+
+
+#formBasicTopicTitle.form-control {
+  float: left;
+  margin-left: -16%;
+  font-size: 26px;
+  margin-top: 49px;
+}
+
+.addtopiclogo {
+  float: left;
+  font-size: 26px;
+  margin-left: 7%;
+}
+.addtopictitle {
+  float: left;
+  margin-left: 7%;
+  font-size: 26px;
+}
+.add-topic {
+  background: #fff;
+  width: 53%;
+  margin-left: 25%;
+  min-height: 500px;
+  border: 1px solid #ccc;
+  margin-bottom: 100px;
+  padding-top: 14px;
+  top: 116px;
+  position: absolute;
+}
+.missing {
+  width: 140px;
+  float: left;
+  margin-left: -17%;
+  margin-top: 6.5%;
+  opacity: .6;
+}
+
+.missing:hover {
+  opacity: 1;
+}
+
+.addsourcehandle {
+  float: left;
+  font-size: 26px;
+  margin-left: 51px;
+  margin-top: 197px;
+  position: absolute;
+}
+.handleLife img {
+  width: 20px;
+  height: 20px;
+  padding-right: 8px;
+}
+#formBasicTopicInstagram.form-control {
+  margin-top: -11px;
+  margin-left: 5px;
+  font-size: 15px;
+  width: 118px;
+}
+
+.handleLife {
+  position: absolute;
+  margin-top: 248px;
+  margin-left: 7%;
+  font-weight: 500;
+  display: flex;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin-top:18%;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #000;
+  border-color: #000 transparent #000 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.uploadimage {
+  background: #002e76;
+  float: left;
+  margin-top: 91px;
+  margin-left: 2.2%;
+  margin-bottom: 100px;
+  width: 178px;
+  height: 50px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 100px;
+  color: #fff;
+  font-weight: 900;
+  font-size: 15px;
+}
+.uploadimage:hover {
+  background:#00183A;
+}
+
+
+
+
+.add-topic img:after {
+  content: '\A';
+  position: absolute;
+  width: 100%; height:100%;
+  top:0; left:0;
+  background:rgba(0,0,0,0.6);
+  opacity: 0;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+}
+
+.addtopicstuff {
+  display: flex;
+  margin-bottom: -9px;
+}
+
+.App-header h3 {
+  color: black;
+  margin-top: 29px;
+  font-size: 20px;
+}
+
+.addtext a {
+  color: #002E76;
+  font-size: 11px;
+}
+
+.dropdown-toggle.btn.btn-success {
+  border: 0px !important;
+  font-size: 17px;
+  color: #002E76;
+}
+
+.welcome {
+  background: #fff;
+  margin-top: 75px;
+}
+
+.dropdown {
+  padding-right: 60px;
+  margin-top: -1.5px;
+}
+
+a {
+  color: #002E76;
+}
+.dropdown-menu.show {
+  width: 139px;
+  background: #ffff;
+  border: 1px solid #ccc;
+  padding: 10px 0px;
+  margin: 2px -35px 0px;
+  background: padding-box padding-box rgb(255, 255, 255);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
+  left: 0px;
+  transform: translate3d(1294px, 53px, 0px);
+  margin-top: 10px;
+}
+
+.newmain {
+  background: #fff;
+  width: 53%;
+  margin-left: 25%;
+  min-height: 100px;
+  border: 1px solid #ccc;
+  margin-bottom: 100px;
+  padding-top: 40px;
+  top: 116px;
+  position: absolute;
+}
+
 .App-header {
   background-color: #fff;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  width:18.5%;
-  float:left;
+  width: 17%;
+  float: left;
+  border: 1px solid #ccc;
+  margin-top: 8%;
+  margin-left: 1%;
+  padding-bottom: 10px;
+  min-height: 150px;
 }
 
 .App-link {
