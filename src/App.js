@@ -8,13 +8,12 @@ import Profile from "./components/Profile";
 import Sidebar from "./containers/Sidebar";
 import Navbar from "./containers/Navbar";
 import Feed from "./containers/Feed";
-import { Link } from 'react-router-dom';
 
 // import Inbox from "./components/Inbox";
 // import ShowConvo from "./components/ShowConvo";
 // import NewConvo from "./components/NewConvo";
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Route,
   withRouter,
   Redirect,
@@ -31,25 +30,19 @@ class App extends Component {
       // messages: [],
       // conversations: [],
       currentUser: {},
-      loading: true
+      loading: true,
+      topicsFollowed: {}
     };
   }
 
 
   componentDidMount(){
-    
       fetch("http://localhost:3000/re_auth", { // fetch GET would only need 1 argument. the rest need 2
         method: "POST",
-        headers: { 
-          "Content-type": "application/json",
-          'Accept': 'application/json',
-          'Authorization': localStorage.getItem("token")
-        }
+        headers: { "Content-type": "application/json",'Accept': 'application/json','Authorization': localStorage.getItem("token")}
       })
       .then(res => res.json())
       .catch((error) => {
-        // console.log(error)
-        // return error
         if (error) {
           return window.alert('Turn on the server dumbass') 
         }
@@ -62,7 +55,7 @@ class App extends Component {
         if (json.user !== undefined) {
           this.setState({
             currentUser: {
-              id:json.user.data.id,
+              id: json.user.data.id,
               ...json.user.data.attributes
           }}, () => { this.setState({ loading: false })})
         } else {
@@ -73,7 +66,10 @@ class App extends Component {
         // console.log("Cannot connect to server.")
       })
     
+
  }
+
+
   
 
   handleLoginSubmit = (event, loginInfo) => {
@@ -83,10 +79,11 @@ class App extends Component {
       method: "POST",
       headers: { 
         "Content-type": "application/json",
-        'Accept': 'application/json'
+        Accept: 'application/json'
       },
       body: JSON.stringify({
-        user: {
+        auth: {
+          // id: loginInfo.id,
           username: loginInfo.username,
           password: loginInfo.password,
           first_name: loginInfo.first_name,
@@ -96,7 +93,7 @@ class App extends Component {
     })
       .then(resp => resp.json())
       .then(data => {
-        // console.log(data)
+        console.log(data.user.data.attributes.id)
         localStorage.setItem("token", data.jwt);
         this.setState(
           {
@@ -119,6 +116,41 @@ class App extends Component {
   };
 
 
+  handleSubmitTopic = (event, socialInput) => {
+    event.preventDefault();
+    console.log(socialInput)
+    fetch("http://localhost:3000/add-topic", {
+      method: "POST",
+      headers: { 
+        "Content-type": "application/json",
+        'Accept': 'application/json',
+        'Authorization': localStorage.getItem("token")
+      },
+      body: JSON.stringify({
+        topic: socialInput,
+        user_id: this.state.currentUser.id
+      })
+    })
+  }
+
+
+
+
+
+
+  // fetchTopics = () => {
+  //     fetch('http://localhost:3000/users')
+  //       .then(res => res.json())
+  //       .then(result => {
+  //         this.setState({
+  //           isLoaded: true,
+  //           items: result
+  //         });
+  //       });
+  //   }
+  // }
+
+
   handleSignupSubmit = (event, SignupInfo) => {
     event.preventDefault();
     fetch("http://localhost:3000/signup", {
@@ -138,9 +170,7 @@ class App extends Component {
           this.setState({
             currentUser: {
               id: json.user.data.attributes.id,
-              username: json.user.data.attributes.username,
-              first_name: json.user.data.attributes.first_name,
-              last_name: json.user.data.attributes.last_name
+              ...json.user.data.attributes
             }
           
           });
@@ -151,12 +181,6 @@ class App extends Component {
       } )
     }
 
-        
-       
-      
-  
-      
-  
 
   handleLogout = () => {
     localStorage.removeItem("token");
@@ -166,59 +190,61 @@ class App extends Component {
     });
   };
 
+
+
+
+
   render() {
+
     return (
       <div className="App">
-        {this.state.loading? <div class="lds-dual-ring"></div> : 
-        <>
+     
+     
         <Navbar currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
-        <Sidebar currentUser={this.state.currentUser} handleLogout={this.handleLogout} />
+       
         
           <Switch>
-          <Route
-              exact
-              path="/feed"
-              render={props => (
-                <Feed {...props}  />
-              )}
-            />
-            
             <Route exact path="/" component={Welcome} />
 
-            <Route
-              exact
-              path="/login"
-              render={props => (
-                <Login {...props} handleLoginSubmit={this.handleLoginSubmit} />
-              )}
+            <Route exact path="/login" render={props => (
+                <Login {...props} handleLoginSubmit={this.handleLoginSubmit} /> )}
             />
-            <Route
-              exact
-              path="/Signup"
-              render={props => (
-                <Signup {...props} handleSignupSubmit={this.handleSignupSubmit} />
-              )}
+            <Route exact path="/Signup" render={props => (
+                <Signup {...props} handleSignupSubmit={this.handleSignupSubmit} />)}
             />
-            <Route
-              exact
-              path="/add-topic"
-              render={props => (
-                <AddTopic {...props} currentUser={this.state.currentUser}   />
-              )}
+            <Route exact path="/profile" render={props => (
+                <Profile {...props} currentUser={this.state.currentUser} />)}
             />
+            
 
-             <Route
-              exact
-              path="/profile"
-              render={props => (
-                <Profile {...props} currentUser={this.state.currentUser}  />
-              )}
+            { this.state.loading === false ? (Object.keys(this.state.currentUser).length !== 0 ?  
+            <React.Fragment>
+               <Sidebar currentUser={this.state.currentUser}  />
+            <Route exact path="/add-topic" render={props => (
+                <AddTopic {...props} currentUser={this.state.currentUser} handleSubmitTopic={this.handleSubmitTopic}/>)}
             />
+               <Route exact path="/feed" render={props => (
+                <Feed {...props}  />)}
+            />
+              </React.Fragment>
+
+            :   <Redirect to="/" />) : <><div className="lds-dual-ring"></div></>
+            }
+
           </Switch>
-          </>}
-          </div>
+      </div>
     );
   }
 }
 
 export default withRouter(App);
+
+/* PROBLEM: When I log in and refresh any of the pages, I get sent to home page. Wtf.
+
+GUESS : initial render, this.state.currentUser is empty when we approach the 
+logic on line 188 therefore we hit line 201 which is a redirect to root.
+
+test #1: check if this.state.loading is false before line 188  
+
+gather info: 
+*/

@@ -49,14 +49,6 @@ class ProfilePage extends Component{
     }
 
     render() {
-    // let details
-    // if(this.state.currentUser) {
-    //     // if(this.props.currentUser.id.toString() === this.state.currentUser.id){
-    //     details = this.state.currentUser.attributes.pictures.map(picture => <PictureProfile key = {picture.id} id = {picture.id} attribute = {picture}/>)  
-    // } else {
-    //     details = "Loading..."
-    // }
-    // // }
    
     return (
         <div className="profilePage">

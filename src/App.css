@@ -22,13 +22,12 @@
 }
 .App {
   text-align: center;
-  color: #222;
-  background: #F5F8FA;
-  min-height: 800px;
+  color: #333;
+  background: #fafafa;
+  min-height: 914px;
 }
-
 .logincontainer { 
-  background-color:#f5f8fa;
+  background-color:#fafafa;
   min-height: 800px; 
   margin-top: -25px; 
   padding-top: 60px; 
@@ -39,7 +38,6 @@
   background: #fff;
   border: 1px solid #ccc;
   margin-right: 34%;
-  border-radius: 18px;
   padding-bottom: 70px;
   margin-top: 5.5%;
   padding-top: 10px;
@@ -94,18 +92,16 @@ header p a{
   font-size: 19px;
   /* font-weight: 100; */
   float: left;
-  color: black;
+  color: #333;
   text-decoration:none;
 }
 
 .logo {
-  width: 10.3%;
-  margin-top: 19px;
-  margin-bottom: 10px;
+  width: 9.7%;
+  margin-top: 18px;
   float: left;
   margin-left: 2%;
 }
-
 
 
 
@@ -123,31 +119,31 @@ html {
 }
 
 #formBasicSearch.form-control {
-  background-color: #f5f8fa;
-  border-radius: 21px;
-  border: 1px solid #e6ecf0;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
   box-sizing: border-box;
   color: #14171a;
   font-size: 12px;
-  height: 40px;
+  height: 38px;
   line-height: 16px;
   padding: 8px 32px 8px 12px;
   transition: all .2s ease-in-out;
-  width: 36%;
-  margin-top: 1.3%;
-  margin-right: 23%;
+  width: 44%;
+  margin-top: 1.1%;
+  margin-right: 17.6%;
 }
 
-
 .brands {
-  background: #f5f8fa;
+  background: #fafafa;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
 .brands h1 {
   font-size: 39px;
-    font-weight: 200;
+  font-weight: 200;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .main {
@@ -196,14 +192,17 @@ a.dropdown-item {
   padding-right: 30px;
   float: right;
   margin-top: 6.5px;
+  display: inline-flex;
+  float: right;
+  margin-top: 50px;
 }
 
 .topcoolbutton a {
   background: #002e76;
-  padding-top: 11px;
-  padding-bottom: 11px;
-  padding-left: 65px;
-  padding-right: 65px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 62px;
+  padding-right: 62px;
   border-radius: 100px;
   box-shadow: none;
   cursor: pointer;
@@ -281,9 +280,8 @@ input, textarea, select, p,button {
   background: #fff;
   position: fixed;
   border-bottom: 1px solid rgba(0,0,0,0.2);
-  box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 6px rgba(60,65,70,0.1);
   margin-bottom: 30px;
-  height: 74px;
+  height: 64px;
 }
 
 .profile-nav img {
@@ -311,9 +309,10 @@ input, textarea, select, p,button {
 
 #formBasicTopicTitle.form-control {
   float: left;
-  margin-left: -16%;
-  font-size: 26px;
-  margin-top: 49px;
+  margin-left: 7%;
+  font-size: 23px;
+  margin-top: -23px;
+  width: 282px;
 }
 
 .addtopiclogo {
@@ -322,27 +321,63 @@ input, textarea, select, p,button {
   margin-left: 7%;
 }
 .addtopictitle {
-  float: left;
+  text-align: left;
   margin-left: 7%;
   font-size: 26px;
 }
+
+.toggleHandle {
+  width: 55px !important;
+  height: 30px !important;
+  margin-top: -6px;
+}
+
+.scrollTop {
+  width: 62px;
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+}
+.submitTopic {
+  bottom: 46px;
+  margin-left: 27%;
+  position: absolute;
+  display: flex;
+}
+
+.submitTopic-btton {
+  background: #002e76;
+  width: 172px;
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 100px;
+  color: #fff;
+  font-weight: 900;
+  font-size: 14px;
+  margin-right: 30px;
+}
+
 .add-topic {
   background: #fff;
   width: 53%;
   margin-left: 25%;
-  min-height: 500px;
+  min-height: 734px;
   border: 1px solid #ccc;
   margin-bottom: 100px;
   padding-top: 14px;
-  top: 116px;
+  top: 109px;
   position: absolute;
 }
+
 .missing {
-  width: 140px;
+  width: 131px;
   float: left;
   margin-left: -17%;
-  margin-top: 6.5%;
-  opacity: .6;
+  margin-top: 6.8%;
+  opacity: .5;
 }
 
 .missing:hover {
@@ -357,15 +392,15 @@ input, textarea, select, p,button {
   position: absolute;
 }
 .handleLife img {
-  width: 20px;
-  height: 20px;
   padding-right: 8px;
 }
-#formBasicTopicInstagram.form-control {
-  margin-top: -11px;
-  margin-left: 5px;
-  font-size: 15px;
+#formBasicTopicInstagram,#formBasicTopicTwitter,#formBasicTopicYoutube {
+  margin-left: 3px;
+  font-size: 14px;
   width: 118px;
+  height: 20px;
+  margin-top: -3px;
+  padding-left: 4px;
 }
 
 .handleLife {
@@ -406,20 +441,21 @@ input, textarea, select, p,button {
   background: #002e76;
   float: left;
   margin-top: 91px;
-  margin-left: 2.2%;
+  margin-left: 20px;
   margin-bottom: 100px;
-  width: 178px;
+  width: 162px;
   height: 50px;
-  padding-top: 11px;
-  padding-bottom: 11px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 40px;
   padding-right: 40px;
   border-radius: 100px;
   color: #fff;
   font-weight: 900;
-  font-size: 15px;
+  font-size: 14px;
 }
-.uploadimage:hover {
+
+.submitTopic-btton:hover,.uploadimage:hover {
   background:#00183A;
 }
 
@@ -438,19 +474,22 @@ input, textarea, select, p,button {
 }
 
 .addtopicstuff {
-  display: flex;
-  margin-bottom: -9px;
+  /* display: flex;
+  margin-bottom: -9px; */
 }
 
 .App-header h3 {
-  color: black;
-  margin-top: 29px;
+  color: #333;
+  margin-top: 30px;
   font-size: 20px;
 }
 
 .addtext a {
   color: #002E76;
-  font-size: 11px;
+  font-size: 27px;
+  font-weight: 700;
+  margin-left: 1px;
+  margin-top: -8px;
 }
 
 .dropdown-toggle.btn.btn-success {
@@ -461,7 +500,7 @@ input, textarea, select, p,button {
 
 .welcome {
   background: #fff;
-  margin-top: 75px;
+  margin-top: 65px;
 }
 
 .dropdown {
@@ -477,41 +516,58 @@ a {
   background: #ffff;
   border: 1px solid #ccc;
   padding: 10px 0px;
-  margin: 2px -35px 0px;
+  margin-left:-12px;
   background: padding-box padding-box rgb(255, 255, 255);
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
   left: 0px;
   transform: translate3d(1294px, 53px, 0px);
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
-.newmain {
+.newmain,.add-topic {
   background: #fff;
   width: 53%;
   margin-left: 25%;
-  min-height: 100px;
+  min-height: 250px;
   border: 1px solid #ccc;
   margin-bottom: 100px;
-  padding-top: 40px;
-  top: 116px;
+  top: 144px;
   position: absolute;
+  padding-top: 39px;
+}
+
+.add-topic {
+  min-height:637px !important;
+}
+
+.feedtitleimage {
+  width: 32px;
+  margin-left: 8px;
+  vertical-align: middle;
+  margin-bottom: 4px;
+}
+
+.mainfeedtitle, .addtopictitle {
+  font-size: 20px;
+  margin-left: 25%;
+  position: absolute;
+  top: 79px;
+  color:#333;
 }
 
 .App-header {
-  background-color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  width: 17%;
+  align-items: baseline;
+  color: #333;
+  width: 19%;
   float: left;
-  border: 1px solid #ccc;
-  margin-top: 8%;
   margin-left: 1%;
   padding-bottom: 10px;
   min-height: 150px;
+  position: absolute;
+  top: 79px;
 }
 
 .App-link {

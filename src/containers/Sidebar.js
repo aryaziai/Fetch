@@ -1,40 +1,43 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import SidebarItems from "./SidebarItems";
+// import { Link } from 'react-router-dom';
 
-class Header extends Component {
+export default class Sidebar extends Component {
+  constructor() {
+    super();
 
-  loginLogic = () => { // if not logged in
-   if (Object.keys(this.props.currentUser).length !== 0) {
+    this.state = {
+      topicsFollowed: null
+    };
+  }
+
+  componentDidMount() {
+    let token = localStorage.getItem("token");
+    if (token) {
+      fetch(`http://localhost:3000/users/${this.props.currentUser.id}`)
+        .then(res => res.json())
+        .then(result => {
+          this.setState({
+            topicsFollowed: result
+          });
+          console.log(this.state.topicsFollowed.user.topics);
+        });
+    }
+  }
+
+  render() {
+
     return (
       <header className="App-header">
 
-<div class="addtopicstuff">
-<h3>Topics You Follow</h3><p class="addtext"><Link to='/add-topic'>+Add</Link></p>
-</div>
-
-<Link to='/topic/nba'>NBA</Link>
-<Link to='/topic/politics'>Politics</Link>
-   
-    </header>
-    )
-   }
-   else { // if logged out
-     return (
-      <div>
-    </div>
-     ) }
-  }
-
-
-
-
-  render() {
-    return (
-      
-      <div>{this.loginLogic()}</div>
+      <div class="addtopicstuff">
+      <h3>Topics You Follow</h3>
+  
+    {this.state.topicsFollowed !== null ? this.state.topicsFollowed.user.topics.map(topic => (
+    <SidebarItems topic={topic} key={topic.id}/>  ))   : <><div className="lds-dual-ring"></div></> }
+        
+      </div>
+      </header>
     );
   }
-
 }
-
-export default Header;
