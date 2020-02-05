@@ -7,9 +7,16 @@
 
 #formBasicFirstName.form-control, #formBasicLastName.form-control {
   width: 85%;
-  margin-left: 15.5px;
-  margin-right: 15.6px;
+  margin-left: 13.5px;
+  margin-right: 3.6px;
 }
+
+#formBasicUpdateFirstName.form-control, #formBasicUpdateLastName.form-control {
+  width: 85%;
+  margin-left: 19.5px;
+  margin-right: 61.6px;
+}
+
 
 #formBasicUsername.form-control,#formBasicPassword.form-control {
   width: 64%;
@@ -38,9 +45,28 @@
   background: #fff;
   border: 1px solid #ccc;
   margin-right: 34%;
-  padding-bottom: 70px;
-  margin-top: 5.5%;
-  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+
+.loginFormlife {
+  margin-left: 38%;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-right: 38%;
+  padding-bottom: 14px;
+  padding-top: 32px;
+}
+
+.EditFormlife {
+  margin-left: 28%;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-right: 34%;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  width: 46%;
 }
 
 input {
@@ -80,12 +106,6 @@ input:after {
   text-decoration: none;
   margin-top: 28px;
   }
-
-header p img {
-  margin-right: 8px;
-  max-width: 22px;
-  margin-bottom: -3px;
-}
 
 
 header p a{
@@ -291,7 +311,13 @@ input, textarea, select, p,button {
   margin-bottom: -9px;
 }
 
+.editprofile {
+  margin-top: 60px;
+}
 
+.editprofile h2 {
+  margin-right: 447px !important;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -332,6 +358,10 @@ input, textarea, select, p,button {
   margin-top: -6px;
 }
 
+.logincontainer h2 {
+  margin-top: 67px;
+    margin-right: 181px;
+}
 .scrollTop {
   width: 62px;
   position: fixed;
@@ -340,9 +370,14 @@ input, textarea, select, p,button {
 }
 .submitTopic {
   bottom: 46px;
-  margin-left: 27%;
+  margin-left: 25%;
   position: absolute;
   display: flex;
+}
+
+.editprofilebuttons {
+  margin-left: 7%;
+  margin-top: 30px;
 }
 
 .submitTopic-btton {
@@ -358,6 +393,44 @@ input, textarea, select, p,button {
   font-weight: 900;
   font-size: 14px;
   margin-right: 30px;
+}
+
+.submitTopic-btton-nevermind {
+  background: #fff;
+  width: 172px;
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 100px;
+  color: darkred;
+  font-weight: 300;
+  font-size: 14px;
+  margin-right: 30px;
+  border: 1px solid darkred;
+}
+
+.submitTopic-btton-nevermind:hover, .submitTopic-btton-delete:hover {
+  background: darkred;
+  color:#fff;
+}
+
+
+.submitTopic-btton-delete {
+  background: #fff;
+  width: 172px;
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 100px;
+  color: darkred;
+  font-weight: 300;
+  font-size: 14px;
+  margin-right: 30px;
+  border: 1px solid darkred;
 }
 
 .add-topic {
@@ -480,10 +553,11 @@ input, textarea, select, p,button {
 
 .App-header h3 {
   color: #333;
-  margin-top: 30px;
   font-size: 20px;
+  text-align: left;
+  padding-left: 8px;
+  margin-bottom: 9px;
 }
-
 .addtext a {
   color: #002E76;
   font-size: 27px;
@@ -542,10 +616,10 @@ a {
 }
 
 .feedtitleimage {
-  width: 32px;
+  width: 30px;
   margin-left: 8px;
   vertical-align: middle;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .mainfeedtitle, .addtopictitle {
@@ -556,18 +630,53 @@ a {
   color:#333;
 }
 
+#login-error {
+  color:darkred;
+  padding-top:10px;
+}
 .App-header {
   display: flex;
-  flex-direction: column;
-  align-items: baseline;
+  /* flex-direction: column;
+  align-items: baseline; */
   color: #333;
-  width: 19%;
-  float: left;
+  width: 293px;
+  /* float: left; */
   margin-left: 1%;
   padding-bottom: 10px;
   min-height: 150px;
   position: absolute;
   top: 79px;
+}
+
+.sidebaritems {
+  font-weight: 700;
+  font-size: 13px;
+  text-align: left;
+  float: left;
+  padding-left: 8px;
+  text-transform: capitalize;
+  color: #333;
+  width: 85px;
+}
+
+.addnewsidebaritems {
+  width: 71px;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: left;
+  float: left;
+  padding-left: 8px;
+  text-transform: capitalize;
+  color: #333;
+}
+
+header p img { 
+  margin-right: 7px; 
+  max-width: 22px; 
+  min-width: 75px; 
+  min-height: 75px; 
+  border: 1px solid #ddd; 
+  margin-bottom: 2px; 
 }
 
 .App-link {

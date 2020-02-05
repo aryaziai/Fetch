@@ -25,12 +25,13 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div class="logincontainer">
-        <div class="Formlife" align="center">
+      <div className="logincontainer">
+          <h2>Create your account</h2>
+        <div className="Formlife" align="center">
         <Form onSubmit={(e) => {this.props.handleSignupSubmit(e, this.state) }}>
-                    <h2>Create your account</h2>
 
-      <div class="signupstuff">
+
+      <div className="signupstuff">
         <Form.Group controlId="formBasicFirstName">
           <Form.Control type='text' name="first_name" placeholder="First Name" onChange={(e) => this.handleChange (e)} value={this.state.first_name}/>
         
@@ -77,7 +78,8 @@ export default class Login extends Component {
         <Button variant="primary-submit" type="submit">
           Next
         </Button>
-      </Form>
+        </Form>
+      {<p id="login-error"></p>}
       </div>
       </div>
     );

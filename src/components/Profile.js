@@ -1,62 +1,145 @@
 import React, {Component} from 'react';
-import api from '../services/Api';
+import { Form } from "react-bootstrap";
+import {withRouter} from "react-router-dom";
 
-
-
-class ProfilePage extends Component{
+class Profile extends Component{
     constructor() {
         super()
         this.state = {
-            // currentUser: {},
-            currentUser: null
+            currentUser: null,
+            first_name: "",
+            last_name: "",
+            username: "",
+            password: "",
+            password_confirmation:""
         }
     }
 
-    componentDidMount() {
-        console.log("Profile mounted.")
-
-        console.log(this.state.currentUser)
-        const token = localStorage.getItem('token');
-        if (token) {
-
-            api.getUser(this.props.currentUser.id).then(res => {
-                console.log(res.data)
-                this.setState({currentUser: res.data})
-            })
-        }
-    }
-
-    componentDidUpdate(){
-        if (!this.state.currentUser) {
-            console.log("Profile updated.")
-            const token = localStorage.getItem('token');
-            if (token) {
-            api.getUser(this.props.currentUser.id).then(res => {
-                console.log(res.data)
-                this.setState({currentUser: res.data})})
-        }
-        }
-    }
-
-    componentWillUnmount(){
+    handleChange = (e) => {
         this.setState({
-            currentUser: {}
+          [e.target.name]: e.target.value
         })
-    }
-    
-    userDelete = () => {
-        api.deleteUser(this.props.currentUser.id).then(json => {console.log(json)})
-    }
+      }
 
-    render() {
-   
+      componentDidMount() {
+          this.setState({
+            currentUser: this.props.currentUser
+          })
+      }
+
+ 
+    handleEditProfile = (event, SignupInfo) => {
+        event.preventDefault();
+        fetch("http://localhost:3000/profile", {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            user: SignupInfo,
+            id: this.props.currentUser.id
+          })
+        })
+          .then(resp => resp.json())
+          .then(json => {
+            if (json.error) {
+              document.getElementById("login-error").innerText = json.error;
+            } else {
+              localStorage.setItem("token", json.jwt);
+            //   console.log(json)
+              this.setState({
+                currentUser: {
+                  id: json.id,
+                  ...json
+                }
+              });
+              this.props.history.push("/feed");
+            }
+          });
+      };
+
+
+       
+    handleDeleteProfile = (event) => {
+        event.preventDefault();
+        fetch("http://localhost:3000/delete/", {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: this.props.currentUser.id
+          })
+        })
+          .then(resp => resp.json())
+          .then(json => {
+            if (json.error) {
+              window.alert(json.error)
+            } else {
+              this.props.handleLogout()
+            window.alert("Successfully Deleted")
+            }
+          });
+      };
+
+
+
+  
+render() {
     return (
-        <div className="profilePage">
-            <h1>Welcome {this.props.currentUser.username}</h1>
-            <button className="deleteComment"onClick ={this.userDelete}>Delete Your Account!</button>
+      <div className="logincontainer">
+          <div className="editprofile">
+            <h2>Edit Profile</h2>
+        <div className="EditFormlife" align="center">
+        <Form onSubmit={(e) => {this.handleEditProfile(e, this.state) }}>
+                  
+
+      <div className="signupstuff">
+        <Form.Group controlId="formBasicUpdateFirstName">
+          <Form.Control type='text' name="first_name" placeholder={this.props.currentUser.first_name} onChange={(e) => this.handleChange (e)} value={this.state.first_name}/>
+        
+        </Form.Group>
+
+  
+
+        <Form.Group controlId="formBasicUpdateLastName">
+          <Form.Control type='text' name="last_name" placeholder={this.props.currentUser.last_name} onChange={(e) => this.handleChange (e)} value={this.state.last_name}/>
+        
+        </Form.Group>
+
         </div>
-        ) 
-    }
+
+        <br></br><br/>
+
+
+        <Form.Group controlId="formBasicUsername">
+          <Form.Control type='text' name="username" placeholder={this.props.currentUser.username} onChange={(e) => this.handleChange (e)} value={this.state.username}/>
+        
+        </Form.Group>
+
+        <br></br>
+      
+        <Form.Group controlId="formBasicPassword">
+          <Form.Control type='password' name="password" placeholder="•••••••" onChange={(e) => this.handleChange(e)} value={this.state.password}/>
+        </Form.Group>
+
+        <br></br>
+      
+      <Form.Group controlId="formBasicPasswordConfirm">
+        <Form.Control type='password' name="password_confirmation" placeholder="•••••••" onChange={(e) => this.handleChange(e)} value={this.state.password_confirmation}/>
+      </Form.Group>
+
+
+
+      <div className="editprofilebuttons">
+     
+        <button onClick={(event) => this.handleDeleteProfile(event)} className="submitTopic-btton-delete">Delete</button>
+          <button onClick={() => window.alert("Successfully Updated")} className="submitTopic-btton">Update</button>
+        {<p id="login-error"></p>}
+      </div>
+        </Form>
+      
+      </div>
+      </div>
+      </div>
+    );
+  }
 }
 
-export default ProfilePage
+export default withRouter(Profile);

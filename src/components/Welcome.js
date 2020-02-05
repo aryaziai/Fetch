@@ -7,14 +7,14 @@ export default class Welcome extends Component {
             <div className="welcome">
                 <h1 className="create_experience">Create your personalized<br/>news experience</h1>
                 
-                <div class="blurbs" align="center">
+                <div className="blurbs" align="center">
                     <div className="hey">
                 <img src="https://i.imgur.com/MzoXkW9.png" alt="firstblurb"/> hello world forever
                 </div>
                 <div className="hey">
                 <img src="https://i.imgur.com/MzoXkW9.png" alt="secondblurb"/> hello world forever
                 </div>
-                <div claclassNamess="hey">
+                <div className="hey">
                 <img src="https://i.imgur.com/MzoXkW9.png" alt="thirdblurb"/> hello world forever
                 </div>
                 </div>

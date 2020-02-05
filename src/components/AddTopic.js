@@ -56,7 +56,7 @@ export default class AddTopic extends Component {
    
         </Form.Group><br/><br/>
         <h2 className="addtopiclogo">Add Logo</h2><br/>
-        <img src="https://i.imgur.com/yVM8C5B.png" className="missing" onClick={this.alertMe} alt="missing" />
+        <img src="https://i.imgur.com/yVM8C5B.png"  name="logo" className="missing" onClick={this.alertMe} alt="missing" onChange={(e) => this.handleChange(e)} value="https://i.imgur.com/yVM8C5B.png"/>
         <button onClick={this.alertMe}  className="uploadimage">Upload File</button>
         <br/> <h2 className="addsourcehandle">Add Source Handle</h2>
 
@@ -80,7 +80,7 @@ export default class AddTopic extends Component {
         <p className="handleLife"><img src="https://i.imgur.com/UVUR8TT.png" alt="youtube" className="youtube" width="20px" height="20px"></img>Youtube.com/         
 
         <Form.Group controlId="formBasicTopicYoutube">
-          <Form.Control type='text' name="youtube" placeholder="Profile" onChange={(e) => this.handleChange (e)} value={this.state.youtube}/>
+          <Form.Control type='text' name="youtube" placeholder="Channel id, e.g. UC4cCjKsLJiYTZFnhROl7Ihg" onChange={(e) => this.handleChange (e)} value={this.state.youtube}/>
           </Form.Group>
           </p>
           
@@ -90,7 +90,7 @@ export default class AddTopic extends Component {
           
           <br></br>
           <div className="submitTopic">
-          <button onClick={() => this.props.history.push("/feed")} className="submitTopic-btton">Nevermind</button>
+          <button onClick={() => this.props.history.push("/feed")} className="submitTopic-btton-nevermind">Nevermind</button>
           <button className="submitTopic-btton">Create Topic</button><br></br>
           </div>
           </Form>
