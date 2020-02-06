@@ -7,7 +7,7 @@ class Topic extends Component {
 
 
     componentDidMount(){
-        console.log(this.props.topicsFollowed)
+        // console.log(this.props.topicsFollowed)
     
     }
     

@@ -33,13 +33,29 @@ export default class AddTopic extends Component {
       }
 
 
+    avoidSpace = (e) => {
+
+      if (e.key === " " || e.key >= 0 || e.key < 10 ) {
+        console.log("spacebar:", e.key)
+       e.preventDefault();
+      }
+    }
+
+
+      // avoidSpace = (e) => {
+    //   console.log(e.key)
+    //   if (e.key === " " || e.key < "a") {
+    //    e.preventDefault();
+    //   }
+    // }
+
     render() {
         let imageLife
         if (this.state.google_news === true) {
-            imageLife='https://i.imgur.com/TS5cNxp.png'
+            imageLife='/toggleon.png'
         }
         else {
-        imageLife='https://i.imgur.com/IwQ9Fa2.png'
+        imageLife='/toggleoff.png'
         }
 
 
@@ -47,23 +63,23 @@ export default class AddTopic extends Component {
             <div>
             <h2 className="addtopictitle">Add a New Topic</h2><br/>
             <div className="add-topic">
-
+  
 <Form onSubmit={(e) => {this.props.handleSubmitTopic(e, this.state) }}>
 
-                        <Form.Group controlId="formBasicTopicTitle">
-          <Form.Control type='text' name="topic_title" placeholder="Create Topic Name" onChange={(e) => this.handleChange(e)} value={this.state.topic_title}/>
+                        <Form.Group controlId="formBasicTopicTitle"><p class="hashtag">#</p>
+          <Form.Control type='text' name="topic_title" placeholder="TopicName" onKeyPress={(e) => this.avoidSpace(e)} onChange={(e) => this.handleChange(e)} value={this.state.topic_title}/> 
         
    
         </Form.Group><br/><br/>
         <h2 className="addtopiclogo">Add Logo</h2><br/>
-        <img src="https://i.imgur.com/yVM8C5B.png"  name="logo" className="missing" onClick={this.alertMe} alt="missing" onChange={(e) => this.handleChange(e)} value="https://i.imgur.com/yVM8C5B.png"/>
+        <img src="/missing.png"  name="logo" className="missing" onClick={this.alertMe} alt="missing" onKeyPress={(e) => this.avoidSpace(e)} onChange={(e) => this.handleChange(e)} value="https://i.imgur.com/yVM8C5B.png"/>
         <button onClick={this.alertMe}  className="uploadimage">Upload File</button>
         <br/> <h2 className="addsourcehandle">Add Source Handle</h2>
 
         <p className="handleLife"><img src="https://i.imgur.com/12tHoJG.png" width="20px" height="20px" alt="instagram"></img>Instagram.com/         
 
         <Form.Group controlId="formBasicTopicInstagram">
-          <Form.Control type='text' name="instagram" placeholder="Profile" alt="instagram" onChange={(e) => this.handleChange (e)} value={this.state.instagram}/>
+          <Form.Control type='text' name="instagram" placeholder="Profile" alt="instagram" onKeyPress={(e) => this.avoidSpace(e)} onChange={(e) => this.handleChange (e)} value={this.state.instagram}/>
           </Form.Group>
           </p>
 
@@ -71,7 +87,7 @@ export default class AddTopic extends Component {
         <p className="handleLife"><img src="https://i.imgur.com/YZQLf2D.png" alt="twitter" width="20px" height="20px" className="twitter"></img>Twitter.com/         
 
         <Form.Group controlId="formBasicTopicTwitter">
-          <Form.Control type='text' name="twitter" placeholder="Profile" onChange={(e) => this.handleChange (e)} value={this.state.twitter}/>
+          <Form.Control type='text' name="twitter" placeholder={`ie. @${this.state.topic_title}`} onKeyPress={(e) => this.avoidSpace(e)} onChange={(e) => this.handleChange (e)} value={this.state.twitter}/>
           </Form.Group>
           </p>
 
@@ -80,13 +96,13 @@ export default class AddTopic extends Component {
         <p className="handleLife"><img src="https://i.imgur.com/UVUR8TT.png" alt="youtube" className="youtube" width="20px" height="20px"></img>Youtube.com/         
 
         <Form.Group controlId="formBasicTopicYoutube">
-          <Form.Control type='text' name="youtube" placeholder="Channel id, e.g. UC4cCjKsLJiYTZFnhROl7Ihg" onChange={(e) => this.handleChange (e)} value={this.state.youtube}/>
+          <Form.Control type='text' name="youtube" placeholder="ie. UC4cCjKsLD" onKeyPress={(e) => this.avoidSpace(e)} onChange={(e) => this.handleChange (e)} value={this.state.youtube}/>
           </Form.Group>
           </p>
           
           <br/><br></br>          <br/>
           
-          <p className="handleLife"><img src={imageLife} alt="relatednews" name="google_news" className="toggleHandle" onClick={this.toggleImage}/>Related News</p>
+          <p className="handleLife"><img src={imageLife} alt="relatednews" name="google_news" className="toggleHandle" onKeyPress={(e) => this.avoidSpace(e)} onClick={this.toggleImage}/>Related News</p>
           
           <br></br>
           <div className="submitTopic">

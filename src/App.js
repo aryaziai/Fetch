@@ -29,40 +29,26 @@ class App extends Component {
       currentUser: {},
       loading: true,
       topicsFollowed: [],
-      fetchgoogle: [{
-        "source": {
-          "id": "bbc-news",
-          "name": "BBC News"
-        },
-        "author": null,
-        "title": "Lakers match called off after Bryant's death",
-        "description": "Basketball chiefs call off the Los Angeles Lakers' game against local rivals the LA Clippers on Tuesday after the death of Lakers legend Kobe Bryant.",
-        "url": "https://www.bbc.co.uk/sport/basketball/51275538",
-        "urlToImage": "https://ichef.bbci.co.uk/onesport/cps/624/cpsprodpb/1571C/production/_110663878_bryant.jpg",
-        "publishedAt": "2020-01-27T22:58:06Z",
-        "content": "Media playback is not supported on this device\r\nWatch: When Bryant scored 60 points in his final LA Lakers game\r\nBasketball chiefs have called off the Los Angeles Lakers' match on Tuesday after the death of their legendary former player Kobe Bryant.\r\nThe 41-y… [+505 chars]"
-      }]
+      fetchgoogle: null
     };
   }
 
-  // fetchFromGoogle = () => {
-  //   // console.log(this.state.topicsFollowed)
-  //   this.state.topicsFollowed.map(topic => {
-  //     if (topic.google_news) {
-  //       fetch(
-  //         `https://newsapi.org/v2/everything?q=${topic.topic_title}&apiKey=07af66c02837407a82106528c10d64c5`
-  //       )
-  //         .then(res => res.json())
-  //         .then(result => {
-  //           this.setState({ fetchgoogle: result.articles[0] });
-  //           console.log(result)
-              //  this.postToGoogle(result.articles[0])
-  //         });
-  //     }
-  //   });
-  // };
+  fetchFromGoogle = (topicId) => {
+    console.log("topics follow", this.state.topicsFollowed);
+    this.state.topicsFollowed.map(topic => {
+      if (topic.google_news) {
+        fetch(
+          `https://newsapi.org/v2/everything?pageSize=3&q=${topic.topic_title}&apiKey=07af66c02837407a82106528c10d64c5`
+        )
+          .then(res => res.json())
+          .then(result => {
+            result.articles.map(article => this.postToOurApi(article, topicId)); // thanks emiley sending each Articles into postToOurApi, good trick! not using state!
+          });
+      }
+    });
+  };
 
-  postToGoogle = (result) => {
+  postToOurApi = (result,topicId) => {
     fetch("http://localhost:3000/posts", {
       method: "POST",
       headers: {
@@ -71,23 +57,42 @@ class App extends Component {
         Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({
-
         post: {
-          caption: this.state.fetchgoogle.title,
-          source: "Google News",
-          image_url: this.state.fetchgoogle.urlToImage,
-          url: this.state.fetchgoogle.url,
-          published_at: this.state.fetchgoogle.publishedAt
-      } } )
-    });
-    this.props.history.push("/feed");
-  };
-  
+          caption: result.title,
+          source: "Related News",
+          image_url: result.urlToImage,
+          url: result.url,
+          published_at: result.publishedAt
+        }
+      })
+    })
+      .then(resp => resp.json())
+      .then(resp =>
+        fetch("http://localhost:3000/post_topics", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Accept: "application/json",
+            Authorization: localStorage.getItem("token") // test out without this later.
+          },
+          body: JSON.stringify({
+            post_topic: {
+              post_id: resp.post.id,
+              topic_id: topicId // tried commenting out topic_id here and in strong params. no luck.
+            }
+          })
+        })
+      )
+      // console.log(this.state.topicsFollowed)
+      .then(this.props.history.push("/feed"))
+      };
+
 
   componentDidMount() {
-    fetch("http://localhost:3000/re_auth", {
-      // fetch GET would only need 1 argument. the rest need 2
-      method: "POST",
+    // if (localStorage.getItem("token") !== null) {
+
+    fetch("http://localhost:3000/re_auth", { // fetch GET would only need 1 argument. the rest need 2
+      method: "GET",
       headers: {
         "Content-type": "application/json",
         Accept: "application/json",
@@ -110,17 +115,16 @@ class App extends Component {
                 id: json.user.data.id,
                 ...json.user.data.attributes
               }
-            },
-            () => {
-              this.setState({ loading: false });
-            }
+            }, () => {this.setState({ loading: false })}
           );
         } else {
           this.setState({ loading: false });
         }
       })
       .catch(() => {});
-  }
+    // }
+    }
+
 
   handleLoginSubmit = (event, loginInfo) => {
     event.preventDefault();
@@ -165,11 +169,11 @@ class App extends Component {
     3. call this function via handleSubmitTopic & pass it the addTopicForm info.
     */
     this.setState(prevState => ({
-      topicsFollowed: [...prevState.topicsFollowed.concat(result)]
+      topicsFollowed: prevState.topicsFollowed.concat(result)
     }));
   };
 
-  handleSubmitTopic = (event, socialInput) => {
+  handleSubmitTopic = (event, socialInput) => { // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
     event.preventDefault();
     // console.log(socialInput);
     fetch("http://localhost:3000/add-topic", {
@@ -180,12 +184,24 @@ class App extends Component {
         Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({
-        topic: socialInput,
-        user_id: this.state.currentUser.id
+        topic: {
+          ...socialInput
+        }
       })
+    })
+    .then(res => res.json())
+    .then(data => {
+      this.updateStateOfTopicsFollowed([data.topic.data.attributes]);
+      return data.topic.data.attributes.id
+    })
+    .then((topicId) => {
+      this.fetchFromGoogle(topicId);
+    })
+    .then(() => {
+      this.props.history.push("/feed")
     });
-    this.updateStateOfTopicsFollowed(socialInput);
-    this.props.history.push("/feed");
+    
+    // this.props.history.push("/feed"); needs .then
   };
 
   handleSignupSubmit = (event, SignupInfo) => {
@@ -256,8 +272,6 @@ class App extends Component {
                   topicsFollowed={this.state.topicsFollowed}
                   updateStateOfTopicsFollowed={this.updateStateOfTopicsFollowed}
                 />
-
-                {/* <Route path="/topic" component={Topic} /> */}
 
                 <Route path="/topic" render={props => <Topic {...props} />} />
 

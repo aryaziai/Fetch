@@ -18,11 +18,18 @@
 }
 
 
-#formBasicUsername.form-control,#formBasicPassword.form-control {
+#formBasicUsername.form-control,#formBasicPassword.form-control,#formBasicPasswordConfirm.form-control {
   width: 64%;
     margin-left: 8px;
 }
 
+.hashtag {
+  left: 54px;
+  position: absolute;
+  top: 2px;
+  font-size: 23px;
+  color: #666;
+}
 
 .signupstuff {
   display: inline-flex;
@@ -51,11 +58,11 @@
 
 
 .loginFormlife {
-  margin-left: 38%;
+  margin-left: 39%;
   background: #fff;
   border: 1px solid #ccc;
-  margin-right: 38%;
-  padding-bottom: 14px;
+  margin-right: 39%;
+  padding-bottom: 9px;
   padding-top: 32px;
 }
 
@@ -65,13 +72,14 @@
   border: 1px solid #ccc;
   margin-right: 34%;
   padding-bottom: 20px;
-  padding-top: 20px;
+  padding-top: 30px;
   width: 46%;
 }
 
 input {
   width: 200px;
   height: 38px;
+  color:#444;
 }
 
 .form-control {
@@ -209,15 +217,13 @@ a.dropdown-item {
 }
 
 .topcoolbutton {
-  padding-right: 30px;
-  float: right;
-  margin-top: 6.5px;
+  padding-right: 26px;
   display: inline-flex;
   float: right;
-  margin-top: 50px;
+  margin-top: 33px;
 }
 
-.topcoolbutton a {
+.topcoolbutton p {
   background: #002e76;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -282,7 +288,9 @@ text-decoration: none;
 
 .profile-nav a {
   text-decoration: none;
-  font-weight:700;
+  font-weight: 100;
+  color: #333;
+  font-size: 15px;
 }
 
 input, textarea, select, p,button { 
@@ -316,7 +324,8 @@ input, textarea, select, p,button {
 }
 
 .editprofile h2 {
-  margin-right: 447px !important;
+  margin-right: 36% !important;
+  font-size: 20px !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -336,9 +345,10 @@ input, textarea, select, p,button {
 #formBasicTopicTitle.form-control {
   float: left;
   margin-left: 7%;
-  font-size: 23px;
-  margin-top: -23px;
-  width: 282px;
+  font-size: 22px;
+  margin-top: -21px;
+  width: 236px;
+  padding-left: 17px;
 }
 
 .addtopiclogo {
@@ -616,10 +626,10 @@ a {
 }
 
 .feedtitleimage {
-  width: 30px;
+  width: 17px;
   margin-left: 8px;
   vertical-align: middle;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
 }
 
 .mainfeedtitle, .addtopictitle {
@@ -677,6 +687,7 @@ header p img {
   min-height: 75px; 
   border: 1px solid #ddd; 
   margin-bottom: 2px; 
+  background:#fff;
 }
 
 .App-link {

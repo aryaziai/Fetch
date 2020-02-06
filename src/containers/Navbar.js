@@ -22,13 +22,13 @@ class Navbar extends Component {
             className="topcoolbutton"
             onClick={() => this.props.history.push("/signup")}
           >
-            <a>Signup</a>
+            <p>Signup</p>
           </p>
           <p
             className="topcoolbutton"
             onClick={() => this.props.history.push("/login")}
           >
-            <a>Login</a>
+            <p>Login</p>
           </p>
         </div>
       );
@@ -38,19 +38,19 @@ class Navbar extends Component {
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               <img
-                src="https://uwaterloo.ca/kinesiology/sites/ca.kinesiology/files/uploads/images/blank_1.jpg"
+                src="/missing_avatar.jpg"
                 alt="avatar"
               />{" "}
               {this.props.currentUser.username}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <p onClick={() => this.props.history.push("/profile")}>
+              <p className="dropdown-item" onClick={() => this.props.history.push("/profile")}>
                 Edit Profile
               </p>
-              <Dropdown.Item onClick={this.props.handleLogout} href="/">
+              <p className="dropdown-item" onClick={this.props.handleLogout}>
                 Logout
-              </Dropdown.Item>
+              </p>
             </Dropdown.Menu>
           </Dropdown>
         </div>
@@ -85,7 +85,7 @@ class Navbar extends Component {
         >
           <img
             className="logo"
-            src="https://i.imgur.com/BnZiRhH.png"
+            src="/logo.png"
             alt="logo"
           />
         </Link>
