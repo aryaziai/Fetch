@@ -9,12 +9,7 @@ import Profile from "./components/Profile";
 import Sidebar from "./containers/Sidebar";
 import Navbar from "./containers/Navbar";
 import Feed from "./containers/Feed";
-
-// import Inbox from "./components/Inbox";
-// import ShowConvo from "./components/ShowConvo";
-// import NewConvo from "./components/NewConvo";
 import {
-  // BrowserRouter as Router,
   Route,
   withRouter,
   Redirect,
@@ -29,12 +24,62 @@ class App extends Component {
       currentUser: {},
       loading: true,
       topicsFollowed: [],
-      fetchgoogle: null
+      allTopicPosts: []
     };
   }
 
-  fetchFromGoogle = (topicId) => {
-    console.log("topics follow", this.state.topicsFollowed);
+  onlyUnique = (value, index, self) => {  // https://stackoverflow.com/questions/1960473/get-all-unique-values-in-a-javascript-array-remove-duplicates#14438954
+    return self.indexOf(value) === index;
+}
+
+
+    // iterate through this.state.topicsFollowed and match topic_title with topicUrl... 
+    // if successful then make fetch request localhost.com/3000/topics/{id}
+
+  
+    fetchToTopicId = () => { //wrote with emiley 2/6/20
+    // console.log(this.state.topicsFollowed) // topicsFollowed IS NOT the problem with duplicates.
+    //  console.log(this.state.allTopicPosts)
+    //  if (this.state.allTopicPosts) {}
+    this.state.topicsFollowed.forEach(topic => {
+      // we console logged topicsPost and return two unique items in array
+ 
+    fetch(`http://localhost:3000/topics/${topic.id}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: localStorage.getItem("token")
+      }
+    })
+    .then(resp => resp.json())
+    .then(resp => {
+      let topicPosts = resp.topic.data.attributes.posts;
+      let allTopicPostsIds = this.state.allTopicPosts.map(tp => tp.id)
+      cleanTopicPosts = topicPosts.filter(topicpost => !allTopicPostsIds.includes(topicpost.id)) // if this topicPost's id isn't in allTopicPostsIds 
+      console.log(topicPosts)
+        this.setState({
+          allTopicPosts: [...this.state.allTopicPosts , ...cleanTopicPosts] // object with [Posts] inside of it.
+        })
+    })
+  //   .then(topicPosts => { 
+      
+  //   //   console.log(this.state.allTopicPosts.posts.map(post=>post.id))  // [16,17,18]
+  //   //   console.log(resp.topic.data.attributes.posts.map(post=>post.id)) // [19,20,21]
+  //   //   let allTopicIds = this.state.allTopicPosts.posts.map(post=>post.id)
+  //   //   let 
+  //   //   this.state.allTopicPosts.posts.map(post=>post.id).includes(resp.topic.data.attributes.posts.forEach(post=>post.id)) ? 
+  //   // //   // get array of all IDs in state.allTopicPosts
+  //   // //   // compare each post in resp.topic.data.attributes and see if the post's ID is present in above array
+  //   // //   // if the ID is present in 'idArray', do not keep it in the array
+  //   // //   // after you have a full array of uniq (not previously added) posts, add these to your state
+  //   // null : this.setState(prevState => ({allTopicPosts: prevState.allTopicPosts.posts.concat(resp.topic.data.attributes.posts) }) )
+  //  } )
+  } )
+ }
+  
+  
+  fetchFromGoogle = () => {
     this.state.topicsFollowed.map(topic => {
       if (topic.google_news) {
         fetch(
@@ -42,7 +87,7 @@ class App extends Component {
         )
           .then(res => res.json())
           .then(result => {
-            result.articles.map(article => this.postToOurApi(article, topicId)); // thanks emiley sending each Articles into postToOurApi, good trick! not using state!
+            result.articles.map(article => this.postToOurApi(article, topic.id)); // thanks emiley sending each Articles into postToOurApi, good allTopicPosts! not using state!
           });
       }
     });
@@ -57,6 +102,7 @@ class App extends Component {
         Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({
+        topic_id: topicId,
         post: {
           caption: result.title,
           source: "Related News",
@@ -67,7 +113,9 @@ class App extends Component {
       })
     })
       .then(resp => resp.json())
-      .then(resp =>
+      .then(resp => {
+        // console.log(resp)
+        // debugger
         fetch("http://localhost:3000/post_topics", {
           method: "POST",
           headers: {
@@ -78,12 +126,11 @@ class App extends Component {
           body: JSON.stringify({
             post_topic: {
               post_id: resp.post.id,
-              topic_id: topicId // tried commenting out topic_id here and in strong params. no luck.
+              topic_id: topicId 
             }
           })
         })
-      )
-      // console.log(this.state.topicsFollowed)
+      })
       .then(this.props.history.push("/feed"))
       };
 
@@ -165,7 +212,7 @@ class App extends Component {
 
   updateStateOfTopicsFollowed = result => {
     /* 1. Pass down this function to Sidebar, and take in the value via fetch result
-    2. Use spread operator to combine prevstate with new results
+    2. Use concat to combine prevstate with new results
     3. call this function via handleSubmitTopic & pass it the addTopicForm info.
     */
     this.setState(prevState => ({
@@ -175,7 +222,6 @@ class App extends Component {
 
   handleSubmitTopic = (event, socialInput) => { // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
     event.preventDefault();
-    // console.log(socialInput);
     fetch("http://localhost:3000/add-topic", {
       method: "POST",
       headers: {
@@ -192,16 +238,14 @@ class App extends Component {
     .then(res => res.json())
     .then(data => {
       this.updateStateOfTopicsFollowed([data.topic.data.attributes]);
-      return data.topic.data.attributes.id
+      return data.topic.data.attributes.id // topicId
     })
-    .then((topicId) => {
-      this.fetchFromGoogle(topicId);
+    .then((topicID) => { // took out topicID
+      this.fetchFromGoogle(topicID); // took out topicID
     })
     .then(() => {
-      this.props.history.push("/feed")
+      this.props.history.push("/feed") // this.props.history.push("/feed"); needs .then
     });
-    
-    // this.props.history.push("/feed"); needs .then
   };
 
   handleSignupSubmit = (event, SignupInfo) => {
@@ -231,14 +275,18 @@ class App extends Component {
   };
 
   handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
     this.setState({
-      currentUser: {}
+      currentUser: {},
+      topicsFollowed: [],
+      allTopicPosts: null
     });
     this.props.history.push("/");
   };
 
   render() {
+    // console.log("allTopicPosts:", this.state.allTopicPosts)
+    // console.log("TopicsFollowed:", this.state.topicsFollowed)
     return (
       <div className="App">
         <Navbar
@@ -273,7 +321,7 @@ class App extends Component {
                   updateStateOfTopicsFollowed={this.updateStateOfTopicsFollowed}
                 />
 
-                <Route path="/topic" render={props => <Topic {...props} />} />
+                <Route path="/topic" render={props => <Topic {...props} topicsFollowed={this.state.topicsFollowed} />} />
 
                 <Route
                   exact
@@ -297,6 +345,8 @@ class App extends Component {
                       {...props}
                       topicsFollowed={this.topicsFollowed}
                       fetchFromGoogle={this.fetchFromGoogle}
+                      fetchToTopicId={this.fetchToTopicId}
+                      allTopicPosts={this.state.allTopicPosts}
                     />
                   )}
                 />
@@ -328,13 +378,3 @@ class App extends Component {
 }
 
 export default withRouter(App);
-
-/* PROBLEM: When I log in and refresh any of the pages, I get sent to home page. Wtf.
-
-GUESS : initial render, this.state.currentUser is empty when we approach the 
-logic on line 188 therefore we hit line 201 which is a redirect to root.
-
-test #1: check if this.state.loading is false before line 188  
-
-gather info: 
-*/

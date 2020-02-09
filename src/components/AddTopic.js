@@ -41,14 +41,6 @@ export default class AddTopic extends Component {
       }
     }
 
-
-      // avoidSpace = (e) => {
-    //   console.log(e.key)
-    //   if (e.key === " " || e.key < "a") {
-    //    e.preventDefault();
-    //   }
-    // }
-
     render() {
         let imageLife
         if (this.state.google_news === true) {

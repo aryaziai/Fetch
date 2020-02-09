@@ -7,23 +7,35 @@ class Topic extends Component {
 
 
     componentDidMount(){
-        // console.log(this.props.topicsFollowed)
+
+
+    // this.props.topicsFollowed !== null ? this.props.topicsFollowed.map(topic => 
+    //     topic.topic_title)  : <><div className="lds-dual-ring"></div></> 
+    //     console.log(currentTopic)
     
     }
+
+
+
     
 
 
 
 
     render() {
-        let topicEndpoint = this.props.location.pathname.split("/").slice(-1)[0]
+
+        
+        let topicUrl = this.props.location.pathname.split("/").slice(-1)[0]
 
         return (
-            <div><br></br><br></br><br></br><br></br>
-                <h1>hey {topicEndpoint}</h1>
+            <>
+            <h3 className="mainfeedtitle">Topic: {topicUrl}<img src="https://i.imgur.com/73wGrpL.png" className="feedtitleimage" alt="feedicon" onClick={this.props.fetchFromGoogle}/></h3>
+            <div className="newmain" >
+                {/* {console.log(this.props.topicsFollowed)} */}
                {/* {console.log(this.props.topicsFollowed)} */}
            {/* {this.props.topic.topic_title.toLowerCase()} */}
             </div>
+            </>
         )
     }
 }

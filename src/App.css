@@ -56,6 +56,10 @@
   padding-top: 20px;
 }
 
+.caption {
+  text-align: left;
+  padding-left: 80px;
+}
 
 .loginFormlife {
   margin-left: 39%;
@@ -375,8 +379,8 @@ input, textarea, select, p,button {
 .scrollTop {
   width: 62px;
   position: fixed;
-  bottom: 20px;
-  right: 25px;
+  bottom: 25px;
+  right: 45px;
 }
 .submitTopic {
   bottom: 46px;
@@ -609,7 +613,19 @@ a {
   margin-top: 12px;
 }
 
-.newmain,.add-topic {
+.drop {
+  padding-top: 142px;
+}
+.newmain {
+  background: #fff;
+  width: 53%;
+  margin-left: 25%;
+  border: 1px solid #ccc;
+  margin-bottom: 38px;
+  padding-bottom: 50px;
+}
+
+.add-topic {
   background: #fff;
   width: 53%;
   margin-left: 25%;
@@ -619,10 +635,7 @@ a {
   top: 144px;
   position: absolute;
   padding-top: 39px;
-}
-
-.add-topic {
-  min-height:637px !important;
+  min-height: 634px;
 }
 
 .feedtitleimage {
@@ -638,6 +651,7 @@ a {
   position: absolute;
   top: 79px;
   color:#333;
+  text-transform:capitalize;
 }
 
 #login-error {

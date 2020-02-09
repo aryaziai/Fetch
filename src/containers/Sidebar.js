@@ -18,7 +18,6 @@ class Sidebar extends Component {  // MAKE FUNCTIONAL COMPONENT LATER
       })
         .then(res => res.json())
         .then(result => {
-          // console.log(result.user.topics)
             this.props.updateStateOfTopicsFollowed(result.user.topics) // passing result up via this function
           });
         };
@@ -35,10 +34,6 @@ class Sidebar extends Component {  // MAKE FUNCTIONAL COMPONENT LATER
   
     {this.props.topicsFollowed !== null ? this.props.topicsFollowed.map(topic => (
     <SidebarItems topic={topic} key={topic.id}/>  ))   : <><div className="lds-dual-ring"></div></> }
-
-    {/* {this.props.topicsFollowed !== null ? this.props.topicsFollowed.map(topic => (
-    <Topic topic={topic} key={topic.id}/>  ))   : <><div className="lds-dual-ring"></div></> } */}
-
 
 <p className="addnewsidebaritems" onClick={() => this.props.history.push("/add-topic")}> <img src="https://friconix.com/png/fi-xtluxx-plus-thin.png" alt="Add Topic" />Add a New Topic </p>
       </div>

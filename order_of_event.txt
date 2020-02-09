@@ -1,0 +1,30 @@
+
+ 1. Create a new topic (AddTopic.js) --- child of App
+ - Form onSubmit pass values to (this.props.handleSubmitTopic)
+
+ 2. handleSubmitTopic(event,values) (App.js) 
+ -  Fetch "POST" to /add-topic
+ -  .then resp => resp.json(), and Pass results to updateStateOfTopicsFollowed() --- App
+ - updateStateOfTopicsFollowed() set's state of topicsFollowed to prevState.topicsFollowed.concat(result)
+
+ - Then handleSubmitTopic continues doing it's function with topicID as it's new argument. (passed in from updateStateOfTopicsFollowed)
+
+ - handleSubmitTopic calls fetchFromGoogle(topicId); // but I don't use topicID on fetchFromGoogle !!!
+
+ - Then fetchFromGoogle iterates through this.state.topicsFollowed and makes a fetch request to googlenews, interpolating each topic_title into the api paramters.
+
+ - Then fetchFromGoogle converts resp=> resp.json() and maps through each result, calling postToOurApi(article, topic.id)
+
+ - handleSubmitTopic() finishes.
+
+
+
+ 3. Clicking refresh icon on feed page (Feed.js) --- child of App, triggers: this.props.fetchToTopicId()
+    
+    fetchToTopicId() runs this.state.topicsFollowed.forEach and makes a fetch request to http://localhost:3000/topics/${topic.id}
+ -  .then resp=>resp.json()
+ -  .then(resp => this.setState(prevState => ({
+        allTopicPosts: prevState.allTopicPosts.concat(resp.topic.data.attributes) // running unique function here isn't working.
+      }))
+
+
