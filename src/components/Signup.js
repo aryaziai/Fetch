@@ -26,7 +26,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className="logincontainer">
-          <h2>Create your account</h2>
+          <h3>Create your account</h3>
         <div className="Formlife" align="center">
         <Form onSubmit={(e) => {this.props.handleSignupSubmit(e, this.state) }}>
 

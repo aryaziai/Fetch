@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class FeedItems extends Component {
+export default class TopicItems extends Component {
 
     constructor() {
         super()
@@ -10,17 +10,10 @@ export default class FeedItems extends Component {
     }
 
 
-    toggleImage = () => {
-        this.setState(state => ({ favorite: !state.favorite }))
-      }
-    
+
+
 
     render() {
-        // console.log(this.props.topicPost) // renders "9" and "10"
-        // console.log("topic followed", this.props.topicsFollowed) // 
-        // console.log("topic posts", this.props.topicPost.topic_id) // 
-        // console.log(this.props.topicsFollowed.find(x => x.id === 9) )   // successfully renders the post id 9 object
-
 
         let favorite
         if (this.state.favorite === true) {
@@ -29,20 +22,21 @@ export default class FeedItems extends Component {
         else {
             favorite='/unheart.png'
         }
-        let correctOne = this.props.topicsFollowed.find(x=> x.id === this.props.topicPost.topic_id)
-     
-        // console.log(correctOne)
-        return (
-           <>
 
-        
-            <div className="newmain" > 
-              
-               <img src={correctOne.logo} alt="topic_logo" className="feeditemslogo"/>
+        let correctOne = this.props.topicsFollowed.find(x=> x.id === this.props.topicPost.topic_id)
+        console.log(correctOne)
+        return (
+                <div className="newmain">
+                {console.log(this.props.topicPost)}
+
+
+                <img src={correctOne.logo} alt="topic_logo" className="feeditemslogo"/>
                
-               <p className="caption"><b>#{correctOne.topic_title}</b> <button id={this.props.topicPost.id} onClick={(event) => this.props.deletePostFromTopic(event)} className="xOut">x</button>
+               <p className="caption">
+               <b>#{correctOne.topic_title}</b>  
+               
+               <button id={this.props.topicPost.id} onClick={(event) => this.props.deletePostFromTopic(event)} className="xOut">x</button>
                    
-               {/* {this.props.topicsFollowed.find(x=> x.id === this.props.topicPost.topic_id)} */}
                
                <p className="date">Published on {new Date(this.props.topicPost.published_at).toString()}</p> 
                
@@ -61,8 +55,8 @@ export default class FeedItems extends Component {
 
                <p className="sourceinfo">Source: {this.props.topicPost.source}</p></div>
 
-               </div> 
-        </>
+
+                </div>
         )
     }
 }

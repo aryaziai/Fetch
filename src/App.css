@@ -5,16 +5,35 @@
   pointer-events: none;
 }
 
-#formBasicFirstName.form-control, #formBasicLastName.form-control {
-  width: 85%;
-  margin-left: 13.5px;
-  margin-right: 3.6px;
+#formBasicFirstName.form-control{
+  width: 10%;
+  position: absolute;
+  left: 40%;
+  top: 27.5%;
 }
 
-#formBasicUpdateFirstName.form-control, #formBasicUpdateLastName.form-control {
-  width: 85%;
-  margin-left: 19.5px;
-  margin-right: 61.6px;
+
+#formBasicLastName.form-control {
+  width: 9%;
+  position: absolute;
+  right: 39.5%;
+  top: 27.5%;
+}
+
+
+
+#formBasicUpdateFirstName.form-control {
+  width: 28%;
+  position: absolute;
+  top: 6%;
+  left: 119px;
+}
+
+#formBasicUpdateLastName.form-control {
+  width: 28%;
+  position: absolute;
+  top: 6%;
+  right: 112.5px;
 }
 
 
@@ -24,11 +43,13 @@
 }
 
 .hashtag {
-  left: 54px;
-  position: absolute;
-  top: 2px;
   font-size: 23px;
   color: #666;
+  float: left;
+  margin-left: 7%;
+  margin-top: -14px;
+  font-size: 23px;
+  margin-right: -15%;
 }
 
 .signupstuff {
@@ -41,11 +62,32 @@
   min-height: 914px;
 }
 .logincontainer { 
-  background-color:#fafafa;
+  background-color: #fafafa; 
   min-height: 800px; 
   margin-top: -25px; 
-  padding-top: 60px; 
+  padding-top:193px; 
 }
+
+.logincontainer h2 { 
+  position: absolute; 
+  top: 99px; 
+  left: 39.3%; 
+}
+
+
+.logincontainer h3 {
+  position: absolute;
+  top: 99px;
+  left: 34.3%;
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
 
 .Formlife {
   margin-left: 34%;
@@ -53,12 +95,14 @@
   border: 1px solid #ccc;
   margin-right: 34%;
   padding-bottom: 20px;
-  padding-top: 20px;
+  padding-top: 52px;
 }
 
 .caption {
   text-align: left;
-  padding-left: 80px;
+  padding-left: 7%;
+  padding-right: 7%;
+  line-height: 21px;
 }
 
 .loginFormlife {
@@ -71,13 +115,14 @@
 }
 
 .EditFormlife {
-  margin-left: 28%;
+  margin-left: 25%;
   background: #fff;
   border: 1px solid #ccc;
-  margin-right: 34%;
   padding-bottom: 20px;
-  padding-top: 30px;
+  padding-top: 45px;
   width: 46%;
+  position: absolute;
+  top: 19.8%;
 }
 
 input {
@@ -88,10 +133,11 @@ input {
 
 .form-control {
   border-bottom: 2px solid #ccc;
-  border-left:0px;
-  border-top:0px;
-  border-right:0px;
-  background:transparent;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: transparent;
+  width: 69%;
 }
 
 input:after {
@@ -129,13 +175,11 @@ header p a{
 }
 
 .logo {
-  width: 9.7%;
-  margin-top: 18px;
-  float: left;
-  margin-left: 2%;
+  width: 150px;
+  position: absolute;
+  left: 25px;
+  bottom: 14px;
 }
-
-
 
 
 .brands img {
@@ -147,7 +191,7 @@ header p a{
 }
 
 html {
-  background-color: #fff;
+  background-color: #fafafa;
 }
 
 #formBasicSearch.form-control {
@@ -160,9 +204,9 @@ html {
   line-height: 16px;
   padding: 8px 32px 8px 12px;
   transition: all .2s ease-in-out;
-  width: 44%;
-  margin-top: 1.1%;
-  margin-right: 17.6%;
+  width: 47%;
+  margin-top: 1%;
+  margin-left: -3.4%;
 }
 
 .brands {
@@ -207,11 +251,14 @@ h1 {
 }
 
 .right-align-buttons {
-  display: inline-flex;
-  float: right;
+  /* display: inline-flex; */
+  /* float: right; */
   margin-top: -35px;
   padding-right: 1%;
+  position: absolute;
+  right: 4px;
 }
+
 a.dropdown-item {
   font-weight: 100 !important;
   color: #14171a;
@@ -328,8 +375,10 @@ input, textarea, select, p,button {
 }
 
 .editprofile h2 {
-  margin-right: 36% !important;
   font-size: 20px !important;
+  position: absolute;
+  left: 25.1%;
+  top: 11.1%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -351,13 +400,13 @@ input, textarea, select, p,button {
   margin-left: 7%;
   font-size: 22px;
   margin-top: -21px;
-  width: 236px;
+  width: 202px;
   padding-left: 17px;
 }
 
 .addtopiclogo {
   float: left;
-  font-size: 26px;
+  font-size: 25px;
   margin-left: 7%;
 }
 .addtopictitle {
@@ -372,14 +421,48 @@ input, textarea, select, p,button {
   margin-top: -6px;
 }
 
-.logincontainer h2 {
-  margin-top: 67px;
-    margin-right: 181px;
+
+
+.favorite {
+  text-align: left;
+  padding-left: 4%;
+  font-weight: 700;
+  margin-top: 10px;
 }
+
+
+.favorite img {
+  width: 27px;
+  padding-right: 7px;
+  margin-bottom: -3.5px;
+  padding-left: 23px;
+}
+
+.favorite a {
+  text-decoration: none;
+  color:#333;
+}
+
+.email {
+  margin-bottom: -7.4px !important;
+    padding-right: 12px !important;
+}
+
+.xOut {
+  font-size: 31px;
+  border: 0;
+  text-align: right;
+  float: right;
+  margin-top: -28px;
+  font-weight: 300;
+  margin-right: -35px;
+  color: #444;
+}
+
 .scrollTop {
-  width: 62px;
+  width: 52px;
   position: fixed;
-  bottom: 25px;
+  bottom: 20px;
   right: 45px;
 }
 .submitTopic {
@@ -390,8 +473,8 @@ input, textarea, select, p,button {
 }
 
 .editprofilebuttons {
-  margin-left: 7%;
-  margin-top: 30px;
+  margin-left: 6.6%;
+  margin-top: 34px;
 }
 
 .submitTopic-btton {
@@ -461,10 +544,13 @@ input, textarea, select, p,button {
 
 .missing {
   width: 131px;
-  float: left;
-  margin-left: -17%;
-  margin-top: 6.8%;
+  /* float: left; */
+  /* margin-left: -17%; */
+  /* margin-top: 6.8%; */
   opacity: .5;
+  position: absolute;
+  left: 5.1%;
+  top: 21.5%;
 }
 
 .missing:hover {
@@ -473,21 +559,51 @@ input, textarea, select, p,button {
 
 .addsourcehandle {
   float: left;
-  font-size: 26px;
-  margin-left: 51px;
+  font-size: 25px;
+  margin-left: 7%;
   margin-top: 197px;
   position: absolute;
 }
 .handleLife img {
   padding-right: 8px;
 }
-#formBasicTopicInstagram,#formBasicTopicTwitter,#formBasicTopicYoutube {
+#formBasicTopiccountry,#formBasicTopicTwitter,#formBasicTopicYoutube {
   margin-left: 3px;
   font-size: 14px;
-  width: 118px;
+  width: 128px;
   height: 20px;
   margin-top: -3px;
   padding-left: 4px;
+}
+
+
+
+.page_size, .language {
+  position: relative;
+  display: flex;
+  border-bottom: 2px solid #ddd !important;
+  width: 100%;
+  border-radius: 2px;
+  padding: 2px 5px;
+  flex-direction: row;
+  direction: ltr;
+  align-items: center;
+  cursor: pointer;
+  min-height: 36px;
+  pointer-events: all;
+  height: 50px;
+  border-radius: 0 !important;
+  background: #fff;
+  font-size: 19px;
+  /* text-align: center; */
+}
+
+.page_size {
+  width: 95px;
+}
+
+.language {
+  width:140px;
 }
 
 .handleLife {
@@ -616,13 +732,53 @@ a {
 .drop {
   padding-top: 142px;
 }
+
+.sourceinfo {
+  text-align: right;
+  padding-right: 6.9%;
+  font-weight: 100;
+  font-size: 15px;
+  margin-top: -33.7px;
+  margin-bottom: 5px;
+  color: #000035;
+  font-weight: 700;
+}
+
 .newmain {
   background: #fff;
   width: 53%;
   margin-left: 25%;
   border: 1px solid #ccc;
   margin-bottom: 38px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
+  padding-top:15px;
+}
+
+.postImage {
+  width:87%;
+}
+
+
+.bottomofCard {
+  border-top: 1px solid #ccc;
+  margin-top: 16px;
+}
+
+.iMessage {
+  width:24px !important;
+}
+
+
+.date {
+  font-size: 12px;
+    margin-top: 1px;
+}
+
+.feeditemslogo {
+  width: 73px;
+  float: left;
+  padding-right: 1.5%;
+  padding-left: 5.5%;
 }
 
 .add-topic {
@@ -635,7 +791,7 @@ a {
   top: 144px;
   position: absolute;
   padding-top: 39px;
-  min-height: 634px;
+  min-height: 714px;
 }
 
 .feedtitleimage {
@@ -679,7 +835,7 @@ a {
   float: left;
   padding-left: 8px;
   text-transform: capitalize;
-  color: #333;
+  color: #2c436f;
   width: 85px;
 }
 
@@ -694,14 +850,18 @@ a {
   color: #333;
 }
 
+.addMore {
+  border-radius: 50%;
+    border: 1px solid #ddd;
+}
+
 header p img { 
   margin-right: 7px; 
   max-width: 22px; 
   min-width: 75px; 
   min-height: 75px; 
-  border: 1px solid #ddd; 
   margin-bottom: 2px; 
-  background:#fff;
+  background:#fbfbfb;
 }
 
 .App-link {

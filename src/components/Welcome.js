@@ -21,7 +21,7 @@ export default class Welcome extends Component {
 
                 <div className="brands">
                 <h1>Platforms we use:</h1>
-                    <img src="https://i.imgur.com/8EAPyPK.png" width="80px" alt="instagram"></img>
+                    <img src="https://i.imgur.com/8EAPyPK.png" width="80px" alt="country"></img>
                     <img src="https://i.imgur.com/HPG9CCq.png" width="120px" alt="twitter"></img>
                     <img src="https://i.imgur.com/UXv8wYl.png" alt="youtube"></img>
                     <img src="https://i.imgur.com/K2f5FSn.png" alt="googlenews"></img></div>

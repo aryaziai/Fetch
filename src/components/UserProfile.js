@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import { Form } from "react-bootstrap";
 import {withRouter} from "react-router-dom";
 
-class Profile extends Component{
+
+class UserProfile extends Component{
     constructor() {
         super()
         this.state = {
@@ -60,12 +61,10 @@ class Profile extends Component{
        
     handleDeleteProfile = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3000/delete/", {
-          method: "DELETE",
+        fetch(`http://localhost:3000/users/${this.props.currentUser.id}`, {
+          method: "delete",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            id: this.props.currentUser.id
-          })
+          Authorization: localStorage.getItem("token"),
         })
           .then(resp => resp.json())
           .then(json => {
@@ -142,4 +141,4 @@ render() {
   }
 }
 
-export default withRouter(Profile);
+export default withRouter(UserProfile);

@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Topic from "./components/Topic";
 import AddTopic from "./components/AddTopic";
-import Profile from "./components/Profile";
+import UserProfile from "./components/UserProfile";
 import Sidebar from "./containers/Sidebar";
 import Navbar from "./containers/Navbar";
 import Feed from "./containers/Feed";
@@ -38,9 +38,6 @@ class App extends Component {
 
   
     fetchToTopicId = () => { //wrote with emiley 2/6/20
-    // console.log(this.state.topicsFollowed) // topicsFollowed IS NOT the problem with duplicates.
-    //  console.log(this.state.allTopicPosts)
-    //  if (this.state.allTopicPosts) {}
     this.state.topicsFollowed.forEach(topic => {
       // we console logged topicsPost and return two unique items in array
  
@@ -53,37 +50,26 @@ class App extends Component {
       }
     })
     .then(resp => resp.json())
-    .then(resp => {
+    .then(resp => { // Matt 2/8/20
+      let topicId = resp.topic.data.attributes.id
       let topicPosts = resp.topic.data.attributes.posts;
-      let allTopicPostsIds = this.state.allTopicPosts.map(tp => tp.id)
-      cleanTopicPosts = topicPosts.filter(topicpost => !allTopicPostsIds.includes(topicpost.id)) // if this topicPost's id isn't in allTopicPostsIds 
-      console.log(topicPosts)
+      topicPosts = topicPosts.map(postObj => { return {...postObj, topic_id: topicId}} )
+      let allTopicPostsIds = this.state.allTopicPosts !== null ? this.state.allTopicPosts.map(tp => tp.id) : []
+      let cleanTopicPosts = topicPosts.filter(topicpost => !allTopicPostsIds.includes(topicpost.id)) // if this topicPost's id isn't in allTopicPostsIds 
         this.setState({
           allTopicPosts: [...this.state.allTopicPosts , ...cleanTopicPosts] // object with [Posts] inside of it.
         })
     })
-  //   .then(topicPosts => { 
-      
-  //   //   console.log(this.state.allTopicPosts.posts.map(post=>post.id))  // [16,17,18]
-  //   //   console.log(resp.topic.data.attributes.posts.map(post=>post.id)) // [19,20,21]
-  //   //   let allTopicIds = this.state.allTopicPosts.posts.map(post=>post.id)
-  //   //   let 
-  //   //   this.state.allTopicPosts.posts.map(post=>post.id).includes(resp.topic.data.attributes.posts.forEach(post=>post.id)) ? 
-  //   // //   // get array of all IDs in state.allTopicPosts
-  //   // //   // compare each post in resp.topic.data.attributes and see if the post's ID is present in above array
-  //   // //   // if the ID is present in 'idArray', do not keep it in the array
-  //   // //   // after you have a full array of uniq (not previously added) posts, add these to your state
-  //   // null : this.setState(prevState => ({allTopicPosts: prevState.allTopicPosts.posts.concat(resp.topic.data.attributes.posts) }) )
-  //  } )
   } )
  }
   
   
   fetchFromGoogle = () => {
     this.state.topicsFollowed.map(topic => {
+      console.log(topic)
       if (topic.google_news) {
         fetch(
-          `https://newsapi.org/v2/everything?pageSize=3&q=${topic.topic_title}&apiKey=07af66c02837407a82106528c10d64c5`
+          `https://newsapi.org/v2/everything?language=${topic.language}&pageSize=${topic.page_size}&q=${topic.topic_title}&apiKey=07af66c02837407a82106528c10d64c5`
         )
           .then(res => res.json())
           .then(result => {
@@ -105,7 +91,7 @@ class App extends Component {
         topic_id: topicId,
         post: {
           caption: result.title,
-          source: "Related News",
+          source: result.source.name,
           image_url: result.urlToImage,
           url: result.url,
           published_at: result.publishedAt
@@ -114,8 +100,6 @@ class App extends Component {
     })
       .then(resp => resp.json())
       .then(resp => {
-        // console.log(resp)
-        // debugger
         fetch("http://localhost:3000/post_topics", {
           method: "POST",
           headers: {
@@ -171,6 +155,20 @@ class App extends Component {
       .catch(() => {});
     // }
     }
+
+    
+    deletePostFromTopic = (event) => {
+      event.preventDefault();
+      // console.log(event.target.id)
+      fetch(`http://localhost:3000/posts/${event.target.id}`, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: localStorage.getItem("token")
+      },
+      })
+    } 
 
 
   handleLoginSubmit = (event, loginInfo) => {
@@ -285,8 +283,6 @@ class App extends Component {
   };
 
   render() {
-    // console.log("allTopicPosts:", this.state.allTopicPosts)
-    // console.log("TopicsFollowed:", this.state.topicsFollowed)
     return (
       <div className="App">
         <Navbar
@@ -296,7 +292,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={Welcome} />
-
+             {/* <Route render={() => <Redirect to="/"/>}/> */}
           <Route
             exact
             path="/login"
@@ -321,7 +317,7 @@ class App extends Component {
                   updateStateOfTopicsFollowed={this.updateStateOfTopicsFollowed}
                 />
 
-                <Route path="/topic" render={props => <Topic {...props} topicsFollowed={this.state.topicsFollowed} />} />
+                <Route path="/topic" render={props => <Topic {...props} fetchFromGoogle={this.fetchFromGoogle} topicsFollowed={this.state.topicsFollowed} allTopicPosts={this.state.allTopicPosts} />} />
 
                 <Route
                   exact
@@ -337,16 +333,18 @@ class App extends Component {
                     />
                   )}
                 />
+   
                 <Route
                   exact
                   path="/feed"
                   render={props => (
                     <Feed
                       {...props}
-                      topicsFollowed={this.topicsFollowed}
+                      topicsFollowed={this.state.topicsFollowed}
                       fetchFromGoogle={this.fetchFromGoogle}
                       fetchToTopicId={this.fetchToTopicId}
                       allTopicPosts={this.state.allTopicPosts}
+                      deletePostFromTopic={this.deletePostFromTopic}
                     />
                   )}
                 />
@@ -355,7 +353,7 @@ class App extends Component {
                   exact
                   path="/profile"
                   render={props => (
-                    <Profile
+                    <UserProfile
                       {...props}
                       currentUser={this.state.currentUser}
                       handleLogout={this.handleLogout}
@@ -372,6 +370,7 @@ class App extends Component {
             </>
           )}
         </Switch>
+        <img src="https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronUpCircle-512.png" onClick={()=> window.scrollTo({ top: 0, behavior: 'smooth' })} className="scrollTop" alt="ScrollTop" />
       </div>
     );
   }
