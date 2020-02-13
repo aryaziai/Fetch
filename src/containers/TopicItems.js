@@ -32,15 +32,15 @@ export default class TopicItems extends Component {
 
                 <img src={correctOne.logo} alt="topic_logo" className="feeditemslogo"/>
                
-               <p className="caption">
+               <div className="caption">
                <b>#{correctOne.topic_title}</b>  
                
-               {/* <button id={this.props.topicPost.id} onClick={(event) => this.props.deletePostFromTopic(event)} className="xOut">x</button> */}
+               <button id={this.props.topicPost.id} onClick={(event) => this.props.deletePostFromTopic(event)} className="xOut">x</button>
                    
                
                <p className="date">Published on {new Date(this.props.topicPost.published_at).toString()}</p> 
                
-               <br></br>{this.props.topicPost.caption}<br/> <a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">{this.props.topicPost.url}</a> </p>
+               <br></br>{this.props.topicPost.caption}<br/> <a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">{this.props.topicPost.url}</a> </div>
                
                <a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer"><img src={this.props.topicPost.image_url} alt="news_image" className="postImage" /></a><br/>
                

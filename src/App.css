@@ -55,8 +55,16 @@
   margin-right: -15%;
 }
 
-img[src=""], img[src="null"] {
+,img[src=""], img[src="null"] {
   display: none;
+}
+
+.deletetopic {
+  width: 16px;
+  margin-left: 7px;
+  vertical-align: middle;
+  margin-bottom: 3px;
+  cursor: pointer;
 }
 
 .signupstuff {
@@ -106,11 +114,12 @@ img[src=""], img[src="null"] {
 }
 
 .caption {
-  /* padding-top:3px; */
+  padding-top: 14px;
   text-align: left;
   padding-left: 7%;
   padding-right: 7%;
   line-height: 21px;
+  padding-bottom: 10px;
 }
 
 .post_link {
@@ -424,9 +433,8 @@ input, textarea, select, p,button {
 
 .category {
   position: fixed;
-  right: 10%;
+  right: 10.1%;
   top: 78px;
-  text-align: left;
   text-align: left;
   float: left;
   padding-left: 8px;
@@ -452,7 +460,7 @@ input, textarea, select, p,button {
 
 .addtopiclogo {
   float: left;
-  font-size: 24px;
+  font-size: 23px;
   margin-left: 7%;
 }
 .addtopictitle {
@@ -594,13 +602,10 @@ input, textarea, select, p,button {
 
 .missing {
   width: 131px;
-  /* float: left; */
-  /* margin-left: -17%; */
-  /* margin-top: 6.8%; */
   opacity: .5;
   position: absolute;
   left: 5.1%;
-  top: 143px;
+  top: 141px;
 }
 
 .missing:hover {
@@ -609,7 +614,7 @@ input, textarea, select, p,button {
 
 .addsourcehandle {
   float: left;
-  font-size: 25px;
+  font-size: 23px;
   margin-left: 7%;
   margin-top: 197px;
   position: absolute;
@@ -631,9 +636,7 @@ input, textarea, select, p,button {
 .page_size, .language, .sort_by {
   position: relative;
   display: flex;
-  border-bottom: 2px solid #ddd !important;
-  width: 100%;
-  border-radius: 2px;
+  border: 1.5px solid #e6e6e6 !important;
   padding: 2px 5px;
   flex-direction: row;
   direction: ltr;
@@ -641,26 +644,37 @@ input, textarea, select, p,button {
   cursor: pointer;
   min-height: 36px;
   pointer-events: all;
-  height: 50px;
+  height: 48px;
   border-radius: 0 !important;
   background: #fff;
-  font-size: 19px;
+  font-size: 17px;
   /* text-align: center; */
+  /* border: 0 !important; */
 }
 
 .page_size {
   width: 95px;
 }
 
-.language, .sortBy {
+.language, .sort_by {
   width:140px;
+}
+
+.upload_image {
+  position: absolute;
+    left: 151px;
+    top: 167px;
+    width: 350px;
+}
+
+#formBasicTopicLogo {
+font-size: 16px;
 }
 
 .handleLife {
   position: absolute;
-  margin-top: 248px;
+  margin-top: 242px;
   margin-left: 7%;
-  font-weight: 500;
   display: flex;
   font-size: 17.5px;
 }
@@ -828,7 +842,7 @@ a {
 
 .date {
   font-size: 12px;
-    margin-top: 1px;
+    margin-top: -1px;
     margin-bottom:4px;
 }
 
@@ -859,6 +873,7 @@ a {
   margin-left: 8px;
   vertical-align: middle;
   margin-bottom: 6px;
+  cursor:pointer
 }
 
 .mainfeedtitle, .addtopictitle {

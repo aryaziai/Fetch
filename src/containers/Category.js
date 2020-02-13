@@ -27,13 +27,13 @@ class Category extends Component {
         <div className="topdog">
 
        {/* {notFeedPath === "category"  &&  */}
-    <h3 className="mainfeedtitle">#{topicUrl}<img src="https://i.imgur.com/73wGrpL.png" className="feedtitleimage" alt="feedicon" onClick={this.props.fetchFromGoogle}/></h3>
+    <h3 className="mainfeedtitle">#{topicUrl}<img src="/refresh.png" className="feedtitleimage" alt="feedicon" onClick={this.props.fetchFromGoogle}/></h3>
       {/* }  */}
      
      <div className="drop"></div> 
 
         {this.props.categoryPosts.map(post => 
-            <CategoryItems topicPost={post} categoryName={this.state.categoryName} deletePostFromCategory={this.props.deletePostFromCategory}
+            <CategoryItems topicPost={post} key={post.url} categoryName={this.state.categoryName} deletePostFromCategory={this.props.deletePostFromCategory}
             
             />  )}
 

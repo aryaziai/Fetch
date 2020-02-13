@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
+
+
 export default class AddTopic extends Component {
   constructor(props) {
     super(props);
@@ -10,8 +12,9 @@ export default class AddTopic extends Component {
       language: "en",
       plus: true,
       sort_by: "relevancy",
-      logo: "https://i.imgur.com/yVM8C5B.png",
-      user_id: props.currentUser.id
+      logo: "/missing.png",
+      user_id: props.currentUser.id,
+      toggleUpload: false
     };
   }
 
@@ -36,6 +39,14 @@ export default class AddTopic extends Component {
     }
   };
 
+  
+  showImage = () => {
+    if (this.state.toggleUpload === true) {
+      this.setState({toggleUpload:false})
+    } else {
+      this.setState({toggleUpload:true})
+    }
+  }
   render() {
     let imageLife;
     if (this.state.plus === true) {
@@ -43,6 +54,9 @@ export default class AddTopic extends Component {
     } else {
       imageLife = "/toggleoff.png";
     }
+
+ 
+
 
     return (
       <div>
@@ -69,21 +83,45 @@ export default class AddTopic extends Component {
             <br />
             <h2 className="addtopiclogo">Add Logo</h2>
             <br />
+
+
             <img
               src="/missing.png"
               name="logo"
               className="missing"
               // onClick={this.alertMe}
               alt="missing"
-              onKeyPress={e => this.avoidSpace(e)}
-              onChange={e => this.handleChange(e)}
-              value="https://i.imgur.com/yVM8C5B.png"
+              // onKeyPress={e => this.avoidSpace(e)}
+              id="on"
+              onClick={e => this.showImage(e)}
+              value="/missing.png"
             />
+
+            {this.state.toggleUpload === true ? 
+
+            <div className="upload_image" >
+              <Form.Group controlId="formBasicTopicLogo">
+              <Form.Control
+                type="text"
+                name="logo"
+                placeholder="Insert Logo URL"
+                onKeyPress={e => this.avoidSpace(e)}
+                onChange={e => this.handleChange(e)}
+              />
+            </Form.Group>
+
+            </div>
+
+            : null }
+
+
+
+{/* 
             <button 
             // onClick={this.alertMe} 
             className="uploadimage">
               Upload File
-            </button>
+            </button> */}
             <br /> <h2 className="addsourcehandle">Language</h2>
             <p className="handleLife">
               <select

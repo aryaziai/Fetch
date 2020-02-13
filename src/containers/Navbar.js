@@ -45,6 +45,7 @@ class Navbar extends Component {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
+              
               <p className="dropdown-item" onClick={() => this.props.history.push("/profile")}>
                 Edit Profile
               </p>
@@ -53,6 +54,8 @@ class Navbar extends Component {
               </p>
             </Dropdown.Menu>
           </Dropdown>
+
+          
         </div>
       );
   };

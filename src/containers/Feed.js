@@ -9,7 +9,7 @@ export default class Feed extends Component {
     render() {
         return (
             <>
-            <h3 className="mainfeedtitle">Fetch Feed<img src="https://i.imgur.com/73wGrpL.png" className="feedtitleimage" 
+            <h3 className="mainfeedtitle">Fetch Feed<img src="/refresh.png" className="feedtitleimage" 
             alt="feedicon" onLoad={this.props.fetchToTopicId}   onClick={this.props.fetchToTopicId} /></h3>
 
 

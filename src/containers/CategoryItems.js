@@ -32,7 +32,7 @@ class CategoryItems extends Component {
 
 
         let categoryImage = `/${categoryName}.png`
-   console.log(this.props)
+//    console.log(this.props)
         return (
             
             <>
@@ -41,25 +41,27 @@ class CategoryItems extends Component {
               
                <img src={categoryImage} alt="topic_logo" className="feeditemslogo" />
                
-                <p className="caption"> <b className="CategoryTitle" >#{categoryName} </b>
+                <div className="caption"> <b className="CategoryTitle" >#{categoryName} </b>
                
                 <button id={this.props.topicPost.url} onClick={(event) => this.props.deletePostFromCategory(event)} className="xOut">x</button>
 
    
                <p className="date">Published on {new Date(this.props.topicPost.publishedAt).toString()}</p> 
                
-                <br></br>{this.props.topicPost.title}<br/> <a class="post_link" href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">{this.props.topicPost.url}</a>
+                <br></br>{this.props.topicPost.title}<br/> <a className="post_link" href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">{this.props.topicPost.url}</a>
                 <br/><a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">
                     <br></br>
                     <img src={this.props.topicPost.urlToImage } className="postImage" /></a><br/>
-         </p>      
+         </div>      
                
             <div className="bottomofCard">
                <p className="favorite"><img src={favorite} alt="favorite" name="favorite" className="favorite" onClick={this.toggleImage}/>Favorite
 
-               <a href={`sms:Text Someone&body=${this.props.topicPost.caption}%0D%0A%0D%0A${this.props.topicPost.url}`}><img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/speech_bubble-512.png" alt="imessage" name="imessage" className="iMessage"/>iMessage</a>
+               <a href={`sms:Text Someone&body=${this.props.topicPost.caption}%0D%0A%0D%0A${this.props.topicPost.url}`}>
+                   <img src="/imessage.png" alt="imessage" name="imessage" className="iMessage"/>iMessage</a>
                
-                <a href={`mailto:?subject=${this.props.topicPost.caption}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.topicPost.url}`}><img src="https://www.iconsdb.com/icons/preview/black/email-5-xxl.png" alt="email" className="email"/>Email</a>
+                <a href={`mailto:?subject=${this.props.topicPost.caption}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.topicPost.url}`}>
+                    <img src="/mail.png" alt="email" className="email"/>Email</a>
                 
                  </p>
 
