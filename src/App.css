@@ -238,6 +238,29 @@ html {
   padding-bottom: 20px;
 }
 
+.notbrands {
+  padding-left: 6%;
+  padding-right: 6%;
+  max-height: 124px;
+  display: flex;
+  margin-bottom: 168px;
+}
+
+.bigtime {
+  width:33%;
+  line-height: 22px;
+}
+
+
+
+.notbrands img {
+  max-width: 169px;
+  padding-left: 6%;
+  padding-right: 6%;
+  vertical-align: middle;
+  max-height: 124px;
+}
+
 .brands h1 {
   font-size: 39px;
   font-weight: 200;
@@ -602,10 +625,12 @@ input, textarea, select, p,button {
 
 .missing {
   width: 131px;
-  opacity: .5;
+  /* opacity: .5; */
   position: absolute;
   left: 5.1%;
   top: 141px;
+  border-radius: 50%;
+  height: 131px;
 }
 
 .missing:hover {
@@ -662,9 +687,12 @@ input, textarea, select, p,button {
 
 .upload_image {
   position: absolute;
-    left: 151px;
-    top: 167px;
-    width: 350px;
+  left: 168px;
+  top: 175px;
+  width: 253px;
+  background: white;
+  padding-bottom: 20px;
+  padding-left: 0px;
 }
 
 #formBasicTopicLogo {
@@ -708,15 +736,15 @@ font-size: 16px;
 .uploadimage {
   background: #002e76;
   float: left;
-  margin-top: 91px;
-  margin-left: 25px;
+  margin-top: 83px;
+  margin-left: 27px;
   margin-bottom: 100px;
   width: 162px;
-  height: 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 40px;
-  padding-right: 40px;
+  height: 33px;
+  padding-top: 17px;
+  padding-bottom: 3px;
+  padding-left: 17px;
+  padding-right: 17px;
   border-radius: 100px;
   color: #fff;
   font-weight: 900;

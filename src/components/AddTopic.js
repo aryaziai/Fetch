@@ -86,14 +86,14 @@ export default class AddTopic extends Component {
 
 
             <img
-              src="/missing.png"
+              src={this.state.logo}
               name="logo"
               className="missing"
               // onClick={this.alertMe}
               alt="missing"
               // onKeyPress={e => this.avoidSpace(e)}
               id="on"
-              onClick={e => this.showImage(e)}
+              // onClick={e => this.showImage(e)}
               value="/missing.png"
             />
 
@@ -116,12 +116,13 @@ export default class AddTopic extends Component {
 
 
 
-{/* 
-            <button 
+
+            <p 
             // onClick={this.alertMe} 
+            onClick={e => this.showImage(e)}
             className="uploadimage">
               Upload File
-            </button> */}
+            </p>
             <br /> <h2 className="addsourcehandle">Language</h2>
             <p className="handleLife">
               <select
