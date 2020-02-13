@@ -17,20 +17,20 @@ class Navbar extends Component {
     // if not logged in
     if (Object.keys(this.props.currentUser).length === 0) {
       return (
-        <div>
-          <p
+        <>
+          <div
             className="topcoolbutton"
             onClick={() => this.props.history.push("/signup")}
           >
             <p>Signup</p>
-          </p>
-          <p
+          </div>
+          <div
             className="topcoolbutton"
             onClick={() => this.props.history.push("/login")}
           >
             <p>Login</p>
-          </p>
-        </div>
+          </div>
+        </>
       );
     } else
       return (

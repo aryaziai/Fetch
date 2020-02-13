@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 
-export default class Login extends Component {
+export default class Signup extends Component {
   constructor() {
     super();
 
@@ -62,16 +62,9 @@ export default class Login extends Component {
 
         <br></br>
       
-      <Form.Group controlId="formBasicPassword">
+      <Form.Group controlId="formBasicPasswordConfirm">
         <Form.Control type='password' name="password_confirmation" placeholder="Confirm Password *" onChange={(e) => this.handleChange(e)} value={this.state.password_confirmation}/>
       </Form.Group>
-
-
-        {/* <Form.Group controlId="formBasicPasswordAgain">
-          <Form.Control type='text' name="confirm_password" placeholder="Confirm Password" onChange={(e) => this.handleChange(e)} value={this.state.password_confirm}/>
-        </Form.Group>
-        <br></br> */}
-
 
 
 

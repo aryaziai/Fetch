@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import {withRouter} from "react-router-dom";
 
-export default class FeedItems extends Component {
+class FeedItems extends Component {
 
     constructor() {
         super()
@@ -16,11 +17,6 @@ export default class FeedItems extends Component {
     
 
     render() {
-        // console.log(this.props.topicPost) // renders "9" and "10"
-        // console.log("topic followed", this.props.topicsFollowed) // 
-        // console.log("topic posts", this.props.topicPost.topic_id) // 
-        // console.log(this.props.topicsFollowed.find(x => x.id === 9) )   // successfully renders the post id 9 object
-
 
         let favorite
         if (this.state.favorite === true) {
@@ -38,17 +34,22 @@ export default class FeedItems extends Component {
         
             <div className="newmain" > 
               
-               <img src={correctOne.logo} alt="topic_logo" className="feeditemslogo"/>
+               <img src={correctOne.logo} alt="topic_logo" className="feeditemslogo" onClick={() => this.props.history.push(`/topic/${correctOne.topic_title.toLowerCase()}`) }/>
                
-               <p className="caption"><b>#{correctOne.topic_title}</b> <button id={this.props.topicPost.id} onClick={(event) => this.props.deletePostFromTopic(event)} className="xOut">x</button>
-                   
-               {/* {this.props.topicsFollowed.find(x=> x.id === this.props.topicPost.topic_id)} */}
+
+        
+               <p className="caption"><b onClick={() => this.props.history.push(`/topic/${correctOne.topic_title.toLowerCase()}`) }>#{correctOne.topic_title} </b>
+               
+               <button id={this.props.topicPost.id} onClick={(event) => this.props.deletePostFromTopic(event)} className="xOut">x</button>
+
                
                <p className="date">Published on {new Date(this.props.topicPost.published_at).toString()}</p> 
                
-               <br></br>{this.props.topicPost.caption}<br/> <a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">{this.props.topicPost.url}</a> </p>
+               <br/>{this.props.topicPost.caption}<br/> <a class="post_link" href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">{this.props.topicPost.url}</a> </p>
                
-               <a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer"><img src={this.props.topicPost.image_url} alt="news_image" className="postImage" /></a><br/>
+               
+               <a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">
+                   <img src={this.props.topicPost.image_url} className="postImage" /></a><br/>
                
                <div className="bottomofCard">
                <p className="favorite"><img src={favorite} alt="favorite" name="favorite" className="favorite" onClick={this.toggleImage}/>Favorite
@@ -66,3 +67,6 @@ export default class FeedItems extends Component {
         )
     }
 }
+
+
+export default withRouter(FeedItems);// so we can we use history.push

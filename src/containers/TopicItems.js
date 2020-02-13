@@ -24,10 +24,10 @@ export default class TopicItems extends Component {
         }
 
         let correctOne = this.props.topicsFollowed.find(x=> x.id === this.props.topicPost.topic_id)
-        console.log(correctOne)
+        // console.log(correctOne)
         return (
                 <div className="newmain">
-                {console.log(this.props.topicPost)}
+                {/* {console.log(this.props.topicPost)} */}
 
 
                 <img src={correctOne.logo} alt="topic_logo" className="feeditemslogo"/>
@@ -35,7 +35,7 @@ export default class TopicItems extends Component {
                <p className="caption">
                <b>#{correctOne.topic_title}</b>  
                
-               <button id={this.props.topicPost.id} onClick={(event) => this.props.deletePostFromTopic(event)} className="xOut">x</button>
+               {/* <button id={this.props.topicPost.id} onClick={(event) => this.props.deletePostFromTopic(event)} className="xOut">x</button> */}
                    
                
                <p className="date">Published on {new Date(this.props.topicPost.published_at).toString()}</p> 

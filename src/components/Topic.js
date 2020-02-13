@@ -17,7 +17,7 @@ class Topic extends Component {
         let postsOfTopic = this.props.allTopicPosts.filter(post => 
             correctTopicId.id === post.topic_id) // compare inside of iteration!
 
-            console.log(postsOfTopic)
+            // console.log(postsOfTopic)
 
 
 

@@ -5,19 +5,22 @@
   pointer-events: none;
 }
 
+
+
 #formBasicFirstName.form-control{
   width: 10%;
   position: absolute;
   left: 40%;
-  top: 27.5%;
+  top: 200px;
 }
+
 
 
 #formBasicLastName.form-control {
   width: 9%;
   position: absolute;
   right: 39.5%;
-  top: 27.5%;
+  top: 200px;
 }
 
 
@@ -30,7 +33,7 @@
 }
 
 #formBasicUpdateLastName.form-control {
-  width: 28%;
+  width: 31%;
   position: absolute;
   top: 6%;
   right: 112.5px;
@@ -47,9 +50,13 @@
   color: #666;
   float: left;
   margin-left: 7%;
-  margin-top: -14px;
+  margin-top: -8.5px;
   font-size: 23px;
   margin-right: -15%;
+}
+
+img[src=""], img[src="null"] {
+  display: none;
 }
 
 .signupstuff {
@@ -99,10 +106,17 @@
 }
 
 .caption {
+  /* padding-top:3px; */
   text-align: left;
   padding-left: 7%;
   padding-right: 7%;
   line-height: 21px;
+}
+
+.post_link {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
 }
 
 .loginFormlife {
@@ -122,7 +136,7 @@
   padding-top: 45px;
   width: 46%;
   position: absolute;
-  top: 19.8%;
+  top: 143px;
 }
 
 input {
@@ -206,7 +220,7 @@ html {
   transition: all .2s ease-in-out;
   width: 47%;
   margin-top: 1%;
-  margin-left: -3.4%;
+  margin-left: -3.2%;
 }
 
 .brands {
@@ -344,6 +358,10 @@ text-decoration: none;
   font-size: 15px;
 }
 
+.profile-nav img,.dropdown-toggle.btn.btn-success,.profile-nav,button {
+  cursor:pointer;
+}
+
 input, textarea, select, p,button { 
   outline: none;
 }
@@ -378,7 +396,7 @@ input, textarea, select, p,button {
   font-size: 20px !important;
   position: absolute;
   left: 25.1%;
-  top: 11.1%;
+  top: 81px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -399,14 +417,42 @@ input, textarea, select, p,button {
   float: left;
   margin-left: 7%;
   font-size: 22px;
-  margin-top: -21px;
+  margin-top: -16px;
   width: 202px;
   padding-left: 17px;
 }
 
+.category {
+  position: fixed;
+  right: 10%;
+  top: 78px;
+  text-align: left;
+  text-align: left;
+  float: left;
+  padding-left: 8px;
+  text-transform: capitalize;
+  color: #2c436f;
+  width: 85px;
+  line-height: 30px;
+}
+
+.category h3 {
+  color: #333;
+  font-size: 20px;
+  text-align: left;
+  margin-bottom: -22px;
+}
+
+.category p {
+  line-height: 13px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor:pointer;
+}
+
 .addtopiclogo {
   float: left;
-  font-size: 25px;
+  font-size: 24px;
   margin-left: 7%;
 }
 .addtopictitle {
@@ -418,18 +464,18 @@ input, textarea, select, p,button {
 .toggleHandle {
   width: 55px !important;
   height: 30px !important;
-  margin-top: -6px;
+  margin-top: -3px;
 }
 
 
 
 .favorite {
   text-align: left;
-  padding-left: 4%;
+  padding-left: 3.5%;
   font-weight: 700;
   margin-top: 10px;
+  font-size: 15px;
 }
-
 
 .favorite img {
   width: 27px;
@@ -448,15 +494,19 @@ input, textarea, select, p,button {
     padding-right: 12px !important;
 }
 
+.CategoryTitle {
+  text-transform: capitalize;
+}
 .xOut {
-  font-size: 31px;
+  font-size: 26px;
   border: 0;
   text-align: right;
   float: right;
-  margin-top: -28px;
+  margin-top: -27px;
   font-weight: 300;
-  margin-right: -35px;
-  color: #444;
+  margin-right: -44px;
+  color: #777;
+  font-weight: 100;
 }
 
 .scrollTop {
@@ -532,7 +582,7 @@ input, textarea, select, p,button {
 
 .add-topic {
   background: #fff;
-  width: 53%;
+  width: 51.5%;
   margin-left: 25%;
   min-height: 734px;
   border: 1px solid #ccc;
@@ -550,7 +600,7 @@ input, textarea, select, p,button {
   opacity: .5;
   position: absolute;
   left: 5.1%;
-  top: 21.5%;
+  top: 143px;
 }
 
 .missing:hover {
@@ -578,7 +628,7 @@ input, textarea, select, p,button {
 
 
 
-.page_size, .language {
+.page_size, .language, .sort_by {
   position: relative;
   display: flex;
   border-bottom: 2px solid #ddd !important;
@@ -602,7 +652,7 @@ input, textarea, select, p,button {
   width: 95px;
 }
 
-.language {
+.language, .sortBy {
   width:140px;
 }
 
@@ -612,6 +662,7 @@ input, textarea, select, p,button {
   margin-left: 7%;
   font-weight: 500;
   display: flex;
+  font-size: 17.5px;
 }
 
 .lds-dual-ring {
@@ -644,7 +695,7 @@ input, textarea, select, p,button {
   background: #002e76;
   float: left;
   margin-top: 91px;
-  margin-left: 20px;
+  margin-left: 25px;
   margin-bottom: 100px;
   width: 162px;
   height: 50px;
@@ -733,12 +784,17 @@ a {
   padding-top: 142px;
 }
 
+/* .categorydrop {
+  padding-top: 74px;
+} */
+
+
 .sourceinfo {
   text-align: right;
   padding-right: 6.9%;
   font-weight: 100;
   font-size: 15px;
-  margin-top: -33.7px;
+  margin-top: -32.7px;
   margin-bottom: 5px;
   color: #000035;
   font-weight: 700;
@@ -746,7 +802,7 @@ a {
 
 .newmain {
   background: #fff;
-  width: 53%;
+  width: 51.5%;
   margin-left: 25%;
   border: 1px solid #ccc;
   margin-bottom: 38px;
@@ -755,7 +811,8 @@ a {
 }
 
 .postImage {
-  width:87%;
+  width: 631px;
+  /* margin-top: 10px; */
 }
 
 
@@ -772,18 +829,21 @@ a {
 .date {
   font-size: 12px;
     margin-top: 1px;
+    margin-bottom:4px;
 }
 
 .feeditemslogo {
-  width: 73px;
+  width: 62px;
   float: left;
-  padding-right: 1.5%;
-  padding-left: 5.5%;
+  margin-right: 1.5%;
+  margin-left: 6.1%;
+  padding-top: 3px;
+  border-radius: 50%;
 }
 
 .add-topic {
   background: #fff;
-  width: 53%;
+  width: 51.5%;
   margin-left: 25%;
   min-height: 250px;
   border: 1px solid #ccc;
@@ -791,7 +851,7 @@ a {
   top: 144px;
   position: absolute;
   padding-top: 39px;
-  min-height: 714px;
+  min-height: 837px;
 }
 
 .feedtitleimage {
@@ -816,15 +876,12 @@ a {
 }
 .App-header {
   display: flex;
-  /* flex-direction: column;
-  align-items: baseline; */
   color: #333;
   width: 293px;
-  /* float: left; */
-  margin-left: 1%;
+  margin-left: 1.5%;
   padding-bottom: 10px;
   min-height: 150px;
-  position: absolute;
+  position: fixed;
   top: 79px;
 }
 
@@ -852,16 +909,23 @@ a {
 
 .addMore {
   border-radius: 50%;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
+}
+
+.favorites {
+  border-radius: 0 !Important;
 }
 
 header p img { 
   margin-right: 7px; 
   max-width: 22px; 
-  min-width: 75px; 
-  min-height: 75px; 
+  min-width: 60px; 
+  min-height: 60px; 
   margin-bottom: 2px; 
   background:#fbfbfb;
+  border-radius:50%;
+  padding-bottom:3px;
+  cursor:pointer;
 }
 
 .App-link {

@@ -7,6 +7,7 @@ import Topic from "./components/Topic";
 import AddTopic from "./components/AddTopic";
 import UserProfile from "./components/UserProfile";
 import Sidebar from "./containers/Sidebar";
+import Category from "./containers/Category";
 import Navbar from "./containers/Navbar";
 import Feed from "./containers/Feed";
 import {
@@ -24,13 +25,12 @@ class App extends Component {
       currentUser: {},
       loading: true,
       topicsFollowed: [],
-      allTopicPosts: []
+      allTopicPosts: [],
+      categoryPosts: []
+      // categoryName: ""
     };
   }
 
-  onlyUnique = (value, index, self) => {  // https://stackoverflow.com/questions/1960473/get-all-unique-values-in-a-javascript-array-remove-duplicates#14438954
-    return self.indexOf(value) === index;
-}
 
 
     // iterate through this.state.topicsFollowed and match topic_title with topicUrl... 
@@ -38,6 +38,8 @@ class App extends Component {
 
   
     fetchToTopicId = () => { //wrote with emiley 2/6/20
+
+      // console.log(this.state.topicsFollowed)
     this.state.topicsFollowed.forEach(topic => {
       // we console logged topicsPost and return two unique items in array
  
@@ -55,27 +57,31 @@ class App extends Component {
       let topicPosts = resp.topic.data.attributes.posts;
       topicPosts = topicPosts.map(postObj => { return {...postObj, topic_id: topicId}} )
       let allTopicPostsIds = this.state.allTopicPosts !== null ? this.state.allTopicPosts.map(tp => tp.id) : []
+      // console.log(this.state.allTopicPosts)
       let cleanTopicPosts = topicPosts.filter(topicpost => !allTopicPostsIds.includes(topicpost.id)) // if this topicPost's id isn't in allTopicPostsIds 
-        this.setState({
+        
+      this.state.allTopicPosts !== null && this.setState({
           allTopicPosts: [...this.state.allTopicPosts , ...cleanTopicPosts] // object with [Posts] inside of it.
-        })
+        }) 
     })
   } )
  }
   
   
   fetchFromGoogle = () => {
+    // console.log("fetchFromGoogle has been hit")
+    // eslint-disable-next-line
     this.state.topicsFollowed.map(topic => {
-      console.log(topic)
-      if (topic.google_news) {
+      let plus = topic.plus === true ? "+" : ""
+
         fetch(
-          `https://newsapi.org/v2/everything?language=${topic.language}&pageSize=${topic.page_size}&q=${topic.topic_title}&apiKey=07af66c02837407a82106528c10d64c5`
+          `https://newsapi.org/v2/everything?language=${topic.language}&pageSize=${topic.page_size}&q=${plus}${topic.topic_title}&sortBy=${topic.sort_by}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
         )
           .then(res => res.json())
           .then(result => {
             result.articles.map(article => this.postToOurApi(article, topic.id)); // thanks emiley sending each Articles into postToOurApi, good allTopicPosts! not using state!
           });
-      }
+      
     });
   };
 
@@ -100,7 +106,11 @@ class App extends Component {
     })
       .then(resp => resp.json())
       .then(resp => {
+
+        if (resp.post) { 
+        console.log(resp)
         fetch("http://localhost:3000/post_topics", {
+         
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -114,8 +124,9 @@ class App extends Component {
             }
           })
         })
-      })
-      .then(this.props.history.push("/feed"))
+      }      
+    }  )
+      // .then(this.props.history.push("/feed"))
       };
 
 
@@ -156,9 +167,22 @@ class App extends Component {
     // }
     }
 
+
+
+    deletePostFromCategory = (event) => {
+      console.log(event.target.id)
+      console.log(this.state.categoryPosts)
+      event.preventDefault();
+      this.setState({
+        categoryPosts: (this.state.categoryPosts.filter(x=> x.url !== event.target.id ) ) 
+      } )
+   
+    } 
+
     
     deletePostFromTopic = (event) => {
       event.preventDefault();
+      console.log(this.state.allTopicPosts)
       // console.log(event.target.id)
       fetch(`http://localhost:3000/posts/${event.target.id}`, {
       method: "delete",
@@ -168,6 +192,10 @@ class App extends Component {
         Authorization: localStorage.getItem("token")
       },
       })
+      // console.log(this.state.allTopicPosts.filter(x=> x.id !== parseInt(event.target.id)))
+      // console.log({allTopicPosts: (this.state.allTopicPosts.filter(x=> x.id !== parseInt(event.target.id) ) ) } )
+      this.setState({allTopicPosts: (this.state.allTopicPosts.filter(x=> x.id !== parseInt(event.target.id) ) ) } )
+   
     } 
 
 
@@ -205,7 +233,9 @@ class App extends Component {
           });
           this.props.history.push("/feed");
         }
-      });
+      })
+      console.log("wooah")
+      this.fetchToTopicId()
   };
 
   updateStateOfTopicsFollowed = result => {
@@ -220,6 +250,7 @@ class App extends Component {
 
   handleSubmitTopic = (event, socialInput) => { // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
     event.preventDefault();
+    socialInput.topic_title !== "" ? 
     fetch("http://localhost:3000/add-topic", {
       method: "POST",
       headers: {
@@ -230,7 +261,7 @@ class App extends Component {
       body: JSON.stringify({
         topic: {
           ...socialInput
-        }
+         }
       })
     })
     .then(res => res.json())
@@ -243,7 +274,8 @@ class App extends Component {
     })
     .then(() => {
       this.props.history.push("/feed") // this.props.history.push("/feed"); needs .then
-    });
+    })
+    : window.alert("Topic title cannot be empty")
   };
 
   handleSignupSubmit = (event, SignupInfo) => {
@@ -267,10 +299,105 @@ class App extends Component {
               ...json.user.data.attributes
             }
           });
+          this.createTopic()
+          
           this.props.history.push("/feed");
         }
-      });
+      })
+      
+
   };
+
+
+
+  createTopic = () => { // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
+    fetch("http://localhost:3000/add-topic", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: localStorage.getItem("token")
+      },
+      body: JSON.stringify({
+        topic: {
+         topic_title: "Trending",
+         logo:"https://cust-images.grenadine.co/grenadine/image/upload/c_fill,f_jpg,g_face,h_1472,w_1472/v0/Kinnektor/QgOV_5613.png",
+         user_id: this.state.currentUser.id,
+        //  page_size: 5,
+        //  plus: true,
+        //  sort_by: relevancy,
+        page_size: null,
+        plus: null,
+        sort_by: null
+        }
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      this.updateStateOfTopicsFollowed([data.topic.data.attributes]);
+      return data.topic.data.attributes.id // topicId
+    })
+    .then((topicID) => { // took out topicID
+      this.followTrending(topicID); // took out topicID
+    })
+    .then(() => {
+      this.props.history.push("/feed") // this.props.history.push("/feed"); needs .then
+    });
+  };
+
+
+  followTrending = (topicID) => {
+        fetch(`http://newsapi.org/v2/top-headlines?pageSize=14&country=us&apiKey=07af66c02837407a82106528c10d64c5`)
+          .then(res => res.json())
+          .then(result => {
+            result.articles.map(article => this.postTrendingTopicToOurApi(article, topicID)); // thanks emiley sending each Articles into postToOurApi, good allTopicPosts! not using state!
+          })
+      
+        }
+
+
+
+        postTrendingTopicToOurApi = (result,topicId) => {
+          console.log(localStorage) // sometimes shows, someimtes doesn't
+          fetch("http://localhost:3000/posts", {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+              Accept: "application/json",
+              Authorization: localStorage.getItem("token")
+            },
+            body: JSON.stringify({
+              topic_id: topicId,
+              post: {
+                caption: result.title,
+                source: result.source.name,
+                image_url: result.urlToImage,
+                url: result.url,
+                published_at: result.publishedAt
+              }
+            })
+          })
+            .then(resp => resp.json())
+            .then(data => {
+              console.log(data)
+              fetch("http://localhost:3000/post_topics", {
+                method: "POST",
+                headers: {
+                  "Content-type": "application/json",
+                  Accept: "application/json",
+                  Authorization: localStorage.getItem("token") 
+                },
+                body: JSON.stringify({
+                  post_topic: {
+                    post_id: data.post.id,
+                    topic_id: topicId
+                  }
+                })
+              })
+            })
+            .then(this.props.history.push("/feed"))
+            };
+
 
   handleLogout = () => {
     localStorage.clear();
@@ -281,6 +408,24 @@ class App extends Component {
     });
     this.props.history.push("/");
   };
+
+
+
+  handleCategoryClick(categoryName) {
+    console.log("handleCategory FETCH just happened")
+    fetch(
+      `https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=9&apiKey=07af66c02837407a82106528c10d64c5`
+    )
+      .then(resp => resp.json())
+      .then(resp =>
+        this.setState({
+          categoryPosts: resp.articles,
+          categoryName: categoryName
+        })
+      );
+    this.props.history.push(`/category/${categoryName}`);
+  }
+
 
   render() {
     return (
@@ -311,11 +456,72 @@ class App extends Component {
           {this.state.loading === false ? (
             Object.keys(this.state.currentUser).length !== 0 ? (
               <React.Fragment>
+
+
+              <Route
+                  exact
+                  path="/feed"
+                  render={props => (
+                    <Feed
+                      {...props}
+                      topicsFollowed={this.state.topicsFollowed}
+                      fetchFromGoogle={this.fetchFromGoogle}
+                      fetchToTopicId={this.fetchToTopicId}
+                      allTopicPosts={this.state.allTopicPosts}
+                      deletePostFromTopic={this.deletePostFromTopic}
+                    />
+                  )}
+                />
+
+              
+              <Route
+                  path="/category/"
+                  render={props => (
+                    <Category
+                      {...props}
+                  currentUser={this.state.currentUser}
+                  categoryPosts={this.state.categoryPosts}
+                  // categoryName={this.state.categoryName}
+                  deletePostFromCategory={this.deletePostFromCategory}
+                    />
+                  )}
+                />
+
+
+
+
+
+  
+<div className="category">
+            <h3>Categories</h3>
+            <br />
+              <p onClick={e => this.handleCategoryClick("business")}>#Business</p>
+              <p onClick={e => this.handleCategoryClick("entertainment")}>
+                #Entertainment
+              </p>
+              <p onClick={e => this.handleCategoryClick("general")}>#General</p>
+              <p onClick={e => this.handleCategoryClick("health")}>#Health</p>
+              <p onClick={e => this.handleCategoryClick("science")}>#Science</p>
+              <p onClick={e => this.handleCategoryClick("sports")}>#Sports</p>
+              <p onClick={e => this.handleCategoryClick("technology")}>#Technology
+              
+              </p>
+    
+           
+          
+          </div> 
+                {/* <Category/> */}
+
+         
+            
                 <Sidebar
                   currentUser={this.state.currentUser}
                   topicsFollowed={this.state.topicsFollowed}
                   updateStateOfTopicsFollowed={this.updateStateOfTopicsFollowed}
                 />
+
+
+       
 
                 <Route path="/topic" render={props => <Topic {...props} fetchFromGoogle={this.fetchFromGoogle} topicsFollowed={this.state.topicsFollowed} allTopicPosts={this.state.allTopicPosts} />} />
 
@@ -334,20 +540,7 @@ class App extends Component {
                   )}
                 />
    
-                <Route
-                  exact
-                  path="/feed"
-                  render={props => (
-                    <Feed
-                      {...props}
-                      topicsFollowed={this.state.topicsFollowed}
-                      fetchFromGoogle={this.fetchFromGoogle}
-                      fetchToTopicId={this.fetchToTopicId}
-                      allTopicPosts={this.state.allTopicPosts}
-                      deletePostFromTopic={this.deletePostFromTopic}
-                    />
-                  )}
-                />
+  
 
                 <Route
                   exact

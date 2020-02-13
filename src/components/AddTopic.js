@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
-// import Select from "react-dropdown-select";
 export default class AddTopic extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +8,8 @@ export default class AddTopic extends Component {
       topic_title: "",
       page_size: 5,
       language: "en",
-      google_news: true,
+      plus: true,
+      sort_by: "relevancy",
       logo: "https://i.imgur.com/yVM8C5B.png",
       user_id: props.currentUser.id
     };
@@ -20,7 +20,7 @@ export default class AddTopic extends Component {
   };
 
   toggleImage = () => {
-    this.setState(state => ({ google_news: !state.google_news }));
+    this.setState(state => ({ plus: !state.plus }));
   };
 
   handleChange = e => {
@@ -38,7 +38,7 @@ export default class AddTopic extends Component {
 
   render() {
     let imageLife;
-    if (this.state.google_news === true) {
+    if (this.state.plus === true) {
       imageLife = "/toggleon.png";
     } else {
       imageLife = "/toggleoff.png";
@@ -55,11 +55,11 @@ export default class AddTopic extends Component {
             }}
           >
             <Form.Group controlId="formBasicTopicTitle">
-              <p class="hashtag">#</p>
+              <p className="hashtag">#</p>
               <Form.Control
                 type="text"
                 name="topic_title"
-                placeholder="TopicName"
+                placeholder="TopicTitle"
                 onKeyPress={e => this.avoidSpace(e)}
                 onChange={e => this.handleChange(e)}
                 value={this.state.topic_title}
@@ -73,19 +73,19 @@ export default class AddTopic extends Component {
               src="/missing.png"
               name="logo"
               className="missing"
-              onClick={this.alertMe}
+              // onClick={this.alertMe}
               alt="missing"
               onKeyPress={e => this.avoidSpace(e)}
               onChange={e => this.handleChange(e)}
               value="https://i.imgur.com/yVM8C5B.png"
             />
-            <button onClick={this.alertMe} className="uploadimage">
+            <button 
+            // onClick={this.alertMe} 
+            className="uploadimage">
               Upload File
             </button>
             <br /> <h2 className="addsourcehandle">Language</h2>
             <p className="handleLife">
-              {/* <Select countries={countries} onChange={(e) => this.handleChange(e)} /> */}
-
               <select
                 value={this.state.language}
                 className="language"
@@ -104,14 +104,40 @@ export default class AddTopic extends Component {
                 <option value="zh">Zhōngwén</option>
               </select>
             </p>
-            <br />
-            <br></br> <br />
-            <br />
-            <br></br> <br />
-            <br /> <h2 className="addsourcehandle">Results</h2>
-            <p className="handleLife">
-              {/* <Select countries={countries} onChange={(e) => this.handleChange(e)} /> */}
+            <br /> <br></br> <br /> <br /> <br></br> <br /> <br />
 
+
+
+
+
+
+
+
+
+
+           <h2 className="addsourcehandle">Sort By</h2>
+            <p className="handleLife">
+              <select
+                value={this.state.sort_by}
+                className="sort_by"
+                name="sort_by"
+                onChange={e => this.handleChange(e)}
+              >
+                <option value="relevancy">Relevance</option>
+                <option value="publishedAt">Latest</option>
+                <option value="popularity">Popular</option>
+
+              </select>
+            </p>
+            <br /> <br></br> <br /> <br /> <br></br> <br /> <br />
+
+
+
+
+
+
+            <h2 className="addsourcehandle">Results</h2>
+            <p className="handleLife">
               <select
                 value={this.state.page_size}
                 className="page_size"
@@ -127,32 +153,16 @@ export default class AddTopic extends Component {
             <br />
             <br></br> <br />
             <br />
-            <br></br> <br />
-            {/* <br/><br></br>          <br/>
-        <p className="handleLife"><img src="https://i.imgur.com/YZQLf2D.png" alt="twitter" width="20px" height="20px" className="twitter"></img>Twitter.com/         
-
-        <Form.Group controlId="formBasicTopicTwitter">
-          <Form.Control type='text' name="twitter" placeholder={`ie: @${this.state.topic_title}`} onKeyPress={(e) => this.avoidSpace(e)} onChange={(e) => this.handleChange (e)} value={this.state.twitter}/>
-          </Form.Group>
-          </p>
-
-
-          <br/><br></br> <br/>
-        <p className="handleLife"><img src="https://i.imgur.com/UVUR8TT.png" alt="youtube" className="youtube" width="20px" height="20px"></img>Youtube.com/         
-
-        <Form.Group controlId="formBasicTopicYoutube">
-          <Form.Control type='text' name="youtube" placeholder="ie. UC4cCjKsLD" onKeyPress={(e) => this.avoidSpace(e)} onChange={(e) => this.handleChange (e)} value={this.state.youtube}/>
-          </Form.Group>
-          </p> */}
+            <br></br>
             <p className="handleLife">
               <img
                 src={imageLife}
                 alt="relatednews"
-                name="google_news"
+                name="plus"
                 className="toggleHandle"
                 onClick={this.toggleImage}
               />
-              Related News
+              Results must include topic title 
             </p>
             <br></br>
             <div className="submitTopic">

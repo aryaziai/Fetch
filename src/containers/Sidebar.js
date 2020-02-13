@@ -35,7 +35,8 @@ class Sidebar extends Component {  // MAKE FUNCTIONAL COMPONENT LATER
     {this.props.topicsFollowed !== null ? this.props.topicsFollowed.map(topic => (
     <SidebarItems topic={topic} key={topic.id}/>  ))   : <><div className="lds-dual-ring"></div></> }
 
-<p className="addnewsidebaritems" onClick={() => this.props.history.push("/add-topic")}> <img src="https://friconix.com/png/fi-xtluxx-plus-thin.png" alt="Add Topic" className="addMore" />Add a New Topic </p>
+    {/* <p className="addnewsidebaritems" onClick={() => this.props.history.push("/add-topic")}> <img src="/unheart.png" alt="Add Topic" className="favorites" />Favorites</p> */}
+     <p className="addnewsidebaritems" onClick={() => this.props.history.push("/add-topic")}> <img src="https://friconix.com/png/fi-xtluxx-plus-thin.png" alt="Add Topic" className="addMore" />Add a New Topic </p>
       </div>
       </header>
     );
