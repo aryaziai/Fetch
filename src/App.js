@@ -22,7 +22,6 @@ class App extends Component {
       topicsFollowed: [],
       allTopicPosts: [],
       categoryPosts: []
-      // categoryName: ""
     };
   }
 
@@ -30,11 +29,11 @@ class App extends Component {
   // if successful then make fetch request localhost.com/3000/topics/{id}
 
   fetchToTopicId = () => {
+    console.log(    this.state.topicsFollowed)
     //wrote with emiley 2/6/20
 
-    // console.log(this.state.topicsFollowed)
     this.state.topicsFollowed.forEach(topic => {
-      // we console logged topicsPost and return two unique items in array
+      console.log(topic)
 
       fetch(`http://localhost:3000/topics/${topic.id}`, {
         method: "GET",
@@ -49,6 +48,7 @@ class App extends Component {
           // Matt 2/8/20
           let topicId = resp.topic.data.attributes.id;
           let topicPosts = resp.topic.data.attributes.posts;
+          console.log(topicPosts)
           topicPosts = topicPosts.map(postObj => {
             return { ...postObj, topic_id: topicId };
           });
@@ -67,6 +67,7 @@ class App extends Component {
             });
         });
     });
+      console.log("ended")
   };
 
   fetchFromGoogle = () => {
@@ -230,11 +231,13 @@ class App extends Component {
               last_name: json.user.data.attributes.last_name
             }
           });
-          this.props.history.push("/feed");
+          this.fetchToTopicId()
+          this.props.history.push("/feed")
         }
-      });
-    console.log("wooah");
-    this.fetchToTopicId();
+      })
+
+
+  
   };
 
   updateStateOfTopicsFollowed = result => {
@@ -279,7 +282,7 @@ class App extends Component {
       : window.alert("Topic title cannot be empty");
   };
 
-  handleSignupSubmit = (event, SignupInfo) => {
+  handleSignupSubmit = (event, SignupInfo) => { // first function called when signing up
     event.preventDefault();
     fetch("http://localhost:3000/signup", {
       method: "POST",
@@ -300,14 +303,14 @@ class App extends Component {
               ...json.user.data.attributes
             }
           });
-          this.createTopic();
+          this.createTopic(); // second function called   // i think because this is not in a .then
 
-          this.props.history.push("/feed");
+          // this.props.history.push("/feed"); // why am I pushing to feed
         }
       });
   };
 
-  createTopic = () => {
+  createTopic = () => { // CREATES TRENDING TOPIC
     // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
     fetch("http://localhost:3000/add-topic", {
       method: "POST",
@@ -333,29 +336,14 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.updateStateOfTopicsFollowed([data.topic.data.attributes]);
-        return data.topic.data.attributes.id; // topicId
-      })
-      .then(topicID => {
-        // took out topicID
-        this.followTrending(topicID); // took out topicID
+        // console.log("topic Id", topicId)
+        this.followTrending(data.topic.data.attributes.id); // took out topicID
       })
       .then(() => {
         this.props.history.push("/feed"); // this.props.history.push("/feed"); needs .then
       });
   };
 
-  followTrending = topicID => {
-    fetch(
-      `http://newsapi.org/v2/top-headlines?pageSize=14&country=us&apiKey=07af66c02837407a82106528c10d64c5`
-    )
-      .then(res => res.json())
-      .then(result => {
-        result.articles.map(article =>
-          this.postTrendingTopicToOurApi(article, topicID)
-        ); // thanks emiley sending each Articles into postToOurApi, good allTopicPosts! not using state!
-      });
-  };
 
   deleteTopic = (event) => {
     event.preventDefault();
@@ -367,20 +355,27 @@ class App extends Component {
         Authorization: localStorage.getItem("token")
       }
     })
-    // 
-    console.log(event.target.id)
-
-    // console.log(this.state.topicsFollowed.filter(x=> x.id !== parseInt(event.target.id) ) )
-    // console.log()
-    // console.log({allTopicPosts: (this.state.allTopicPosts.filter(x=> x.id !== parseInt(event.target.id) ) ) } )
     this.setState({
       topicsFollowed: this.state.topicsFollowed.filter(x=> x.id !== parseInt(event.target.id) ) 
     })
     this.props.history.push("/feed")
     } 
 
+
+  followTrending = (topicId) => { 
+    fetch(`http://newsapi.org/v2/top-headlines?pageSize=9&country=us&apiKey=07af66c02837407a82106528c10d64c5`)
+      .then(res => res.json())
+      .then(result => {
+        // console.log(result) // successful
+        result.articles.map(article =>
+          this.postTrendingTopicToOurApi(article, topicId)
+        ); // thanks emiley sending each Articles into postToOurApi, good allTopicPosts! not using state!
+      });
+  };
+
+
+
   postTrendingTopicToOurApi = (result, topicId) => {
-    // console.log(localStorage) // sometimes shows, someimtes doesn't
     fetch("http://localhost:3000/posts", {
       method: "POST",
       headers: {
@@ -417,7 +412,8 @@ class App extends Component {
           })
         });
       })
-      .then(this.props.history.push("/feed"));
+      .then(this.fetchToTopicId())
+      // .then(this.props.history.push("/feed"));
   };
 
   handleLogout = () => {
@@ -425,7 +421,8 @@ class App extends Component {
     this.setState({
       currentUser: {},
       topicsFollowed: [],
-      allTopicPosts: null
+      allTopicPosts: null,
+      categoryPosts: []
     });
     this.props.history.push("/");
   };

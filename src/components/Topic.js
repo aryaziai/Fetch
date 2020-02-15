@@ -11,7 +11,7 @@ class Topic extends Component {
     let topicUrl = this.props.location.pathname.split("/").slice(-1)[0];
 
     let correctTopicId = this.props.topicsFollowed.find(
-      x => x.topic_title === topicUrl
+      x => x.topic_title.toLowerCase() === topicUrl
     );
 
     // console.log(correctTopicId)

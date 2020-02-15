@@ -9,9 +9,15 @@ class Navbar extends Component {
     super();
 
     this.state = {
-      searchItem: ""
+      search: ""
     };
   }
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
 
   loginLogic = () => {
     // if not logged in
@@ -68,10 +74,10 @@ class Navbar extends Component {
             <center>
               <Form.Control
                 type="text"
-                name="first_name"
+                name="search"
                 placeholder="Search Topics"
                 onChange={e => this.handleChange(e)}
-                value={this.state.searchItem}
+                value={this.state.search}
               />
             </center>
           </Form.Group>

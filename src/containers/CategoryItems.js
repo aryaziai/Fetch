@@ -51,16 +51,16 @@ class CategoryItems extends Component {
                 <br></br>{this.props.topicPost.title}<br/> <a className="post_link" href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">{this.props.topicPost.url}</a>
                 <br/><a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">
                     <br></br>
-                    <img src={this.props.topicPost.urlToImage } className="postImage" /></a><br/>
+                    <img src={this.props.topicPost.urlToImage } className="categorypostImage" /></a><br/>
          </div>      
                
             <div className="bottomofCard">
                <p className="favorite"><img src={favorite} alt="favorite" name="favorite" className="favorite" onClick={this.toggleImage}/>Favorite
 
-               <a href={`sms:Text Someone&body=${this.props.topicPost.caption}%0D%0A%0D%0A${this.props.topicPost.url}`}>
+               <a href={`sms:Text Someone&body=${this.props.topicPost.title}%0D%0A%0D%0A${this.props.topicPost.url}`}>
                    <img src="/imessage.png" alt="imessage" name="imessage" className="iMessage"/>iMessage</a>
                
-                <a href={`mailto:?subject=${this.props.topicPost.caption}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.topicPost.url}`}>
+                <a href={`mailto:?subject=${this.props.topicPost.title}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.topicPost.url}`}>
                     <img src="/mail.png" alt="email" className="email"/>Email</a>
                 
                  </p>

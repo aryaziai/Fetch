@@ -31,8 +31,10 @@ class FeedItems extends Component {
         return (
            <>
 
-        
+{correctOne !== undefined ?
             <div className="newmain" > 
+
+            
               
                <img src={correctOne.logo} alt="topic_logo" className="feeditemslogo" onClick={() => this.props.history.push(`/topic/${correctOne.topic_title.toLowerCase()}`) }/>
                
@@ -51,7 +53,7 @@ class FeedItems extends Component {
                <a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer"> 
          
            
-                   <img src={this.props.topicPost.image_url} className="postImage" /></a><br/>
+                   <img src={this.props.topicPost.image_url} className="feedpostImage" /></a><br/>
                
                <div className="bottomofCard">
                <p className="favorite"><img src={favorite} alt="favorite" name="favorite" className="favorite" onClick={this.toggleImage}/>Favorite
@@ -65,6 +67,7 @@ class FeedItems extends Component {
                <p className="sourceinfo">Source: {this.props.topicPost.source}</p></div>
 
                </div> 
+            : null }
         </>
         )
     }

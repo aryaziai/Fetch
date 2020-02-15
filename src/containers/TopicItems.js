@@ -40,7 +40,7 @@ export default class TopicItems extends Component {
                
                <p className="date">Published on {new Date(this.props.topicPost.published_at).toString()}</p> 
                
-               <br></br>{this.props.topicPost.caption}<br/> <a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer">{this.props.topicPost.url}</a> </div>
+               <br></br>{this.props.topicPost.caption}<br/> <a href={this.props.topicPost.url} className="post_link" target="_blank" rel="noopener noreferrer">{this.props.topicPost.url}</a> </div>
                
                <a href={this.props.topicPost.url} target="_blank" rel="noopener noreferrer"><img src={this.props.topicPost.image_url} alt="news_image" className="postImage" /></a><br/>
                
