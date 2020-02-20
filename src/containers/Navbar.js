@@ -43,16 +43,15 @@ class Navbar extends Component {
         <div className="profile-nav">
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <img
-                src="/missing_avatar.jpg"
-                alt="avatar"
-              />{" "}
+              <img src="/missing_avatar.jpg" alt="avatar" />{" "}
               {this.props.currentUser.username}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              
-              <p className="dropdown-item" onClick={() => this.props.history.push("/profile")}>
+              <p
+                className="dropdown-item"
+                onClick={() => this.props.history.push("/profile")}
+              >
                 Edit Profile
               </p>
               <p className="dropdown-item" onClick={this.props.handleLogout}>
@@ -60,8 +59,6 @@ class Navbar extends Component {
               </p>
             </Dropdown.Menu>
           </Dropdown>
-
-          
         </div>
       );
   };
@@ -92,11 +89,7 @@ class Navbar extends Component {
         <Link
           to={Object.keys(this.props.currentUser).length === 0 ? "/" : "/feed"}
         >
-          <img
-            className="logo"
-            src="/logo.png"
-            alt="logo"
-          />
+          <img className="logo" src="/public/logo.png" alt="logo" />
         </Link>
 
         {this.loginLogicSearch()}
