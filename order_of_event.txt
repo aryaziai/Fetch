@@ -21,7 +21,7 @@
 
  3. Clicking refresh icon on feed page (Feed.js) --- child of App, triggers: this.props.fetchToTopicId()
     
-    fetchToTopicId() runs this.state.topicsFollowed.forEach and makes a fetch request to http://localhost:3000/topics/${topic.id}
+    fetchToTopicId() runs this.state.topicsFollowed.forEach and makes a fetch request to https://fetch-backend-api.herokuapp.com/topics/${topic.id}
  -  .then resp=>resp.json()
  -  .then(resp => this.setState(prevState => ({
         allTopicPosts: prevState.allTopicPosts.concat(resp.topic.data.attributes) // running unique function here isn't working.

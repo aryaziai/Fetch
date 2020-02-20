@@ -35,7 +35,7 @@ class App extends Component {
     this.state.topicsFollowed.forEach(topic => {
       console.log(topic)
 
-      fetch(`http://localhost:3000/topics/${topic.id}`, {
+      fetch(`https://fetch-backend-api.herokuapp.com/topics/${topic.id}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -87,7 +87,7 @@ class App extends Component {
   };
 
   postToOurApi = (result, topicId) => {
-    fetch("http://localhost:3000/posts", {
+    fetch("https://fetch-backend-api.herokuapp.com/posts", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -109,7 +109,7 @@ class App extends Component {
       .then(resp => {
         if (resp.post) {
           // console.log(resp)
-          fetch("http://localhost:3000/post_topics", {
+          fetch("https://fetch-backend-api.herokuapp.com/post_topics", {
             method: "POST",
             headers: {
               "Content-type": "application/json",
@@ -131,7 +131,7 @@ class App extends Component {
   componentDidMount() {
     // if (localStorage.getItem("token") !== null) {
 
-    fetch("http://localhost:3000/re_auth", {
+    fetch("https://fetch-backend-api.herokuapp.com/re_auth", {
       // fetch GET would only need 1 argument. the rest need 2
       method: "GET",
       headers: {
@@ -182,7 +182,7 @@ class App extends Component {
     event.preventDefault();
     // console.log(this.state.allTopicPosts)
     // console.log(event.target.id)
-    fetch(`http://localhost:3000/posts/${event.target.id}`, {
+    fetch(`https://fetch-backend-api.herokuapp.com/posts/${event.target.id}`, {
       method: "delete",
       headers: {
         "Content-type": "application/json",
@@ -201,7 +201,7 @@ class App extends Component {
 
   handleLoginSubmit = (event, loginInfo) => {
     event.preventDefault();
-    fetch("http://localhost:3000/login", {
+    fetch("https://fetch-backend-api.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -254,7 +254,7 @@ class App extends Component {
     // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
     event.preventDefault();
     socialInput.topic_title !== ""
-      ? fetch("http://localhost:3000/add-topic", {
+      ? fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -284,7 +284,7 @@ class App extends Component {
 
   handleSignupSubmit = (event, SignupInfo) => { // first function called when signing up
     event.preventDefault();
-    fetch("http://localhost:3000/signup", {
+    fetch("https://fetch-backend-api.herokuapp.com/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -312,7 +312,7 @@ class App extends Component {
 
   createTopic = () => { // CREATES TRENDING TOPIC
     // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
-    fetch("http://localhost:3000/add-topic", {
+    fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -347,7 +347,7 @@ class App extends Component {
 
   deleteTopic = (event) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/topics/${event.target.id}`, {
+    fetch(`https://fetch-backend-api.herokuapp.com/topics/${event.target.id}`, {
       method: "delete",
       headers: {
         "Content-type": "application/json",
@@ -376,7 +376,7 @@ class App extends Component {
 
 
   postTrendingTopicToOurApi = (result, topicId) => {
-    fetch("http://localhost:3000/posts", {
+    fetch("https://fetch-backend-api.herokuapp.com/posts", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -397,7 +397,7 @@ class App extends Component {
       .then(resp => resp.json())
       .then(data => {
         // console.log(data)
-        fetch("http://localhost:3000/post_topics", {
+        fetch("https://fetch-backend-api.herokuapp.com/post_topics", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
