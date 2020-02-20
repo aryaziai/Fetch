@@ -6,7 +6,7 @@ export default class Welcome extends Component {
     return (
       <div className="welcome">
         <h1 className="create_experience">
-          Create your !!! personalized
+          Create your personalized
           <br />
           news experience
         </h1>
