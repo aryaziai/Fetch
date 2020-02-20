@@ -89,7 +89,7 @@ class Navbar extends Component {
         <Link
           to={Object.keys(this.props.currentUser).length === 0 ? "/" : "/feed"}
         >
-          <img className="logo" src="/public/logo.png" alt="logo" />
+          <img className="logo" src="/logo.png" alt="logo" />
         </Link>
 
         {this.loginLogicSearch()}

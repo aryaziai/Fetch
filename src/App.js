@@ -29,11 +29,11 @@ class App extends Component {
   // if successful then make fetch request localhost.com/3000/topics/{id}
 
   fetchToTopicId = () => {
-    console.log(    this.state.topicsFollowed)
+    console.log(this.state.topicsFollowed);
     //wrote with emiley 2/6/20
 
     this.state.topicsFollowed.forEach(topic => {
-      console.log(topic)
+      console.log(topic);
 
       fetch(`https://fetch-backend-api.herokuapp.com/topics/${topic.id}`, {
         method: "GET",
@@ -48,7 +48,7 @@ class App extends Component {
           // Matt 2/8/20
           let topicId = resp.topic.data.attributes.id;
           let topicPosts = resp.topic.data.attributes.posts;
-          console.log(topicPosts)
+          console.log(topicPosts);
           topicPosts = topicPosts.map(postObj => {
             return { ...postObj, topic_id: topicId };
           });
@@ -67,7 +67,7 @@ class App extends Component {
             });
         });
     });
-      console.log("ended")
+    console.log("ended");
   };
 
   fetchFromGoogle = () => {
@@ -231,13 +231,10 @@ class App extends Component {
               last_name: json.user.data.attributes.last_name
             }
           });
-          this.fetchToTopicId()
-          this.props.history.push("/feed")
+          this.fetchToTopicId();
+          this.props.history.push("/feed");
         }
-      })
-
-
-  
+      });
   };
 
   updateStateOfTopicsFollowed = result => {
@@ -282,7 +279,8 @@ class App extends Component {
       : window.alert("Topic title cannot be empty");
   };
 
-  handleSignupSubmit = (event, SignupInfo) => { // first function called when signing up
+  handleSignupSubmit = (event, SignupInfo) => {
+    // first function called when signing up
     event.preventDefault();
     fetch("https://fetch-backend-api.herokuapp.com/signup", {
       method: "POST",
@@ -310,7 +308,8 @@ class App extends Component {
       });
   };
 
-  createTopic = () => { // CREATES TRENDING TOPIC
+  createTopic = () => {
+    // CREATES TRENDING TOPIC
     // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
     fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
       method: "POST",
@@ -344,8 +343,7 @@ class App extends Component {
       });
   };
 
-
-  deleteTopic = (event) => {
+  deleteTopic = event => {
     event.preventDefault();
     fetch(`https://fetch-backend-api.herokuapp.com/topics/${event.target.id}`, {
       method: "delete",
@@ -354,16 +352,19 @@ class App extends Component {
         Accept: "application/json",
         Authorization: localStorage.getItem("token")
       }
-    })
+    });
     this.setState({
-      topicsFollowed: this.state.topicsFollowed.filter(x=> x.id !== parseInt(event.target.id) ) 
-    })
-    this.props.history.push("/feed")
-    } 
+      topicsFollowed: this.state.topicsFollowed.filter(
+        x => x.id !== parseInt(event.target.id)
+      )
+    });
+    this.props.history.push("/feed");
+  };
 
-
-  followTrending = (topicId) => { 
-    fetch(`http://newsapi.org/v2/top-headlines?pageSize=9&country=us&apiKey=07af66c02837407a82106528c10d64c5`)
+  followTrending = topicId => {
+    fetch(
+      `http://newsapi.org/v2/top-headlines?pageSize=9&country=us&apiKey=07af66c02837407a82106528c10d64c5`
+    )
       .then(res => res.json())
       .then(result => {
         // console.log(result) // successful
@@ -372,8 +373,6 @@ class App extends Component {
         ); // thanks emiley sending each Articles into postToOurApi, good allTopicPosts! not using state!
       });
   };
-
-
 
   postTrendingTopicToOurApi = (result, topicId) => {
     fetch("https://fetch-backend-api.herokuapp.com/posts", {
@@ -412,8 +411,8 @@ class App extends Component {
           })
         });
       })
-      .then(this.fetchToTopicId())
-      // .then(this.props.history.push("/feed"));
+      .then(this.fetchToTopicId());
+    // .then(this.props.history.push("/feed"));
   };
 
   handleLogout = () => {
@@ -574,7 +573,7 @@ class App extends Component {
                 />
               </React.Fragment>
             ) : (
-              <Redirect to="/" />
+              <Redirect to="/Fetch-Frontend/" />
             )
           ) : (
             <>
