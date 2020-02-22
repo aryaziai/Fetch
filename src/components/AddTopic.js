@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
 
-
 export default class AddTopic extends Component {
   constructor(props) {
     super(props);
@@ -12,15 +11,13 @@ export default class AddTopic extends Component {
       language: "en",
       plus: true,
       sort_by: "relevancy",
-      logo: "/missing.png",
+      logo: "/Fetch-Frontend/missing.png",
       user_id: props.currentUser.id,
       toggleUpload: false
     };
   }
 
-  alertMe = () => {
-    window.alert("Cool story bro");
-  };
+
 
   toggleImage = () => {
     this.setState(state => ({ plus: !state.plus }));
@@ -39,24 +36,20 @@ export default class AddTopic extends Component {
     }
   };
 
-  
   showImage = () => {
     if (this.state.toggleUpload === true) {
-      this.setState({toggleUpload:false})
+      this.setState({ toggleUpload: false });
     } else {
-      this.setState({toggleUpload:true})
+      this.setState({ toggleUpload: true });
     }
-  }
+  };
   render() {
     let imageLife;
     if (this.state.plus === true) {
-      imageLife = "/toggleon.png";
+      imageLife = "/Fetch-Frontend/toggleon.png";
     } else {
-      imageLife = "/toggleoff.png";
+      imageLife = "/Fetch-Frontend/toggleoff.png";
     }
-
- 
-
 
     return (
       <div>
@@ -83,8 +76,6 @@ export default class AddTopic extends Component {
             <br />
             <h2 className="addtopiclogo">Add Logo</h2>
             <br />
-
-
             <img
               src={this.state.logo}
               name="logo"
@@ -96,31 +87,24 @@ export default class AddTopic extends Component {
               // onClick={e => this.showImage(e)}
               value="/missing.png"
             />
-
-            {this.state.toggleUpload === true ? 
-
-            <div className="upload_image" >
-              <Form.Group controlId="formBasicTopicLogo">
-              <Form.Control
-                type="text"
-                name="logo"
-                placeholder="Insert Logo URL"
-                onKeyPress={e => this.avoidSpace(e)}
-                onChange={e => this.handleChange(e)}
-              />
-            </Form.Group>
-
-            </div>
-
-            : null }
-
-
-
-
-            <p 
-            // onClick={this.alertMe} 
-            onClick={e => this.showImage(e)}
-            className="uploadimage">
+            {this.state.toggleUpload === true ? (
+              <div className="upload_image">
+                <Form.Group controlId="formBasicTopicLogo">
+                  <Form.Control
+                    type="text"
+                    name="logo"
+                    placeholder="Insert Logo URL"
+                    onKeyPress={e => this.avoidSpace(e)}
+                    onChange={e => this.handleChange(e)}
+                  />
+                </Form.Group>
+              </div>
+            ) : null}
+            <p
+              // onClick={this.alertMe}
+              onClick={e => this.showImage(e)}
+              className="uploadimage"
+            >
               Upload File
             </p>
             <br /> <h2 className="addsourcehandle">Language</h2>
@@ -144,17 +128,7 @@ export default class AddTopic extends Component {
               </select>
             </p>
             <br /> <br></br> <br /> <br /> <br></br> <br /> <br />
-
-
-
-
-
-
-
-
-
-
-           <h2 className="addsourcehandle">Sort By</h2>
+            <h2 className="addsourcehandle">Sort By</h2>
             <p className="handleLife">
               <select
                 value={this.state.sort_by}
@@ -165,16 +139,9 @@ export default class AddTopic extends Component {
                 <option value="relevancy">Relevance</option>
                 <option value="publishedAt">Latest</option>
                 <option value="popularity">Popular</option>
-
               </select>
             </p>
             <br /> <br></br> <br /> <br /> <br></br> <br /> <br />
-
-
-
-
-
-
             <h2 className="addsourcehandle">Results</h2>
             <p className="handleLife">
               <select
@@ -201,12 +168,12 @@ export default class AddTopic extends Component {
                 className="toggleHandle"
                 onClick={this.toggleImage}
               />
-              Results must include topic title 
+              Results must include topic title
             </p>
             <br></br>
             <div className="submitTopic">
               <button
-                onClick={() => this.props.history.push("/feed")}
+                onClick={() => this.props.history.push("/Fetch-Frontend/feed")}
                 className="submitTopic-btton-nevermind"
               >
                 Nevermind

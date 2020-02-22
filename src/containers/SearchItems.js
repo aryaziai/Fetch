@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-class CategoryItems extends Component {
+class SearchItems extends Component {
   constructor() {
     super();
     this.state = {
@@ -20,50 +20,43 @@ class CategoryItems extends Component {
     } else {
       favorite = "/Fetch-Frontend/unheart.png";
     }
-
-    let categoryName = this.props.location.pathname.split("/").slice(-1)[0];
-
-    let categoryImage = `/Fetch-Frontend/${categoryName}.png`;
-    //    console.log(this.props)
+    let searchName = this.props.location.pathname.split("/").slice(-1)[0];
     return (
       <>
         <div className="newmain">
-          <img src={categoryImage} alt="topic_logo" className="feeditemslogo" />
+          <img
+            src="/Fetch-Frontend/magnifying.jpg"
+            alt="topic_logo"
+            className="feeditemslogo"
+          />
 
           <div className="caption">
             {" "}
-            <b className="CategoryTitle">#{categoryName} </b>
-            <button
-              id={this.props.topicPost.url}
-              onClick={event => this.props.deletePostFromCategory(event)}
-              className="xOut"
-            >
-              x
-            </button>
+            <b className="CategoryTitle">#{searchName} </b>
             <p className="date">
               Published on{" "}
-              {new Date(this.props.topicPost.publishedAt).toString()}
+              {new Date(this.props.searchPost.publishedAt).toString()}
             </p>
             <br></br>
-            {this.props.topicPost.title}
+            {this.props.searchPost.title}
             <br />{" "}
             <a
               className="post_link"
-              href={this.props.topicPost.url}
+              href={this.props.searchPost.url}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {this.props.topicPost.url}
+              {this.props.searchPost.url}
             </a>
             <br />
             <a
-              href={this.props.topicPost.url}
+              href={this.props.searchPost.url}
               target="_blank"
               rel="noopener noreferrer"
             >
               <br></br>
               <img
-                src={this.props.topicPost.urlToImage}
+                src={this.props.searchPost.urlToImage}
                 className="categorypostImage"
               />
             </a>
@@ -81,7 +74,7 @@ class CategoryItems extends Component {
               />
               Favorite
               <a
-                href={`sms:Text Someone&body=${this.props.topicPost.title}%0D%0A%0D%0A${this.props.topicPost.url}`}
+                href={`sms:Text Someone&body=${this.props.searchPost.title}%0D%0A%0D%0A${this.props.searchPost.url}`}
               >
                 <img
                   src="/Fetch-Frontend/imessage.png"
@@ -92,7 +85,7 @@ class CategoryItems extends Component {
                 iMessage
               </a>
               <a
-                href={`mailto:?subject=${this.props.topicPost.title}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.topicPost.url}`}
+                href={`mailto:?subject=${this.props.searchPost.title}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.searchPost.url}`}
               >
                 <img
                   src="/Fetch-Frontend/mail.png"
@@ -104,7 +97,7 @@ class CategoryItems extends Component {
             </p>
 
             <p className="sourceinfo">
-              Source: {this.props.topicPost.source.name}
+              Source: {this.props.searchPost.source.name}
             </p>
           </div>
         </div>
@@ -113,4 +106,4 @@ class CategoryItems extends Component {
   }
 }
 
-export default withRouter(CategoryItems);
+export default withRouter(SearchItems);

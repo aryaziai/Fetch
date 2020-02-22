@@ -26,13 +26,13 @@ class Navbar extends Component {
         <>
           <div
             className="topcoolbutton"
-            onClick={() => this.props.history.push("/signup")}
+            onClick={() => this.props.history.push("/Fetch-Frontend/signup")}
           >
             <p>Signup</p>
           </div>
           <div
             className="topcoolbutton"
-            onClick={() => this.props.history.push("/login")}
+            onClick={() => this.props.history.push("/Fetch-Frontend/login")}
           >
             <p>Login</p>
           </div>
@@ -43,14 +43,16 @@ class Navbar extends Component {
         <div className="profile-nav">
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <img src="/missing_avatar.jpg" alt="avatar" />{" "}
+              <img src="/Fetch-Frontend/missing_avatar.jpg" alt="avatar" />{" "}
               {this.props.currentUser.username}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
               <p
                 className="dropdown-item"
-                onClick={() => this.props.history.push("/profile")}
+                onClick={() =>
+                  this.props.history.push("/Fetch-Frontend/profile")
+                }
               >
                 Edit Profile
               </p>
@@ -67,17 +69,19 @@ class Navbar extends Component {
     if (Object.keys(this.props.currentUser).length !== 0) {
       return (
         <div>
-          <Form.Group controlId="formBasicSearch">
-            <center>
-              <Form.Control
-                type="text"
-                name="search"
-                placeholder="Search Topics"
-                onChange={e => this.handleChange(e)}
-                value={this.state.search}
-              />
-            </center>
-          </Form.Group>
+          <form onSubmit={e => {this.props.fetchFromSearch(e, this.state.search)}}>
+            <Form.Group controlId="formBasicSearch">
+              <center>
+                <Form.Control
+                  type="text"
+                  name="search"
+                  placeholder="Search All Articles"
+                  onChange={e => this.handleChange(e)}
+                  value={this.state.search}
+                />
+              </center>
+            </Form.Group>
+          </form>
         </div>
       );
     }
@@ -87,9 +91,13 @@ class Navbar extends Component {
     return (
       <div className="topbar">
         <Link
-          to={Object.keys(this.props.currentUser).length === 0 ? "/" : "/feed"}
+          to={
+            Object.keys(this.props.currentUser).length === 0
+              ? "/Fetch-Frontend/"
+              : "/Fetch-Frontend/feed"
+          }
         >
-          <img className="logo" src="/logo.png" alt="logo" />
+          <img className="logo" src="/Fetch-Frontend/logo.png" alt="logo" />
         </Link>
 
         {this.loginLogicSearch()}

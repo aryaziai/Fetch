@@ -13,7 +13,7 @@ export default class Welcome extends Component {
 
         <div className="notbrands">
           <p className="bigtime">
-            <img src="/search.png" width="120px" alt="search" />
+            <img src="/Fetch-Frontend/search.png" width="120px" alt="search" />
             <br />
             <br />
             <b>Find Articles</b>
@@ -22,7 +22,7 @@ export default class Welcome extends Component {
             <br /> in and we will do the rest.
           </p>
           <p className="bigtime">
-            <img src="/globe.png" width="120px" alt="globe" />
+            <img src="/Fetch-Frontend/globe.png" width="120px" alt="globe" />
             <br />
             <br />
             <b>Select Language</b>
@@ -32,7 +32,11 @@ export default class Welcome extends Component {
             Select from other 10 languages.
           </p>
           <p className="bigtime">
-            <img src="/monitor.png" width="120px" alt="monitor" />
+            <img
+              src="/Fetch-Frontend/monitor.png"
+              width="120px"
+              alt="monitor"
+            />
             <br />
             <br />
             <b>Customize Results</b>
@@ -44,9 +48,10 @@ export default class Welcome extends Component {
 
         <div className="brands">
           <h1>Sources we use:</h1>
-          <img src="/cnn.png" width="100px" alt="cnn"></img>
-          <img src="/fox.png" width="200px" alt="fox"></img>
-          <img src="/bbc.png" width="130px" alt="bbc"></img>& More...
+          <img src="/Fetch-Frontend/cnn.png" width="100px" alt="cnn"></img>
+          <img src="/Fetch-Frontend/fox.png" width="200px" alt="fox"></img>
+          <img src="/Fetch-Frontend/bbc.png" width="130px" alt="bbc"></img>&
+          More...
         </div>
         <h1 className="finalh1">Join Today</h1>
         <div className="align-buttons">

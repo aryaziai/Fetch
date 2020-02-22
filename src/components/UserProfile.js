@@ -50,7 +50,7 @@ class UserProfile extends Component {
               ...json
             }
           });
-          this.props.history.push("/feed");
+          this.props.history.push("/Fetch-Frontend/feed");
         }
       });
   };

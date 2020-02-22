@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import CategoryItems from "../containers/CategoryItems";
 // import CategorySidebar from "../containers/CategorySidebar";
 
-
 class Category extends Component {
   constructor(props) {
     super(props);
@@ -14,29 +13,34 @@ class Category extends Component {
     };
   }
 
-
-
-
   render() {
-    let topicUrl = this.props.location.pathname.split("/").slice(-1)[0]
+    let topicUrl = this.props.location.pathname.split("/").slice(-1)[0];
     // let notFeedPath = this.props.location.pathname.split("/")[1]
     // console.log(notFeedPath)
     return (
-
-<>
+      <>
         <div className="topdog">
+          {/* {notFeedPath === "category"  &&  */}
+          <h3 className="mainfeedtitle">
+            #{topicUrl}
+            <img
+              src="/Fetch-Frontend/refresh.png"
+              className="feedtitleimage"
+              alt="feedicon"
+              onClick={this.props.fetchFromGoogle}
+            />
+          </h3>
 
-       {/* {notFeedPath === "category"  &&  */}
-    <h3 className="mainfeedtitle">#{topicUrl}<img src="/refresh.png" className="feedtitleimage" alt="feedicon" onClick={this.props.fetchFromGoogle}/></h3>
-      {/* }  */}
-     
-     <div className="drop"></div> 
+          <div className="drop"></div>
 
-        {this.props.categoryPosts.map(post => 
-            <CategoryItems topicPost={post} key={post.url} categoryName={this.state.categoryName} deletePostFromCategory={this.props.deletePostFromCategory}
-            
-            />  )}
-
+          {this.props.categoryPosts.map(post => (
+            <CategoryItems
+              topicPost={post}
+              key={post.url}
+              categoryName={this.state.categoryName}
+              deletePostFromCategory={this.props.deletePostFromCategory}
+            />
+          ))}
         </div>
 
         {/* <div className="category">

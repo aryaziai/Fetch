@@ -10,6 +10,7 @@ import Sidebar from "./containers/Sidebar";
 import Category from "./containers/Category";
 import Navbar from "./containers/Navbar";
 import Feed from "./containers/Feed";
+import Search from "./containers/Search";
 import { Route, withRouter, Redirect, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -21,7 +22,8 @@ class App extends Component {
       loading: true,
       topicsFollowed: [],
       allTopicPosts: [],
-      categoryPosts: []
+      categoryPosts: [],
+      searchPosts: []
     };
   }
 
@@ -68,6 +70,21 @@ class App extends Component {
         });
     });
     console.log("ended");
+  };
+
+  fetchFromSearch = (e, searchValue) => {
+    e.preventDefault();
+    console.log(searchValue);
+    fetch(
+      `https://newsapi.org/v2/everything?language=en&pageSize=10&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
+    )
+      .then(res => res.json())
+      .then(resp =>
+        this.setState({
+          searchPosts: resp.articles
+        })
+      );
+    this.props.history.push(`/Fetch-Frontend/search/${searchValue}`);
   };
 
   fetchFromGoogle = () => {
@@ -232,7 +249,7 @@ class App extends Component {
             }
           });
           this.fetchToTopicId();
-          this.props.history.push("/feed");
+          this.props.history.push("/Fetch-Frontend/feed");
         }
       });
   };
@@ -274,7 +291,7 @@ class App extends Component {
             this.fetchFromGoogle(topicID); // took out topicID
           })
           .then(() => {
-            this.props.history.push("/feed"); // this.props.history.push("/feed"); needs .then
+            this.props.history.push("/Fetch-Frontend/feed"); // this.props.history.push("/feed"); needs .then
           })
       : window.alert("Topic title cannot be empty");
   };
@@ -339,7 +356,7 @@ class App extends Component {
         this.followTrending(data.topic.data.attributes.id); // took out topicID
       })
       .then(() => {
-        this.props.history.push("/feed"); // this.props.history.push("/feed"); needs .then
+        this.props.history.push("/Fetch-Frontend/feed"); // this.props.history.push("/feed"); needs .then
       });
   };
 
@@ -358,7 +375,7 @@ class App extends Component {
         x => x.id !== parseInt(event.target.id)
       )
     });
-    this.props.history.push("/feed");
+    this.props.history.push("/Fetch-Frontend/feed");
   };
 
   followTrending = topicId => {
@@ -423,7 +440,7 @@ class App extends Component {
       allTopicPosts: null,
       categoryPosts: []
     });
-    this.props.history.push("/");
+    this.props.history.push("/Fetch-Frontend");
   };
 
   handleCategoryClick(categoryName) {
@@ -438,7 +455,7 @@ class App extends Component {
           categoryName: categoryName
         })
       );
-    this.props.history.push(`/category/${categoryName}`);
+    this.props.history.push(`/Fetch-Frontend/category/${categoryName}`);
   }
 
   render() {
@@ -447,21 +464,22 @@ class App extends Component {
         <Navbar
           currentUser={this.state.currentUser}
           handleLogout={this.handleLogout}
+          fetchFromSearch={this.fetchFromSearch}
         />
 
         <Switch>
-          <Route exact path="/" component={Welcome} />
-          {/* <Route render={() => <Redirect to="/"/>}/> */}
+          <Route exact path="/Fetch-Frontend" component={Welcome} />
+
           <Route
             exact
-            path="/login"
+            path="/Fetch-Frontend/login"
             render={props => (
               <Login {...props} handleLoginSubmit={this.handleLoginSubmit} />
             )}
           />
           <Route
             exact
-            path="/Signup"
+            path="/Fetch-Frontend/signup"
             render={props => (
               <Signup {...props} handleSignupSubmit={this.handleSignupSubmit} />
             )}
@@ -472,7 +490,7 @@ class App extends Component {
               <React.Fragment>
                 <Route
                   exact
-                  path="/feed"
+                  path="/Fetch-Frontend/feed"
                   render={props => (
                     <Feed
                       {...props}
@@ -485,8 +503,24 @@ class App extends Component {
                   )}
                 />
 
+
                 <Route
-                  path="/category/"
+                  path="/Fetch-Frontend/search/"
+                  render={props => (
+                    <Search
+                      {...props}
+                      currentUser={this.state.currentUser}
+                      searchPosts={this.state.searchPosts}
+                      deletePostFromCategory={this.deletePostFromCategory}
+                      fetchFromGoogle={this.fetchFromGoogle}
+                    />
+                  )}
+                />
+
+
+
+                <Route
+                  path="/Fetch-Frontend/category/"
                   render={props => (
                     <Category
                       {...props}
@@ -532,7 +566,7 @@ class App extends Component {
                 />
 
                 <Route
-                  path="/topic"
+                  path="/Fetch-Frontend/topic"
                   render={props => (
                     <Topic
                       {...props}
@@ -547,7 +581,7 @@ class App extends Component {
 
                 <Route
                   exact
-                  path="/add-topic"
+                  path="/Fetch-Frontend/add-topic"
                   render={props => (
                     <AddTopic
                       {...props}
@@ -562,7 +596,7 @@ class App extends Component {
 
                 <Route
                   exact
-                  path="/profile"
+                  path="/Fetch-Frontend/profile"
                   render={props => (
                     <UserProfile
                       {...props}
@@ -573,7 +607,7 @@ class App extends Component {
                 />
               </React.Fragment>
             ) : (
-              <Redirect to="/Fetch-Frontend/" />
+              <Redirect to="/Fetch-Frontend" />
             )
           ) : (
             <>
@@ -582,7 +616,7 @@ class App extends Component {
           )}
         </Switch>
         <img
-          src="/scroll.png"
+          src="/Fetch-Frontend/scroll.png"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="scrollTop"
           alt="ScrollTop"
