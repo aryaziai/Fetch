@@ -13,9 +13,18 @@ class Navbar extends Component {
     };
   }
 
+  
+
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
+    });
+  };
+
+
+  handleInput = (e) => {
+    this.setState({
+      [e.target.name]: "hey"
     });
   };
 
@@ -43,7 +52,10 @@ class Navbar extends Component {
         <div className="profile-nav">
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <img src="/Fetch-Frontend/missing_avatar.jpg" alt="avatar" />{" "}
+              <img
+                src="https://aryaziai.github.io/Fetch-Frontend/missing_avatar.jpg"
+                alt="avatar"
+              />{" "}
               {this.props.currentUser.username}
             </Dropdown.Toggle>
 
@@ -69,7 +81,7 @@ class Navbar extends Component {
     if (Object.keys(this.props.currentUser).length !== 0) {
       return (
         <div>
-          <form onSubmit={e => {this.props.fetchFromSearch(e, this.state.search)}}>
+          <form onSubmit={e => {this.props.fetchFromSearch(e, this.state.search) && this.handleInput(e)}}>
             <Form.Group controlId="formBasicSearch">
               <center>
                 <Form.Control
@@ -78,6 +90,7 @@ class Navbar extends Component {
                   placeholder="Search All Articles"
                   onChange={e => this.handleChange(e)}
                   value={this.state.search}
+                  className="searchBar"
                 />
               </center>
             </Form.Group>
@@ -97,7 +110,11 @@ class Navbar extends Component {
               : "/Fetch-Frontend/feed"
           }
         >
-          <img className="logo" src="/Fetch-Frontend/logo.png" alt="logo" />
+          <img
+            className="logo"
+            src="https://aryaziai.github.io/Fetch-Frontend/logo.png"
+            alt="logo"
+          />
         </Link>
 
         {this.loginLogicSearch()}

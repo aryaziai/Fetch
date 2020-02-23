@@ -1,20 +1,14 @@
-
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-
-
-#formBasicFirstName.form-control{
+#formBasicFirstName.form-control {
   width: 10%;
   position: absolute;
   left: 40%;
   top: 200px;
 }
-
-
 
 #formBasicLastName.form-control {
   width: 9%;
@@ -22,8 +16,6 @@
   right: 39.5%;
   top: 200px;
 }
-
-
 
 #formBasicUpdateFirstName.form-control {
   width: 28%;
@@ -39,10 +31,11 @@
   right: 112.5px;
 }
 
-
-#formBasicUsername.form-control,#formBasicPassword.form-control,#formBasicPasswordConfirm.form-control {
+#formBasicUsername.form-control,
+#formBasicPassword.form-control,
+#formBasicPasswordConfirm.form-control {
   width: 64%;
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 .hashtag {
@@ -55,17 +48,18 @@
   margin-right: -15%;
 }
 
-,img[src=""], img[src="null"] {
+,
+img[src=""],
+img[src="null"] {
   display: none;
 }
 
-
 .dropdown-menu {
-  display:none;
+  display: none;
 }
 
 .dropdown-menu.show {
-  display:block;
+  display: block;
 }
 .deletetopic {
   width: 15px;
@@ -84,19 +78,18 @@
   background: #fafafa;
   min-height: 914px;
 }
-.logincontainer { 
-  background-color: #fafafa; 
-  min-height: 800px; 
-  margin-top: -25px; 
-  padding-top:193px; 
+.logincontainer {
+  background-color: #fafafa;
+  min-height: 800px;
+  margin-top: -25px;
+  padding-top: 193px;
 }
 
-.logincontainer h2 { 
-  position: absolute; 
-  top: 99px; 
-  left: 39.3%; 
+.logincontainer h2 {
+  position: absolute;
+  top: 99px;
+  left: 39.3%;
 }
-
 
 .logincontainer h3 {
   position: absolute;
@@ -110,7 +103,6 @@
   margin-inline-end: 0px;
   font-weight: bold;
 }
-
 
 .Formlife {
   margin-left: 34%;
@@ -159,7 +151,7 @@
 input {
   width: 200px;
   height: 38px;
-  color:#444;
+  color: #444;
 }
 
 .form-control {
@@ -172,8 +164,8 @@ input {
 }
 
 input:after {
-    color: red;
-    content: "*";
+  color: red;
+  content: "*";
 }
 
 .btn.btn-primary-submit {
@@ -194,15 +186,14 @@ input:after {
   color: #fff;
   text-decoration: none;
   margin-top: 28px;
-  }
+}
 
-
-header p a{
+header p a {
   font-size: 19px;
   /* font-weight: 100; */
   float: left;
   color: #333;
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .logo {
@@ -211,7 +202,6 @@ header p a{
   left: 25px;
   bottom: 14px;
 }
-
 
 .brands img {
   max-width: 169px;
@@ -235,7 +225,7 @@ html {
   height: 38px;
   line-height: 16px;
   padding: 8px 32px 8px 12px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   width: 47%;
   margin-top: 1%;
   margin-left: -3.2%;
@@ -246,9 +236,9 @@ html {
   padding-top: 30px;
   padding-bottom: 40px;
   font-weight: 700;
-    font-size: 35px;
-    color: #002e76;
-    margin-bottom:59px;
+  font-size: 35px;
+  color: #002e76;
+  margin-bottom: 59px;
 }
 
 .notbrands {
@@ -265,7 +255,6 @@ html {
   line-height: 27px;
 }
 
-
 .notbrands img {
   max-width: 169px;
   padding-left: 6%;
@@ -274,12 +263,13 @@ html {
   max-height: 124px;
 }
 
-.brands h1, .finalh1 {
+.brands h1,
+.finalh1 {
   font-size: 41px;
   font-weight: 200;
   margin-top: 15px;
   margin-bottom: 15px;
-  color:#333;
+  color: #333;
 }
 
 .main {
@@ -289,7 +279,7 @@ html {
 }
 
 .rightsidebar {
-  FLOAT: RIGHT;
+  float: RIGHT;
   background: #fff;
   width: 18%;
   background-color: #fff;
@@ -302,8 +292,8 @@ html {
 }
 
 h1 {
-      font-weight: 100;
-    font-size: 50px;
+  font-weight: 100;
+  font-size: 50px;
 }
 
 .align-buttons {
@@ -353,8 +343,8 @@ a.dropdown-item {
   text-decoration: none;
 }
 
-.topcoolbutton a:hover{
-  background:#00183A;
+.topcoolbutton a:hover {
+  background: #00183a;
 }
 
 .coolbutton {
@@ -362,8 +352,8 @@ a.dropdown-item {
 }
 
 .blurbs {
-  padding-top:10px;
-  padding-bottom:50px;
+  padding-top: 10px;
+  padding-bottom: 50px;
 }
 .blurbs img {
   width: 60px;
@@ -379,22 +369,22 @@ a.dropdown-item {
   color: #fff;
 }
 .coolbutton a {
-background: #002e76;
-padding-top: 12px;
-padding-bottom: 12px;
-padding-left: 65px;
-padding-right: 65px;
-border-radius: 100px;
-box-shadow: none;
-cursor: pointer;
-font-size: 16px;
-font-weight: bold;
-line-height: 20px;
-position: relative;
-text-align: center;
-white-space: nowrap;
-color: #fff;
-text-decoration: none;
+  background: #002e76;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 65px;
+  padding-right: 65px;
+  border-radius: 100px;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  text-decoration: none;
 }
 
 .profile-nav a {
@@ -404,11 +394,18 @@ text-decoration: none;
   font-size: 15px;
 }
 
-.profile-nav img,.dropdown-toggle.btn.btn-success,.profile-nav,button {
-  cursor:pointer;
+.profile-nav img,
+.dropdown-toggle.btn.btn-success,
+.profile-nav,
+button {
+  cursor: pointer;
 }
 
-input, textarea, select, p,button { 
+input,
+textarea,
+select,
+p,
+button {
   outline: none;
 }
 
@@ -422,7 +419,7 @@ input, textarea, select, p,button {
   font-size: 17px;
   background: #fff;
   position: fixed;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
   height: 64px;
 }
@@ -451,13 +448,11 @@ input, textarea, select, p,button {
   }
 }
 
-
 .App-header a {
   text-decoration: none;
   padding: 5px;
-  font-size:17px;
+  font-size: 17px;
 }
-
 
 #formBasicTopicTitle.form-control {
   float: left;
@@ -492,7 +487,7 @@ input, textarea, select, p,button {
   line-height: 13px;
   font-weight: 700;
   font-size: 14px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .addtopiclogo {
@@ -512,8 +507,6 @@ input, textarea, select, p,button {
   margin-top: -3px;
 }
 
-
-
 .favorite {
   text-align: left;
   padding-left: 3.5%;
@@ -531,12 +524,12 @@ input, textarea, select, p,button {
 
 .favorite a {
   text-decoration: none;
-  color:#333;
+  color: #333;
 }
 
 .email {
   margin-bottom: -7.4px !important;
-    padding-right: 12px !important;
+  padding-right: 12px !important;
 }
 
 .CategoryTitle {
@@ -559,6 +552,7 @@ input, textarea, select, p,button {
   position: fixed;
   bottom: 20px;
   right: 45px;
+  cursor:pointer;
 }
 .submitTopic {
   bottom: 46px;
@@ -603,11 +597,11 @@ input, textarea, select, p,button {
   border: 1px solid darkred;
 }
 
-.submitTopic-btton-nevermind:hover, .submitTopic-btton-delete:hover {
+.submitTopic-btton-nevermind:hover,
+.submitTopic-btton-delete:hover {
   background: darkred;
-  color:#fff;
+  color: #fff;
 }
-
 
 .submitTopic-btton-delete {
   background: #fff;
@@ -661,7 +655,9 @@ input, textarea, select, p,button {
 .handleLife img {
   padding-right: 8px;
 }
-#formBasicTopiccountry,#formBasicTopicTwitter,#formBasicTopicYoutube {
+#formBasicTopiccountry,
+#formBasicTopicTwitter,
+#formBasicTopicYoutube {
   margin-left: 3px;
   font-size: 14px;
   width: 128px;
@@ -670,9 +666,9 @@ input, textarea, select, p,button {
   padding-left: 4px;
 }
 
-
-
-.page_size, .language, .sort_by {
+.page_size,
+.language,
+.sort_by {
   position: relative;
   display: flex;
   border: 1.5px solid #e6e6e6 !important;
@@ -695,8 +691,16 @@ input, textarea, select, p,button {
   width: 95px;
 }
 
-.language, .sort_by {
-  width:140px;
+.language,
+.sort_by {
+  width: 140px;
+}
+
+.searchBar {
+  background-image: url("https://cdn0.iconfinder.com/data/icons/network-technology-1/24/50-512.png");
+  background-repeat: no-repeat;
+  background-position: 97.5% 8.5px;
+  background-size: 18px;
 }
 
 .upload_image {
@@ -726,7 +730,7 @@ input, textarea, select, p,button {
   display: inline-block;
   width: 80px;
   height: 80px;
-  margin-top:18%;
+  margin-top: 18%;
 }
 .lds-dual-ring:after {
   content: " ";
@@ -752,34 +756,31 @@ input, textarea, select, p,button {
   background: #002e76;
   float: left;
   margin-top: 85px;
-  margin-left: 29px;
+  margin-left: 30px;
   margin-bottom: 100px;
   width: 162px;
   height: 33px;
-  padding-top: 17px;
-  padding-bottom: 2px;
-  padding-left: 13px;
-  padding-right: 13px;
+  padding: 20px 12px 2px;
   border-radius: 100px;
   color: #fff;
   font-weight: 900;
   font-size: 14px;
- cursor:pointer;
+  cursor: pointer;
 }
 
-.submitTopic-btton:hover,.uploadimage:hover {
-  background:#00183A;
+.submitTopic-btton:hover,
+.uploadimage:hover {
+  background: #00183a;
 }
-
-
-
 
 .add-topic img:after {
-  content: '\A';
+  content: "\A";
   position: absolute;
-  width: 100%; height:100%;
-  top:0; left:0;
-  background:rgba(0,0,0,0.6);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
   opacity: 0;
   transition: all 1s;
   -webkit-transition: all 1s;
@@ -798,7 +799,7 @@ input, textarea, select, p,button {
   margin-bottom: 9px;
 }
 .addtext a {
-  color: #002E76;
+  color: #002e76;
   font-size: 27px;
   font-weight: 700;
   margin-left: 1px;
@@ -808,7 +809,7 @@ input, textarea, select, p,button {
 .dropdown-toggle.btn.btn-success {
   border: 0px !important;
   font-size: 17px;
-  color: #002E76;
+  color: #002e76;
 }
 
 .welcome {
@@ -822,14 +823,14 @@ input, textarea, select, p,button {
 }
 
 a {
-  color: #002E76;
+  color: #002e76;
 }
 .dropdown-menu.show {
   width: 139px;
   background: #ffff;
   border: 1px solid #ccc;
   padding: 10px 0px;
-  margin-left:-12px;
+  margin-left: -12px;
   background: padding-box padding-box rgb(255, 255, 255);
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
@@ -842,20 +843,16 @@ a {
   padding-top: 142px;
 }
 
-/* .categorydrop {
-  padding-top: 74px;
-} */
-
-
 .sourceinfo {
   text-align: right;
-  padding-right: 6.9%;
+  padding-right: 8%;
   font-weight: 100;
   font-size: 15px;
-  margin-top: -32.7px;
+  margin-top: -32.6px;
   margin-bottom: 5px;
-  color: #000035;
-  font-weight: 700;
+  color: #555;
+  font-weight: 500;
+  font-family: sans-serif;
 }
 
 .newmain {
@@ -865,22 +862,21 @@ a {
   border: 1px solid #ccc;
   margin-bottom: 38px;
   padding-bottom: 20px;
-  padding-top:15px;
+  padding-top: 15px;
 }
 
 .postImage {
-  width: 86%
+  width: 86%;
 }
 
 .feedpostImage {
-    width: 86%;
+  width: 86%;
 }
 
 .categorypostImage {
   width: 99%;
-  margin-top:-11px;
+  margin-top: -11px;
 }
-
 
 .bottomofCard {
   border-top: 1px solid #ccc;
@@ -888,14 +884,13 @@ a {
 }
 
 .iMessage {
-  width:24px !important;
+  width: 24px !important;
 }
-
 
 .date {
   font-size: 12px;
-    margin-top: -1px;
-    margin-bottom:4px;
+  margin-top: -1px;
+  margin-bottom: 4px;
 }
 
 .feeditemslogo {
@@ -925,21 +920,22 @@ a {
   margin-left: 8px;
   vertical-align: middle;
   margin-bottom: 6px;
-  cursor:pointer
+  cursor: pointer;
 }
 
-.mainfeedtitle, .addtopictitle {
+.mainfeedtitle,
+.addtopictitle {
   font-size: 20px;
   margin-left: 25%;
   position: absolute;
   top: 79px;
-  color:#333;
-  text-transform:capitalize;
+  color: #333;
+  text-transform: capitalize;
 }
 
 #login-error {
-  color:darkred;
-  padding-top:10px;
+  color: darkred;
+  padding-top: 10px;
 }
 .App-header {
   display: flex;
@@ -976,23 +972,23 @@ a {
 
 .addMore {
   border-radius: 50%;
-    border: 1px solid #ccc;
+  border: 1px solid #ccc;
 }
 
 .favorites {
-  border-radius: 0 !Important;
+  border-radius: 0 !important;
 }
 
-header p img { 
-  margin-right: 7px; 
-  max-width: 22px; 
-  min-width: 60px; 
-  min-height: 60px; 
-  margin-bottom: 2px; 
-  background:#fbfbfb;
-  border-radius:50%;
-  padding-bottom:3px;
-  cursor:pointer;
+header p img {
+  margin-right: 7px;
+  max-width: 22px;
+  min-width: 60px;
+  min-height: 60px;
+  margin-bottom: 2px;
+  background: #fbfbfb;
+  border-radius: 50%;
+  padding-bottom: 3px;
+  cursor: pointer;
 }
 
 .App-link {

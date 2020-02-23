@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import CategoryItems from "../containers/CategoryItems";
+import CategoryItems from "./CategoryItems";
 // import CategorySidebar from "../containers/CategorySidebar";
 
 class Category extends Component {
@@ -24,7 +24,7 @@ class Category extends Component {
           <h3 className="mainfeedtitle">
             #{topicUrl}
             <img
-              src="/Fetch-Frontend/refresh.png"
+              src="https://aryaziai.github.io/Fetch-Frontend/refresh.png"
               className="feedtitleimage"
               alt="feedicon"
               onClick={this.props.fetchFromGoogle}

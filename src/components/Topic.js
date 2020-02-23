@@ -15,32 +15,41 @@ class Topic extends Component {
     );
 
     // console.log(correctTopicId)
-let postsOfTopic
-    if (correctTopicId) { 
-    postsOfTopic = this.props.allTopicPosts.filter(
-      post => correctTopicId.id === post.topic_id
-    ); // compare inside of iteration!
+    let postsOfTopic;
+    if (correctTopicId) {
+      postsOfTopic = this.props.allTopicPosts.filter(
+        post => correctTopicId.id === post.topic_id
+      ); // compare inside of iteration!
     }
 
     // console.log(postsOfTopic)
 
     return (
       <>
-        <h3 className="mainfeedtitle" >
+        <h3 className="mainfeedtitle">
           #{topicUrl}
-          {correctTopicId ?  <img src="/x.png" className="deletetopic" alt="feedicon" onClick={this.props.deleteTopic} id={correctTopicId.id} key={correctTopicId.id}/> : null}
-         
-          
+          {correctTopicId ? (
+            <img
+              src="x.png"
+              className="deletetopic"
+              alt="feedicon"
+              onClick={this.props.deleteTopic}
+              id={correctTopicId.id}
+              key={correctTopicId.id}
+            />
+          ) : null}
         </h3>
         <div className="drop"></div>
 
-        {correctTopicId ? postsOfTopic.map(topic => (
-          <TopicItems
-            topicsFollowed={this.props.topicsFollowed}
-            topicPost={topic}
-            deletePostFromTopic={this.props.deletePostFromTopic}
-          />
-        )) :  null }
+        {correctTopicId
+          ? postsOfTopic.map(topic => (
+              <TopicItems
+                topicsFollowed={this.props.topicsFollowed}
+                topicPost={topic}
+                deletePostFromTopic={this.props.deletePostFromTopic}
+              />
+            ))
+          : null}
       </>
     );
   }

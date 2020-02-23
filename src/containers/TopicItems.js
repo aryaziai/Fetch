@@ -17,10 +17,10 @@ export default class TopicItems extends Component {
 
         let favorite
         if (this.state.favorite === true) {
-            favorite='/heart.png'
+            favorite='https://aryaziai.github.io/Fetch-Frontend/heart.png'
         }
         else {
-            favorite='/unheart.png'
+            favorite='https://aryaziai.github.io/Fetch-Frontend/unheart.png'
         }
 
         let correctOne = this.props.topicsFollowed.find(x=> x.id === this.props.topicPost.topic_id)

@@ -16,9 +16,9 @@ class FeedItems extends Component {
   render() {
     let favorite;
     if (this.state.favorite === true) {
-      favorite = "/Fetch-Frontend/heart.png";
+      favorite = "https://aryaziai.github.io/Fetch-Frontend/heart.png";
     } else {
-      favorite = "/Fetch-Frontend/unheart.png";
+      favorite = "https://aryaziai.github.io/Fetch-Frontend/unheart.png";
     }
     let correctOne = this.props.topicsFollowed.find(
       x => x.id === this.props.topicPost.topic_id
@@ -100,7 +100,7 @@ class FeedItems extends Component {
                   href={`sms:Text Someone&body=${this.props.topicPost.caption}%0D%0A%0D%0A${this.props.topicPost.url}`}
                 >
                   <img
-                    src="/Fetch-Frontend/imessage.png"
+                    src="https://aryaziai.github.io/Fetch-Frontend/imessage.png"
                     alt="imessage"
                     name="imessage"
                     className="iMessage"
@@ -110,11 +110,7 @@ class FeedItems extends Component {
                 <a
                   href={`mailto:?subject=${this.props.topicPost.caption}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.topicPost.url}`}
                 >
-                  <img
-                    src="/Fetch-Frontend/mail.png"
-                    alt="email"
-                    className="email"
-                  />
+                  <img src="https://aryaziai.github.io/Fetch-Frontend/mail.png" alt="email" className="email" />
                   Email
                 </a>
               </p>

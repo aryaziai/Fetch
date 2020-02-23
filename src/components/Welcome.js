@@ -13,7 +13,11 @@ export default class Welcome extends Component {
 
         <div className="notbrands">
           <p className="bigtime">
-            <img src="/Fetch-Frontend/search.png" width="120px" alt="search" />
+            <img
+              src="https://aryaziai.github.io/Fetch-Frontend/search.png"
+              width="120px"
+              alt="search"
+            />
             <br />
             <br />
             <b>Find Articles</b>
@@ -22,7 +26,11 @@ export default class Welcome extends Component {
             <br /> in and we will do the rest.
           </p>
           <p className="bigtime">
-            <img src="/Fetch-Frontend/globe.png" width="120px" alt="globe" />
+            <img
+              src="https://aryaziai.github.io/Fetch-Frontend/globe.png"
+              width="120px"
+              alt="globe"
+            />
             <br />
             <br />
             <b>Select Language</b>
@@ -33,7 +41,7 @@ export default class Welcome extends Component {
           </p>
           <p className="bigtime">
             <img
-              src="/Fetch-Frontend/monitor.png"
+              src="https://aryaziai.github.io/Fetch-Frontend/monitor.png"
               width="120px"
               alt="monitor"
             />
@@ -48,15 +56,27 @@ export default class Welcome extends Component {
 
         <div className="brands">
           <h1>Sources we use:</h1>
-          <img src="/Fetch-Frontend/cnn.png" width="100px" alt="cnn"></img>
-          <img src="/Fetch-Frontend/fox.png" width="200px" alt="fox"></img>
-          <img src="/Fetch-Frontend/bbc.png" width="130px" alt="bbc"></img>&
-          More...
+          <img
+            src="https://aryaziai.github.io/Fetch-Frontend/cnn.png"
+            width="100px"
+            alt="cnn"
+          ></img>
+          <img
+            src="https://aryaziai.github.io/Fetch-Frontend/fox.png"
+            width="200px"
+            alt="fox"
+          ></img>
+          <img
+            src="https://aryaziai.github.io/Fetch-Frontend/bbc.png"
+            width="130px"
+            alt="bbc"
+          ></img>
+          & More...
         </div>
         <h1 className="finalh1">Join Today</h1>
         <div className="align-buttons">
           <p className="coolbutton">
-            <Link to="/signup">Signup</Link>
+            <Link to="/Fetch-Frontend/signup">Signup</Link>
           </p>
           <br />
           <br />

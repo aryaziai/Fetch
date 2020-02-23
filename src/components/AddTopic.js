@@ -11,7 +11,7 @@ export default class AddTopic extends Component {
       language: "en",
       plus: true,
       sort_by: "relevancy",
-      logo: "/Fetch-Frontend/missing.png",
+      logo: "https://aryaziai.github.io/Fetch-Frontend/missing.png",
       user_id: props.currentUser.id,
       toggleUpload: false
     };

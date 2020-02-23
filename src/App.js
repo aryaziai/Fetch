@@ -503,7 +503,6 @@ class App extends Component {
                   )}
                 />
 
-
                 <Route
                   path="/Fetch-Frontend/search/"
                   render={props => (
@@ -516,8 +515,6 @@ class App extends Component {
                     />
                   )}
                 />
-
-
 
                 <Route
                   path="/Fetch-Frontend/category/"
@@ -616,7 +613,7 @@ class App extends Component {
           )}
         </Switch>
         <img
-          src="/Fetch-Frontend/scroll.png"
+          src="https://aryaziai.github.io/Fetch-Frontend/scroll.png"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="scrollTop"
           alt="ScrollTop"
