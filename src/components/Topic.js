@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import TopicItems from "../containers/TopicItems";
 
-class Topic extends Component {
-  //        this.props.topicsFollowed.length !== 0 ? console.log(this.props.topicsFollowed) : null
+export default class Topic extends Component {
 
   render() {
     // console.log(this.props.topicsFollowed.map(topic => topic))
-    // console.log("alltopicposts",this.props.allTopicPosts)
     let topicUrl = this.props.location.pathname.split("/").slice(-1)[0];
 
     let correctTopicId = this.props.topicsFollowed.find(
@@ -22,7 +20,6 @@ class Topic extends Component {
       ); // compare inside of iteration!
     }
 
-    // console.log(postsOfTopic)
 
     return (
       <>
@@ -54,5 +51,3 @@ class Topic extends Component {
     );
   }
 }
-
-export default withRouter(Topic);

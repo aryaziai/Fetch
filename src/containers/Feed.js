@@ -12,7 +12,7 @@ export default class Feed extends Component {
             src="https://aryaziai.github.io/Fetch-Frontend/refresh.png"
             className="feedtitleimage"
             alt="feedicon"
-            // onLoad={this.props.fetchToTopicId}
+            onLoad={this.props.fetchToTopicId}
             onClick={this.props.fetchToTopicId}
           />
         </h3>
