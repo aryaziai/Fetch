@@ -31,7 +31,7 @@ export default class AddTopic extends Component {
 
   avoidSpace = e => {
     if (e.key === " " || e.key >= 0 || e.key < 10) {
-      console.log("spacebar:", e.key);
+      // console.log("spacebar:", e.key);
       e.preventDefault();
     }
   };
@@ -46,9 +46,9 @@ export default class AddTopic extends Component {
   render() {
     let imageLife;
     if (this.state.plus === true) {
-      imageLife = "/Fetch-Frontend/toggleon.png";
+      imageLife = "https://aryaziai.github.io/Fetch-Frontend/toggleon.png";
     } else {
-      imageLife = "/Fetch-Frontend/toggleoff.png";
+      imageLife = "https://aryaziai.github.io/Fetch-Frontend/toggleoff.png"
     }
 
     return (

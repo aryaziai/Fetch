@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import SearchItems from "./SearchItems";
+import { withRouter } from "react-router-dom";
 
-export default class Search extends Component {
+class Search extends Component {
   render() {
     let searchTitle = this.props.location.pathname.split("/").slice(-1)[0];
     return (
@@ -10,12 +11,12 @@ export default class Search extends Component {
           {/* {notFeedPath === "category"  &&  */}
           <h3 className="mainfeedtitle">
             Search: #{searchTitle}
-            {/* <img
-                  src="refresh.png"
-                  className="feedtitleimage"
-                  alt="feedicon"
-                  onClick={this.props.fetchFromGoogle}
-                /> */}
+            <img
+              src="https://aryaziai.github.io/Fetch-Frontend/x.png"
+              className="deletetopic"
+              alt="feedicon"
+              onClick={() => this.props.history.push("/Fetch-Frontend/feed")}
+            />
           </h3>
 
           <div className="drop"></div>
@@ -33,3 +34,5 @@ export default class Search extends Component {
     );
   }
 }
+
+export default withRouter(Search);

@@ -30,7 +30,7 @@ class Topic extends Component {
           #{topicUrl}
           {correctTopicId ? (
             <img
-              src="x.png"
+              src="https://aryaziai.github.io/Fetch-Frontend/x.png"
               className="deletetopic"
               alt="feedicon"
               onClick={this.props.deleteTopic}

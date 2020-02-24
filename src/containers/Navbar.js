@@ -13,18 +13,24 @@ class Navbar extends Component {
     };
   }
 
-  
-
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
 
+  handleKeyPress = e => {
+    if (e.key === " " || e.key >= 0 || e.key < 10) {
+      e.preventDefault();
+    }
+    if (e.key === "Enter") {
+      setTimeout(this.searchToEmpty, 10);
+    }
+  };
 
-  handleInput = (e) => {
+  searchToEmpty = () => {
     this.setState({
-      [e.target.name]: "hey"
+      search: ""
     });
   };
 
@@ -81,7 +87,10 @@ class Navbar extends Component {
     if (Object.keys(this.props.currentUser).length !== 0) {
       return (
         <div>
-          <form onSubmit={e => {this.props.fetchFromSearch(e, this.state.search) && this.handleInput(e)}}>
+          <form
+            onSubmit={e => this.props.fetchFromSearch(e, this.state.search)}
+            onKeyPress={e => this.handleKeyPress(e)}
+          >
             <Form.Group controlId="formBasicSearch">
               <center>
                 <Form.Control

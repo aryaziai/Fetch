@@ -74,7 +74,8 @@ class App extends Component {
 
   fetchFromSearch = (e, searchValue) => {
     e.preventDefault();
-    console.log(searchValue);
+
+    // console.log(searchValue);
     fetch(
       `https://newsapi.org/v2/everything?language=en&pageSize=10&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
     )
@@ -84,7 +85,7 @@ class App extends Component {
           searchPosts: resp.articles
         })
       );
-    this.props.history.push(`/Fetch-Frontend/search/${searchValue}`);
+    this.props.history.push(`/Fetch-Frontend/search/${searchValue}`)
   };
 
   fetchFromGoogle = () => {
@@ -99,7 +100,7 @@ class App extends Component {
         .then(res => res.json())
         .then(result => {
           result.articles.map(article => this.postToOurApi(article, topic.id)); // thanks emiley sending each Articles into postToOurApi, good allTopicPosts! not using state!
-        });
+        })
     });
   };
 
@@ -141,8 +142,9 @@ class App extends Component {
             })
           });
         }
+        this.fetchToTopicId() // just added
       });
-    // .then(this.props.history.push("/feed"))
+     
   };
 
   componentDidMount() {
@@ -160,7 +162,7 @@ class App extends Component {
       .then(res => res.json())
       .catch(error => {
         if (error) {
-          return window.alert("Turn on the server dumbass");
+          return window.alert("Server is starting up");
         } else {
           return window.alert("Oh my. Something has gone terribly wrong.");
         }
@@ -267,8 +269,7 @@ class App extends Component {
   handleSubmitTopic = (event, socialInput) => {
     // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
     event.preventDefault();
-    socialInput.topic_title !== ""
-      ? fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
+    socialInput.topic_title !== "" ? fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -287,7 +288,6 @@ class App extends Component {
             return data.topic.data.attributes.id; // topicId
           })
           .then(topicID => {
-            // took out topicID
             this.fetchFromGoogle(topicID); // took out topicID
           })
           .then(() => {
@@ -437,8 +437,10 @@ class App extends Component {
     this.setState({
       currentUser: {},
       topicsFollowed: [],
-      allTopicPosts: null,
-      categoryPosts: []
+      allTopicPosts: [],
+      categoryPosts: [],
+      loading: false,
+      searchPosts: []
     });
     this.props.history.push("/Fetch-Frontend");
   };
@@ -464,6 +466,8 @@ class App extends Component {
         <Navbar
           currentUser={this.state.currentUser}
           handleLogout={this.handleLogout}
+          fetchFromSearch={this.fetchFromSearch}
+          searchQuery={this.state.searchQuery}
           fetchFromSearch={this.fetchFromSearch}
         />
 
