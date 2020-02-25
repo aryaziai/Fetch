@@ -16,16 +16,16 @@ class SearchItems extends Component {
   render() {
     let favorite;
     if (this.state.favorite === true) {
-      favorite = "https://aryaziai.github.io/Fetch-Frontend/heart.png";
+      favorite = "https://aryaziai.github.io/Fetch/heart.png";
     } else {
-      favorite = "https://aryaziai.github.io/Fetch-Frontend/unheart.png";
+      favorite = "https://aryaziai.github.io/Fetch/unheart.png";
     }
     // let searchName = this.props.location.pathname.split("/").slice(-1)[0];
     return (
       <>
         <div className="newmain">
           <img
-            src="https://aryaziai.github.io/Fetch-Frontend/magnifying.png"
+            src="https://aryaziai.github.io/Fetch/magnifying.png"
             alt="topic_logo"
             className="feeditemslogo"
           />
@@ -79,7 +79,7 @@ class SearchItems extends Component {
                 href={`sms:Text Someone&body=${this.props.searchPost.title}%0D%0A%0D%0A${this.props.searchPost.url}`}
               >
                 <img
-                  src="https://aryaziai.github.io/Fetch-Frontend/imessage.png"
+                  src="https://aryaziai.github.io/Fetch/imessage.png"
                   alt="imessage"
                   name="imessage"
                   className="iMessage"
@@ -89,7 +89,11 @@ class SearchItems extends Component {
               <a
                 href={`mailto:?subject=${this.props.searchPost.title}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.searchPost.url}`}
               >
-                <img src="https://aryaziai.github.io/Fetch-Frontend/mail.png" alt="email" className="email" />
+                <img
+                  src="https://aryaziai.github.io/Fetch/mail.png"
+                  alt="email"
+                  className="email"
+                />
                 Email
               </a>
             </p>

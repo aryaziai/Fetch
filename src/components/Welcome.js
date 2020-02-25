@@ -14,7 +14,7 @@ export default class Welcome extends Component {
         <div className="notbrands">
           <p className="bigtime">
             <img
-              src="https://aryaziai.github.io/Fetch-Frontend/search.png"
+              src="https://aryaziai.github.io/Fetch/search.png"
               width="120px"
               alt="search"
             />
@@ -27,7 +27,7 @@ export default class Welcome extends Component {
           </p>
           <p className="bigtime">
             <img
-              src="https://aryaziai.github.io/Fetch-Frontend/globe.png"
+              src="https://aryaziai.github.io/Fetch/globe.png"
               width="120px"
               alt="globe"
             />
@@ -41,7 +41,7 @@ export default class Welcome extends Component {
           </p>
           <p className="bigtime">
             <img
-              src="https://aryaziai.github.io/Fetch-Frontend/monitor.png"
+              src="https://aryaziai.github.io/Fetch/monitor.png"
               width="120px"
               alt="monitor"
             />
@@ -57,17 +57,17 @@ export default class Welcome extends Component {
         <div className="brands">
           <h1>Sources we use:</h1>
           <img
-            src="https://aryaziai.github.io/Fetch-Frontend/cnn.png"
+            src="https://aryaziai.github.io/Fetch/cnn.png"
             width="100px"
             alt="cnn"
           ></img>
           <img
-            src="https://aryaziai.github.io/Fetch-Frontend/fox.png"
+            src="https://aryaziai.github.io/Fetch/fox.png"
             width="200px"
             alt="fox"
           ></img>
           <img
-            src="https://aryaziai.github.io/Fetch-Frontend/bbc.png"
+            src="https://aryaziai.github.io/Fetch/bbc.png"
             width="130px"
             alt="bbc"
           ></img>
@@ -76,7 +76,7 @@ export default class Welcome extends Component {
         <h1 className="finalh1">Join Today</h1>
         <div className="align-buttons">
           <p className="coolbutton">
-            <Link to="/Fetch-Frontend/signup">Signup</Link>
+            <Link to="/Fetch/signup">Signup</Link>
           </p>
           <br />
           <br />

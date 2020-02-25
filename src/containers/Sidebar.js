@@ -45,7 +45,7 @@ class Sidebar extends Component {
           {/* <p className="addnewsidebaritems" onClick={() => this.props.history.push("/add-topic")}> <img src="unheart.png" alt="Add Topic" className="favorites" />Favorites</p> */}
           <p
             className="addnewsidebaritems"
-            onClick={() => this.props.history.push("/Fetch-Frontend/add-topic")}
+            onClick={() => this.props.history.push("/Fetch/add-topic")}
           >
             {" "}
             <img

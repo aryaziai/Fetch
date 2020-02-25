@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import TopicItems from "../containers/TopicItems";
 
 export default class Topic extends Component {
-
   render() {
     // console.log(this.props.topicsFollowed.map(topic => topic))
     let topicUrl = this.props.location.pathname.split("/").slice(-1)[0];
@@ -20,14 +19,13 @@ export default class Topic extends Component {
       ); // compare inside of iteration!
     }
 
-
     return (
       <>
         <h3 className="mainfeedtitle">
-          #{topicUrl}
+          {/* onLoad={this.props.fetchToTopicId} */}#{topicUrl}
           {correctTopicId ? (
             <img
-              src="https://aryaziai.github.io/Fetch-Frontend/x.png"
+              src="https://aryaziai.github.io/Fetch/x.png"
               className="deletetopic"
               alt="feedicon"
               onClick={this.props.deleteTopic}

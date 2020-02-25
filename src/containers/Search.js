@@ -12,10 +12,10 @@ class Search extends Component {
           <h3 className="mainfeedtitle">
             Search: #{searchTitle}
             <img
-              src="https://aryaziai.github.io/Fetch-Frontend/x.png"
+              src="https://aryaziai.github.io/Fetch/x.png"
               className="deletetopic"
               alt="feedicon"
-              onClick={() => this.props.history.push("/Fetch-Frontend/feed")}
+              onClick={() => this.props.history.push("/Fetch/feed")}
             />
           </h3>
 

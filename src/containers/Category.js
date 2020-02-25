@@ -24,7 +24,7 @@ class Category extends Component {
           <h3 className="mainfeedtitle">
             #{topicUrl}
             <img
-              src="https://aryaziai.github.io/Fetch-Frontend/refresh.png"
+              src="https://aryaziai.github.io/Fetch/refresh.png"
               className="feedtitleimage"
               alt="feedicon"
               onClick={this.props.fetchFromGoogle}

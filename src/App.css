@@ -3,6 +3,16 @@
   pointer-events: none;
 }
 
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+ */
+}
+
 #formBasicFirstName.form-control {
   width: 10%;
   position: absolute;
@@ -120,6 +130,10 @@ img[src="null"] {
   padding-right: 7%;
   line-height: 21px;
   padding-bottom: 10px;
+}
+
+.caption b {
+  text-transform: capitalize;
 }
 
 .post_link {
@@ -552,7 +566,7 @@ button {
   position: fixed;
   bottom: 20px;
   right: 45px;
-  cursor:pointer;
+  cursor: pointer;
 }
 .submitTopic {
   bottom: 46px;
@@ -716,6 +730,7 @@ button {
 #formBasicTopicLogo {
   font-size: 16px;
   padding-left: 8px;
+  padding-bottom: 0;
 }
 
 .handleLife {
@@ -756,9 +771,9 @@ button {
   background: #002e76;
   float: left;
   margin-top: 85px;
-  margin-left: 30px;
+  margin-left: 34px;
   margin-bottom: 100px;
-  width: 162px;
+  width: 154px;
   height: 33px;
   padding: 20px 12px 2px;
   border-radius: 100px;
@@ -894,13 +909,13 @@ a {
 }
 
 .feeditemslogo {
-  width: 62px;
+  width: 59px;
   float: left;
   margin-right: 1.5%;
   margin-left: 6.1%;
   padding-top: 3px;
   border-radius: 50%;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .add-topic {

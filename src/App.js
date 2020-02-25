@@ -85,7 +85,7 @@ class App extends Component {
           searchPosts: resp.articles
         })
       );
-    this.props.history.push(`/Fetch-Frontend/search/${searchValue}`)
+    this.props.history.push(`/Fetch/search/${searchValue}`);
   };
 
   fetchFromGoogle = () => {
@@ -100,7 +100,7 @@ class App extends Component {
         .then(res => res.json())
         .then(result => {
           result.articles.map(article => this.postToOurApi(article, topic.id)); // thanks emiley sending each Articles into postToOurApi, good allTopicPosts! not using state!
-        })
+        });
     });
   };
 
@@ -142,9 +142,8 @@ class App extends Component {
             })
           });
         }
-        this.fetchToTopicId() // just added
+        this.fetchToTopicId(); // just added
       });
-     
   };
 
   componentDidMount() {
@@ -251,7 +250,7 @@ class App extends Component {
             }
           });
           this.fetchToTopicId();
-          this.props.history.push("/Fetch-Frontend/feed");
+          this.props.history.push("/Fetch/feed");
         }
       });
   };
@@ -269,7 +268,8 @@ class App extends Component {
   handleSubmitTopic = (event, socialInput) => {
     // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
     event.preventDefault();
-    socialInput.topic_title !== "" ? fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
+    socialInput.topic_title !== ""
+      ? fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -291,7 +291,7 @@ class App extends Component {
             this.fetchFromGoogle(topicID); // took out topicID
           })
           .then(() => {
-            this.props.history.push("/Fetch-Frontend/feed"); // this.props.history.push("/feed"); needs .then
+            this.props.history.push("/Fetch/feed"); // this.props.history.push("/feed"); needs .then
           })
       : window.alert("Topic title cannot be empty");
   };
@@ -356,7 +356,7 @@ class App extends Component {
         this.followTrending(data.topic.data.attributes.id); // took out topicID
       })
       .then(() => {
-        this.props.history.push("/Fetch-Frontend/feed"); // this.props.history.push("/feed"); needs .then
+        this.props.history.push("/Fetch/feed"); // this.props.history.push("/feed"); needs .then
       });
   };
 
@@ -375,7 +375,7 @@ class App extends Component {
         x => x.id !== parseInt(event.target.id)
       )
     });
-    this.props.history.push("/Fetch-Frontend/feed");
+    this.props.history.push("/Fetch/feed");
   };
 
   followTrending = topicId => {
@@ -442,7 +442,7 @@ class App extends Component {
       loading: false,
       searchPosts: []
     });
-    this.props.history.push("/Fetch-Frontend");
+    this.props.history.push("/Fetch");
   };
 
   handleCategoryClick(categoryName) {
@@ -457,7 +457,7 @@ class App extends Component {
           categoryName: categoryName
         })
       );
-    this.props.history.push(`/Fetch-Frontend/category/${categoryName}`);
+    this.props.history.push(`/Fetch/category/${categoryName}`);
   }
 
   render() {
@@ -472,18 +472,18 @@ class App extends Component {
         />
 
         <Switch>
-          <Route exact path="/Fetch-Frontend" component={Welcome} />
+          <Route exact path="/Fetch" component={Welcome} />
 
           <Route
             exact
-            path="/Fetch-Frontend/login"
+            path="/Fetch/login"
             render={props => (
               <Login {...props} handleLoginSubmit={this.handleLoginSubmit} />
             )}
           />
           <Route
             exact
-            path="/Fetch-Frontend/signup"
+            path="/Fetch/signup"
             render={props => (
               <Signup {...props} handleSignupSubmit={this.handleSignupSubmit} />
             )}
@@ -494,7 +494,7 @@ class App extends Component {
               <React.Fragment>
                 <Route
                   exact
-                  path="/Fetch-Frontend/feed"
+                  path="/Fetch/feed"
                   render={props => (
                     <Feed
                       {...props}
@@ -508,7 +508,7 @@ class App extends Component {
                 />
 
                 <Route
-                  path="/Fetch-Frontend/search/"
+                  path="/Fetch/search/"
                   render={props => (
                     <Search
                       {...props}
@@ -521,7 +521,7 @@ class App extends Component {
                 />
 
                 <Route
-                  path="/Fetch-Frontend/category/"
+                  path="/Fetch/category/"
                   render={props => (
                     <Category
                       {...props}
@@ -567,7 +567,7 @@ class App extends Component {
                 />
 
                 <Route
-                  path="/Fetch-Frontend/topic"
+                  path="/Fetch/topic"
                   render={props => (
                     <Topic
                       {...props}
@@ -582,7 +582,7 @@ class App extends Component {
 
                 <Route
                   exact
-                  path="/Fetch-Frontend/add-topic"
+                  path="/Fetch/add-topic"
                   render={props => (
                     <AddTopic
                       {...props}
@@ -597,7 +597,7 @@ class App extends Component {
 
                 <Route
                   exact
-                  path="/Fetch-Frontend/profile"
+                  path="/Fetch/profile"
                   render={props => (
                     <UserProfile
                       {...props}
@@ -608,7 +608,7 @@ class App extends Component {
                 />
               </React.Fragment>
             ) : (
-              <Redirect to="/Fetch-Frontend" />
+              <Redirect to="/Fetch" />
             )
           ) : (
             <>
@@ -617,7 +617,7 @@ class App extends Component {
           )}
         </Switch>
         <img
-          src="https://aryaziai.github.io/Fetch-Frontend/scroll.png"
+          src="https://aryaziai.github.io/Fetch/scroll.png"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="scrollTop"
           alt="ScrollTop"

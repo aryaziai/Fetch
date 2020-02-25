@@ -9,7 +9,7 @@ class SidebarItems extends Component {
         className="sidebaritems"
         onClick={() =>
           this.props.history.push(
-            `/Fetch-Frontend/topic/${this.props.topic.topic_title.toLowerCase()}`
+            `/Fetch/topic/${this.props.topic.topic_title.toLowerCase()}`
           )
         }
       >

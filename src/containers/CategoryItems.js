@@ -16,14 +16,14 @@ class CategoryItems extends Component {
   render() {
     let favorite;
     if (this.state.favorite === true) {
-      favorite = "https://aryaziai.github.io/Fetch-Frontend/heart.png";
+      favorite = "https://aryaziai.github.io/Fetch/heart.png";
     } else {
-      favorite = "https://aryaziai.github.io/Fetch-Frontend/unheart.png";
+      favorite = "https://aryaziai.github.io/Fetch/unheart.png";
     }
 
     let categoryName = this.props.location.pathname.split("/").slice(-1)[0];
 
-    let categoryImage = `https://aryaziai.github.io/Fetch-Frontend/${categoryName}.png`;
+    let categoryImage = `https://aryaziai.github.io/Fetch/${categoryName}.png`;
     //    console.log(this.props)
     return (
       <>
@@ -84,7 +84,7 @@ class CategoryItems extends Component {
                 href={`sms:Text Someone&body=${this.props.topicPost.title}%0D%0A%0D%0A${this.props.topicPost.url}`}
               >
                 <img
-                  src="https://aryaziai.github.io/Fetch-Frontend/imessage.png"
+                  src="https://aryaziai.github.io/Fetch/imessage.png"
                   alt="imessage"
                   name="imessage"
                   className="iMessage"
@@ -94,7 +94,11 @@ class CategoryItems extends Component {
               <a
                 href={`mailto:?subject=${this.props.topicPost.title}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.topicPost.url}`}
               >
-                <img src="https://aryaziai.github.io/Fetch-Frontend/mail.png" alt="email" className="email" />
+                <img
+                  src="https://aryaziai.github.io/Fetch/mail.png"
+                  alt="email"
+                  className="email"
+                />
                 Email
               </a>
             </p>

@@ -11,13 +11,11 @@ export default class AddTopic extends Component {
       language: "en",
       plus: true,
       sort_by: "relevancy",
-      logo: "https://aryaziai.github.io/Fetch-Frontend/missing.png",
+      logo: "https://aryaziai.github.io/Fetch/missing.png",
       user_id: props.currentUser.id,
       toggleUpload: false
     };
   }
-
-
 
   toggleImage = () => {
     this.setState(state => ({ plus: !state.plus }));
@@ -46,9 +44,9 @@ export default class AddTopic extends Component {
   render() {
     let imageLife;
     if (this.state.plus === true) {
-      imageLife = "https://aryaziai.github.io/Fetch-Frontend/toggleon.png";
+      imageLife = "https://aryaziai.github.io/Fetch/toggleon.png";
     } else {
-      imageLife = "https://aryaziai.github.io/Fetch-Frontend/toggleoff.png"
+      imageLife = "https://aryaziai.github.io/Fetch/toggleoff.png";
     }
 
     return (
@@ -173,7 +171,7 @@ export default class AddTopic extends Component {
             <br></br>
             <div className="submitTopic">
               <button
-                onClick={() => this.props.history.push("/Fetch-Frontend/feed")}
+                onClick={() => this.props.history.push("/Fetch/feed")}
                 className="submitTopic-btton-nevermind"
               >
                 Nevermind

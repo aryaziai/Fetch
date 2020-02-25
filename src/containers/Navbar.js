@@ -41,13 +41,13 @@ class Navbar extends Component {
         <>
           <div
             className="topcoolbutton"
-            onClick={() => this.props.history.push("/Fetch-Frontend/signup")}
+            onClick={() => this.props.history.push("/Fetch/signup")}
           >
             <p>Signup</p>
           </div>
           <div
             className="topcoolbutton"
-            onClick={() => this.props.history.push("/Fetch-Frontend/login")}
+            onClick={() => this.props.history.push("/Fetch/login")}
           >
             <p>Login</p>
           </div>
@@ -59,7 +59,7 @@ class Navbar extends Component {
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               <img
-                src="https://aryaziai.github.io/Fetch-Frontend/missing_avatar.jpg"
+                src="https://aryaziai.github.io/Fetch/missing_avatar.jpg"
                 alt="avatar"
               />{" "}
               {this.props.currentUser.username}
@@ -68,9 +68,7 @@ class Navbar extends Component {
             <Dropdown.Menu>
               <p
                 className="dropdown-item"
-                onClick={() =>
-                  this.props.history.push("/Fetch-Frontend/profile")
-                }
+                onClick={() => this.props.history.push("/Fetch/profile")}
               >
                 Edit Profile
               </p>
@@ -115,13 +113,13 @@ class Navbar extends Component {
         <Link
           to={
             Object.keys(this.props.currentUser).length === 0
-              ? "/Fetch-Frontend/"
-              : "/Fetch-Frontend/feed"
+              ? "/Fetch/"
+              : "/Fetch/feed"
           }
         >
           <img
             className="logo"
-            src="https://aryaziai.github.io/Fetch-Frontend/logo.png"
+            src="https://aryaziai.github.io/Fetch/logo.png"
             alt="logo"
           />
         </Link>
