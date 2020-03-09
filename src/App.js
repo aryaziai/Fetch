@@ -31,7 +31,7 @@ class App extends Component {
   // if successful then make fetch request localhost.com/3000/topics/{id}
 
   fetchToTopicId = () => {
-    console.log(this.state.topicsFollowed);
+    // console.log(this.state.topicsFollowed);
     //wrote with emiley 2/6/20
 
     this.state.topicsFollowed.forEach(topic => {
@@ -69,7 +69,7 @@ class App extends Component {
             });
         });
     });
-    console.log("ended");
+    // console.log("ended");
   };
 
   fetchFromSearch = (e, searchValue) => {
