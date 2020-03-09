@@ -35,7 +35,7 @@ class App extends Component {
     //wrote with emiley 2/6/20
 
     this.state.topicsFollowed.forEach(topic => {
-      console.log(topic);
+      // console.log(topic);
 
       fetch(`https://fetch-backend-api.herokuapp.com/topics/${topic.id}`, {
         method: "GET",
@@ -50,7 +50,7 @@ class App extends Component {
           // Matt 2/8/20
           let topicId = resp.topic.data.attributes.id;
           let topicPosts = resp.topic.data.attributes.posts;
-          console.log(topicPosts);
+          // console.log(topicPosts);
           topicPosts = topicPosts.map(postObj => {
             return { ...postObj, topic_id: topicId };
           });
