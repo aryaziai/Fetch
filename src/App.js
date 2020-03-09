@@ -31,7 +31,8 @@ class App extends Component {
   // if successful then make fetch request localhost.com/3000/topics/{id}
 
   delayFetch = () => {
-    setTimeout(this.fetchToTopicId, 100);
+    console.log("waiting");
+    setTimeout(this.fetchToTopicId, 1000);
   };
 
   fetchToTopicId = () => {
