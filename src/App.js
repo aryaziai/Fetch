@@ -30,6 +30,10 @@ class App extends Component {
   // iterate through this.state.topicsFollowed and match topic_title with topicUrl...
   // if successful then make fetch request localhost.com/3000/topics/{id}
 
+  delayFetch = () => {
+    setTimeout(this.fetchToTopicId, 100);
+  };
+
   fetchToTopicId = () => {
     // console.log(this.state.topicsFollowed);
     //wrote with emiley 2/6/20
@@ -498,6 +502,7 @@ class App extends Component {
                   render={props => (
                     <Feed
                       {...props}
+                      delayFetch={this.delayFetch}
                       topicsFollowed={this.state.topicsFollowed}
                       fetchFromGoogle={this.fetchFromGoogle}
                       fetchToTopicId={this.fetchToTopicId}
