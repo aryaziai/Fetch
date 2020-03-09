@@ -380,7 +380,7 @@ class App extends Component {
 
   followTrending = topicId => {
     fetch(
-      `http://newsapi.org/v2/top-headlines?pageSize=9&country=us&apiKey=07af66c02837407a82106528c10d64c5`
+      `https://newsapi.org/v2/top-headlines?pageSize=9&country=us&apiKey=07af66c02837407a82106528c10d64c5`
     )
       .then(res => res.json())
       .then(result => {
