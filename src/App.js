@@ -32,7 +32,7 @@ class App extends Component {
 
   delayFetch = () => {
     console.log("waiting");
-    setTimeout(this.fetchToTopicId, 1000);
+    setTimeout(this.fetchToTopicId, 900);
   };
 
   fetchToTopicId = () => {
