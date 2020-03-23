@@ -974,6 +974,8 @@ a {
   text-transform: capitalize;
   color: #2c436f;
   width: 85px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .addnewsidebaritems {
