@@ -131,7 +131,7 @@ img[src="null"] {
 }
 
 .caption {
-  padding-top: 14px;
+  padding-top: 12px;
   text-align: left;
   padding-left: 7%;
   padding-right: 7%;
@@ -921,7 +921,7 @@ a {
 
 .feeditemslogo {
   width: 55px;
-  height: 55px;
+  height: 52px;
   float: left;
   margin-right: 1.5%;
   margin-left: 6.1%;
@@ -1021,7 +1021,7 @@ header p img {
   margin-right: 7px;
   max-width: 22px;
   min-width: 55px;
-  min-height: 55px;
+  height: 52px;
   margin-bottom: 2px;
   background: #fbfbfb;
   border-radius: 50%;
