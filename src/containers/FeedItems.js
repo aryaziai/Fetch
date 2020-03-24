@@ -43,7 +43,7 @@ class FeedItems extends Component {
               <b
                 onClick={() =>
                   this.props.history.push(
-                    `/topic/${correctOne.topic_title.toLowerCase()}`
+                    `/Fetch/topic/${correctOne.topic_title.toLowerCase()}`
                   )
                 }
               >
