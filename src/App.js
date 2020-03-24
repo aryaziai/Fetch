@@ -27,66 +27,145 @@ class App extends Component {
     };
   }
 
+  handleSignupSubmit = (event, SignupInfo) => {
+    // first function called when signing up
+    event.preventDefault();
+    fetch("https://fetch-backend-api.herokuapp.com/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        user: SignupInfo
+      })
+    })
+      .then(resp => resp.json())
+      .then(json => {
+        if (json.error) {
+          document.getElementById("login-error").innerText = json.error;
+        } else {
+          localStorage.setItem("token", json.jwt);
+          this.setState({
+            currentUser: {
+              id: json.user.data.attributes.id,
+              ...json.user.data.attributes
+            }
+          });
+          this.createTrendingTopic();
+        }
+      });
+  };
+
+  createTrendingTopic = () => {
+    fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: localStorage.getItem("token")
+      },
+      body: JSON.stringify({
+        topic: {
+          topic_title: "Trending",
+          logo:
+            "https://cust-images.grenadine.co/grenadine/image/upload/c_fill,f_jpg,g_face,h_1472,w_1472/v0/Kinnektor/QgOV_5613.png",
+          user_id: this.state.currentUser.id,
+          page_size: null,
+          plus: null,
+          sort_by: null
+        }
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.followTrending(data.topic.data.attributes.id);
+      })
+      .then(() => {
+        this.props.history.push("/Fetch/feed");
+      });
+  };
+
+  followTrending = topicId => {
+    fetch(
+      `https://newsapi.org/v2/top-headlines?pageSize=5&country=us&apiKey=07af66c02837407a82106528c10d64c5`
+    )
+      .then(res => res.json())
+      .then(result => {
+        result.articles.map(article =>
+          this.postTrendingTopicToOurApi(article, topicId)
+        ); // Sending each Article into postToOurApi, good allTopicPosts! not using state!
+      });
+  };
+
+  postTrendingTopicToOurApi = (result, topicId) => {
+    fetch("https://fetch-backend-api.herokuapp.com/posts", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: localStorage.getItem("token")
+      },
+      body: JSON.stringify({
+        topic_id: topicId,
+        post: {
+          caption: result.title,
+          source: result.source.name,
+          image_url: result.urlToImage,
+          url: result.url,
+          published_at: result.publishedAt
+        }
+      })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        fetch("https://fetch-backend-api.herokuapp.com/post_topics", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Accept: "application/json",
+            Authorization: localStorage.getItem("token")
+          },
+          body: JSON.stringify({
+            post_topic: {
+              post_id: data.post.id,
+              topic_id: topicId
+            }
+          })
+        });
+      })
+      .then(this.fetchToTopicId());
+  };
+
   // iterate through this.state.topicsFollowed and match topic_title with topicUrl...
   // if successful then make fetch request localhost.com/3000/topics/{id}
 
-  delayFetch = () => {
-    setTimeout(this.fetchToTopicId, 900);
-  };
-
-  fetchToTopicId = () => {
-    this.state.topicsFollowed.forEach(topic => {
-      fetch(`https://fetch-backend-api.herokuapp.com/topics/${topic.id}`, {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-          Accept: "application/json",
-          Authorization: localStorage.getItem("token")
-        }
-      })
-        .then(resp => resp.json())
-        .then(resp => {
-          let topicId = resp.topic.data.attributes.id;
-          let topicPosts = resp.topic.data.attributes.posts;
-          topicPosts = topicPosts.map(postObj => {
-            return { ...postObj, topic_id: topicId };
-          });
-          let allTopicPostsIds =
-            this.state.allTopicPosts !== null
-              ? this.state.allTopicPosts.map(tp => tp.id)
-              : [];
-          let cleanTopicPosts = topicPosts.filter(
-            topicpost => !allTopicPostsIds.includes(topicpost.id)
-          ); // if this topicPost's id isn't in allTopicPostsIds
-
-          this.state.allTopicPosts !== null &&
-            this.setState({
-              // allTopicPosts: [...this.state.allTopicPosts, ...cleanTopicPosts] // object with [Posts] inside of it.
-              allTopicPosts: [...this.state.allTopicPosts, ...cleanTopicPosts]
-              // .sort((a,b) => (a.created_at < b.created_at))
-            });
-          // console.log(
-          //   "sorted",
-          //   this.state.allTopicPosts.sort((a, b) => b.created_at - a.created_at)
-          // );
-        });
-    });
-  };
-
-  fetchFromSearch = (e, searchValue) => {
-    e.preventDefault();
-
-    // console.log(searchValue);
-    fetch(
-      `https://newsapi.org/v2/everything?language=en&pageSize=6&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
-    )
-      .then(res => res.json())
-      .then(resp =>
-        this.setState({
-          searchPosts: resp.articles
+  handleSubmitTopic = (event, socialInput) => {
+    // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
+    event.preventDefault();
+    socialInput.topic_title !== ""
+      ? fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Accept: "application/json",
+            Authorization: localStorage.getItem("token")
+          },
+          body: JSON.stringify({
+            topic: {
+              ...socialInput
+            }
+          })
         })
-      );
-    this.props.history.push(`/Fetch/search/${searchValue}`);
+          .then(res => res.json())
+          .then(data => {
+            this.updateStateOfTopicsFollowed([data.topic.data.attributes]);
+            return data.topic.data.attributes.id; // topicId
+          })
+          .then(topicID => {
+            this.fetchFromGoogle(topicID); // took out topicID
+          })
+          .then(() => {
+            this.props.history.push("/Fetch/feed"); // this.props.history.push("/feed"); needs .then
+          })
+      : window.alert("Topic title cannot be empty");
   };
 
   fetchFromGoogle = () => {
@@ -126,7 +205,6 @@ class App extends Component {
       .then(resp => resp.json())
       .then(resp => {
         if (resp.post) {
-          // console.log(resp)
           fetch("https://fetch-backend-api.herokuapp.com/post_topics", {
             method: "POST",
             headers: {
@@ -142,8 +220,45 @@ class App extends Component {
             })
           });
         }
-        this.fetchToTopicId(); // just added
+        this.fetchToTopicId();
       });
+  };
+
+  delayFetch = () => {
+    setTimeout(this.fetchToTopicId, 600);
+  };
+
+  fetchToTopicId = () => {
+    this.state.topicsFollowed.forEach(topic => {
+      fetch(`https://fetch-backend-api.herokuapp.com/topics/${topic.id}`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Accept: "application/json",
+          Authorization: localStorage.getItem("token")
+        }
+      })
+        .then(resp => resp.json())
+        .then(resp => {
+          let topicId = resp.topic.data.attributes.id;
+          let topicPosts = resp.topic.data.attributes.posts;
+          topicPosts = topicPosts.map(postObj => {
+            return { ...postObj, topic_id: topicId };
+          });
+          let allTopicPostsIds =
+            this.state.allTopicPosts !== null
+              ? this.state.allTopicPosts.map(tp => tp.id)
+              : [];
+          let cleanTopicPosts = topicPosts.filter(
+            topicpost => !allTopicPostsIds.includes(topicpost.id)
+          ); // if this topicPost's id isn't in allTopicPostsIds
+
+          this.state.allTopicPosts !== null &&
+            this.setState({
+              allTopicPosts: [...this.state.allTopicPosts, ...cleanTopicPosts]
+            });
+        });
+    });
   };
 
   componentDidMount() {
@@ -187,6 +302,20 @@ class App extends Component {
     // }
   }
 
+  fetchFromSearch = (e, searchValue) => {
+    e.preventDefault();
+    fetch(
+      `https://newsapi.org/v2/everything?language=en&pageSize=6&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
+    )
+      .then(res => res.json())
+      .then(resp =>
+        this.setState({
+          searchPosts: resp.articles
+        })
+      );
+    this.props.history.push(`/Fetch/search/${searchValue}`);
+  };
+
   deletePostFromCategory = event => {
     event.preventDefault();
     this.setState({
@@ -198,8 +327,6 @@ class App extends Component {
 
   deletePostFromTopic = event => {
     event.preventDefault();
-    // console.log(this.state.allTopicPosts)
-    // console.log(event.target.id)
     fetch(`https://fetch-backend-api.herokuapp.com/posts/${event.target.id}`, {
       method: "delete",
       headers: {
@@ -262,98 +389,6 @@ class App extends Component {
     }));
   };
 
-  handleSubmitTopic = (event, socialInput) => {
-    // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
-    event.preventDefault();
-    socialInput.topic_title !== ""
-      ? fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-            Accept: "application/json",
-            Authorization: localStorage.getItem("token")
-          },
-          body: JSON.stringify({
-            topic: {
-              ...socialInput
-            }
-          })
-        })
-          .then(res => res.json())
-          .then(data => {
-            this.updateStateOfTopicsFollowed([data.topic.data.attributes]);
-            return data.topic.data.attributes.id; // topicId
-          })
-          .then(topicID => {
-            this.fetchFromGoogle(topicID); // took out topicID
-          })
-          .then(() => {
-            this.props.history.push("/Fetch/feed"); // this.props.history.push("/feed"); needs .then
-          })
-      : window.alert("Topic title cannot be empty");
-  };
-
-  handleSignupSubmit = (event, SignupInfo) => {
-    // first function called when signing up
-    event.preventDefault();
-    fetch("https://fetch-backend-api.herokuapp.com/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        user: SignupInfo
-      })
-    })
-      .then(resp => resp.json())
-      .then(json => {
-        if (json.error) {
-          document.getElementById("login-error").innerText = json.error;
-        } else {
-          localStorage.setItem("token", json.jwt);
-          this.setState({
-            currentUser: {
-              id: json.user.data.attributes.id,
-              ...json.user.data.attributes
-            }
-          });
-          this.createTopic(); // second function called   // i think because this is not in a .then
-
-          // this.props.history.push("/feed"); // why am I pushing to feed
-        }
-      });
-  };
-
-  createTopic = () => {
-    // CREATES TRENDING TOPIC
-    // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
-    fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
-        Authorization: localStorage.getItem("token")
-      },
-      body: JSON.stringify({
-        topic: {
-          topic_title: "Trending",
-          logo:
-            "https://cust-images.grenadine.co/grenadine/image/upload/c_fill,f_jpg,g_face,h_1472,w_1472/v0/Kinnektor/QgOV_5613.png",
-          user_id: this.state.currentUser.id,
-          page_size: null,
-          plus: null,
-          sort_by: null
-        }
-      })
-    })
-      .then(res => res.json())
-      .then(data => {
-        // console.log("topic Id", topicId)
-        this.followTrending(data.topic.data.attributes.id); // took out topicID
-      })
-      .then(() => {
-        this.props.history.push("/Fetch/feed"); // this.props.history.push("/feed"); needs .then
-      });
-  };
-
   deleteTopic = event => {
     event.preventDefault();
     fetch(`https://fetch-backend-api.herokuapp.com/topics/${event.target.id}`, {
@@ -372,60 +407,6 @@ class App extends Component {
     this.props.history.push("/Fetch/feed");
   };
 
-  followTrending = topicId => {
-    fetch(
-      `https://newsapi.org/v2/top-headlines?pageSize=5&country=us&apiKey=07af66c02837407a82106528c10d64c5`
-    )
-      .then(res => res.json())
-      .then(result => {
-        // console.log(result) // successful
-        result.articles.map(article =>
-          this.postTrendingTopicToOurApi(article, topicId)
-        ); // Sending each Article into postToOurApi, good allTopicPosts! not using state!
-      });
-  };
-
-  postTrendingTopicToOurApi = (result, topicId) => {
-    fetch("https://fetch-backend-api.herokuapp.com/posts", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
-        Authorization: localStorage.getItem("token")
-      },
-      body: JSON.stringify({
-        topic_id: topicId,
-        post: {
-          caption: result.title,
-          source: result.source.name,
-          image_url: result.urlToImage,
-          url: result.url,
-          published_at: result.publishedAt
-        }
-      })
-    })
-      .then(resp => resp.json())
-      .then(data => {
-        // console.log(data)
-        fetch("https://fetch-backend-api.herokuapp.com/post_topics", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-            Accept: "application/json",
-            Authorization: localStorage.getItem("token")
-          },
-          body: JSON.stringify({
-            post_topic: {
-              post_id: data.post.id,
-              topic_id: topicId
-            }
-          })
-        });
-      })
-      .then(this.fetchToTopicId());
-    // .then(this.props.history.push("/feed"));
-  };
-
   handleLogout = () => {
     localStorage.clear();
     this.setState({
@@ -440,7 +421,6 @@ class App extends Component {
   };
 
   handleCategoryClick(categoryName) {
-    // console.log("handleCategory FETCH just happened")
     fetch(
       `https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=6&apiKey=07af66c02837407a82106528c10d64c5`
     )
