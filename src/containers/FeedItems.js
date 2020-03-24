@@ -34,7 +34,7 @@ class FeedItems extends Component {
               className="feeditemslogo"
               onClick={() =>
                 this.props.history.push(
-                  `/topic/${correctOne.topic_title.toLowerCase()}`
+                  `/Fetch/topic/${correctOne.topic_title.toLowerCase()}`
                 )
               }
             />
