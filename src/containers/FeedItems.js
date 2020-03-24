@@ -24,7 +24,6 @@ class FeedItems extends Component {
       x => x.id === this.props.topicPost.topic_id
     );
 
-    // console.log(correctOne)
     return (
       <>
         {correctOne !== undefined ? (

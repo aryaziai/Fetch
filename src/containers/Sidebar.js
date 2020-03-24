@@ -49,7 +49,7 @@ class Sidebar extends Component {
           >
             {" "}
             <img
-              src="https://friconix.com/png/fi-xtluxx-plus-thin.png"
+              src="https://i.imgur.com/DPZuNtB.png"
               alt="Add Topic"
               className="addMore"
             />

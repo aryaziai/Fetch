@@ -123,6 +123,13 @@ img[src="null"] {
   padding-top: 52px;
 }
 
+.passwordinfo {
+  color: #333;
+  font-size: 12px;
+  margin-bottom: -2px;
+  margin-top: 8px;
+}
+
 .caption {
   padding-top: 14px;
   text-align: left;
@@ -211,10 +218,10 @@ header p a {
 }
 
 .logo {
-  width: 150px;
+  width: 142px;
   position: absolute;
-  left: 25px;
-  bottom: 14px;
+  left: 31px;
+  bottom: 15px;
 }
 
 .brands img {
@@ -556,7 +563,7 @@ button {
   float: right;
   margin-top: -27px;
   font-weight: 300;
-  margin-right: -44px;
+  margin-right: -7.5%;
   color: #777;
   font-weight: 100;
 }
@@ -646,13 +653,13 @@ button {
 }
 
 .missing {
-  width: 131px;
+  width: 123px;
   /* opacity: .5; */
   position: absolute;
-  left: 5.1%;
-  top: 141px;
+  left: 5.4%;
+  top: 143px;
   border-radius: 50%;
-  height: 131px;
+  height: 123px;
 }
 
 .missing:hover {
@@ -775,7 +782,7 @@ button {
   margin-bottom: 100px;
   width: 154px;
   height: 33px;
-  padding: 20px 12px 2px;
+  padding: 17px 12px 2px;
   border-radius: 100px;
   color: #fff;
   font-weight: 900;
@@ -909,8 +916,8 @@ a {
 }
 
 .feeditemslogo {
-  width: 59px;
-  height: 59px;
+  width: 55px;
+  height: 55px;
   float: left;
   margin-right: 1.5%;
   margin-left: 6.1%;
@@ -926,7 +933,7 @@ a {
   min-height: 250px;
   border: 1px solid #ccc;
   margin-bottom: 100px;
-  top: 144px;
+  top: 143px;
   position: absolute;
   padding-top: 39px;
   min-height: 837px;
@@ -940,19 +947,27 @@ a {
   cursor: pointer;
 }
 
+.mainfeedtitle {
+  top: 80px;
+}
+
 .mainfeedtitle,
 .addtopictitle {
   font-size: 20px;
   margin-left: 25%;
   position: absolute;
-  top: 79px;
   color: #333;
   text-transform: capitalize;
+}
+
+.addtopictitle {
+  top: 84px;
 }
 
 #login-error {
   color: darkred;
   padding-top: 10px;
+  font-size: 14px;
 }
 .App-header {
   display: flex;
@@ -967,7 +982,7 @@ a {
 
 .sidebaritems {
   font-weight: 700;
-  font-size: 13px;
+  font-size: 12px;
   text-align: left;
   float: left;
   padding-left: 8px;
@@ -981,7 +996,7 @@ a {
 .addnewsidebaritems {
   width: 71px;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 12px;
   text-align: left;
   float: left;
   padding-left: 8px;
@@ -1001,8 +1016,8 @@ a {
 header p img {
   margin-right: 7px;
   max-width: 22px;
-  min-width: 60px;
-  min-height: 60px;
+  min-width: 55px;
+  min-height: 55px;
   margin-bottom: 2px;
   background: #fbfbfb;
   border-radius: 50%;

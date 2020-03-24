@@ -31,17 +31,11 @@ class App extends Component {
   // if successful then make fetch request localhost.com/3000/topics/{id}
 
   delayFetch = () => {
-    console.log("waiting");
     setTimeout(this.fetchToTopicId, 900);
   };
 
   fetchToTopicId = () => {
-    // console.log(this.state.topicsFollowed);
-    //wrote with emiley 2/6/20
-
     this.state.topicsFollowed.forEach(topic => {
-      // console.log(topic);
-
       fetch(`https://fetch-backend-api.herokuapp.com/topics/${topic.id}`, {
         method: "GET",
         headers: {
@@ -52,10 +46,8 @@ class App extends Component {
       })
         .then(resp => resp.json())
         .then(resp => {
-          // Matt 2/8/20
           let topicId = resp.topic.data.attributes.id;
           let topicPosts = resp.topic.data.attributes.posts;
-          // console.log(topicPosts);
           topicPosts = topicPosts.map(postObj => {
             return { ...postObj, topic_id: topicId };
           });
@@ -63,18 +55,22 @@ class App extends Component {
             this.state.allTopicPosts !== null
               ? this.state.allTopicPosts.map(tp => tp.id)
               : [];
-          // console.log(this.state.allTopicPosts)
           let cleanTopicPosts = topicPosts.filter(
             topicpost => !allTopicPostsIds.includes(topicpost.id)
           ); // if this topicPost's id isn't in allTopicPostsIds
 
           this.state.allTopicPosts !== null &&
             this.setState({
-              allTopicPosts: [...this.state.allTopicPosts, ...cleanTopicPosts] // object with [Posts] inside of it.
+              // allTopicPosts: [...this.state.allTopicPosts, ...cleanTopicPosts] // object with [Posts] inside of it.
+              allTopicPosts: [...this.state.allTopicPosts, ...cleanTopicPosts]
+              // .sort((a,b) => (a.created_at < b.created_at))
             });
+          // console.log(
+          //   "sorted",
+          //   this.state.allTopicPosts.sort((a, b) => b.created_at - a.created_at)
+          // );
         });
     });
-    // console.log("ended");
   };
 
   fetchFromSearch = (e, searchValue) => {
@@ -82,7 +78,7 @@ class App extends Component {
 
     // console.log(searchValue);
     fetch(
-      `https://newsapi.org/v2/everything?language=en&pageSize=10&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
+      `https://newsapi.org/v2/everything?language=en&pageSize=6&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
     )
       .then(res => res.json())
       .then(resp =>
@@ -94,7 +90,6 @@ class App extends Component {
   };
 
   fetchFromGoogle = () => {
-    // console.log("fetchFromGoogle has been hit")
     // eslint-disable-next-line
     this.state.topicsFollowed.map(topic => {
       let plus = topic.plus === true ? "+" : "";
@@ -104,7 +99,7 @@ class App extends Component {
       )
         .then(res => res.json())
         .then(result => {
-          result.articles.map(article => this.postToOurApi(article, topic.id)); // thanks emiley sending each Articles into postToOurApi, good allTopicPosts! not using state!
+          result.articles.map(article => this.postToOurApi(article, topic.id)); // Sending each Article into postToOurApi, good allTopicPosts! not using state!
         });
     });
   };
@@ -213,8 +208,6 @@ class App extends Component {
         Authorization: localStorage.getItem("token")
       }
     });
-    // console.log(this.state.allTopicPosts.filter(x=> x.id !== parseInt(event.target.id)))
-    // console.log({allTopicPosts: (this.state.allTopicPosts.filter(x=> x.id !== parseInt(event.target.id) ) ) } )
     this.setState({
       allTopicPosts: this.state.allTopicPosts.filter(
         x => x.id !== parseInt(event.target.id)
@@ -232,7 +225,6 @@ class App extends Component {
       },
       body: JSON.stringify({
         auth: {
-          // id: loginInfo.id,
           username: loginInfo.username,
           password: loginInfo.password,
           first_name: loginInfo.first_name,
@@ -346,9 +338,6 @@ class App extends Component {
           logo:
             "https://cust-images.grenadine.co/grenadine/image/upload/c_fill,f_jpg,g_face,h_1472,w_1472/v0/Kinnektor/QgOV_5613.png",
           user_id: this.state.currentUser.id,
-          //  page_size: 5,
-          //  plus: true,
-          //  sort_by: relevancy,
           page_size: null,
           plus: null,
           sort_by: null
@@ -385,14 +374,14 @@ class App extends Component {
 
   followTrending = topicId => {
     fetch(
-      `https://newsapi.org/v2/top-headlines?pageSize=9&country=us&apiKey=07af66c02837407a82106528c10d64c5`
+      `https://newsapi.org/v2/top-headlines?pageSize=5&country=us&apiKey=07af66c02837407a82106528c10d64c5`
     )
       .then(res => res.json())
       .then(result => {
         // console.log(result) // successful
         result.articles.map(article =>
           this.postTrendingTopicToOurApi(article, topicId)
-        ); // thanks emiley sending each Articles into postToOurApi, good allTopicPosts! not using state!
+        ); // Sending each Article into postToOurApi, good allTopicPosts! not using state!
       });
   };
 
@@ -453,7 +442,7 @@ class App extends Component {
   handleCategoryClick(categoryName) {
     // console.log("handleCategory FETCH just happened")
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=9&apiKey=07af66c02837407a82106528c10d64c5`
+      `https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=6&apiKey=07af66c02837407a82106528c10d64c5`
     )
       .then(resp => resp.json())
       .then(resp =>
@@ -473,7 +462,6 @@ class App extends Component {
           handleLogout={this.handleLogout}
           fetchFromSearch={this.fetchFromSearch}
           searchQuery={this.state.searchQuery}
-          fetchFromSearch={this.fetchFromSearch}
         />
 
         <Switch>
