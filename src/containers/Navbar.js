@@ -41,15 +41,15 @@ class Navbar extends Component {
         <>
           <div
             className="topcoolbutton"
+            onClick={() => this.props.history.push("/Fetch/login")}
+          >
+            <p>Sign In</p>
+          </div>
+          <div
+            className="topcoolbuttonjaz"
             onClick={() => this.props.history.push("/Fetch/signup")}
           >
             <p>Sign Up</p>
-          </div>
-          <div
-            className="topcoolbutton"
-            onClick={() => this.props.history.push("/Fetch/login")}
-          >
-            <p>Login</p>
           </div>
         </>
       );

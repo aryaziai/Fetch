@@ -83,9 +83,11 @@ export default class Signup extends Component {
               />
             </Form.Group>
             <br></br>
-            <p className="passwordinfo">* Password must be at least 5 characters</p> 
+            <p className="passwordinfo">
+              * Password must be at least 5 characters
+            </p>
             <Button variant="primary-submit" type="submit">
-              Next
+              Sign Up
             </Button>
           </Form>
 

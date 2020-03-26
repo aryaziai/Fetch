@@ -6,9 +6,9 @@ export default class Welcome extends Component {
     return (
       <div className="welcome">
         <h1 className="create_experience">
-          Create your personalized
+          Create your personalized news
           <br />
-          news experience
+          experience
         </h1>
 
         <div className="notbrands">
@@ -76,17 +76,8 @@ export default class Welcome extends Component {
         <h1 className="finalh1">Join Today</h1>
         <div className="align-buttons">
           <p className="coolbutton">
-            <Link to="/Fetch/signup">Signup</Link>
+            <Link to="/Fetch/signup">Sign Up</Link>
           </p>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
         </div>
       </div>
     );
