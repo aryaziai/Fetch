@@ -5,11 +5,15 @@ export default class Welcome extends Component {
   render() {
     return (
       <div className="welcome">
-        <h1 className="create_experience">
+        <div className="create_experience">
           Create your personalized news
           <br />
           experience
-        </h1>
+          <br />
+          <Link to="/Fetch/signup">
+            <h1 className="goldbutton"> Join Today</h1>
+          </Link>
+        </div>
 
         <div className="notbrands">
           <p className="bigtime">

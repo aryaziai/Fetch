@@ -154,7 +154,7 @@ img[src="null"] {
   background: #fff;
   border: 1px solid #ccc;
   margin-right: 39%;
-  padding-bottom: 9px;
+  padding-bottom: 5px;
   padding-top: 32px;
 }
 
@@ -190,16 +190,17 @@ input:after {
 }
 
 .btn.btn-primary-submit {
+  border: 2px solid #002e76;
   background: #002e76;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 65px;
-  padding-right: 65px;
-  border-radius: 100px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 28px;
+  padding-right: 28px;
+  border-radius: 4px;
   box-shadow: none;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 600;
   line-height: 20px;
   position: relative;
   text-align: center;
@@ -325,7 +326,7 @@ h1 {
   margin-top: -34px;
   padding-right: 0%;
   position: absolute;
-  right: 10px;
+  right: 13px;
   display: flex;
 }
 
@@ -389,10 +390,15 @@ a.dropdown-item {
   text-decoration: none;
 }
 
+.topcoolbutton p:hover {
+  color: #3282ff;
+}
+
+.btn.btn-primary-submit:hover,
 .topcoolbuttonjaz p:hover {
-  background: #1d75ff;
+  background: #3282ff;
   color: #fff;
-  border: 2px solid #1d75ff;
+  border: 2px solid #3282ff;
 }
 
 .coolbutton {
@@ -408,9 +414,9 @@ a.dropdown-item {
 }
 
 .create_experience {
-  padding-top: 180px;
-  padding-bottom: 190px;
-  background-image: url(https://i.imgur.com/KUeJwUc.png);
+  padding-top: 160px;
+  padding-bottom: 100px;
+  background-image: url("images/bg.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #fff;
@@ -420,7 +426,36 @@ a.dropdown-item {
   font-weight: 300;
   font-size: 43px;
   background-size: contain;
-  margin-top: 5px;
+  margin-top: 16px;
+}
+
+.create_experience a {
+  text-decoration: none;
+}
+
+.goldbutton {
+  background: darkgoldenrod;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 28px;
+  padding-right: 28px;
+  border-radius: 4px;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  width: 100px;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.goldbutton:hover {
+  background: #8f6808;
 }
 
 .coolbutton a {
