@@ -117,10 +117,22 @@ img[src="null"] {
 .Formlife {
   margin-left: 34%;
   background: #fff;
-  border: 1px solid #ccc;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0), 0 1px 10px 0 rgba(0, 0, 0, 0),
+    0 2px 4px -1px rgba(0, 0, 0, 0.15);
   margin-right: 34%;
   padding-bottom: 20px;
   padding-top: 52px;
+  box-shadow: 10px #ddd;
+}
+
+.loginFormlife {
+  margin-left: 39%;
+  background: #fff;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0), 0 1px 10px 0 rgba(0, 0, 0, 0),
+    0 2px 4px -1px rgba(0, 0, 0, 0.15);
+  margin-right: 39%;
+  padding-bottom: 5px;
+  padding-top: 32px;
 }
 
 .passwordinfo {
@@ -147,15 +159,6 @@ img[src="null"] {
   overflow: hidden;
   text-overflow: ellipsis;
   overflow-wrap: break-word;
-}
-
-.loginFormlife {
-  margin-left: 39%;
-  background: #fff;
-  border: 1px solid #ccc;
-  margin-right: 39%;
-  padding-bottom: 5px;
-  padding-top: 32px;
 }
 
 .EditFormlife {
@@ -323,7 +326,7 @@ h1 {
 }
 
 .right-align-buttons {
-  margin-top: -34px;
+  margin-top: -34.5px;
   padding-right: 0%;
   position: absolute;
   right: 13px;
@@ -497,21 +500,27 @@ select,
 p,
 button {
   outline: none;
+  padding-left: 2px;
 }
 
+input:focus {
+  outline: none;
+  /* border-bottom: 2px solid #002e76; */
+  background: rgba(66, 133, 244, 0.149);
+}
 .topbar {
   position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
-  -webkit-backface-visibility: hidden;
   z-index: 1000;
   font-size: 17px;
   background: #fff;
   position: fixed;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
   height: 64px;
+  box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0), 0 1px 10px 0 rgba(0, 0, 0, 0),
+    0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
 
 .profile-nav img {
@@ -965,6 +974,7 @@ a {
 
 .feedpostImage {
   width: 86%;
+  max-height: 400px;
 }
 
 .categorypostImage {
