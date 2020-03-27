@@ -59,7 +59,7 @@ export default class Welcome extends Component {
         </div>
 
         <div className="brands">
-          <h1>Sources we use:</h1>
+          <h1>Sources we use</h1>
           <img
             src="https://aryaziai.github.io/Fetch/cnn.png"
             width="100px"

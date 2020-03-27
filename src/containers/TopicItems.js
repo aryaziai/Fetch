@@ -60,7 +60,7 @@ export default class TopicItems extends Component {
           <img
             src={this.props.topicPost.image_url}
             alt="news_image"
-            className="postImage"
+            className="feedpostImage"
           />
         </a>
         <br />
