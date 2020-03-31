@@ -381,7 +381,7 @@ class App extends Component {
 
   updateStateOfTopicsFollowed = result => {
     /* 1. Pass down this function to Sidebar, and take in the value via fetch result
-    2. Use concat to combine prevstate with new results
+    2. Use concat to combine prevState with new results
     3. call this function via handleSubmitTopic & pass it the addTopicForm info.
     */
     this.setState(prevState => ({

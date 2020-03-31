@@ -22,18 +22,18 @@ export default class Topic extends Component {
     return (
       <>
         <h3 className="mainfeedtitle">
-          {/* onLoad={this.props.fetchToTopicId} */}#{topicUrl}
-          {correctTopicId ? (
-            <img
-              src="https://aryaziai.github.io/Fetch/x.png"
-              className="deletetopic"
-              alt="feedicon"
-              onClick={this.props.deleteTopic}
-              id={correctTopicId.id}
-              key={correctTopicId.id}
-            />
-          ) : null}
+          Topic: <span className="searchTitle">#{topicUrl}</span>
         </h3>
+        {correctTopicId ? (
+          <img
+            src="https://aryaziai.github.io/Fetch/x.png"
+            className="deletetopic"
+            alt="feedicon"
+            onClick={this.props.deleteTopic}
+            id={correctTopicId.id}
+            key={correctTopicId.id}
+          />
+        ) : null}
         <div className="drop"></div>
 
         {correctTopicId
