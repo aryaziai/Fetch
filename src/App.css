@@ -75,6 +75,7 @@
   }
 
   .searchTitle {
+    text-transform: capitalize;
     color: #275ea4;
   }
 
@@ -252,8 +253,6 @@
   }
 
   #formBasicSearch.form-control {
-    background-color: #fafafa;
-    border: 1px solid #eee;
     box-sizing: border-box;
     color: #14171a;
     font-size: 12px;
@@ -263,6 +262,16 @@
     transition: all 0.2s ease-in-out;
     width: 100%;
     margin-top: 15px;
+    background-color: #f1f3f4;
+    border: 1px solid transparent;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 720px;
+    position: relative;
+    -webkit-transition: background 100ms ease-in, width 100ms ease-out;
+    transition: background 100ms ease-in, width 100ms ease-out;
   }
 
   .brands {
@@ -658,6 +667,7 @@
     margin-right: -7.5%;
     color: #777;
     font-weight: 100;
+    background: #fff;
   }
 
   .scrollTop {
@@ -951,9 +961,9 @@
     padding-top: 142px;
   }
 
-  /* .categorydrop {
+  .categorydrop {
     padding-top: 142px;
-  } */
+  }
 
   .sourceinfo {
     text-align: right;
@@ -1047,9 +1057,14 @@
   }
 
   .categoryfeedtitle {
-    margin-bottom: 120px;
-    margin-top: 0px;
+    font-size: 20px;
+    margin-left: 25%;
+    position: absolute;
+    color: #333;
+    text-transform: capitalize;
+    top: 11%;
   }
+
   .mainfeedtitle,
   .addtopictitle {
     font-size: 20px;
@@ -1146,6 +1161,11 @@
     max-height: 124px;
     margin-bottom: 131%;
     margin-top: 41px;
+  }
+  .catItems {
+    margin-top: 4%;
+    margin-left: 0px;
+    position: absolute;
   }
 
   App-logo {
@@ -1244,11 +1264,11 @@
     text-align: center;
     color: #333;
     background: #fafafa;
-    min-height: 914px;
+    min-height: 700px;
   }
   .logincontainer {
     background-color: #fafafa;
-    min-height: 800px;
+    /* min-height: 800px; */
     margin-top: -25px;
     padding-top: 193px;
   }
@@ -1331,7 +1351,7 @@
     padding-top: 45px;
     width: -webkit-fill-available;
     position: absolute;
-    top: 165px;
+    top: 18%;
     margin-left: 3%;
     margin-right: 3%;
   }
@@ -1391,7 +1411,7 @@
     max-width: 140px;
     position: absolute;
     left: 15px;
-    bottom: 28%;
+    bottom: 29.8%;
   }
 
   html {
@@ -1412,9 +1432,9 @@
     line-height: 16px;
     padding: 8px 40px 8px 12px;
     transition: all 0.2s ease-in-out;
-    width: 93%;
+    width: 94%;
     /* margin-top: 14.5%; */
-    border-radius: 100px;
+    border-radius: 8px;
   }
 
   .brands {
@@ -1531,8 +1551,8 @@
     background: #002e76;
     padding-top: 8px;
     padding-bottom: 8px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 4px;
     box-shadow: none;
     cursor: pointer;
@@ -1695,7 +1715,7 @@
     font-size: 20px !important;
     position: absolute;
     left: 5%;
-    top: 15%;
+    top: 10%;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -1721,19 +1741,17 @@
 
   .category {
     position: ABSOLUTE;
-    left: 10.1%;
-    top: 267px;
+    left: 2%;
+    width: 96%;
+    top: 241px;
     text-align: left;
     float: left;
     padding-left: 8px;
     text-transform: capitalize;
     color: #2c436f;
-    width: 100%;
+
     line-height: 30px;
     display: flex;
-  }
-
-  .category p {
   }
 
   .category h3 {
@@ -1744,10 +1762,12 @@
   }
 
   .category p {
-    line-height: 13px;
+    line-height: 0px;
     font-weight: 700;
     font-size: 14px;
     cursor: pointer;
+    margin-right: 10px;
+    display: inline-flex;
   }
 
   .addtopiclogo {
@@ -1806,6 +1826,7 @@
     margin-right: -6.5%;
     color: #777;
     font-weight: 100;
+    background: #fff;
   }
   .scrollTop {
     width: 52px;
@@ -1885,7 +1906,7 @@
     width: -webkit-fill-available;
     border: 1px solid #eee;
     margin-bottom: 100px;
-    top: 22.5%;
+    top: 18%;
     position: absolute;
     padding-top: 39px;
     min-height: 837px;
@@ -2058,7 +2079,7 @@
     font-size: 20px;
     text-align: left;
     padding-left: 8px;
-    margin-bottom: 9px;
+    margin-bottom: 3px;
   }
   .addtext a {
     color: #002e76;
@@ -2138,7 +2159,6 @@
 
   .feedpostImage {
     width: 86%;
-    max-height: 405px;
   }
 
   .categorypostImage {
@@ -2205,7 +2225,7 @@
   }
 
   .addtopictitle {
-    top: 15%;
+    top: 10%;
   }
 
   #login-error {
@@ -2235,6 +2255,8 @@
     width: 85px;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: inline-block;
+    width: 16%;
   }
 
   .addnewsidebaritems {
@@ -2250,7 +2272,7 @@
   }
 
   .mainSideMove {
-    margin-left: 48.5%;
+    margin-left: 15.5%;
     padding-top: 2px;
   }
 

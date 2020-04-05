@@ -19,7 +19,7 @@ class Category extends Component {
       <>
         <div className="topdog">
           <h3 className="categoryfeedtitle">
-            #{topicUrl}
+            <span className="searchTitle">#{topicUrl}</span>
             <img
               src="https://aryaziai.github.io/Fetch/refresh.png"
               className="feedtitleimage"

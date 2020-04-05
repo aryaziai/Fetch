@@ -525,28 +525,32 @@ class App extends Component {
                   "feed" || window.innerWidth > 1034 ? (
                   <div className="category">
                     <h3>Categories</h3>
-                    <br />
-                    <p onClick={e => this.handleCategoryClick("business")}>
-                      #Business
-                    </p>
-                    <p onClick={e => this.handleCategoryClick("entertainment")}>
-                      #Entertainment
-                    </p>
-                    <p onClick={e => this.handleCategoryClick("general")}>
-                      #General
-                    </p>
-                    <p onClick={e => this.handleCategoryClick("health")}>
-                      #Health
-                    </p>
-                    <p onClick={e => this.handleCategoryClick("science")}>
-                      #Science
-                    </p>
-                    <p onClick={e => this.handleCategoryClick("sports")}>
-                      #Sports
-                    </p>
-                    <p onClick={e => this.handleCategoryClick("technology")}>
-                      #Technology
-                    </p>
+                    <div className="catItems">
+                      <br />
+                      <p onClick={e => this.handleCategoryClick("business")}>
+                        #Business
+                      </p>
+                      <p
+                        onClick={e => this.handleCategoryClick("entertainment")}
+                      >
+                        #Entertainment
+                      </p>
+                      <p onClick={e => this.handleCategoryClick("general")}>
+                        #General
+                      </p>
+                      <p onClick={e => this.handleCategoryClick("health")}>
+                        #Health
+                      </p>
+                      <p onClick={e => this.handleCategoryClick("science")}>
+                        #Science
+                      </p>
+                      <p onClick={e => this.handleCategoryClick("sports")}>
+                        #Sports
+                      </p>
+                      <p onClick={e => this.handleCategoryClick("technology")}>
+                        #Technology
+                      </p>
+                    </div>
                   </div>
                 ) : null}
 

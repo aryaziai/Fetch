@@ -9,7 +9,7 @@ class Search extends Component {
       <>
         <div className="topdog">
           {/* {notFeedPath === "category"  &&  */}
-          <h3 className="mainfeedtitle">
+          <h3 className="categoryfeedtitle">
             Search: <span className="searchTitle">#{searchTitle}</span>
           </h3>
           <img
@@ -18,7 +18,7 @@ class Search extends Component {
             alt="feedicon"
             onClick={() => this.props.history.push("/Fetch/feed")}
           />
-          <div className="drop"></div>
+          <div className="categorydrop"></div>
 
           {this.props.searchPosts.map(post => (
             <SearchItems

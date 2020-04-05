@@ -27,11 +27,6 @@ class Sidebar extends Component {
   }
 
   render() {
-    // let slug = this.props.location.pathname.split("/").slice(-1)[0];
-    // if (slug === "feed") {
-    //   window.alert("Hey");
-    // }
-
     return this.props.location.pathname.split("/").slice(-1)[0] === "feed" ||
       window.innerWidth > 1034 ? (
       <header className="App-header">
@@ -60,8 +55,6 @@ class Sidebar extends Component {
               </>
             )}
           </div>
-
-          {/* <p className="addnewsidebaritems" onClick={() => this.props.history.push("/add-topic")}> <img src="unheart.png" alt="Add Topic" className="favorites" />Favorites</p> */}
         </div>
       </header>
     ) : null;

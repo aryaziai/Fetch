@@ -18,11 +18,6 @@ export default class AddTopic extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   document.querySelector("#root > div > header").remove();
-  //   document.querySelector("#root > div > div.category").remove();
-  // }
-
   toggleImage = () => {
     this.setState(state => ({ plus: !state.plus }));
   };
@@ -35,7 +30,6 @@ export default class AddTopic extends Component {
 
   avoidSpace = e => {
     if (e.key === " " || e.key >= 0 || e.key < 10) {
-      // console.log("spacebar:", e.key);
       e.preventDefault();
     }
   };
@@ -84,11 +78,8 @@ export default class AddTopic extends Component {
               src={this.state.logo}
               name="logo"
               className="missing"
-              // onClick={this.alertMe}
               alt="missing"
-              // onKeyPress={e => this.avoidSpace(e)}
               id="on"
-              // onClick={e => this.showImage(e)}
               value="/missing.png"
             />
             {this.state.toggleUpload === true ? (
