@@ -262,8 +262,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // if (localStorage.getItem("token") !== null) {
-
     fetch("https://fetch-backend-api.herokuapp.com/re_auth", {
       // fetch GET would only need 1 argument. the rest need 2
       method: "GET",
@@ -299,8 +297,26 @@ class App extends Component {
         }
       })
       .catch(() => {});
+    // resize css, hide certain components on mobile
+    // let slug = this.props.location.pathname.split("/").slice(-1)[0];
+    // if (slug === "add-topic" || slug === "profile") {
+    //   window.addEventListener("resize", this.resize.bind(this));
+    //   this.resize();
     // }
   }
+
+  // resize = () => {
+  //   let newHeader = document.querySelector("#root > div > header");
+  //   let newCat = document.querySelector("#root > div > div.category");
+
+  //   if (window.innerWidth < 1035) {
+  //     newHeader.style.visibility = "hidden";
+  //     newCat.style.visibility = "hidden";
+  //   } else {
+  //     newHeader.style.visibility = "visible";
+  //     newCat.style.visibility = "visible";
+  //   }
+  // };
 
   fetchFromSearch = (e, searchValue) => {
     e.preventDefault();
@@ -501,38 +517,38 @@ class App extends Component {
                       {...props}
                       currentUser={this.state.currentUser}
                       categoryPosts={this.state.categoryPosts}
-                      // categoryName={this.state.categoryName}
                       deletePostFromCategory={this.deletePostFromCategory}
                     />
                   )}
                 />
-
-                <div className="category">
-                  <h3>Categories</h3>
-                  <br />
-                  <p onClick={e => this.handleCategoryClick("business")}>
-                    #Business
-                  </p>
-                  <p onClick={e => this.handleCategoryClick("entertainment")}>
-                    #Entertainment
-                  </p>
-                  <p onClick={e => this.handleCategoryClick("general")}>
-                    #General
-                  </p>
-                  <p onClick={e => this.handleCategoryClick("health")}>
-                    #Health
-                  </p>
-                  <p onClick={e => this.handleCategoryClick("science")}>
-                    #Science
-                  </p>
-                  <p onClick={e => this.handleCategoryClick("sports")}>
-                    #Sports
-                  </p>
-                  <p onClick={e => this.handleCategoryClick("technology")}>
-                    #Technology
-                  </p>
-                </div>
-                {/* <Category/> */}
+                {this.props.location.pathname.split("/").slice(-1)[0] ===
+                  "feed" || window.innerWidth > 1034 ? (
+                  <div className="category">
+                    <h3>Categories</h3>
+                    <br />
+                    <p onClick={e => this.handleCategoryClick("business")}>
+                      #Business
+                    </p>
+                    <p onClick={e => this.handleCategoryClick("entertainment")}>
+                      #Entertainment
+                    </p>
+                    <p onClick={e => this.handleCategoryClick("general")}>
+                      #General
+                    </p>
+                    <p onClick={e => this.handleCategoryClick("health")}>
+                      #Health
+                    </p>
+                    <p onClick={e => this.handleCategoryClick("science")}>
+                      #Science
+                    </p>
+                    <p onClick={e => this.handleCategoryClick("sports")}>
+                      #Sports
+                    </p>
+                    <p onClick={e => this.handleCategoryClick("technology")}>
+                      #Technology
+                    </p>
+                  </div>
+                ) : null}
 
                 <Sidebar
                   currentUser={this.state.currentUser}

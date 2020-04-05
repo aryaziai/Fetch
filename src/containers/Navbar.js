@@ -84,7 +84,7 @@ class Navbar extends Component {
   loginLogicSearch = () => {
     if (Object.keys(this.props.currentUser).length !== 0) {
       return (
-        <div>
+        <div className="searchBarContainer">
           <form
             onSubmit={e => this.props.fetchFromSearch(e, this.state.search)}
             onKeyPress={e => this.handleKeyPress(e)}
@@ -109,25 +109,26 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div className="topbar">
-        <Link
-          to={
-            Object.keys(this.props.currentUser).length === 0
-              ? "/Fetch/"
-              : "/Fetch/feed"
-          }
-        >
-          <img
-            className="logo"
-            src="https://aryaziai.github.io/Fetch/logo.png"
-            alt="logo"
-          />
-        </Link>
+      <>
+        <div className="topbar">
+          <Link
+            to={
+              Object.keys(this.props.currentUser).length === 0
+                ? "/Fetch/"
+                : "/Fetch/feed"
+            }
+          >
+            <img
+              className="logo"
+              src="https://aryaziai.github.io/Fetch/logo.png"
+              alt="logo"
+            />
+          </Link>
 
+          <div className="right-align-buttons">{this.loginLogic()}</div>
+        </div>
         {this.loginLogicSearch()}
-
-        <div className="right-align-buttons">{this.loginLogic()}</div>
-      </div>
+      </>
     );
   }
 }

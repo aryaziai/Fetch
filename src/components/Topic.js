@@ -21,7 +21,7 @@ export default class Topic extends Component {
 
     return (
       <>
-        <h3 className="mainfeedtitle">
+        <h3 className="categoryfeedtitle">
           Topic: <span className="searchTitle">#{topicUrl}</span>
         </h3>
         {correctTopicId ? (
@@ -34,7 +34,7 @@ export default class Topic extends Component {
             key={correctTopicId.id}
           />
         ) : null}
-        <div className="drop"></div>
+        <div className="categorydrop"></div>
 
         {correctTopicId
           ? postsOfTopic.map(topic => (

@@ -15,13 +15,10 @@ class Category extends Component {
 
   render() {
     let topicUrl = this.props.location.pathname.split("/").slice(-1)[0];
-    // let notFeedPath = this.props.location.pathname.split("/")[1]
-    // console.log(notFeedPath)
     return (
       <>
         <div className="topdog">
-          {/* {notFeedPath === "category"  &&  */}
-          <h3 className="mainfeedtitle">
+          <h3 className="categoryfeedtitle">
             #{topicUrl}
             <img
               src="https://aryaziai.github.io/Fetch/refresh.png"
@@ -31,7 +28,7 @@ class Category extends Component {
             />
           </h3>
 
-          <div className="drop"></div>
+          <div className="categorydrop"></div>
 
           {this.props.categoryPosts.map(post => (
             <CategoryItems
@@ -42,25 +39,6 @@ class Category extends Component {
             />
           ))}
         </div>
-
-        {/* <div className="category">
-            <h3>Categories</h3>
-            <br />
-              <p onClick={e => this.handleCategoryClick("business")}>#Business</p>
-              <p onClick={e => this.handleCategoryClick("entertainment")}>
-                #Entertainment
-              </p>
-              <p onClick={e => this.handleCategoryClick("general")}>#General</p>
-              <p onClick={e => this.handleCategoryClick("health")}>#Health</p>
-              <p onClick={e => this.handleCategoryClick("science")}>#Science</p>
-              <p onClick={e => this.handleCategoryClick("sports")}>#Sports</p>
-              <p onClick={e => this.handleCategoryClick("technology")}>#Technology
-              
-              </p>
-    
-           
-          
-          </div>  */}
       </>
     );
   }

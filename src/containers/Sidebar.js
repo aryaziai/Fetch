@@ -27,27 +27,21 @@ class Sidebar extends Component {
   }
 
   render() {
-    return (
+    // let slug = this.props.location.pathname.split("/").slice(-1)[0];
+    // if (slug === "feed") {
+    //   window.alert("Hey");
+    // }
+
+    return this.props.location.pathname.split("/").slice(-1)[0] === "feed" ||
+      window.innerWidth > 1034 ? (
       <header className="App-header">
         <div className="addtopicstuff">
           <h3>Topics You Follow</h3>
 
-          {this.props.topicsFollowed !== null ? (
-            this.props.topicsFollowed.map(topic => (
-              <SidebarItems topic={topic} key={topic.id} />
-            ))
-          ) : (
-            <>
-              <div className="lds-dual-ring"></div>
-            </>
-          )}
-
-          {/* <p className="addnewsidebaritems" onClick={() => this.props.history.push("/add-topic")}> <img src="unheart.png" alt="Add Topic" className="favorites" />Favorites</p> */}
           <p
             className="addnewsidebaritems"
             onClick={() => this.props.history.push("/Fetch/add-topic")}
           >
-            {" "}
             <img
               src="https://i.imgur.com/DPZuNtB.png"
               alt="Add Topic"
@@ -55,9 +49,22 @@ class Sidebar extends Component {
             />
             Add a New Topic{" "}
           </p>
+          <div className="mainSideMove">
+            {this.props.topicsFollowed !== null ? (
+              this.props.topicsFollowed.map(topic => (
+                <SidebarItems topic={topic} key={topic.id} />
+              ))
+            ) : (
+              <>
+                <div className="lds-dual-ring"></div>
+              </>
+            )}
+          </div>
+
+          {/* <p className="addnewsidebaritems" onClick={() => this.props.history.push("/add-topic")}> <img src="unheart.png" alt="Add Topic" className="favorites" />Favorites</p> */}
         </div>
       </header>
-    );
+    ) : null;
   }
 }
 

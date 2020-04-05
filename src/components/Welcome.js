@@ -60,22 +60,26 @@ export default class Welcome extends Component {
 
         <div className="brands">
           <h1>Sources we use</h1>
-          <img
-            src="https://aryaziai.github.io/Fetch/cnn.png"
-            width="100px"
-            alt="cnn"
-          ></img>
-          <img
-            src="https://aryaziai.github.io/Fetch/fox.png"
-            width="200px"
-            alt="fox"
-          ></img>
-          <img
-            src="https://aryaziai.github.io/Fetch/bbc.png"
-            width="130px"
-            alt="bbc"
-          ></img>
-          & More...
+          <div className="brandimages">
+            <img
+              src="https://aryaziai.github.io/Fetch/cnn.png"
+              width="100px"
+              alt="cnn"
+            ></img>
+            <br />
+            <img
+              src="https://aryaziai.github.io/Fetch/fox.png"
+              width="200px"
+              alt="fox"
+            ></img>{" "}
+            <br />
+            <img
+              src="https://aryaziai.github.io/Fetch/bbc.png"
+              width="130px"
+              alt="bbc"
+            ></img>{" "}
+            <br />& More...
+          </div>
         </div>
         <h1 className="finalh1">Join Today</h1>
         <div className="align-buttons">

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
+// import "../MobileHide.css";
 
 export default class AddTopic extends Component {
   constructor(props) {
@@ -16,6 +17,11 @@ export default class AddTopic extends Component {
       toggleUpload: false
     };
   }
+
+  // componentDidMount() {
+  //   document.querySelector("#root > div > header").remove();
+  //   document.querySelector("#root > div > div.category").remove();
+  // }
 
   toggleImage = () => {
     this.setState(state => ({ plus: !state.plus }));
@@ -103,7 +109,7 @@ export default class AddTopic extends Component {
               onClick={e => this.showImage(e)}
               className="uploadimage"
             >
-              Upload File
+              Upload Image
             </p>
             <br /> <h2 className="addsourcehandle">Language</h2>
             <p className="handleLife">
