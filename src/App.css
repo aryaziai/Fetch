@@ -1591,7 +1591,7 @@
   .create_experience {
     padding-top: 133px;
     padding-bottom: 100px;
-    background-image: url(/static/media/bg.c08bdbd1.png);
+    background-image: url("images/bg.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #fff;
