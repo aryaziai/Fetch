@@ -14,6 +14,8 @@ export default class Testimonials extends Component {
       >
         <div>
           {/* <img src="assets/1.jpeg" /> */}
+          <p>"I love this"</p>
+          <h1>Jasmin</h1>
           <p className="legend">Legend 1</p>
         </div>
         <div>

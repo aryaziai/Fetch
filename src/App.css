@@ -2316,14 +2316,7 @@ input {
 }
 
 .carousel .control-dots .dot {
-  transition: opacity 0.25s ease-in;
-  opacity: 0.3;
-  box-shadow: none;
-  background: #454545;
+  box-shadow: none !important;
+  background: #454545 !important;
   border-radius: 50%;
-  width: 8px;
-  height: 8px;
-  cursor: pointer;
-  display: inline-block;
-  margin: 0 8px;
 }
