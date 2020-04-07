@@ -10,12 +10,17 @@
     "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
     "instafeed.js": "^1.4.1",
+    "jquery": "^3.4.1",
     "react": "^16.12.0",
+    "react-animated-slider": "^2.0.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
     "react-dropdown-select": "^3.11.0",
+    "react-responsive-carousel": "^3.1.57",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
+    "react-testimonial": "^1.0.0",
+    "react-touch-carousel": "^0.9.4",
     "reactstrap": "^8.4.1"
   },
   "scripts": {
