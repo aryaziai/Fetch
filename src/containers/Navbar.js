@@ -58,7 +58,10 @@ class Navbar extends Component {
         <div className="profile-nav">
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <img src="missing_avatar.jpg" alt="avatar" />{" "}
+              <img
+                src="https://aryaziai.github.io/Fetch/missing_avatar.jpg"
+                alt="avatar"
+              />{" "}
               {this.props.currentUser.username}
             </Dropdown.Toggle>
 
@@ -115,7 +118,11 @@ class Navbar extends Component {
                 : "/Fetch/feed"
             }
           >
-            <img className="logo" src="logo.png" alt="logo" />
+            <img
+              className="logo"
+              src="https://aryaziai.github.io/Fetch/logo.png"
+              alt="logo"
+            />
           </Link>
 
           <div className="right-align-buttons">{this.loginLogic()}</div>
