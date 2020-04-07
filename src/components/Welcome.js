@@ -17,11 +17,7 @@ export default class Welcome extends Component {
 
         <div className="notbrands">
           <p className="bigtime">
-            <img
-              src="https://aryaziai.github.io/Fetch/search.png"
-              width="120px"
-              alt="search"
-            />
+            <img src="search.png" width="120px" alt="search" />
             <br />
             <br />
             <b>Find Articles</b>
@@ -30,11 +26,7 @@ export default class Welcome extends Component {
             <br /> in and we will do the rest.
           </p>
           <p className="bigtime">
-            <img
-              src="https://aryaziai.github.io/Fetch/globe.png"
-              width="120px"
-              alt="globe"
-            />
+            <img src="globe.png" width="120px" alt="globe" />
             <br />
             <br />
             <b>Select Language</b>
@@ -44,11 +36,7 @@ export default class Welcome extends Component {
             Select from other 10 languages.
           </p>
           <p className="bigtime">
-            <img
-              src="https://aryaziai.github.io/Fetch/monitor.png"
-              width="120px"
-              alt="monitor"
-            />
+            <img src="monitor.png" width="120px" alt="monitor" />
             <br />
             <br />
             <b>Customize Results</b>
