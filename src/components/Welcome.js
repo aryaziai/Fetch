@@ -18,7 +18,7 @@ export default class Welcome extends Component {
         <div className="notbrands">
           <p className="bigtime">
             <img
-              src="search.png"
+              src="https://aryaziai.github.io/Fetch/search.png"
               width="120px"
               alt="search"
             />
@@ -31,7 +31,7 @@ export default class Welcome extends Component {
           </p>
           <p className="bigtime">
             <img
-              src="globe.png"
+              src="https://aryaziai.github.io/Fetch/globe.png"
               width="120px"
               alt="globe"
             />
@@ -45,7 +45,7 @@ export default class Welcome extends Component {
           </p>
           <p className="bigtime">
             <img
-              src="monitor.png"
+              src="https://aryaziai.github.io/Fetch/monitor.png"
               width="120px"
               alt="monitor"
             />
@@ -61,10 +61,24 @@ export default class Welcome extends Component {
         <div className="brands">
           <h1>Sources we use</h1>
           <div className="brandimages">
-            <img src="cnn.png" width="100px" alt="cnn"></img>
+            <img
+              src="https://aryaziai.github.io/Fetch/cnn.png"
+              width="100px"
+              alt="cnn"
+            ></img>
             <br />
-            <img src="fox.png" width="200px" alt="fox"></img> <br />
-            <img src="bbc.png" width="130px" alt="bbc"></img> <br />& More...
+            <img
+              src="https://aryaziai.github.io/Fetch/fox.png"
+              width="200px"
+              alt="fox"
+            ></img>{" "}
+            <br />
+            <img
+              src="https://aryaziai.github.io/Fetch/bbc.png"
+              width="130px"
+              alt="bbc"
+            ></img>{" "}
+            <br />& More...
           </div>
         </div>
         <h1 className="finalh1">Join Today</h1>
