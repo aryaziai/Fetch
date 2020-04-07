@@ -6,10 +6,6 @@ import Testimonials from "./Testimonials";
 
 export default class Welcome extends Component {
   render() {
-    // const slides = [
-    //   { title: "First item", description: "Lorem ipsum" },
-    //   { title: "Second item", description: "Lorem ipsum" }
-    // ];
     return (
       <div className="welcome">
         <div className="create_experience">
