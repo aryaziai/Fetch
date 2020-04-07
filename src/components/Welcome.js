@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+// import Slider from "react-animated-slider";
+// import "react-animated-slider/build/horizontal.css";
+import Testimonials from "./Testimonials";
 
 export default class Welcome extends Component {
   render() {
+    // const slides = [
+    //   { title: "First item", description: "Lorem ipsum" },
+    //   { title: "Second item", description: "Lorem ipsum" }
+    // ];
     return (
       <div className="welcome">
         <div className="create_experience">
@@ -81,12 +88,16 @@ export default class Welcome extends Component {
             <br />& More...
           </div>
         </div>
-        <h1 className="finalh1">Join Today</h1>
-        <div className="align-buttons">
-          <p className="coolbutton">
-            <Link to="/Fetch/signup">Sign Up</Link>
-          </p>
-        </div>
+        <h1 className="finalh1">Testimonials TEST</h1>
+        <Testimonials />
+        {/* <Slider infinite={true}>
+          {slides.map((slide, index) => (
+            <div key={index}>
+              <h2>{slide.title}</h2>
+              <div>{slide.description}</div>
+            </div>
+          ))}
+        </Slider> */}
       </div>
     );
   }
