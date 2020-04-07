@@ -61,11 +61,7 @@ export default class Welcome extends Component {
         <div className="brands">
           <h1>Sources we use</h1>
           <div className="brandimages">
-            <img
-              src="https://aryaziai.github.io/Fetch/cnn.png"
-              width="100px"
-              alt="cnn"
-            ></img>
+            <img src="bbc.png" width="100px" alt="cnn"></img>
             <br />
             <img
               src="https://aryaziai.github.io/Fetch/fox.png"
