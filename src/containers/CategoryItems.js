@@ -84,7 +84,7 @@ class CategoryItems extends Component {
                 href={`sms:Text Someone&body=${this.props.topicPost.title}%0D%0A%0D%0A${this.props.topicPost.url}`}
               >
                 <img
-                  src="imessage.png"
+                  src="https://aryaziai.github.io/Fetch/imessage.png"
                   alt="imessage"
                   name="imessage"
                   className="iMessage"
@@ -94,7 +94,11 @@ class CategoryItems extends Component {
               <a
                 href={`mailto:?subject=${this.props.topicPost.title}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.topicPost.url}`}
               >
-                <img src="mail.png" alt="email" className="email" />
+                <img
+                  src="https://aryaziai.github.io/Fetch/mail.png"
+                  alt="email"
+                  className="email"
+                />
                 Email
               </a>
             </p>

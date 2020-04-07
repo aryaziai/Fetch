@@ -26,7 +26,7 @@ export default class Topic extends Component {
         </h3>
         {correctTopicId ? (
           <img
-            src="x.png"
+            src="https://aryaziai.github.io/Fetch/x.png"
             className="deletetopic"
             alt="feedicon"
             onClick={this.props.deleteTopic}
