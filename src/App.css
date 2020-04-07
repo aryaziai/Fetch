@@ -1,18 +1,28 @@
+input,
+textarea,
+select,
+p,
+button {
+  outline: none;
+  padding-left: 2px;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently*/
+}
+
 @media only screen and (min-width: 1035px) {
   /* Desktop CSS */
   .App-logo {
     height: 40vmin;
     pointer-events: none;
-  }
-
-  * {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
- */
   }
 
   #formBasicFirstName.form-control {
@@ -1168,21 +1178,6 @@
     position: absolute;
   }
 
-  App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-
-  * {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
- */
-  }
-
   #formBasicFirstName.form-control {
     width: 25%;
     position: absolute;
@@ -1518,11 +1513,11 @@
     padding-right: 11px;
     display: inline-flex;
     float: right;
-    margin-top: -15px;
+    margin-top: -14px;
   }
 
   .topcoolbuttonjaz {
-    margin-top: -15px;
+    margin-top: -14px;
     margin-right: 32px;
   }
 
@@ -1669,15 +1664,6 @@
   .profile-nav,
   button {
     cursor: pointer;
-  }
-
-  input,
-  textarea,
-  select,
-  p,
-  button {
-    outline: none;
-    padding-left: 2px;
   }
 
   input:focus {
