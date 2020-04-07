@@ -88,7 +88,7 @@ export default class Welcome extends Component {
             <br />& More...
           </div>
         </div>
-        <h1 className="finalh1">Testimonials</h1>
+        <h1 className="finalh1">Testimonials TEST</h1>
         <Testimonials />
         {/* <Slider infinite={true}>
           {slides.map((slide, index) => (
