@@ -5,6 +5,9 @@ p,
 button {
   outline: none;
   padding-left: 2px;
+}
+
+input {
   border-radius: 0;
   -webkit-appearance: none;
 }
@@ -18,12 +21,13 @@ button {
   user-select: none; /* Non-prefixed version, currently*/
 }
 
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
 @media only screen and (min-width: 1035px) {
   /* Desktop CSS */
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
 
   #formBasicFirstName.form-control {
     width: 9.4%;
