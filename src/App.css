@@ -29,6 +29,10 @@ input {
 @media only screen and (min-width: 1035px) {
   /* Desktop CSS */
 
+  /* testimonials css  */
+
+  /* end testimonials css  */
+
   #formBasicFirstName.form-control {
     width: 9.4%;
     position: absolute;
@@ -1169,6 +1173,10 @@ input {
 
 @media only screen and (max-width: 1034px) {
   /* Mobile CSS */
+
+  /* testimonials css  */
+
+  /* end testimonials css  */
   .notbrands {
     padding-left: 6%;
     padding-right: 6%;
@@ -2299,4 +2307,23 @@ input {
       transform: rotate(360deg);
     }
   }
+}
+
+.carousel .slide {
+  background: #fff !important;
+  color: black;
+  height: 300px;
+}
+
+.carousel .control-dots .dot {
+  transition: opacity 0.25s ease-in;
+  opacity: 0.3;
+  box-shadow: none;
+  background: #454545;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 8px;
 }
