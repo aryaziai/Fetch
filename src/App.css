@@ -1211,8 +1211,6 @@ input {
     position: absolute;
     left: 24%;
     top: 200px;
-    line-height: 0;
-    font-size: 100px;
   }
 
   #formBasicLastName.form-control {
