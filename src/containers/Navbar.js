@@ -9,17 +9,17 @@ class Navbar extends Component {
     super();
 
     this.state = {
-      search: ""
+      search: "",
     };
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  handleKeyPress = e => {
+  handleKeyPress = (e) => {
     if (e.key === " " || e.key >= 0 || e.key < 10) {
       e.preventDefault();
     }
@@ -30,7 +30,7 @@ class Navbar extends Component {
 
   searchToEmpty = () => {
     this.setState({
-      search: ""
+      search: "",
     });
   };
 
@@ -86,8 +86,8 @@ class Navbar extends Component {
       return (
         <div className="searchBarContainer">
           <form
-            onSubmit={e => this.props.fetchFromSearch(e, this.state.search)}
-            onKeyPress={e => this.handleKeyPress(e)}
+            onSubmit={(e) => this.props.fetchFromSearch(e, this.state.search)}
+            onKeyPress={(e) => this.handleKeyPress(e)}
           >
             <Form.Group controlId="formBasicSearch">
               <center>
@@ -95,7 +95,7 @@ class Navbar extends Component {
                   type="text"
                   name="search"
                   placeholder="Search All Articles"
-                  onChange={e => this.handleChange(e)}
+                  onChange={(e) => this.handleChange(e)}
                   value={this.state.search}
                   className="searchBar"
                 />
@@ -120,7 +120,7 @@ class Navbar extends Component {
           >
             <img
               className="logo"
-              src="https://aryaziai.github.io/Fetch/logo.png"
+              src="https://i.imgur.com/rBCrWno.png"
               alt="logo"
             />
           </Link>
