@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Fetch/static/css/main.f539fbdc.chunk.css",
+    "main.css": "/Fetch/static/css/main.226bc48c.chunk.css",
     "main.js": "/Fetch/static/js/main.6627f29c.chunk.js",
     "main.js.map": "/Fetch/static/js/main.6627f29c.chunk.js.map",
     "runtime-main.js": "/Fetch/static/js/runtime-main.60603063.js",
@@ -9,10 +9,10 @@
     "static/js/2.9e2728d1.chunk.js": "/Fetch/static/js/2.9e2728d1.chunk.js",
     "static/js/2.9e2728d1.chunk.js.map": "/Fetch/static/js/2.9e2728d1.chunk.js.map",
     "index.html": "/Fetch/index.html",
-    "precache-manifest.258866a5a887101397d7a6fd3e8802bc.js": "/Fetch/precache-manifest.258866a5a887101397d7a6fd3e8802bc.js",
+    "precache-manifest.e46183563e1136505633d60dffcfacc4.js": "/Fetch/precache-manifest.e46183563e1136505633d60dffcfacc4.js",
     "service-worker.js": "/Fetch/service-worker.js",
     "static/css/2.183aa86f.chunk.css.map": "/Fetch/static/css/2.183aa86f.chunk.css.map",
-    "static/css/main.f539fbdc.chunk.css.map": "/Fetch/static/css/main.f539fbdc.chunk.css.map",
+    "static/css/main.226bc48c.chunk.css.map": "/Fetch/static/css/main.226bc48c.chunk.css.map",
     "static/js/2.9e2728d1.chunk.js.LICENSE.txt": "/Fetch/static/js/2.9e2728d1.chunk.js.LICENSE.txt",
     "static/media/App.css": "/Fetch/static/media/hero_1.87348653.png"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.60603063.js",
     "static/css/2.183aa86f.chunk.css",
     "static/js/2.9e2728d1.chunk.js",
-    "static/css/main.f539fbdc.chunk.css",
+    "static/css/main.226bc48c.chunk.css",
     "static/js/main.6627f29c.chunk.js"
   ]
 }
