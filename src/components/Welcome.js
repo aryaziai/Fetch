@@ -86,14 +86,6 @@ export default class Welcome extends Component {
         </div>
         <h1 className="finalh1">Testimonials</h1>
         <Testimonials />
-        {/* <Slider infinite={true}>
-          {slides.map((slide, index) => (
-            <div key={index}>
-              <h2>{slide.title}</h2>
-              <div>{slide.description}</div>
-            </div>
-          ))}
-        </Slider> */}
       </div>
     );
   }

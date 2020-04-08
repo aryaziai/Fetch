@@ -8,35 +8,45 @@ export default class Testimonials extends Component {
       <Carousel
         showArrows={true}
         infiniteLoop={true}
-        // onChange={onChange}
-        // onClickItem={onClickItem}
-        // onClickThumb={onClickThumb}
+        showThumbs={false}
+        showStatus={false}
+        autoPlay={true}
+        interval={5000}
       >
         <div>
-          {/* <img src="assets/1.jpeg" /> */}
-          <p>"I love this"</p>
-          <h1>Jasmin</h1>
-          <p className="legend">Legend 1</p>
+          <img src="http://www.icdots.ca/wp-content/uploads/2019/01/Natalie-Face-Circle.png" />
+          <div class="myCarousel">
+            <h3>Shirley Fultz</h3>
+            <h4>Designer</h4>
+            <p>
+              It's freeing to be able to catch up on customized news and not be
+              distracted by a social media element on the same site
+            </p>
+          </div>
         </div>
+
         <div>
-          {/* <img src="assets/2.jpeg" /> */}
-          <p className="legend">Legend 2</p>
+          <img src="https://www.norway-consulting.no/wp-content/uploads/2017/04/LI-profilbilde-circular-fra-Picmonkey.png" />
+          <div class="myCarousel">
+            <h3>Daniel Keystone</h3>
+            <h4>Designer</h4>
+            <p>
+              It's freeing to be able to catch up on customized news and not be
+              distracted by a social media element on the same site
+            </p>
+          </div>
         </div>
+
         <div>
-          {/* <img src="assets/3.jpeg" /> */}
-          <p className="legend">Legend 3</p>
-        </div>
-        <div>
-          {/* <img src="assets/4.jpeg" /> */}
-          <p className="legend">Legend 4</p>
-        </div>
-        <div>
-          {/* <img src="assets/5.jpeg" /> */}
-          <p className="legend">Legend 5</p>
-        </div>
-        <div>
-          {/* <img src="assets/6.jpeg" /> */}
-          <p className="legend">Legend 6</p>
+          <img src="https://images.squarespace-cdn.com/content/v1/572fa54ef8baf3257a3153f5/1512348060512-1NM459PG4MOAAHAZK2HO/ke17ZwdGBToddI8pDm48kJK4Mm1kch8SFO9ZNkN1NT97gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmN9YSRtfoTLg6dUq-6F17A0FFZK5fArcnK1IqGweyunyWChwIwkIJ_P7MaZif-uMs/Face+Circle.png?format=1500w" />
+          <div class="myCarousel">
+            <h3>Theo Sorel</h3>
+            <h4>Designer</h4>
+            <p>
+              It's freeing to be able to catch up on customized news and not be
+              distracted by a social media element on the same site
+            </p>
+          </div>
         </div>
       </Carousel>
     );
