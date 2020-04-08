@@ -37,7 +37,7 @@ input {
   }
 
   .carousel .slide img {
-    width: 15% !important;
+    width: 14% !important;
     border: 6px solid #fff !important;
     border-radius: 50%;
   }
@@ -320,7 +320,7 @@ input {
   .brands {
     background: #fafafa;
     padding-top: 30px;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
     font-weight: 700;
     font-size: 35px;
     color: #002e76;
@@ -358,7 +358,7 @@ input {
     font-size: 41px;
     font-weight: 200;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
     color: #333;
   }
 
@@ -1196,7 +1196,7 @@ input {
   /* Mobile CSS */
 
   .brandimages img {
-    width: 40%;
+    width: 120px;
     margin-bottom: 9%;
     border-radius: 50%;
   }
@@ -1231,8 +1231,9 @@ input {
     padding-left: 6%;
     padding-right: 6%;
     max-height: 124px;
-    margin-bottom: 131%;
+    /* margin-bottom: 131%; */
     margin-top: 41px;
+    display: contents;
   }
   .catItems {
     margin-top: 4%;
@@ -1659,6 +1660,7 @@ input {
     font-size: 39px;
     background-size: initial;
     margin-top: 16px;
+    margin-bottom: 40px;
   }
 
   .create_experience a {
