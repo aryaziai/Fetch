@@ -482,9 +482,9 @@ input {
   }
 
   .create_experience {
-    padding-top: 160px;
-    padding-bottom: 100px;
-    background-image: url("images/hero_1.png");
+    padding-top: 200px;
+    padding-bottom: 125px;
+    background-image: url(/Fetch/static/media/hero_1.87348653.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #fff;
@@ -502,7 +502,8 @@ input {
   }
 
   .goldbutton {
-    background: darkgoldenrod;
+    background: #111;
+    border: 1px solid #111;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 28px;
@@ -520,10 +521,6 @@ input {
     width: 100px;
     margin-top: 20px;
     color: #fff;
-  }
-
-  .goldbutton:hover {
-    background: #8f6808;
   }
 
   .coolbutton a {
@@ -1668,7 +1665,8 @@ input {
   }
 
   .goldbutton {
-    background: darkgoldenrod;
+    background: #111;
+    border: 1px solid #111;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 28px;
@@ -1686,10 +1684,6 @@ input {
     width: 100px;
     margin-top: 20px;
     color: #fff;
-  }
-
-  .goldbutton:hover {
-    background: #8f6808;
   }
 
   .coolbutton a {
@@ -2358,6 +2352,11 @@ input {
 }
 
 /* Global CSS */
+
+.goldbutton:hover {
+  background: transparent;
+  border: 1px solid #fff;
+}
 
 .welcome {
   background: #fff;
