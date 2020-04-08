@@ -1181,11 +1181,11 @@ input {
   .myCarousel {
     background: #fafafa;
     margin-top: -9%;
-    width: 80%;
+    width: 88%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 8%;
-    padding-bottom: 8%;
+    padding-bottom: 12.5%;
     padding-left: 5%;
     padding-right: 5%;
     border: 1px solid #ddd;
@@ -1527,7 +1527,7 @@ input {
     position: absolute;
     right: -5%;
     display: flex;
-    bottom: -3%;
+    bottom: -2.5%;
   }
   a.dropdown-item {
     font-weight: 100 !important;
@@ -1559,7 +1559,7 @@ input {
     border-radius: 4px;
     box-shadow: none;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     line-height: 20px;
     position: relative;
@@ -1574,11 +1574,11 @@ input {
     background: #fff;
     padding-top: 8px;
     padding-bottom: 8px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 22px;
+    padding-right: 22px;
     box-shadow: none;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     line-height: 20px;
     position: relative;
@@ -2289,8 +2289,9 @@ input {
 
 /* Global CSS */
 
+html,
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .goldbutton:hover {
