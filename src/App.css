@@ -172,7 +172,7 @@ input {
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0), 0 1px 10px 0 rgba(0, 0, 0, 0),
       0 2px 4px -1px rgba(0, 0, 0, 0.15);
     margin-right: 34%;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     padding-top: 52px;
     box-shadow: 10px #ddd;
   }
@@ -251,7 +251,7 @@ input {
     padding-bottom: 8px;
     padding-left: 28px;
     padding-right: 28px;
-    border-radius: 4px;
+    border-radius: 31px;
     box-shadow: none;
     cursor: pointer;
     font-size: 15px;
@@ -419,12 +419,12 @@ input {
   }
 
   .topcoolbutton p {
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     background: #fff;
     padding-top: 8px;
     padding-bottom: 8px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 4px;
     box-shadow: none;
     cursor: pointer;
@@ -439,13 +439,12 @@ input {
   }
 
   .topcoolbuttonjaz p {
-    border: 2px solid #002e76;
-    background: #002e76;
+    border: 1px solid #002e76;
+    background: #fff;
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 28px;
     padding-right: 28px;
-    border-radius: 4px;
     box-shadow: none;
     cursor: pointer;
     font-size: 15px;
@@ -454,19 +453,9 @@ input {
     position: relative;
     text-align: center;
     white-space: nowrap;
-    color: #fff;
+    color: #002e76;
     text-decoration: none;
-  }
-
-  .topcoolbutton p:hover {
-    color: #3282ff;
-  }
-
-  .btn.btn-primary-submit:hover,
-  .topcoolbuttonjaz p:hover {
-    background: #3282ff;
-    color: #fff;
-    border: 2px solid #3282ff;
+    border-radius: 31px;
   }
 
   .coolbutton {
@@ -482,19 +471,20 @@ input {
   }
 
   .create_experience {
-    padding-top: 200px;
-    padding-bottom: 125px;
-    background-image: url("images/hero_1.png");
+    padding-top: 201px;
+    padding-bottom: 136px;
+    background-image: url(/Fetch/static/media/hero_1.87348653.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #fff;
     text-align: left;
-    padding-left: 100px;
+    padding-left: 10%;
     background-position-x: center;
     font-weight: 300;
-    font-size: 43px;
+    font-size: 45px;
     /* background-size: contain; */
-    margin-top: 16px;
+    margin-top: 14px;
+    font-weight: 300;
   }
 
   .create_experience a {
@@ -1417,7 +1407,7 @@ input {
     padding-bottom: 8px;
     padding-left: 28px;
     padding-right: 28px;
-    border-radius: 4px;
+    border-radius: 31px;
     box-shadow: none;
     cursor: pointer;
     font-size: 15px;
@@ -1560,7 +1550,7 @@ input {
   }
 
   .topcoolbutton p {
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     background: #fff;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -1580,13 +1570,12 @@ input {
   }
 
   .topcoolbuttonjaz p {
-    border: 2px solid #002e76;
-    background: #002e76;
+    border: 1px solid #002e76;
+    background: #fff;
     padding-top: 8px;
     padding-bottom: 8px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 4px;
+    padding-left: 28px;
+    padding-right: 28px;
     box-shadow: none;
     cursor: pointer;
     font-size: 15px;
@@ -1595,19 +1584,9 @@ input {
     position: relative;
     text-align: center;
     white-space: nowrap;
-    color: #fff;
+    color: #002e76;
     text-decoration: none;
-  }
-
-  .topcoolbutton p:hover {
-    color: #3282ff;
-  }
-
-  .btn.btn-primary-submit:hover,
-  .topcoolbuttonjaz p:hover {
-    background: #3282ff;
-    color: #fff;
-    border: 2px solid #3282ff;
+    border-radius: 31px;
   }
 
   .coolbutton {
@@ -1629,13 +1608,14 @@ input {
     background-attachment: fixed;
     color: #fff;
     text-align: left;
-    padding-left: 100px;
+    padding-left: 14%;
     background-position-x: center;
     font-weight: 300;
     font-size: 39px;
     background-size: initial;
     margin-top: 16px;
     margin-bottom: 40px;
+    padding-right: 12%;
   }
 
   .create_experience a {
@@ -2310,7 +2290,7 @@ input {
 /* Global CSS */
 
 .goldbutton:hover {
-  background: #00000085;
+  background: darkgoldenrod;
   border: 1px solid transparent;
 }
 
@@ -2394,8 +2374,8 @@ input {
 }
 
 .goldbutton {
-  background: transparent;
-  border: 1px solid #fff;
+  background: #c8920e;
+  border: 1px solid darkgoldenrod;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 21px;
@@ -2411,6 +2391,15 @@ input {
   white-space: nowrap;
   text-decoration: none;
   width: 100px;
-  margin-top: 20px;
+  margin-top: 25px;
+  color: #fff;
+}
+
+.btn.btn-primary-submit:hover {
+  background: #002257;
+}
+
+.topcoolbuttonjaz p:hover {
+  background: #002e76;
   color: #fff;
 }

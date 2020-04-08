@@ -9,10 +9,11 @@ export default class Welcome extends Component {
     return (
       <div className="welcome">
         <div className="create_experience">
-          Create your personalized news
+          Create your personalized
           <br />
-          experience
+          news experience
           <br />
+          {/* Create your personalized <span class="break">news experience</span> */}
           <Link to="/Fetch/signup">
             <h1 className="goldbutton"> Join Today</h1>
           </Link>
