@@ -14,7 +14,7 @@ export default class Testimonials extends Component {
         interval={6100}
       >
         <div>
-          <img src="http://www.icdots.ca/wp-content/uploads/2019/01/Natalie-Face-Circle.png" />
+          <img src="https://i.imgur.com/I3ep4rY.png" />
           <div class="myCarousel">
             <h3>Shirley Fultz</h3>
             <h4>Designer</h4>
