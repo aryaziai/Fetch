@@ -5,12 +5,12 @@ class SearchItems extends Component {
   constructor() {
     super();
     this.state = {
-      favorite: false
+      favorite: false,
     };
   }
 
   toggleImage = () => {
-    this.setState(state => ({ favorite: !state.favorite }));
+    this.setState((state) => ({ favorite: !state.favorite }));
   };
 
   render() {
@@ -25,7 +25,7 @@ class SearchItems extends Component {
       <>
         <div className="newmain">
           <img
-            src="magnifying.png"
+            src="https://aryaziai.github.io/Fetch/magnifying.png"
             alt="topic_logo"
             className="feeditemslogo"
           />

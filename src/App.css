@@ -38,7 +38,7 @@ input {
 
   .carousel .slide img {
     width: 14% !important;
-    border: 6px solid #fff !important;
+    /* border: 6px solid #fff !important; */
     border-radius: 50%;
   }
 
@@ -1170,7 +1170,7 @@ input {
 
   .carousel .slide img {
     width: 24% !important;
-    border: 6px solid #fff !important;
+    /* border: 6px solid #fff !important; */
     border-radius: 50%;
   }
   .carousel-root {
