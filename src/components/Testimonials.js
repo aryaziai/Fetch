@@ -11,7 +11,7 @@ export default class Testimonials extends Component {
         showThumbs={false}
         showStatus={false}
         autoPlay={true}
-        interval={6000}
+        interval={6100}
       >
         <div>
           <img src="http://www.icdots.ca/wp-content/uploads/2019/01/Natalie-Face-Circle.png" />

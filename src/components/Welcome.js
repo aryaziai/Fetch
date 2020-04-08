@@ -71,13 +71,13 @@ export default class Welcome extends Component {
             ></img>
             <br />
             <img
-              src="https://aryaziai.github.io/Fetch/fox.png"
+              src="https://aryaziai.github.io/Fetch/fox.jpg"
               width="200px"
               alt="fox"
             ></img>{" "}
             <br />
             <img
-              src="https://aryaziai.github.io/Fetch/bbc.png"
+              src="https://aryaziai.github.io/Fetch/bbc.jpeg"
               width="130px"
               alt="bbc"
             ></img>{" "}
