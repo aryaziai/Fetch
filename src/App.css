@@ -490,10 +490,10 @@ input {
     color: #fff;
     text-align: left;
     padding-left: 100px;
-    background-position-x: right;
+    background-position-x: center;
     font-weight: 300;
     font-size: 43px;
-    background-size: contain;
+    /* background-size: contain; */
     margin-top: 16px;
   }
 
