@@ -1211,6 +1211,8 @@ input {
     position: absolute;
     left: 24%;
     top: 200px;
+    line-height: 0;
+    font-size: 100px;
   }
 
   #formBasicLastName.form-control {
@@ -2288,6 +2290,10 @@ input {
 }
 
 /* Global CSS */
+
+body {
+  overflow-x: hidden;
+}
 
 .goldbutton:hover {
   background: darkgoldenrod;
