@@ -501,28 +501,6 @@ input {
     text-decoration: none;
   }
 
-  .goldbutton {
-    background: #111;
-    border: 1px solid #111;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 28px;
-    padding-right: 28px;
-    border-radius: 4px;
-    box-shadow: none;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 20px;
-    position: relative;
-    text-align: center;
-    white-space: nowrap;
-    text-decoration: none;
-    width: 100px;
-    margin-top: 20px;
-    color: #fff;
-  }
-
   .coolbutton a {
     border: 2px solid #002e76;
     background: #002e76;
@@ -1664,28 +1642,6 @@ input {
     text-decoration: none;
   }
 
-  .goldbutton {
-    background: #111;
-    border: 1px solid #111;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 28px;
-    padding-right: 28px;
-    border-radius: 4px;
-    box-shadow: none;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 20px;
-    position: relative;
-    text-align: center;
-    white-space: nowrap;
-    text-decoration: none;
-    width: 100px;
-    margin-top: 20px;
-    color: #fff;
-  }
-
   .coolbutton a {
     border: 2px solid #002e76;
     background: #002e76;
@@ -2354,8 +2310,8 @@ input {
 /* Global CSS */
 
 .goldbutton:hover {
-  background: transparent;
-  border: 1px solid #fff;
+  background: #00000085;
+  border: 1px solid transparent;
 }
 
 .welcome {
@@ -2435,4 +2391,26 @@ input {
   font-family: monospace;
   font-weight: 100;
   line-height: 0;
+}
+
+.goldbutton {
+  background: transparent;
+  border: 1px solid #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 21px;
+  padding-right: 21px;
+  border-radius: 31px;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  width: 100px;
+  margin-top: 20px;
+  color: #fff;
 }
