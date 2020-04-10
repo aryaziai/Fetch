@@ -1501,7 +1501,7 @@
     /* margin-top: 3.3%; */
     padding-right: 0%;
     position: absolute;
-    right: -5%;
+    right: 2%;
     display: flex;
     bottom: -2.5%;
   }
@@ -1522,7 +1522,6 @@
 
   .topcoolbuttonjaz {
     margin-top: -14px;
-    margin-right: 32px;
   }
 
   .topcoolbutton p {
@@ -2260,6 +2259,12 @@
     to {
       transform: rotate(360deg);
     }
+  }
+}
+
+@media only screen and (min-width: 1536px) {
+  .create_experience {
+    background-size: contain !important;
   }
 }
 
