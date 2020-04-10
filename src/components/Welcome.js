@@ -6,7 +6,6 @@ import Testimonials from "./Testimonials";
 
 export default class Welcome extends Component {
   render() {
-    console.log(this.props.location.pathname);
     return (
       <div className="welcome">
         <div className="create_experience">

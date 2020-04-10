@@ -130,7 +130,7 @@ class Navbar extends Component {
         {this.props.location.pathname.split("/").slice(-1)[0] !== "profile" &&
         this.props.location.pathname.split("/").slice(-1)[0] !== "add-topic" &&
         this.props.location.pathname.split("/").slice(-1)[0] !== "Fetch" &&
-        this.props.location.pathname.split("/").slice(-1)[0] !== "/Fetch/"
+        this.props.location.pathname !== "/Fetch/"
           ? this.loginLogicSearch()
           : null}
       </>
