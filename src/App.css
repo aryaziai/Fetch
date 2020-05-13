@@ -1273,7 +1273,7 @@
   }
 
   .mainSideMove {
-    margin-left: 48.5%;
+    margin-left: 9.5%;
     padding-top: 2px;
   }
 
@@ -2196,18 +2196,12 @@
   }
 
   .sidebaritems {
-    font-weight: 700;
-    font-size: 12px;
-    text-align: left;
-    float: left;
-    padding-left: 8px;
-    text-transform: capitalize;
     color: #2c436f;
     width: 85px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
-    width: 16%;
+    width: 10%;
   }
 
   .addnewsidebaritems {
@@ -2237,14 +2231,14 @@
   }
 
   header p img {
-    margin-right: 7px;
-    max-width: 22px;
+    margin-right: 135px;
+    /* max-width: 22px; */
     min-width: 55px;
     height: 52px;
     margin-bottom: 2px;
     background: #fbfbfb;
     border-radius: 50%;
-    padding-bottom: 3px;
+    /* padding-bottom: 3px; */
     cursor: pointer;
   }
 
