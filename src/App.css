@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1035px) {
+@media only screen and (min-width: 935px) {
   /* Desktop CSS */
 
   /* testimonials css  */
@@ -254,13 +254,12 @@
 
   .brands img {
     max-width: 169px;
-    /* padding-left: 1%; */
-    /* padding-right: 10%; */
     vertical-align: middle;
     max-height: 124px;
-    /* margin-right: 30px; */
     border-radius: 50%;
     margin: auto;
+    border: 1px solid #eee;
+    background: #fff;
   }
 
   html {
@@ -582,7 +581,6 @@
     color: #333;
     font-size: 20px;
     text-align: left;
-    margin-bottom: -22px;
   }
 
   .category p {
@@ -723,13 +721,12 @@
   }
 
   .missing {
-    width: 123px;
-    /* opacity: .5; */
+    width: 95px;
     position: absolute;
     left: 5.4%;
-    top: 143px;
+    top: 132px;
     border-radius: 50%;
-    height: 123px;
+    height: 95px;
   }
 
   .missing:hover {
@@ -1075,23 +1072,28 @@
     font-size: 12px;
     text-align: left;
     float: left;
-    padding-left: 8px;
+    margin-left: 6px;
     text-transform: capitalize;
     color: #2c436f;
-    width: 85px;
+    width: 79px;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom: 21px;
   }
 
   .addnewsidebaritems {
-    width: 71px;
+    width: 78px;
     font-weight: 700;
     font-size: 12px;
     text-align: left;
     float: left;
     padding-left: 8px;
     text-transform: capitalize;
-    color: #333;
+    margin-right: 1px;
+    height: 52px;
+    margin-bottom: 2px;
+    background: #fbfbfb;
+    cursor: pointer;
   }
 
   .addMore {
@@ -1129,8 +1131,18 @@
   }
 }
 
-@media only screen and (max-width: 1034px) {
+@media only screen and (max-width: 934px) {
   /* Mobile CSS */
+
+  .brands img {
+    max-width: 169px;
+    vertical-align: middle;
+    max-height: 124px;
+    border-radius: 50%;
+    margin: auto;
+    border: 1px solid #eee;
+    background: #fff;
+  }
 
   .carousel.carousel-slider .control-arrow {
     display: none !important;
@@ -1177,9 +1189,14 @@
     display: contents;
   }
   .catItems {
-    margin-top: 4%;
+    margin-top: 0%;
     margin-left: 0px;
-    position: absolute;
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    width: 93%;
+    padding: 10px;
+    left: 1%;
   }
 
   #formBasicFirstName.form-control {
@@ -1197,17 +1214,17 @@
   }
 
   #formBasicUpdateFirstName.form-control {
-    width: 28%;
+    width: 29%;
     position: absolute;
-    top: 6%;
-    left: 119px;
+    left: 19%;
+    top: 25px;
   }
 
   #formBasicUpdateLastName.form-control {
-    width: 31%;
+    width: 28%;
     position: absolute;
-    top: 6%;
-    right: 112.5px;
+    right: 16.9%;
+    top: 25px;
   }
 
   #formBasicUsername.form-control,
@@ -1247,12 +1264,11 @@
 
   .deletetopic {
     width: 15px;
-    /* vertical-align: middle; */
     margin-bottom: 2px;
     cursor: pointer;
     float: right;
     position: absolute;
-    top: 18%;
+    top: 128.5px;
     right: 5.5%;
   }
 
@@ -1272,10 +1288,10 @@
     padding-top: 193px;
   }
 
-  .mainSideMove {
+  /* .mainSideMove {
     margin-left: 9.5%;
     padding-top: 2px;
-  }
+  } */
 
   .logincontainer h2 {
     position: absolute;
@@ -1406,13 +1422,11 @@
   }
 
   .logo {
-    width: 33.5%;
-    max-width: 140px;
+    width: 130px;
     position: absolute;
     left: 15px;
     bottom: 29.7%;
   }
-
   html {
     background-color: #fafafa;
   }
@@ -1498,12 +1512,12 @@
   }
 
   .right-align-buttons {
-    /* margin-top: 3.3%; */
     padding-right: 0%;
     position: absolute;
     right: 2%;
     display: flex;
     bottom: -2.5%;
+    top: 15px;
   }
   a.dropdown-item {
     font-weight: 100 !important;
@@ -1618,7 +1632,8 @@
   }
 
   .profile-nav {
-    margin-bottom: 12%;
+    position: absolute;
+    display: contents;
   }
 
   .profile-nav a {
@@ -1626,13 +1641,6 @@
     font-weight: 100;
     color: #333;
     font-size: 15px;
-  }
-
-  .profile-nav img,
-  .dropdown-toggle.btn.btn-success,
-  .profile-nav,
-  button {
-    cursor: pointer;
   }
 
   input:focus {
@@ -1695,7 +1703,6 @@
   }
 
   .category {
-    position: ABSOLUTE;
     left: 2%;
     width: 96%;
     top: 241px;
@@ -1704,16 +1711,10 @@
     padding-left: 8px;
     text-transform: capitalize;
     color: #2c436f;
-
-    line-height: 30px;
-    display: flex;
   }
 
   .category h3 {
-    color: #333;
-    font-size: 20px;
-    text-align: left;
-    margin-bottom: -22px;
+    display: none;
   }
 
   .category p {
@@ -1764,7 +1765,7 @@
   }
 
   .email {
-    margin-bottom: -7.4px !important;
+    margin-bottom: -5.4px !important;
     padding-right: 12px !important;
   }
 
@@ -1791,7 +1792,7 @@
     cursor: pointer;
   }
   .submitTopic {
-    bottom: 56px;
+    bottom: 57px;
     margin-left: 6%;
     position: absolute;
     display: flex;
@@ -1861,21 +1862,21 @@
     width: -webkit-fill-available;
     border: 1px solid #eee;
     margin-bottom: 100px;
-    top: 18%;
+    top: 22%;
     position: absolute;
     padding-top: 39px;
-    min-height: 837px;
+    min-height: 782px;
     margin-right: 3%;
+    overflow: hidden;
   }
 
   .missing {
-    width: 123px;
-    /* opacity: .5; */
+    width: 95px;
     position: absolute;
     left: 5.4%;
-    top: 143px;
+    top: 132px;
     border-radius: 50%;
-    height: 123px;
+    height: 95px;
   }
 
   .missing:hover {
@@ -1886,7 +1887,7 @@
     float: left;
     font-size: 23px;
     margin-left: 7%;
-    margin-top: 197px;
+    margin-top: 139px;
     position: absolute;
   }
   .handleLife img {
@@ -1958,7 +1959,7 @@
 
   .handleLife {
     position: absolute;
-    margin-top: 242px;
+    margin-top: 185px;
     margin-left: 7%;
     display: flex;
     font-size: 17.5px;
@@ -1993,16 +1994,16 @@
   .uploadimage {
     background: #002e76;
     float: left;
-    margin-top: 85px;
-    margin-left: 34px;
-    margin-bottom: 100px;
-    width: 154px;
+    margin-top: 18px;
+    margin-left: 132px;
+    margin-bottom: 0;
+    width: 111px;
     height: 33px;
     padding: 17px 12px 2px;
     border-radius: 100px;
     color: #fff;
     font-weight: 900;
-    font-size: 14px;
+    font-size: 13px;
     cursor: pointer;
   }
 
@@ -2051,8 +2052,8 @@
   }
 
   .dropdown {
-    padding-right: 60px;
-    margin-top: -1.5px;
+    /* padding-right: 60px;
+    margin-top: -1.5px; */
   }
 
   a {
@@ -2072,7 +2073,7 @@
     margin-top: 12px;
   }
   .drop {
-    padding-top: 282px;
+    padding-top: 200px;
   }
 
   .categorydrop {
@@ -2123,7 +2124,7 @@
   }
 
   .iMessage {
-    width: 24px !important;
+    width: 25px !important;
   }
 
   .date {
@@ -2152,13 +2153,12 @@
   }
 
   .categoryfeedtitle {
-    /* padding-top: 15%; */
     font-size: 20px;
     margin-left: 3.7%;
     position: absolute;
     color: #333;
     text-transform: capitalize;
-    top: 14.5%;
+    top: 103px;
   }
 
   .mainfeedtitle {
@@ -2172,11 +2172,11 @@
     position: absolute;
     color: #333;
     text-transform: capitalize;
-    top: 336px;
+    top: 250px;
   }
 
   .addtopictitle {
-    top: 10%;
+    top: 12%;
   }
 
   #login-error {
@@ -2187,21 +2187,23 @@
   .App-header {
     display: flex;
     color: #333;
-    width: 500%;
+    width: 98%;
     margin-left: 2%;
     padding-bottom: 10px;
     min-height: 150px;
     position: absolute;
     top: 104px;
+    overflow-y: scroll;
   }
 
   .sidebaritems {
     color: #2c436f;
-    width: 85px;
+    width: 81px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
-    width: 10%;
+    font-weight: 700;
+    font-size: 12px;
   }
 
   .addnewsidebaritems {
@@ -2213,12 +2215,11 @@
     padding-left: 8px;
     text-transform: capitalize;
     color: #333;
-    position: absolute;
   }
 
   .mainSideMove {
-    margin-left: 15.5%;
     padding-top: 2px;
+    display: flex;
   }
 
   .addMore {
@@ -2231,14 +2232,10 @@
   }
 
   header p img {
-    margin-right: 135px;
-    /* max-width: 22px; */
-    min-width: 55px;
     height: 52px;
     margin-bottom: 2px;
     background: #fbfbfb;
     border-radius: 50%;
-    /* padding-bottom: 3px; */
     cursor: pointer;
   }
 
@@ -2264,9 +2261,18 @@
 
 /* Global CSS */
 
-html,
+/* html,
 body {
   overflow-x: hidden !important;
+} */
+
+.profile-nav img,
+.dropdown-toggle.btn.btn-success,
+.profile-nav,
+.sidebaritems,
+button {
+  cursor: pointer;
+  background: transparent;
 }
 
 input,

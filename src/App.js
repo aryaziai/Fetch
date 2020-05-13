@@ -23,7 +23,7 @@ class App extends Component {
       topicsFollowed: [],
       allTopicPosts: [],
       categoryPosts: [],
-      searchPosts: []
+      searchPosts: [],
     };
   }
 
@@ -34,11 +34,11 @@ class App extends Component {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        user: SignupInfo
-      })
+        user: SignupInfo,
+      }),
     })
-      .then(resp => resp.json())
-      .then(json => {
+      .then((resp) => resp.json())
+      .then((json) => {
         if (json.error) {
           document.getElementById("login-error").innerText = json.error;
         } else {
@@ -46,8 +46,8 @@ class App extends Component {
           this.setState({
             currentUser: {
               id: json.user.data.attributes.id,
-              ...json.user.data.attributes
-            }
+              ...json.user.data.attributes,
+            },
           });
           this.createTrendingTopic();
         }
@@ -60,7 +60,7 @@ class App extends Component {
       headers: {
         "Content-type": "application/json",
         Accept: "application/json",
-        Authorization: localStorage.getItem("token")
+        Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
         topic: {
@@ -70,12 +70,12 @@ class App extends Component {
           user_id: this.state.currentUser.id,
           page_size: null,
           plus: null,
-          sort_by: null
-        }
-      })
+          sort_by: null,
+        },
+      }),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         this.followTrending(data.topic.data.attributes.id);
       })
       .then(() => {
@@ -83,13 +83,13 @@ class App extends Component {
       });
   };
 
-  followTrending = topicId => {
+  followTrending = (topicId) => {
     fetch(
       `https://newsapi.org/v2/top-headlines?pageSize=5&country=us&apiKey=07af66c02837407a82106528c10d64c5`
     )
-      .then(res => res.json())
-      .then(result => {
-        result.articles.map(article =>
+      .then((res) => res.json())
+      .then((result) => {
+        result.articles.map((article) =>
           this.postTrendingTopicToOurApi(article, topicId)
         ); // Sending each Article into postToOurApi, good allTopicPosts! not using state!
       });
@@ -101,7 +101,7 @@ class App extends Component {
       headers: {
         "Content-type": "application/json",
         Accept: "application/json",
-        Authorization: localStorage.getItem("token")
+        Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
         topic_id: topicId,
@@ -110,25 +110,25 @@ class App extends Component {
           source: result.source.name,
           image_url: result.urlToImage,
           url: result.url,
-          published_at: result.publishedAt
-        }
-      })
+          published_at: result.publishedAt,
+        },
+      }),
     })
-      .then(resp => resp.json())
-      .then(data => {
+      .then((resp) => resp.json())
+      .then((data) => {
         fetch("https://fetch-backend-api.herokuapp.com/post_topics", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
-            Authorization: localStorage.getItem("token")
+            Authorization: localStorage.getItem("token"),
           },
           body: JSON.stringify({
             post_topic: {
               post_id: data.post.id,
-              topic_id: topicId
-            }
-          })
+              topic_id: topicId,
+            },
+          }),
         });
       })
       .then(this.fetchToTopicId());
@@ -146,20 +146,20 @@ class App extends Component {
           headers: {
             "Content-type": "application/json",
             Accept: "application/json",
-            Authorization: localStorage.getItem("token")
+            Authorization: localStorage.getItem("token"),
           },
           body: JSON.stringify({
             topic: {
-              ...socialInput
-            }
-          })
+              ...socialInput,
+            },
+          }),
         })
-          .then(res => res.json())
-          .then(data => {
+          .then((res) => res.json())
+          .then((data) => {
             this.updateStateOfTopicsFollowed([data.topic.data.attributes]);
             return data.topic.data.attributes.id; // topicId
           })
-          .then(topicID => {
+          .then((topicID) => {
             this.fetchFromGoogle(topicID); // took out topicID
           })
           .then(() => {
@@ -170,15 +170,17 @@ class App extends Component {
 
   fetchFromGoogle = () => {
     // eslint-disable-next-line
-    this.state.topicsFollowed.map(topic => {
+    this.state.topicsFollowed.map((topic) => {
       let plus = topic.plus === true ? "+" : "";
 
       fetch(
         `https://newsapi.org/v2/everything?language=${topic.language}&pageSize=${topic.page_size}&q=${plus}${topic.topic_title}&sortBy=${topic.sort_by}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
       )
-        .then(res => res.json())
-        .then(result => {
-          result.articles.map(article => this.postToOurApi(article, topic.id)); // Sending each Article into postToOurApi, good allTopicPosts! not using state!
+        .then((res) => res.json())
+        .then((result) => {
+          result.articles.map((article) =>
+            this.postToOurApi(article, topic.id)
+          ); // Sending each Article into postToOurApi, good allTopicPosts! not using state!
         });
     });
   };
@@ -189,7 +191,7 @@ class App extends Component {
       headers: {
         "Content-type": "application/json",
         Accept: "application/json",
-        Authorization: localStorage.getItem("token")
+        Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
         topic_id: topicId,
@@ -198,26 +200,26 @@ class App extends Component {
           source: result.source.name,
           image_url: result.urlToImage,
           url: result.url,
-          published_at: result.publishedAt
-        }
-      })
+          published_at: result.publishedAt,
+        },
+      }),
     })
-      .then(resp => resp.json())
-      .then(resp => {
+      .then((resp) => resp.json())
+      .then((resp) => {
         if (resp.post) {
           fetch("https://fetch-backend-api.herokuapp.com/post_topics", {
             method: "POST",
             headers: {
               "Content-type": "application/json",
               Accept: "application/json",
-              Authorization: localStorage.getItem("token") // test out without this later.
+              Authorization: localStorage.getItem("token"), // test out without this later.
             },
             body: JSON.stringify({
               post_topic: {
                 post_id: resp.post.id,
-                topic_id: topicId
-              }
-            })
+                topic_id: topicId,
+              },
+            }),
           });
         }
         this.fetchToTopicId();
@@ -229,33 +231,33 @@ class App extends Component {
   };
 
   fetchToTopicId = () => {
-    this.state.topicsFollowed.forEach(topic => {
+    this.state.topicsFollowed.forEach((topic) => {
       fetch(`https://fetch-backend-api.herokuapp.com/topics/${topic.id}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
           Accept: "application/json",
-          Authorization: localStorage.getItem("token")
-        }
+          Authorization: localStorage.getItem("token"),
+        },
       })
-        .then(resp => resp.json())
-        .then(resp => {
+        .then((resp) => resp.json())
+        .then((resp) => {
           let topicId = resp.topic.data.attributes.id;
           let topicPosts = resp.topic.data.attributes.posts;
-          topicPosts = topicPosts.map(postObj => {
+          topicPosts = topicPosts.map((postObj) => {
             return { ...postObj, topic_id: topicId };
           });
           let allTopicPostsIds =
             this.state.allTopicPosts !== null
-              ? this.state.allTopicPosts.map(tp => tp.id)
+              ? this.state.allTopicPosts.map((tp) => tp.id)
               : [];
           let cleanTopicPosts = topicPosts.filter(
-            topicpost => !allTopicPostsIds.includes(topicpost.id)
+            (topicpost) => !allTopicPostsIds.includes(topicpost.id)
           ); // if this topicPost's id isn't in allTopicPostsIds
 
           this.state.allTopicPosts !== null &&
             this.setState({
-              allTopicPosts: [...this.state.allTopicPosts, ...cleanTopicPosts]
+              allTopicPosts: [...this.state.allTopicPosts, ...cleanTopicPosts],
             });
         });
     });
@@ -268,25 +270,25 @@ class App extends Component {
       headers: {
         "Content-type": "application/json",
         Accept: "application/json",
-        Authorization: localStorage.getItem("token")
-      }
+        Authorization: localStorage.getItem("token"),
+      },
     })
-      .then(res => res.json())
-      .catch(error => {
+      .then((res) => res.json())
+      .catch((error) => {
         if (error) {
           return window.alert("Server is starting up");
         } else {
           return window.alert("Oh my. Something has gone terribly wrong.");
         }
       })
-      .then(json => {
+      .then((json) => {
         if (json.user !== undefined) {
           this.setState(
             {
               currentUser: {
                 id: json.user.data.id,
-                ...json.user.data.attributes
-              }
+                ...json.user.data.attributes,
+              },
             },
             () => {
               this.setState({ loading: false });
@@ -323,38 +325,38 @@ class App extends Component {
     fetch(
       `https://newsapi.org/v2/everything?language=en&pageSize=6&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
     )
-      .then(res => res.json())
-      .then(resp =>
+      .then((res) => res.json())
+      .then((resp) =>
         this.setState({
-          searchPosts: resp.articles
+          searchPosts: resp.articles,
         })
       );
     this.props.history.push(`/Fetch/search/${searchValue}`);
   };
 
-  deletePostFromCategory = event => {
+  deletePostFromCategory = (event) => {
     event.preventDefault();
     this.setState({
       categoryPosts: this.state.categoryPosts.filter(
-        x => x.url !== event.target.id
-      )
+        (x) => x.url !== event.target.id
+      ),
     });
   };
 
-  deletePostFromTopic = event => {
+  deletePostFromTopic = (event) => {
     event.preventDefault();
     fetch(`https://fetch-backend-api.herokuapp.com/posts/${event.target.id}`, {
       method: "delete",
       headers: {
         "Content-type": "application/json",
         Accept: "application/json",
-        Authorization: localStorage.getItem("token")
-      }
+        Authorization: localStorage.getItem("token"),
+      },
     });
     this.setState({
       allTopicPosts: this.state.allTopicPosts.filter(
-        x => x.id !== parseInt(event.target.id)
-      )
+        (x) => x.id !== parseInt(event.target.id)
+      ),
     });
   };
 
@@ -364,19 +366,19 @@ class App extends Component {
       method: "POST",
       headers: {
         "Content-type": "application/json",
-        Accept: "application/json"
+        Accept: "application/json",
       },
       body: JSON.stringify({
         auth: {
           username: loginInfo.username,
           password: loginInfo.password,
           first_name: loginInfo.first_name,
-          last_name: loginInfo.last_name
-        }
-      })
+          last_name: loginInfo.last_name,
+        },
+      }),
     })
-      .then(resp => resp.json())
-      .then(json => {
+      .then((resp) => resp.json())
+      .then((json) => {
         if (json.error) {
           document.getElementById("login-error").innerText = json.error;
         } else {
@@ -386,8 +388,8 @@ class App extends Component {
               id: json.user.data.attributes.id,
               username: json.user.data.attributes.username,
               first_name: json.user.data.attributes.first_name,
-              last_name: json.user.data.attributes.last_name
-            }
+              last_name: json.user.data.attributes.last_name,
+            },
           });
           this.fetchToTopicId();
           this.props.history.push("/Fetch/feed");
@@ -395,30 +397,30 @@ class App extends Component {
       });
   };
 
-  updateStateOfTopicsFollowed = result => {
+  updateStateOfTopicsFollowed = (result) => {
     /* 1. Pass down this function to Sidebar, and take in the value via fetch result
     2. Use concat to combine prevState with new results
     3. call this function via handleSubmitTopic & pass it the addTopicForm info.
     */
-    this.setState(prevState => ({
-      topicsFollowed: prevState.topicsFollowed.concat(result)
+    this.setState((prevState) => ({
+      topicsFollowed: prevState.topicsFollowed.concat(result),
     }));
   };
 
-  deleteTopic = event => {
+  deleteTopic = (event) => {
     event.preventDefault();
     fetch(`https://fetch-backend-api.herokuapp.com/topics/${event.target.id}`, {
       method: "delete",
       headers: {
         "Content-type": "application/json",
         Accept: "application/json",
-        Authorization: localStorage.getItem("token")
-      }
+        Authorization: localStorage.getItem("token"),
+      },
     });
     this.setState({
       topicsFollowed: this.state.topicsFollowed.filter(
-        x => x.id !== parseInt(event.target.id)
-      )
+        (x) => x.id !== parseInt(event.target.id)
+      ),
     });
     this.props.history.push("/Fetch/feed");
   };
@@ -431,7 +433,7 @@ class App extends Component {
       allTopicPosts: [],
       categoryPosts: [],
       loading: false,
-      searchPosts: []
+      searchPosts: [],
     });
     this.props.history.push("/Fetch");
   };
@@ -440,11 +442,11 @@ class App extends Component {
     fetch(
       `https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=6&apiKey=07af66c02837407a82106528c10d64c5`
     )
-      .then(resp => resp.json())
-      .then(resp =>
+      .then((resp) => resp.json())
+      .then((resp) =>
         this.setState({
           categoryPosts: resp.articles,
-          categoryName: categoryName
+          categoryName: categoryName,
         })
       );
     this.props.history.push(`/Fetch/category/${categoryName}`);
@@ -466,14 +468,14 @@ class App extends Component {
           <Route
             exact
             path="/Fetch/login"
-            render={props => (
+            render={(props) => (
               <Login {...props} handleLoginSubmit={this.handleLoginSubmit} />
             )}
           />
           <Route
             exact
             path="/Fetch/signup"
-            render={props => (
+            render={(props) => (
               <Signup {...props} handleSignupSubmit={this.handleSignupSubmit} />
             )}
           />
@@ -484,7 +486,7 @@ class App extends Component {
                 <Route
                   exact
                   path="/Fetch/feed"
-                  render={props => (
+                  render={(props) => (
                     <Feed
                       {...props}
                       delayFetch={this.delayFetch}
@@ -499,7 +501,7 @@ class App extends Component {
 
                 <Route
                   path="/Fetch/search/"
-                  render={props => (
+                  render={(props) => (
                     <Search
                       {...props}
                       currentUser={this.state.currentUser}
@@ -512,7 +514,7 @@ class App extends Component {
 
                 <Route
                   path="/Fetch/category/"
-                  render={props => (
+                  render={(props) => (
                     <Category
                       {...props}
                       currentUser={this.state.currentUser}
@@ -526,28 +528,31 @@ class App extends Component {
                   <div className="category">
                     <h3>Categories</h3>
                     <div className="catItems">
-                      <br />
-                      <p onClick={e => this.handleCategoryClick("business")}>
+                      <p onClick={(e) => this.handleCategoryClick("business")}>
                         #Business
                       </p>
                       <p
-                        onClick={e => this.handleCategoryClick("entertainment")}
+                        onClick={(e) =>
+                          this.handleCategoryClick("entertainment")
+                        }
                       >
                         #Entertainment
                       </p>
-                      <p onClick={e => this.handleCategoryClick("general")}>
+                      <p onClick={(e) => this.handleCategoryClick("general")}>
                         #General
                       </p>
-                      <p onClick={e => this.handleCategoryClick("health")}>
+                      <p onClick={(e) => this.handleCategoryClick("health")}>
                         #Health
                       </p>
-                      <p onClick={e => this.handleCategoryClick("science")}>
+                      <p onClick={(e) => this.handleCategoryClick("science")}>
                         #Science
                       </p>
-                      <p onClick={e => this.handleCategoryClick("sports")}>
+                      <p onClick={(e) => this.handleCategoryClick("sports")}>
                         #Sports
                       </p>
-                      <p onClick={e => this.handleCategoryClick("technology")}>
+                      <p
+                        onClick={(e) => this.handleCategoryClick("technology")}
+                      >
                         #Technology
                       </p>
                     </div>
@@ -562,7 +567,7 @@ class App extends Component {
 
                 <Route
                   path="/Fetch/topic"
-                  render={props => (
+                  render={(props) => (
                     <Topic
                       {...props}
                       fetchFromGoogle={this.fetchFromGoogle}
@@ -577,7 +582,7 @@ class App extends Component {
                 <Route
                   exact
                   path="/Fetch/add-topic"
-                  render={props => (
+                  render={(props) => (
                     <AddTopic
                       {...props}
                       currentUser={this.state.currentUser}
@@ -592,7 +597,7 @@ class App extends Component {
                 <Route
                   exact
                   path="/Fetch/profile"
-                  render={props => (
+                  render={(props) => (
                     <UserProfile
                       {...props}
                       currentUser={this.state.currentUser}

@@ -15,12 +15,12 @@ class Sidebar extends Component {
           headers: {
             Authorization: localStorage.getItem("token"),
             "Content-Type": "application/json",
-            Accept: "application/json"
-          }
+            Accept: "application/json",
+          },
         }
       )
-        .then(res => res.json())
-        .then(result => {
+        .then((res) => res.json())
+        .then((result) => {
           this.props.updateStateOfTopicsFollowed(result.user.topics); // passing result up via this function
         });
     }
@@ -33,20 +33,21 @@ class Sidebar extends Component {
         <div className="addtopicstuff">
           <h3>Topics You Follow</h3>
 
-          <p
-            className="addnewsidebaritems"
-            onClick={() => this.props.history.push("/Fetch/add-topic")}
-          >
-            <img
-              src="https://i.imgur.com/DPZuNtB.png"
-              alt="Add Topic"
-              className="addMore"
-            />
-            Add a New Topic{" "}
-          </p>
           <div className="mainSideMove">
+            <p
+              className="addnewsidebaritems"
+              onClick={() => this.props.history.push("/Fetch/add-topic")}
+            >
+              <img
+                src="https://i.imgur.com/DPZuNtB.png"
+                alt="Add Topic"
+                className="addMore"
+              />
+              Add a New Topic{" "}
+            </p>
+
             {this.props.topicsFollowed !== null ? (
-              this.props.topicsFollowed.map(topic => (
+              this.props.topicsFollowed.map((topic) => (
                 <SidebarItems topic={topic} key={topic.id} />
               ))
             ) : (
