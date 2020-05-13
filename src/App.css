@@ -25,6 +25,7 @@
     padding-left: 5%;
     padding-right: 5%;
     border: 1px solid #ddd;
+    height: 286px;
   }
   /* end testimonials css  */
 
@@ -1177,6 +1178,7 @@
     padding-left: 5%;
     padding-right: 5%;
     border: 1px solid #ddd;
+    height: 269px;
   }
   /* end testimonials css  */
 
@@ -2380,6 +2382,7 @@ button {
   color: #222;
   font-size: 15px;
   font-family: sans-serif;
+  max-height: 67px;
 }
 .myCarousel p:after {
   content: "”";

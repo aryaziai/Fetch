@@ -31,8 +31,8 @@ export default class Testimonials extends Component {
             <h3>Daniel Keystone</h3>
             <h4>Designer</h4>
             <p>
-              It's freeing to be able to catch up on customized news and not be
-              distracted by a social media element on the same site
+              The simple and intuitive design makes it easy for me use. I highly
+              recommend Fetch to my peers.
             </p>
           </div>
         </div>
@@ -43,8 +43,8 @@ export default class Testimonials extends Component {
             <h3>Theo Sorel</h3>
             <h4>Designer</h4>
             <p>
-              It's freeing to be able to catch up on customized news and not be
-              distracted by a social media element on the same site
+              I enjoy catching up with Fetch on my laptop, or on my phone when
+              I'm on the go!
             </p>
           </div>
         </div>
