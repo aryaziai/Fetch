@@ -7,7 +7,7 @@ body {
 
 input {
   border-radius: 0;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   -webkit-border-radius: 0px;
 }
 
@@ -32,7 +32,15 @@ button {
   outline: none;
 }
 
-* {
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+.create_experience {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -618,7 +626,6 @@ button {
     background-position-x: center;
     font-weight: 300;
     font-size: 45px;
-    /* background-size: contain; */
     margin-top: 14px;
     font-weight: 300;
   }
@@ -1319,7 +1326,7 @@ button {
 
   .brandimages img {
     width: 120px;
-    margin-bottom: 9%;
+    margin-bottom: 10.5%;
     border-radius: 50%;
   }
 
