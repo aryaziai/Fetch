@@ -9,7 +9,7 @@ export default class Welcome extends Component {
     return (
       <div className="welcome">
         <div className="create_experience">
-          Create your personalized
+          Create a free personalized
           <br />
           news experience
           <br />
