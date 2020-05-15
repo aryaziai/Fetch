@@ -14,7 +14,7 @@ export default class Testimonials extends Component {
         interval={6100}
       >
         <div>
-          <img src="https://i.imgur.com/I3ep4rY.png" />
+          <img src="https://fetchnow.org/shirley.png" />
           <div class="myCarousel">
             <h3>Shirley Fultz</h3>
             <h4>Designer</h4>
@@ -26,7 +26,7 @@ export default class Testimonials extends Component {
         </div>
 
         <div>
-          <img src="https://www.norway-consulting.no/wp-content/uploads/2017/04/LI-profilbilde-circular-fra-Picmonkey.png" />
+          <img src="https://fetchnow.org/daniel.png" />
           <div class="myCarousel">
             <h3>Daniel Keystone</h3>
             <h4>Designer</h4>
@@ -38,7 +38,7 @@ export default class Testimonials extends Component {
         </div>
 
         <div>
-          <img src="https://images.squarespace-cdn.com/content/v1/572fa54ef8baf3257a3153f5/1512348060512-1NM459PG4MOAAHAZK2HO/ke17ZwdGBToddI8pDm48kJK4Mm1kch8SFO9ZNkN1NT97gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmN9YSRtfoTLg6dUq-6F17A0FFZK5fArcnK1IqGweyunyWChwIwkIJ_P7MaZif-uMs/Face+Circle.png?format=1500w" />
+          <img src="https://fetchnow.org/theo.png" />
           <div class="myCarousel">
             <h3>Theo Sorel</h3>
             <h4>Designer</h4>
