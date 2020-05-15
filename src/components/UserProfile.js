@@ -11,19 +11,19 @@ class UserProfile extends Component {
       last_name: "",
       username: "",
       password: "",
-      password_confirmation: ""
+      password_confirmation: "",
     };
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   componentDidMount() {
     this.setState({
-      currentUser: this.props.currentUser
+      currentUser: this.props.currentUser,
     });
   }
 
@@ -34,11 +34,11 @@ class UserProfile extends Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         user: SignupInfo,
-        id: this.props.currentUser.id
-      })
+        id: this.props.currentUser.id,
+      }),
     })
-      .then(resp => resp.json())
-      .then(json => {
+      .then((resp) => resp.json())
+      .then((json) => {
         if (json.error) {
           document.getElementById("login-error").innerText = json.error;
         } else {
@@ -47,26 +47,26 @@ class UserProfile extends Component {
           this.setState({
             currentUser: {
               id: json.id,
-              ...json
-            }
+              ...json,
+            },
           });
-          this.props.history.push("/Fetch/feed");
+          this.props.history.push("/feed");
         }
       });
   };
 
-  handleDeleteProfile = event => {
+  handleDeleteProfile = (event) => {
     event.preventDefault();
     fetch(
       `https://fetch-backend-api.herokuapp.com/users/${this.props.currentUser.id}`,
       {
         method: "delete",
         headers: { "Content-Type": "application/json" },
-        Authorization: localStorage.getItem("token")
+        Authorization: localStorage.getItem("token"),
       }
     )
-      .then(resp => resp.json())
-      .then(json => {
+      .then((resp) => resp.json())
+      .then((json) => {
         if (json.error) {
           window.alert(json.error);
         } else {
@@ -83,7 +83,7 @@ class UserProfile extends Component {
           <h2>Edit Profile</h2>
           <div className="EditFormlife" align="center">
             <Form
-              onSubmit={e => {
+              onSubmit={(e) => {
                 this.handleEditProfile(e, this.state);
               }}
             >
@@ -93,7 +93,7 @@ class UserProfile extends Component {
                     type="text"
                     name="first_name"
                     placeholder={this.props.currentUser.first_name}
-                    onChange={e => this.handleChange(e)}
+                    onChange={(e) => this.handleChange(e)}
                     value={this.state.first_name}
                   />
                 </Form.Group>
@@ -103,7 +103,7 @@ class UserProfile extends Component {
                     type="text"
                     name="last_name"
                     placeholder={this.props.currentUser.last_name}
-                    onChange={e => this.handleChange(e)}
+                    onChange={(e) => this.handleChange(e)}
                     value={this.state.last_name}
                   />
                 </Form.Group>
@@ -117,7 +117,7 @@ class UserProfile extends Component {
                   type="text"
                   name="username"
                   placeholder={this.props.currentUser.username}
-                  onChange={e => this.handleChange(e)}
+                  onChange={(e) => this.handleChange(e)}
                   value={this.state.username}
                 />
               </Form.Group>
@@ -129,7 +129,7 @@ class UserProfile extends Component {
                   type="password"
                   name="password"
                   placeholder="•••••••"
-                  onChange={e => this.handleChange(e)}
+                  onChange={(e) => this.handleChange(e)}
                   value={this.state.password}
                 />
               </Form.Group>
@@ -141,14 +141,14 @@ class UserProfile extends Component {
                   type="password"
                   name="password_confirmation"
                   placeholder="•••••••"
-                  onChange={e => this.handleChange(e)}
+                  onChange={(e) => this.handleChange(e)}
                   value={this.state.password_confirmation}
                 />
               </Form.Group>
 
               <div className="editprofilebuttons">
                 <button
-                  onClick={event => this.handleDeleteProfile(event)}
+                  onClick={(event) => this.handleDeleteProfile(event)}
                   className="submitTopic-btton-delete"
                 >
                   Delete

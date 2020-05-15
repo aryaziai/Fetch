@@ -79,7 +79,7 @@ class App extends Component {
         this.followTrending(data.topic.data.attributes.id);
       })
       .then(() => {
-        this.props.history.push("/Fetch/feed");
+        this.props.history.push("/feed");
       });
   };
 
@@ -163,7 +163,7 @@ class App extends Component {
             this.fetchFromGoogle(topicID); // took out topicID
           })
           .then(() => {
-            this.props.history.push("/Fetch/feed"); // this.props.history.push("/feed"); needs .then
+            this.props.history.push("/feed"); // this.props.history.push("/feed"); needs .then
           })
       : window.alert("Topic title cannot be empty");
   };
@@ -331,7 +331,7 @@ class App extends Component {
           searchPosts: resp.articles,
         })
       );
-    this.props.history.push(`/Fetch/search/${searchValue}`);
+    this.props.history.push(`/search/${searchValue}`);
   };
 
   deletePostFromCategory = (event) => {
@@ -392,7 +392,7 @@ class App extends Component {
             },
           });
           this.fetchToTopicId();
-          this.props.history.push("/Fetch/feed");
+          this.props.history.push("/feed");
         }
       });
   };
@@ -422,7 +422,7 @@ class App extends Component {
         (x) => x.id !== parseInt(event.target.id)
       ),
     });
-    this.props.history.push("/Fetch/feed");
+    this.props.history.push("/feed");
   };
 
   handleLogout = () => {
@@ -435,7 +435,7 @@ class App extends Component {
       loading: false,
       searchPosts: [],
     });
-    this.props.history.push("/Fetch");
+    this.props.history.push("/");
   };
 
   handleCategoryClick(categoryName) {
@@ -449,7 +449,7 @@ class App extends Component {
           categoryName: categoryName,
         })
       );
-    this.props.history.push(`/Fetch/category/${categoryName}`);
+    this.props.history.push(`/category/${categoryName}`);
   }
 
   render() {
@@ -463,18 +463,18 @@ class App extends Component {
         />
 
         <Switch>
-          <Route exact path="/Fetch" component={Welcome} />
+          <Route exact path="/" component={Welcome} />
 
           <Route
             exact
-            path="/Fetch/login"
+            path="/login"
             render={(props) => (
               <Login {...props} handleLoginSubmit={this.handleLoginSubmit} />
             )}
           />
           <Route
             exact
-            path="/Fetch/signup"
+            path="/signup"
             render={(props) => (
               <Signup {...props} handleSignupSubmit={this.handleSignupSubmit} />
             )}
@@ -485,7 +485,7 @@ class App extends Component {
               <React.Fragment>
                 <Route
                   exact
-                  path="/Fetch/feed"
+                  path="/feed"
                   render={(props) => (
                     <Feed
                       {...props}
@@ -500,7 +500,7 @@ class App extends Component {
                 />
 
                 <Route
-                  path="/Fetch/search/"
+                  path="/search/"
                   render={(props) => (
                     <Search
                       {...props}
@@ -513,7 +513,7 @@ class App extends Component {
                 />
 
                 <Route
-                  path="/Fetch/category/"
+                  path="/category/"
                   render={(props) => (
                     <Category
                       {...props}
@@ -566,7 +566,7 @@ class App extends Component {
                 />
 
                 <Route
-                  path="/Fetch/topic"
+                  path="/topic"
                   render={(props) => (
                     <Topic
                       {...props}
@@ -581,7 +581,7 @@ class App extends Component {
 
                 <Route
                   exact
-                  path="/Fetch/add-topic"
+                  path="/add-topic"
                   render={(props) => (
                     <AddTopic
                       {...props}
@@ -596,7 +596,7 @@ class App extends Component {
 
                 <Route
                   exact
-                  path="/Fetch/profile"
+                  path="/profile"
                   render={(props) => (
                     <UserProfile
                       {...props}
@@ -607,7 +607,7 @@ class App extends Component {
                 />
               </React.Fragment>
             ) : (
-              <Redirect to="/Fetch" />
+              <Redirect to="/" />
             )
           ) : (
             <>

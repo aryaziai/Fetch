@@ -16,7 +16,7 @@ class Search extends Component {
             src="https://fetchnow.org/refresh.png"
             className="deletetopic"
             alt="feedicon"
-            onClick={() => this.props.history.push("/Fetch/feed")}
+            onClick={() => this.props.history.push("/feed")}
           />
           <div className="categorydrop"></div>
 

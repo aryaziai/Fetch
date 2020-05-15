@@ -36,7 +36,7 @@ class Sidebar extends Component {
           <div className="mainSideMove">
             <p
               className="addnewsidebaritems"
-              onClick={() => this.props.history.push("/Fetch/add-topic")}
+              onClick={() => this.props.history.push("/add-topic")}
             >
               <img
                 src="https://i.imgur.com/DPZuNtB.png"

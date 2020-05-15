@@ -168,7 +168,7 @@ export default class AddTopic extends Component {
             <br></br>
             <div className="submitTopic">
               <button
-                onClick={() => this.props.history.push("/Fetch/feed")}
+                onClick={() => this.props.history.push("/feed")}
                 className="submitTopic-btton-nevermind"
               >
                 Nevermind

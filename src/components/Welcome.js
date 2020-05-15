@@ -14,7 +14,7 @@ export default class Welcome extends Component {
           news experience
           <br />
           {/* Create your personalized <span class="break">news experience</span> */}
-          <Link to="/Fetch/signup">
+          <Link to="/signup">
             <h1 className="goldbutton"> Join Today</h1>
           </Link>
         </div>

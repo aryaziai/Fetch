@@ -41,13 +41,13 @@ class Navbar extends Component {
         <>
           <div
             className="topcoolbutton"
-            onClick={() => this.props.history.push("/Fetch/login")}
+            onClick={() => this.props.history.push("/login")}
           >
             <p>Sign In</p>
           </div>
           <div
             className="topcoolbuttonjaz"
-            onClick={() => this.props.history.push("/Fetch/signup")}
+            onClick={() => this.props.history.push("/signup")}
           >
             <p>Sign Up</p>
           </div>
@@ -65,7 +65,7 @@ class Navbar extends Component {
             <Dropdown.Menu>
               <p
                 className="dropdown-item"
-                onClick={() => this.props.history.push("/Fetch/profile")}
+                onClick={() => this.props.history.push("/profile")}
               >
                 Edit Profile
               </p>
@@ -110,9 +110,7 @@ class Navbar extends Component {
         <div className="topbar">
           <Link
             to={
-              Object.keys(this.props.currentUser).length === 0
-                ? "/Fetch/"
-                : "/Fetch/feed"
+              Object.keys(this.props.currentUser).length === 0 ? "/" : "/feed"
             }
           >
             <img
@@ -127,7 +125,7 @@ class Navbar extends Component {
         {this.props.location.pathname.split("/").slice(-1)[0] !== "profile" &&
         this.props.location.pathname.split("/").slice(-1)[0] !== "add-topic" &&
         this.props.location.pathname.split("/").slice(-1)[0] !== "Fetch" &&
-        this.props.location.pathname !== "/Fetch/"
+        this.props.location.pathname !== "/"
           ? this.loginLogicSearch()
           : null}
       </>
