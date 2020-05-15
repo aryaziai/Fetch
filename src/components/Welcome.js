@@ -22,7 +22,7 @@ export default class Welcome extends Component {
         <div className="notbrands">
           <p className="bigtime">
             <img
-              src="https://aryaziai.github.io/Fetch/search.png"
+              src="https://fetchnow.org/search.png"
               width="120px"
               alt="search"
             />
@@ -35,7 +35,7 @@ export default class Welcome extends Component {
           </p>
           <p className="bigtime">
             <img
-              src="https://aryaziai.github.io/Fetch/globe.png"
+              src="https://fetchnow.org/globe.png"
               width="120px"
               alt="globe"
             />
@@ -49,7 +49,7 @@ export default class Welcome extends Component {
           </p>
           <p className="bigtime">
             <img
-              src="https://aryaziai.github.io/Fetch/monitor.png"
+              src="https://fetchnow.org/monitor.png"
               width="120px"
               alt="monitor"
             />
@@ -65,23 +65,11 @@ export default class Welcome extends Component {
         <div className="brands">
           <h1>Popular Sources</h1>
           <div className="brandimages">
-            <img src="https://aryaziai.github.io/Fetch/cnn.png" alt="cnn"></img>
+            <img src="https://fetchnow.org/cnn.png" alt="cnn"></img>
             <br />
-            <img
-              src="https://aryaziai.github.io/Fetch/fox.jpg"
-              alt="fox"
-            ></img>{" "}
-            <br />
-            <img
-              src="https://aryaziai.github.io/Fetch/msnbc.png"
-              alt="msnbc"
-            ></img>{" "}
-            <br />
-            <img
-              src="https://aryaziai.github.io/Fetch/bbc.jpeg"
-              alt="bbc"
-            ></img>{" "}
-            <br />
+            <img src="https://fetchnow.org/fox.jpg" alt="fox"></img> <br />
+            <img src="https://fetchnow.org/msnbc.png" alt="msnbc"></img> <br />
+            <img src="https://fetchnow.org/bbc.jpeg" alt="bbc"></img> <br />
           </div>
         </div>
         <h1 className="finalh1">Testimonials</h1>

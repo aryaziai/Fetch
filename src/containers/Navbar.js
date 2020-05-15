@@ -58,10 +58,7 @@ class Navbar extends Component {
         <div className="profile-nav">
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <img
-                src="https://aryaziai.github.io/Fetch/missing_avatar.jpg"
-                alt="avatar"
-              />{" "}
+              <img src="https://fetchnow.org/missing_avatar.jpg" alt="avatar" />{" "}
               {this.props.currentUser.username}
             </Dropdown.Toggle>
 

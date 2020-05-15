@@ -12,23 +12,23 @@ export default class AddTopic extends Component {
       language: "en",
       plus: true,
       sort_by: "relevancy",
-      logo: "https://aryaziai.github.io/Fetch/missing.png",
+      logo: "https://fetchnow.org/missing.png",
       user_id: props.currentUser.id,
-      toggleUpload: false
+      toggleUpload: false,
     };
   }
 
   toggleImage = () => {
-    this.setState(state => ({ plus: !state.plus }));
+    this.setState((state) => ({ plus: !state.plus }));
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  avoidSpace = e => {
+  avoidSpace = (e) => {
     if (e.key === " " || e.key >= 0 || e.key < 10) {
       e.preventDefault();
     }
@@ -44,9 +44,9 @@ export default class AddTopic extends Component {
   render() {
     let imageLife;
     if (this.state.plus === true) {
-      imageLife = "https://aryaziai.github.io/Fetch/toggleon.png";
+      imageLife = "https://fetchnow.org/toggleon.png";
     } else {
-      imageLife = "https://aryaziai.github.io/Fetch/toggleoff.png";
+      imageLife = "https://fetchnow.org/toggleoff.png";
     }
 
     return (
@@ -55,7 +55,7 @@ export default class AddTopic extends Component {
         <br />
         <div className="add-topic">
           <Form
-            onSubmit={e => {
+            onSubmit={(e) => {
               this.props.handleSubmitTopic(e, this.state);
             }}
           >
@@ -65,8 +65,8 @@ export default class AddTopic extends Component {
                 type="text"
                 name="topic_title"
                 placeholder="TopicTitle"
-                onKeyPress={e => this.avoidSpace(e)}
-                onChange={e => this.handleChange(e)}
+                onKeyPress={(e) => this.avoidSpace(e)}
+                onChange={(e) => this.handleChange(e)}
                 value={this.state.topic_title}
               />
             </Form.Group>
@@ -89,15 +89,15 @@ export default class AddTopic extends Component {
                     type="text"
                     name="logo"
                     placeholder="Insert Logo URL"
-                    onKeyPress={e => this.avoidSpace(e)}
-                    onChange={e => this.handleChange(e)}
+                    onKeyPress={(e) => this.avoidSpace(e)}
+                    onChange={(e) => this.handleChange(e)}
                   />
                 </Form.Group>
               </div>
             ) : null}
             <p
               // onClick={this.alertMe}
-              onClick={e => this.showImage(e)}
+              onClick={(e) => this.showImage(e)}
               className="uploadimage"
             >
               Upload Image
@@ -108,7 +108,7 @@ export default class AddTopic extends Component {
                 value={this.state.language}
                 className="language"
                 name="language"
-                onChange={e => this.handleChange(e)}
+                onChange={(e) => this.handleChange(e)}
               >
                 <option value="en">English</option>
                 <option value="ar">Arabic</option>
@@ -129,7 +129,7 @@ export default class AddTopic extends Component {
                 value={this.state.sort_by}
                 className="sort_by"
                 name="sort_by"
-                onChange={e => this.handleChange(e)}
+                onChange={(e) => this.handleChange(e)}
               >
                 <option value="relevancy">Relevance</option>
                 <option value="publishedAt">Latest</option>
@@ -143,7 +143,7 @@ export default class AddTopic extends Component {
                 value={this.state.page_size}
                 className="page_size"
                 name="page_size"
-                onChange={e => this.handleChange(e)}
+                onChange={(e) => this.handleChange(e)}
               >
                 <option value="5">5</option>
                 <option value="10">10</option>

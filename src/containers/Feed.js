@@ -9,7 +9,7 @@ export default class Feed extends Component {
         <h3 className="mainfeedtitle">
           Fetch Feed
           <img
-            src="https://aryaziai.github.io/Fetch/refresh.png"
+            src="https://fetchnow.org/refresh.png"
             className="feedtitleimage"
             alt="feedicon"
             onLoad={this.props.delayFetch}
@@ -20,7 +20,7 @@ export default class Feed extends Component {
         <div className="drop"></div>
         {this.props.allTopicPosts !== null &&
         this.props.allTopicPosts.length !== 0 ? (
-          this.props.allTopicPosts.map(topicPost => (
+          this.props.allTopicPosts.map((topicPost) => (
             <FeedItems
               deletePostFromTopic={this.props.deletePostFromTopic}
               topicsFollowed={this.props.topicsFollowed}

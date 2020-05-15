@@ -13,14 +13,14 @@ class Search extends Component {
             Search: <span className="searchTitle">#{searchTitle}</span>
           </h3>
           <img
-            src="https://aryaziai.github.io/Fetch/refresh.png"
+            src="https://fetchnow.org/refresh.png"
             className="deletetopic"
             alt="feedicon"
             onClick={() => this.props.history.push("/Fetch/feed")}
           />
           <div className="categorydrop"></div>
 
-          {this.props.searchPosts.map(post => (
+          {this.props.searchPosts.map((post) => (
             <SearchItems
               searchPost={post}
               key={post.url}

@@ -4,20 +4,20 @@ export default class TopicItems extends Component {
   constructor() {
     super();
     this.state = {
-      favorite: false
+      favorite: false,
     };
   }
 
   render() {
     let favorite;
     if (this.state.favorite === true) {
-      favorite = "https://aryaziai.github.io/Fetch/heart.png";
+      favorite = "https://fetchnow.org/heart.png";
     } else {
-      favorite = "https://aryaziai.github.io/Fetch/unheart.png";
+      favorite = "https://fetchnow.org/unheart.png";
     }
 
     let correctOne = this.props.topicsFollowed.find(
-      x => x.id === this.props.topicPost.topic_id
+      (x) => x.id === this.props.topicPost.topic_id
     );
     // console.log(correctOne)
     return (
@@ -30,7 +30,7 @@ export default class TopicItems extends Component {
           <b>#{correctOne.topic_title}</b>
           <button
             id={this.props.topicPost.id}
-            onClick={event => this.props.deletePostFromTopic(event)}
+            onClick={(event) => this.props.deletePostFromTopic(event)}
             className="xOut"
           >
             x
@@ -90,7 +90,7 @@ export default class TopicItems extends Component {
               href={`mailto:?subject=${this.props.topicPost.caption}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.topicPost.url}`}
             >
               <img
-                src="https://aryaziai.github.io/Fetch/mail.png"
+                src="https://fetchnow.org/mail.png"
                 alt="email"
                 className="email"
               />

@@ -9,7 +9,7 @@ class Category extends Component {
 
     this.state = {
       categoryPosts: [],
-      categoryName: ""
+      categoryName: "",
     };
   }
 
@@ -21,7 +21,7 @@ class Category extends Component {
           <h3 className="categoryfeedtitle">
             <span className="searchTitle">#{topicUrl}</span>
             <img
-              src="https://aryaziai.github.io/Fetch/refresh.png"
+              src="https://fetchnow.org/refresh.png"
               className="feedtitleimage"
               alt="feedicon"
               onClick={this.props.fetchFromGoogle}
@@ -30,7 +30,7 @@ class Category extends Component {
 
           <div className="categorydrop"></div>
 
-          {this.props.categoryPosts.map(post => (
+          {this.props.categoryPosts.map((post) => (
             <CategoryItems
               topicPost={post}
               key={post.url}

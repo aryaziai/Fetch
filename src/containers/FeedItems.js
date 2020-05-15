@@ -5,23 +5,23 @@ class FeedItems extends Component {
   constructor() {
     super();
     this.state = {
-      favorite: false
+      favorite: false,
     };
   }
 
   toggleImage = () => {
-    this.setState(state => ({ favorite: !state.favorite }));
+    this.setState((state) => ({ favorite: !state.favorite }));
   };
 
   render() {
     let favorite;
     if (this.state.favorite === true) {
-      favorite = "https://aryaziai.github.io/Fetch/heart.png";
+      favorite = "https://fetchnow.org/heart.png";
     } else {
-      favorite = "https://aryaziai.github.io/Fetch/unheart.png";
+      favorite = "https://fetchnow.org/unheart.png";
     }
     let correctOne = this.props.topicsFollowed.find(
-      x => x.id === this.props.topicPost.topic_id
+      (x) => x.id === this.props.topicPost.topic_id
     );
 
     return (
@@ -51,7 +51,7 @@ class FeedItems extends Component {
               </b>
               <button
                 id={this.props.topicPost.id}
-                onClick={event => this.props.deletePostFromTopic(event)}
+                onClick={(event) => this.props.deletePostFromTopic(event)}
                 className="xOut"
               >
                 x
@@ -99,7 +99,7 @@ class FeedItems extends Component {
                   href={`sms:Text Someone&body=${this.props.topicPost.caption}%0D%0A%0D%0A${this.props.topicPost.url}`}
                 >
                   <img
-                    src="https://aryaziai.github.io/Fetch/imessage.png"
+                    src="https://fetchnow.org/imessage.png"
                     alt="imessage"
                     name="imessage"
                     className="iMessage"
@@ -110,7 +110,7 @@ class FeedItems extends Component {
                   href={`mailto:?subject=${this.props.topicPost.caption}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.topicPost.url}`}
                 >
                   <img
-                    src="https://aryaziai.github.io/Fetch/mail.png"
+                    src="https://fetchnow.org/mail.png"
                     alt="email"
                     className="email"
                   />

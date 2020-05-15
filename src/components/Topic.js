@@ -8,14 +8,14 @@ export default class Topic extends Component {
     let topicUrl = this.props.location.pathname.split("/").slice(-1)[0];
 
     let correctTopicId = this.props.topicsFollowed.find(
-      x => x.topic_title.toLowerCase() === topicUrl
+      (x) => x.topic_title.toLowerCase() === topicUrl
     );
 
     // console.log(correctTopicId)
     let postsOfTopic;
     if (correctTopicId) {
       postsOfTopic = this.props.allTopicPosts.filter(
-        post => correctTopicId.id === post.topic_id
+        (post) => correctTopicId.id === post.topic_id
       ); // compare inside of iteration!
     }
 
@@ -26,7 +26,7 @@ export default class Topic extends Component {
         </h3>
         {correctTopicId ? (
           <img
-            src="https://aryaziai.github.io/Fetch/x.png"
+            src="https://fetchnow.org/x.png"
             className="deletetopic"
             alt="feedicon"
             onClick={this.props.deleteTopic}
@@ -37,7 +37,7 @@ export default class Topic extends Component {
         <div className="categorydrop"></div>
 
         {correctTopicId
-          ? postsOfTopic.map(topic => (
+          ? postsOfTopic.map((topic) => (
               <TopicItems
                 topicsFollowed={this.props.topicsFollowed}
                 topicPost={topic}

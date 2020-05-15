@@ -616,7 +616,7 @@ class App extends Component {
           )}
         </Switch>
         <img
-          src="https://aryaziai.github.io/Fetch/scroll.png"
+          src="https://fetchnow.org/scroll.png"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="scrollTop"
           alt="ScrollTop"
