@@ -607,7 +607,7 @@ class App extends Component {
                 />
               </React.Fragment>
             ) : (
-              <Redirect to="/" />
+              <Redirect to="/"/>
             )
           ) : (
             <>
