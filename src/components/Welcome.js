@@ -21,11 +21,7 @@ export default class Welcome extends Component {
 
         <div className="notbrands">
           <p className="bigtime">
-            <img
-              src="https://fetchnow.org/search.png"
-              width="120px"
-              alt="search"
-            />
+            <img src="/images/search.png" width="120px" alt="search" />
             <br />
             <br />
             <b>Find Articles</b>
@@ -34,11 +30,7 @@ export default class Welcome extends Component {
             <br /> in and we will do the rest.
           </p>
           <p className="bigtime">
-            <img
-              src="https://fetchnow.org/globe.png"
-              width="120px"
-              alt="globe"
-            />
+            <img src="/images/globe.png" width="120px" alt="globe" />
             <br />
             <br />
             <b>Select Language</b>
@@ -48,11 +40,7 @@ export default class Welcome extends Component {
             Select from other 10 languages.
           </p>
           <p className="bigtime">
-            <img
-              src="https://fetchnow.org/monitor.png"
-              width="120px"
-              alt="monitor"
-            />
+            <img src="/images/monitor.png" width="120px" alt="monitor" />
             <br />
             <br />
             <b>Customize Results</b>
@@ -65,11 +53,11 @@ export default class Welcome extends Component {
         <div className="brands">
           <h1>Popular Sources</h1>
           <div className="brandimages">
-            <img src="https://fetchnow.org/cnn.png" alt="cnn"></img>
+            <img src="/images/cnn.png" alt="cnn"></img>
             <br />
-            <img src="https://fetchnow.org/fox.jpg" alt="fox"></img> <br />
-            <img src="https://fetchnow.org/msnbc.png" alt="msnbc"></img> <br />
-            <img src="https://fetchnow.org/bbc.jpeg" alt="bbc"></img> <br />
+            <img src="/images/fox.jpg" alt="fox"></img> <br />
+            <img src="/images/msnbc.png" alt="msnbc"></img> <br />
+            <img src="/images/bbc.jpeg" alt="bbc"></img> <br />
           </div>
         </div>
         <h1 className="finalh1">Testimonials</h1>

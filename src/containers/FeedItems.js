@@ -47,7 +47,7 @@ class FeedItems extends Component {
                   )
                 }
               >
-                #{correctOne.topic_title}{" "}
+                #{correctOne.topic_title}
               </b>
               <button
                 id={this.props.topicPost.id}
@@ -57,12 +57,12 @@ class FeedItems extends Component {
                 x
               </button>
               <p className="date">
-                Published on{" "}
+                Published on
                 {new Date(this.props.topicPost.published_at).toString()}
               </p>
               <br />
               {this.props.topicPost.caption}
-              <br />{" "}
+              <br />
               <a
                 className="post_link"
                 href={this.props.topicPost.url}
@@ -70,7 +70,7 @@ class FeedItems extends Component {
                 rel="noopener noreferrer"
               >
                 {this.props.topicPost.url}
-              </a>{" "}
+              </a>
             </div>
 
             <a

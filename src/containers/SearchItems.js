@@ -31,17 +31,14 @@ class SearchItems extends Component {
           />
 
           <div className="caption">
-            {" "}
-            <b className="CategoryTitle">
-              {this.props.searchPost.source.name}{" "}
-            </b>
+            <b className="CategoryTitle">{this.props.searchPost.source.name}</b>
             <p className="date">
-              Published on{" "}
+              Published on
               {new Date(this.props.searchPost.publishedAt).toString()}
             </p>
             <br></br>
             {this.props.searchPost.title}
-            <br />{" "}
+            <br />
             <a
               className="post_link"
               href={this.props.searchPost.url}

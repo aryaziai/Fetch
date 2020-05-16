@@ -23,7 +23,7 @@ class CategoryItems extends Component {
 
     let categoryName = this.props.location.pathname.split("/").slice(-1)[0];
 
-    let categoryImage = `/${categoryName}.png`;
+    let categoryImage = `/images/${categoryName}.png`;
     //    console.log(this.props)
     return (
       <>
@@ -31,7 +31,6 @@ class CategoryItems extends Component {
           <img src={categoryImage} alt="topic_logo" className="feeditemslogo" />
 
           <div className="caption">
-            {" "}
             <b className="CategoryTitle">#{categoryName} </b>
             <button
               id={this.props.topicPost.url}
@@ -41,12 +40,12 @@ class CategoryItems extends Component {
               x
             </button>
             <p className="date">
-              Published on{" "}
+              Published on
               {new Date(this.props.topicPost.publishedAt).toString()}
             </p>
             <br></br>
             {this.props.topicPost.title}
-            <br />{" "}
+            <br />
             <a
               className="post_link"
               href={this.props.topicPost.url}

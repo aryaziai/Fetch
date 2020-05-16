@@ -36,12 +36,12 @@ export default class TopicItems extends Component {
             x
           </button>
           <p className="date">
-            Published on{" "}
+            Published on
             {new Date(this.props.topicPost.published_at).toString()}
           </p>
           <br></br>
           {this.props.topicPost.caption}
-          <br />{" "}
+          <br />
           <a
             href={this.props.topicPost.url}
             className="post_link"
@@ -49,7 +49,7 @@ export default class TopicItems extends Component {
             rel="noopener noreferrer"
           >
             {this.props.topicPost.url}
-          </a>{" "}
+          </a>
         </div>
 
         <a

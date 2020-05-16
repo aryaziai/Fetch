@@ -42,11 +42,11 @@ class Sidebar extends Component {
                 onClick={() => this.props.history.push("/add-topic")}
               >
                 <img
-                  src="https://i.imgur.com/DPZuNtB.png"
+                  src="/images/add_topic_plus.png"
                   alt="Add Topic"
                   className="addMore"
                 />
-                Add a New Topic{" "}
+                Add a New Topic
               </p>
 
               {this.props.topicsFollowed !== null ? (

@@ -65,7 +65,7 @@ class App extends Component {
         topic: {
           topic_title: "Trending",
           logo:
-            "https://cust-images.grenadine.co/grenadine/image/upload/c_fill,f_jpg,g_face,h_1472,w_1472/v0/Kinnektor/QgOV_5613.png",
+            "/images/google_logo.png",
           user_id: this.state.currentUser.id,
           page_size: null,
           plus: null,
@@ -615,7 +615,7 @@ class App extends Component {
           )}
         </Switch>
         <img
-          src="https://fetchnow.org/scroll.png"
+          src="/images/scroll.png"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="scrollTop"
           alt="ScrollTop"

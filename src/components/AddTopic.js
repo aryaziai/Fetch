@@ -12,7 +12,7 @@ export default class AddTopic extends Component {
       language: "en",
       plus: true,
       sort_by: "relevancy",
-      logo: "/missing.png",
+      logo: "/images/missing.png",
       user_id: props.currentUser.id,
       toggleUpload: false,
     };
@@ -44,9 +44,9 @@ export default class AddTopic extends Component {
   render() {
     let imageLife;
     if (this.state.plus === true) {
-      imageLife = "https://fetchnow.org/toggleon.png";
+      imageLife = "/images/toggleon.png";
     } else {
-      imageLife = "https://fetchnow.org/toggleoff.png";
+      imageLife = "/images/toggleoff.png";
     }
 
     return (
@@ -80,7 +80,7 @@ export default class AddTopic extends Component {
               className="missing"
               alt="missing"
               id="on"
-              value="/missing.png"
+              value="/images/missing.png"
             />
             {this.state.toggleUpload === true ? (
               <div className="upload_image">
