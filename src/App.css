@@ -476,7 +476,6 @@ span,
     border-radius: 8px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 720px;
     position: relative;
     -webkit-transition: background 100ms ease-in, width 100ms ease-out;
     transition: background 100ms ease-in, width 100ms ease-out;
@@ -978,9 +977,9 @@ span,
 
   .searchBarContainer {
     z-index: 2;
-    width: 51%;
+    width: 52%;
     position: fixed;
-    margin-left: 25%;
+    margin-left: 24%;
   }
 
   .searchBar {
@@ -1145,7 +1144,7 @@ span,
   .card {
     background: #fff;
     width: 51.5%;
-    margin-left: 25%;
+    margin-left: 24%;
     border: 1px solid #eee;
     margin-bottom: 38px;
     padding-bottom: 20px;
@@ -1233,7 +1232,7 @@ span,
   .mainfeedtitle,
   .addtopictitle {
     font-size: 20px;
-    margin-left: 25%;
+    margin-left: 24%;
     position: absolute;
     color: #333;
     text-transform: capitalize;
