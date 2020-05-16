@@ -23,7 +23,7 @@ class SearchItems extends Component {
     // let searchName = this.props.location.pathname.split("/").slice(-1)[0];
     return (
       <>
-        <div className="newmain">
+        <div className="card">
           <img
             src="https://fetchnow.org/magnifying.png"
             alt="topic_logo"

@@ -21,7 +21,7 @@ export default class TopicItems extends Component {
     );
     // console.log(correctOne)
     return (
-      <div className="newmain">
+      <div className="card">
         {/* {console.log(this.props.topicPost)} */}
 
         <img src={correctOne.logo} alt="topic_logo" className="feeditemslogo" />

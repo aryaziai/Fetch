@@ -12,7 +12,7 @@ export default class AddTopic extends Component {
       language: "en",
       plus: true,
       sort_by: "relevancy",
-      logo: "https://fetchnow.org/missing.png",
+      logo: "/missing.png",
       user_id: props.currentUser.id,
       toggleUpload: false,
     };

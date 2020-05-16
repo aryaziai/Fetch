@@ -22,7 +22,7 @@ export default class Topic extends Component {
     return (
       <>
         <h3 className="categoryfeedtitle">
-          Topic: <span className="searchTitle">#{topicUrl}</span>
+          <span className="searchTitle">#{topicUrl}</span>
         </h3>
         {correctTopicId ? (
           <img

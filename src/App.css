@@ -1,10 +1,5 @@
 /* Global CSS */
 
-/* html,
-body {
-  overflow-x: hidden !important;
-} */
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -17,6 +12,19 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.searchTitle {
+  text-transform: capitalize;
+  color: #333;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
 
 input {
@@ -187,6 +195,10 @@ span,
 @media only screen and (min-width: 935px) {
   /* Desktop CSS */
 
+  .topicsphone {
+    display: none;
+  }
+
   /* testimonials css  */
   .carousel-root {
     width: 64% !important;
@@ -272,11 +284,6 @@ span,
 
   .dropdown-menu.show {
     display: block;
-  }
-
-  .searchTitle {
-    text-transform: capitalize;
-    color: #275ea4;
   }
 
   .deletetopic {
@@ -697,7 +704,6 @@ span,
     background: rgba(66, 133, 244, 0.149);
   }
   .topbar {
-    position: absolute;
     top: 0px;
     left: 0px;
     right: 0px;
@@ -907,12 +913,12 @@ span,
   }
 
   .missing {
-    width: 95px;
+    width: 117px;
     position: absolute;
     left: 5.4%;
-    top: 132px;
+    top: 147px;
     border-radius: 50%;
-    height: 95px;
+    height: 117px;
   }
 
   .missing:hover {
@@ -1136,7 +1142,7 @@ span,
     font-family: sans-serif;
   }
 
-  .newmain {
+  .card {
     background: #fff;
     width: 51.5%;
     margin-left: 25%;
@@ -1146,7 +1152,7 @@ span,
     padding-top: 15px;
   }
 
-  .newmain b {
+  .card b {
     cursor: pointer;
   }
 
@@ -1319,9 +1325,18 @@ span,
 
 @media only screen and (max-width: 934px) {
   /* Mobile CSS */
+  .topicsphone {
+    position: absolute;
+    top: 105px;
+    left: 20px;
+  }
 
   body {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .desktoptopics {
+    visibility: hidden;
   }
 
   .brands img {
@@ -2185,9 +2200,6 @@ span,
   .uploadimage {
     background: #002e76;
     float: left;
-    margin-top: 18px;
-    margin-left: 132px;
-    margin-bottom: 0;
     width: 111px;
     height: 33px;
     padding: 17px 12px 2px;
@@ -2196,6 +2208,9 @@ span,
     font-weight: 900;
     font-size: 13px;
     cursor: pointer;
+    position: relative;
+    top: 47px;
+    left: 5px;
   }
 
   .submitTopic-btton:hover,
@@ -2282,7 +2297,7 @@ span,
     font-family: sans-serif;
   }
 
-  .newmain {
+  .card {
     background: #fff;
     margin-left: 3%;
     border: 1px solid #eee;
@@ -2292,7 +2307,7 @@ span,
     margin-right: 3%;
   }
 
-  .newmain b {
+  .card b {
     cursor: pointer;
   }
 

@@ -29,35 +29,39 @@ class Sidebar extends Component {
   render() {
     return this.props.location.pathname.split("/").slice(-1)[0] === "feed" ||
       window.innerWidth > 1034 ? (
-      <header className="App-header">
-        <div className="addtopicstuff">
-          <h3>Topics You Follow</h3>
+      <>
+        <h3 className="topicsphone">Topics You Follow</h3>
 
-          <div className="mainSideMove">
-            <p
-              className="addnewsidebaritems"
-              onClick={() => this.props.history.push("/add-topic")}
-            >
-              <img
-                src="https://i.imgur.com/DPZuNtB.png"
-                alt="Add Topic"
-                className="addMore"
-              />
-              Add a New Topic{" "}
-            </p>
+        <header className="App-header">
+          <div className="addtopicstuff">
+            <h3 className="desktoptopics">Topics You Follow</h3>
 
-            {this.props.topicsFollowed !== null ? (
-              this.props.topicsFollowed.map((topic) => (
-                <SidebarItems topic={topic} key={topic.id} />
-              ))
-            ) : (
-              <>
-                <div className="lds-dual-ring"></div>
-              </>
-            )}
+            <div className="mainSideMove">
+              <p
+                className="addnewsidebaritems"
+                onClick={() => this.props.history.push("/add-topic")}
+              >
+                <img
+                  src="https://i.imgur.com/DPZuNtB.png"
+                  alt="Add Topic"
+                  className="addMore"
+                />
+                Add a New Topic{" "}
+              </p>
+
+              {this.props.topicsFollowed !== null ? (
+                this.props.topicsFollowed.map((topic) => (
+                  <SidebarItems topic={topic} key={topic.id} />
+                ))
+              ) : (
+                <>
+                  <div className="lds-dual-ring"></div>
+                </>
+              )}
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
+      </>
     ) : null;
   }
 }

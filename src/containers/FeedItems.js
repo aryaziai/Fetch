@@ -27,7 +27,7 @@ class FeedItems extends Component {
     return (
       <>
         {correctOne !== undefined ? (
-          <div className="newmain">
+          <div className="card">
             <img
               src={correctOne.logo}
               alt="topic_logo"

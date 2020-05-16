@@ -23,11 +23,11 @@ class CategoryItems extends Component {
 
     let categoryName = this.props.location.pathname.split("/").slice(-1)[0];
 
-    let categoryImage = `https://fetchnow.org/${categoryName}.png`;
+    let categoryImage = `/${categoryName}.png`;
     //    console.log(this.props)
     return (
       <>
-        <div className="newmain">
+        <div className="card">
           <img src={categoryImage} alt="topic_logo" className="feeditemslogo" />
 
           <div className="caption">
