@@ -21,7 +21,7 @@ class Category extends Component {
           <h3 className="categoryfeedtitle">
             <span className="searchTitle">#{topicUrl}</span>
             <img
-              src="https://fetchnow.org/refresh.png"
+              src="/images/refresh.png"
               className="feedtitleimage"
               alt="feedicon"
               onClick={this.props.fetchFromGoogle}

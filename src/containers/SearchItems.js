@@ -16,9 +16,9 @@ class SearchItems extends Component {
   render() {
     let favorite;
     if (this.state.favorite === true) {
-      favorite = "https://fetchnow.org/heart.png";
+      favorite = "/images/heart.png";
     } else {
-      favorite = "https://fetchnow.org/unheart.png";
+      favorite = "/images/unheart.png";
     }
     // let searchName = this.props.location.pathname.split("/").slice(-1)[0];
     return (
@@ -76,7 +76,7 @@ class SearchItems extends Component {
                 href={`sms:Text Someone&body=${this.props.searchPost.title}%0D%0A%0D%0A${this.props.searchPost.url}`}
               >
                 <img
-                  src="https://fetchnow.org/imessage.png"
+                  src="/images/imessage.png"
                   alt="imessage"
                   name="imessage"
                   className="iMessage"
@@ -86,11 +86,7 @@ class SearchItems extends Component {
               <a
                 href={`mailto:?subject=${this.props.searchPost.title}&body=Hey you!%0D%0A%0D%0ACheck out this cool article I found on Fetch:%0D%0A%0D%0A${this.props.searchPost.url}`}
               >
-                <img
-                  src="https://fetchnow.org/mail.png"
-                  alt="email"
-                  className="email"
-                />
+                <img src="/images/mail.png" alt="email" className="email" />
                 Email
               </a>
             </p>

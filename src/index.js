@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import "./App-min.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { HashRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 // require('dotenv').config()
 // console.log(process.env.API_KEY)
 
@@ -15,5 +15,5 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-serviceWorker.register();
-// serviceWorker.unregister();
+// serviceWorker.register();
+serviceWorker.unregister();

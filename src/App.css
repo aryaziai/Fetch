@@ -37,6 +37,7 @@ input {
 .dropdown-toggle.btn.btn-success,
 .profile-nav,
 .sidebaritems,
+.toggleHandle,
 button {
   cursor: pointer;
   background: transparent;
@@ -294,7 +295,7 @@ span,
     float: right;
     position: absolute;
     top: 14.35%;
-    margin-left: 25%;
+    margin-left: 23.85%;
   }
 
   .signupstuff {
@@ -440,10 +441,10 @@ span,
   }
 
   .logo {
-    width: 142px;
+    width: 169px;
     position: absolute;
-    left: 31px;
-    bottom: 15px;
+    left: 30px;
+    bottom: 16px;
   }
 
   .brands img {
@@ -1627,11 +1628,12 @@ span,
   }
 
   .logo {
-    width: 130px;
+    width: 153px;
     position: absolute;
-    left: 15px;
-    bottom: 29.7%;
+    left: 19px;
+    bottom: 28.5%;
   }
+
   html {
     background-color: #fafafa;
   }

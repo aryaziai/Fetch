@@ -9,7 +9,7 @@ export default class Feed extends Component {
         <h3 className="mainfeedtitle">
           Fetch Feed
           <img
-            src="https://fetchnow.org/refresh.png"
+            src="/images/refresh.png"
             className="feedtitleimage"
             alt="feedicon"
             onLoad={this.props.delayFetch}

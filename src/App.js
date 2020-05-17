@@ -64,8 +64,7 @@ class App extends Component {
       body: JSON.stringify({
         topic: {
           topic_title: "Trending",
-          logo:
-            "/images/google_logo.png",
+          logo: "/images/google_logo.jpg",
           user_id: this.state.currentUser.id,
           page_size: null,
           plus: null,

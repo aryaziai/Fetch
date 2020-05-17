@@ -13,7 +13,7 @@ class Search extends Component {
             Search: <span className="searchTitle">#{searchTitle}</span>
           </h3>
           <img
-            src="https://fetchnow.org/refresh.png"
+            src="/images/refresh.png"
             className="deletetopic"
             alt="feedicon"
             onClick={() => this.props.history.push("/feed")}
