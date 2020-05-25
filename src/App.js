@@ -9,13 +9,13 @@ import Sidebar from "./containers/Sidebar";
 import Category from "./containers/Category";
 import Navbar from "./containers/Navbar";
 import Feed from "./containers/Feed";
+import Footer from "./containers/Footer";
 import Search from "./containers/Search";
 import { Route, withRouter, Redirect, Switch } from "react-router-dom";
 
 class App extends Component {
   constructor() {
     super();
-
     this.state = {
       currentUser: {},
       loading: true,
@@ -297,26 +297,7 @@ class App extends Component {
         }
       })
       .catch(() => {});
-    // resize css, hide certain components on mobile
-    // let slug = this.props.location.pathname.split("/").slice(-1)[0];
-    // if (slug === "add-topic" || slug === "profile") {
-    //   window.addEventListener("resize", this.resize.bind(this));
-    //   this.resize();
-    // }
   }
-
-  // resize = () => {
-  //   let newHeader = document.querySelector("#root > div > header");
-  //   let newCat = document.querySelector("#root > div > div.category");
-
-  //   if (window.innerWidth < 1035) {
-  //     newHeader.style.visibility = "hidden";
-  //     newCat.style.visibility = "hidden";
-  //   } else {
-  //     newHeader.style.visibility = "visible";
-  //     newCat.style.visibility = "visible";
-  //   }
-  // };
 
   fetchFromSearch = (e, searchValue) => {
     e.preventDefault();
@@ -613,12 +594,7 @@ class App extends Component {
             </>
           )}
         </Switch>
-        <img
-          src="/images/scroll.png"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="scrollTop"
-          alt="ScrollTop"
-        />
+        <Footer />
       </div>
     );
   }

@@ -13,7 +13,6 @@ export default class Welcome extends Component {
           <br />
           news experience
           <br />
-          {/* Create your personalized <span class="break">news experience</span> */}
           <Link to="/signup">
             <h1 className="goldbutton"> Join Today</h1>
           </Link>

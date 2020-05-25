@@ -441,10 +441,10 @@ span,
   }
 
   .logo {
-    width: 169px;
+    width: 190px;
     position: absolute;
-    left: 30px;
-    bottom: 16px;
+    left: 28px;
+    bottom: 1px;
   }
 
   .brands img {
@@ -1198,9 +1198,8 @@ span,
 
   .add-topic {
     background: #fff;
-    width: 51.5%;
-    margin-left: 25%;
-    min-height: 250px;
+    width: 53.5%;
+    margin-left: 24%;
     border: 1px solid #eee;
     margin-bottom: 100px;
     top: 143px;
@@ -1628,10 +1627,10 @@ span,
   }
 
   .logo {
-    width: 153px;
+    width: 167px;
     position: absolute;
-    left: 19px;
-    bottom: 28.5%;
+    left: 9px;
+    bottom: 8.5%;
   }
 
   html {
