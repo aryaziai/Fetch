@@ -420,7 +420,7 @@ class App extends Component {
   handleCategoryClick(categoryName) {
     fetch(
       `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=6&apiKey=07af66c02837407a82106528c10d64c5`
-    )
+    ) // cors anywhere => https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
       .then((resp) => resp.json())
       .then((resp) =>
         this.setState({
