@@ -8,6 +8,10 @@ export default class TopicItems extends Component {
     };
   }
 
+  toggleImage = () => {
+    this.setState((state) => ({ favorite: !state.favorite }));
+  };
+
   render() {
     let favorite;
     if (this.state.favorite === true) {
