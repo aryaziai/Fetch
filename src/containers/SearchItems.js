@@ -25,7 +25,7 @@ class SearchItems extends Component {
       <>
         <div className="card">
           <img
-            src="https://fetchnow.org/magnifying.png"
+            src="/magnifying.png"
             alt="topic_logo"
             className="feeditemslogo"
           />
