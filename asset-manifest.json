@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.ba1014aa.chunk.css",
-    "main.js": "/static/js/main.7c10ccae.chunk.js",
-    "main.js.map": "/static/js/main.7c10ccae.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.9a3d6bed.js",
-    "runtime-main.js.map": "/static/js/runtime-main.9a3d6bed.js.map",
-    "static/css/2.183aa86f.chunk.css": "/static/css/2.183aa86f.chunk.css",
-    "static/js/2.4adac771.chunk.js": "/static/js/2.4adac771.chunk.js",
-    "static/js/2.4adac771.chunk.js.map": "/static/js/2.4adac771.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.bbf43e95b913ae936e759f285e580859.js": "/precache-manifest.bbf43e95b913ae936e759f285e580859.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.183aa86f.chunk.css.map": "/static/css/2.183aa86f.chunk.css.map",
-    "static/css/main.ba1014aa.chunk.css.map": "/static/css/main.ba1014aa.chunk.css.map",
-    "static/js/2.4adac771.chunk.js.LICENSE.txt": "/static/js/2.4adac771.chunk.js.LICENSE.txt",
-    "static/media/App-min.css": "/static/media/hero_1.87348653.png"
+    "main.css": "/Fetch/static/css/main.8f032115.chunk.css",
+    "main.js": "/Fetch/static/js/main.54d989cc.chunk.js",
+    "main.js.map": "/Fetch/static/js/main.54d989cc.chunk.js.map",
+    "runtime-main.js": "/Fetch/static/js/runtime-main.60603063.js",
+    "runtime-main.js.map": "/Fetch/static/js/runtime-main.60603063.js.map",
+    "static/css/2.183aa86f.chunk.css": "/Fetch/static/css/2.183aa86f.chunk.css",
+    "static/js/2.4adac771.chunk.js": "/Fetch/static/js/2.4adac771.chunk.js",
+    "static/js/2.4adac771.chunk.js.map": "/Fetch/static/js/2.4adac771.chunk.js.map",
+    "index.html": "/Fetch/index.html",
+    "precache-manifest.1b33e12c638d4148891c65e00d436c10.js": "/Fetch/precache-manifest.1b33e12c638d4148891c65e00d436c10.js",
+    "service-worker.js": "/Fetch/service-worker.js",
+    "static/css/2.183aa86f.chunk.css.map": "/Fetch/static/css/2.183aa86f.chunk.css.map",
+    "static/css/main.8f032115.chunk.css.map": "/Fetch/static/css/main.8f032115.chunk.css.map",
+    "static/js/2.4adac771.chunk.js.LICENSE.txt": "/Fetch/static/js/2.4adac771.chunk.js.LICENSE.txt",
+    "static/media/App-min.css": "/Fetch/static/media/hero_1.87348653.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.9a3d6bed.js",
+    "static/js/runtime-main.60603063.js",
     "static/css/2.183aa86f.chunk.css",
     "static/js/2.4adac771.chunk.js",
-    "static/css/main.ba1014aa.chunk.css",
-    "static/js/main.7c10ccae.chunk.js"
+    "static/css/main.8f032115.chunk.css",
+    "static/js/main.54d989cc.chunk.js"
   ]
 }
