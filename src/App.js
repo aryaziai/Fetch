@@ -83,7 +83,7 @@ class App extends Component {
 
   followTrending = (topicId) => {
     fetch(
-      `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?pageSize=5&country=us&apiKey=07af66c02837407a82106528c10d64c5`
+      `https://newsapi.org/v2/top-headlines?pageSize=5&country=us&apiKey=07af66c02837407a82106528c10d64c5`
     ) // cors anywhere => https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
       .then((res) => res.json())
       .then((result) => {
@@ -172,7 +172,7 @@ class App extends Component {
       let plus = topic.plus === true ? "+" : "";
 
       fetch(
-        `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?language=${topic.language}&pageSize=${topic.page_size}&q=${plus}${topic.topic_title}&sortBy=${topic.sort_by}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
+        `https://newsapi.org/v2/everything?language=${topic.language}&pageSize=${topic.page_size}&q=${plus}${topic.topic_title}&sortBy=${topic.sort_by}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
       ) // cors anywhere => https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
         .then((res) => res.json())
         .then((result) => {
@@ -302,7 +302,7 @@ class App extends Component {
   fetchFromSearch = (e, searchValue) => {
     e.preventDefault();
     fetch(
-      `https://cors-anywhere.herokuapp.com/.org/v2/everything?language=en&pageSize=6&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
+      `https://newsapi.org/v2/everything?language=en&pageSize=6&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
     )
       .then((res) => res.json())
       .then((resp) =>
@@ -419,7 +419,7 @@ class App extends Component {
 
   handleCategoryClick(categoryName) {
     fetch(
-      `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=6&apiKey=07af66c02837407a82106528c10d64c5`
+      `https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=6&apiKey=07af66c02837407a82106528c10d64c5`
     ) // cors anywhere => https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
       .then((resp) => resp.json())
       .then((resp) =>
