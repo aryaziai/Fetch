@@ -24,7 +24,8 @@ class FeedItems extends Component {
       (x) => x.id === this.props.topicPost.topic_id
     );
 
-    let sourceTrim = this.props.topicPost.source.split(' ').join('');
+    let sourceTrim = this.props.topicPost.source.replace(/[^\w\s]/gi, '');
+    sourceTrim = sourceTrim.split(' ').join('');
     let linktrim = this.props.topicPost.caption.replace(/[^\w\s]/gi, '');
     let newURl = `https://${sourceTrim}.com/${linktrim}`.split(' ').join('_').toLowerCase();
 
