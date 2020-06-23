@@ -23,7 +23,14 @@ export default class TopicItems extends Component {
     let correctOne = this.props.topicsFollowed.find(
       (x) => x.id === this.props.topicPost.topic_id
     );
-    // console.log(correctOne)
+
+    let sourceTrim = this.props.topicPost.source.split(" ").join("");
+    let linktrim = this.props.topicPost.caption.replace(/[^\w\s]/gi, "");
+    let newURl = `https://${sourceTrim}.com/${linktrim}`
+      .split(" ")
+      .join("_")
+      .toLowerCase();
+
     return (
       <div className="card">
         {/* {console.log(this.props.topicPost)} */}
@@ -47,12 +54,12 @@ export default class TopicItems extends Component {
           {this.props.topicPost.caption}
           <br />
           <a
-            href={this.props.topicPost.url}
             className="post_link"
+            href={this.props.topicPost.url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {this.props.topicPost.url}
+            {newURl}
           </a>
         </div>
 
@@ -61,11 +68,7 @@ export default class TopicItems extends Component {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src={this.props.topicPost.image_url}
-            alt="news_image"
-            className="feedpostImage"
-          />
+          <img src={this.props.topicPost.image_url} className="feedpostImage" />
         </a>
         <br />
 

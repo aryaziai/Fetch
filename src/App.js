@@ -174,9 +174,10 @@ class App extends Component {
     this.state.topicsFollowed.map((topic) => {
       let plus = topic.plus === true ? "+" : "";
 
-      fetch(
-        `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?language=${topic.language}&pageSize=${topic.page_size}&q=${plus}${topic.topic_title}&sortBy=${topic.sort_by}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
-      ) // cors anywhere => https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
+      // let google_news = `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?language=${topic.language}&pageSize=${topic.page_size}&q=${plus}${topic.topic_title}&sortBy=${topic.sort_by}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`;
+      let gnews = `https://gnews.io/api/v3/search?q=${topic.topic_title}&lang=${topic.language}&max=${topic.page_size}&token=64243ba45d1d1b0e5f111a63d4e13678`;
+
+      fetch({ gnews })
         .then((res) => res.json())
         .then((result) => {
           result.articles.map((article) =>
