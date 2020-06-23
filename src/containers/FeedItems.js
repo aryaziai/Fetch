@@ -24,6 +24,9 @@ class FeedItems extends Component {
       (x) => x.id === this.props.topicPost.topic_id
     );
 
+    let sourceTrim = this.props.topicPost.source.split(' ').join('');
+    let newURl = `https://${sourceTrim}.com/${this.props.topicPost.caption}`.split(' ').join('_').toLowerCase();
+
     return (
       <>
         {correctOne !== undefined ? (
@@ -69,7 +72,7 @@ class FeedItems extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {this.props.topicPost.url}
+                {newURl}
               </a>
             </div>
 
