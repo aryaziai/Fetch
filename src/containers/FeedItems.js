@@ -24,10 +24,13 @@ class FeedItems extends Component {
       (x) => x.id === this.props.topicPost.topic_id
     );
 
-    let sourceTrim = this.props.topicPost.source.replace(/[^\w\s]/gi, '');
-    sourceTrim = sourceTrim.split(' ').join('');
-    let linktrim = this.props.topicPost.caption.replace(/[^\w\s]/gi, '');
-    let newURl = `https://${sourceTrim}.com/${linktrim}`.split(' ').join('_').toLowerCase();
+    let sourceTrim = this.props.topicPost.source.replace(/[^\w\s]/gi, "");
+    sourceTrim = sourceTrim.split(" ").join("");
+    let linktrim = this.props.topicPost.caption.replace(/[^\w\s]/gi, "");
+    let newURl = `https://${sourceTrim}.com/${linktrim}`
+      .split(" ")
+      .join("_")
+      .toLowerCase();
 
     return (
       <>
@@ -62,7 +65,7 @@ class FeedItems extends Component {
                 x
               </button>
               <p className="date">
-                Published on
+                Published on&nbsp;
                 {new Date(this.props.topicPost.published_at).toString()}
               </p>
               <br />

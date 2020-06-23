@@ -40,7 +40,7 @@ class CategoryItems extends Component {
               x
             </button>
             <p className="date">
-              Published on
+              Published on&nbsp;
               {new Date(this.props.topicPost.publishedAt).toString()}
             </p>
             <br></br>

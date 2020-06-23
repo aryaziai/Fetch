@@ -33,7 +33,7 @@ class SearchItems extends Component {
           <div className="caption">
             <b className="CategoryTitle">{this.props.searchPost.source.name}</b>
             <p className="date">
-              Published on
+              Published on&nbsp;
               {new Date(this.props.searchPost.publishedAt).toString()}
             </p>
             <br></br>

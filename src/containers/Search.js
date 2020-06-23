@@ -8,7 +8,6 @@ class Search extends Component {
     return (
       <>
         <div className="topdog">
-          {/* {notFeedPath === "category"  &&  */}
           <h3 className="categoryfeedtitle">
             Search: <span className="searchTitle">#{searchTitle}</span>
           </h3>

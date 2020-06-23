@@ -47,7 +47,7 @@ export default class TopicItems extends Component {
             x
           </button>
           <p className="date">
-            Published on
+            Published on&nbsp;
             {new Date(this.props.topicPost.published_at).toString()}
           </p>
           <br></br>

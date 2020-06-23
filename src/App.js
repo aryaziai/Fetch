@@ -305,9 +305,10 @@ class App extends Component {
 
   fetchFromSearch = (e, searchValue) => {
     e.preventDefault();
-    fetch(
-      `https://cors-anywhere.herokuapp.com/.org/v2/everything?language=en&pageSize=6&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`
-    )
+    // let google_news = `https://cors-anywhere.herokuapp.com/.org/v2/everything?language=en&pageSize=6&q=+${searchValue}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`;
+
+    let gnews = `https://gnews.io/api/v3/search?q=${searchValue}&max=5&token=64243ba45d1d1b0e5f111a63d4e13678`;
+    fetch(gnews)
       .then((res) => res.json())
       .then((resp) =>
         this.setState({
