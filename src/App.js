@@ -82,14 +82,12 @@ class App extends Component {
   };
 
   followTrending = (topicId) => {
-    google =
-      "https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?pageSize=5&country=us&apiKey=07af66c02837407a82106528c10d64c5";
+    // google =
+    //   "https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?pageSize=5&country=us&apiKey=07af66c02837407a82106528c10d64c5";
     gnews =
       "https://gnews.io/api/v3/top-news?token=64243ba45d1d1b0e5f111a63d4e13678";
     //testing gnews.io now since NEWSAPI changed pricing plan.. gnews image=required parameter. not working so far. contacted gnews
-    fetch(
-      `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?pageSize=5&country=us&apiKey=07af66c02837407a82106528c10d64c5`
-    ) // cors anywhere => https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
+    fetch(gnews) // cors anywhere => https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
       .then((res) => res.json())
       .then((result) => {
         result.articles.map((article) =>
