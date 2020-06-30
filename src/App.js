@@ -423,9 +423,9 @@ class App extends Component {
   };
 
   handleCategoryClick(categoryName) {
-    fetch(
-      `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=6&apiKey=07af66c02837407a82106528c10d64c5`
-    ) // cors anywhere => https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
+    // let google = `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=6&apiKey=07af66c02837407a82106528c10d64c5`;
+    let gnews = `https://gnews.io/api/v3/topics/${categoryName}?&max=6&token=64243ba45d1d1b0e5f111a63d4e13678`;
+    fetch(gnews)
       .then((resp) => resp.json())
       .then((resp) =>
         this.setState({
@@ -522,8 +522,8 @@ class App extends Component {
                       >
                         #Entertainment
                       </p>
-                      <p onClick={(e) => this.handleCategoryClick("general")}>
-                        #General
+                      <p onClick={(e) => this.handleCategoryClick("global")}>
+                        #Global
                       </p>
                       <p onClick={(e) => this.handleCategoryClick("health")}>
                         #Health
