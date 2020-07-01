@@ -522,8 +522,8 @@ class App extends Component {
                       >
                         #Entertainment
                       </p>
-                      <p onClick={(e) => this.handleCategoryClick("global")}>
-                        #Global
+                      <p onClick={(e) => this.handleCategoryClick("world")}>
+                        #World
                       </p>
                       <p onClick={(e) => this.handleCategoryClick("health")}>
                         #Health

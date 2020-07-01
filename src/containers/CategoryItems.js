@@ -25,6 +25,15 @@ class CategoryItems extends Component {
 
     let categoryImage = `/images/${categoryName}.png`;
     //    console.log(this.props)
+
+    let sourceTrim = this.props.topicPost.source.name.replace(/[^\w\s]/gi, "");
+    sourceTrim = sourceTrim.split(" ").join("");
+    let linktrim =  this.props.topicPost.title.replace(/[^\w\s]/gi, "");
+    let newURl = `https://${sourceTrim}.com/${linktrim}`
+      .split(" ")
+      .join("_")
+      .toLowerCase();
+
     return (
       <>
         <div className="card">
@@ -52,7 +61,7 @@ class CategoryItems extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {this.props.topicPost.url}
+              {newURl}
             </a>
             <br />
             <a
