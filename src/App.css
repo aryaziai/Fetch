@@ -805,6 +805,7 @@ span,
     font-weight: 700;
     margin-top: 10px;
     font-size: 15px;
+    cursor: pointer;
   }
 
   .favorite img {
@@ -1955,6 +1956,7 @@ span,
     margin-top: 10px;
     font-size: 15px;
     font-size: 0px;
+    cursor: pointer;
   }
 
   .favorite img {
