@@ -25,7 +25,7 @@ class SearchItems extends Component {
       <>
         <div className="card">
           <img
-            src="/magnifying.png"
+            src="/images/magnifying.png"
             alt="topic_logo"
             className="feeditemslogo"
           />
