@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <section>
@@ -11,12 +13,27 @@ export default function Footer() {
       <div className="Footer">
         <div className="inner-footer">
           <div className="footer-items">
-            <h1>one</h1>
+            <Link to="/">
+              <img className="footer_logo" src="/images/logo.png" alt="logo" />
+            </Link>
           </div>
-
-
-
-
+          <div className="footer-items">
+            <h3>Quick Links</h3>
+            <div class="border"></div>
+            fdsfsf
+          </div>
+          <div className="footer-items">
+            <h3>Quick Links</h3>
+            <div class="border"></div>
+            sdfsdf
+          </div>
+          <div className="footer-items">
+            <h3>Contact Us</h3>
+            <div class="border"></div>
+            <ul>
+              <li>support@fetchnow.org</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
