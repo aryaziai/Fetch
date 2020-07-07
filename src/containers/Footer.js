@@ -9,7 +9,15 @@ export default function Footer() {
         alt="ScrollTop"
       />
       <div className="Footer">
-        <h4>Footer Section</h4>
+        <div className="inner-footer">
+          <div className="footer-items">
+            <h1>one</h1>
+          </div>
+
+
+
+
+        </div>
       </div>
     </section>
   );
