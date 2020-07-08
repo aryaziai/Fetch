@@ -18,12 +18,12 @@ export default function Footer() {
             </Link>
           </div>
           <div className="footer-items">
-            <h3>Quick Links</h3>
+            <h3>Account</h3>
             <div class="border"></div>
             fdsfsf
           </div>
           <div className="footer-items">
-            <h3>Quick Links</h3>
+            <h3>Resources</h3>
             <div class="border"></div>
             sdfsdf
           </div>

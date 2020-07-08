@@ -40,6 +40,7 @@ code {
 }
 
 .footer-items h3 {
+  margin-top: 10px;
   margin-bottom: 2px;
 }
 
@@ -485,10 +486,10 @@ span,
   }
 
   .logo {
-    width: 190px;
+    width: 185px;
     position: absolute;
     left: 28px;
-    bottom: 1px;
+    top: 11px;
   }
 
   .brands img {
@@ -748,16 +749,15 @@ span,
     background: rgba(66, 133, 244, 0.149);
   }
   .topbar {
-    top: 0px;
-    left: 0px;
-    right: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
     font-size: 17px;
     background: #fff;
     position: fixed;
-    margin-bottom: 30px;
-    height: 64px;
-    box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0), 0 1px 10px 0 rgba(0, 0, 0, 0),
+    height: 71px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0), 0 1px 10px 0 rgba(0, 0, 0, 0),
       0 2px 4px -1px rgba(0, 0, 0, 0.1);
   }
 
