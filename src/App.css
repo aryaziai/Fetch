@@ -16,6 +16,7 @@ code {
 
 .footer {
   width: 100%;
+  border-top: 1px solid #ddd;
 }
 
 .footer_logo {
@@ -70,7 +71,7 @@ img {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
+  /* user-drag: none; */
 }
 
 input {
@@ -1119,11 +1120,6 @@ span,
     -webkit-transition: all 1s;
   }
 
-  .addtopicstuff {
-    /* display: flex;
-  margin-bottom: -9px; */
-  }
-
   .App-header h3 {
     color: #333;
     font-size: 20px;
@@ -1678,7 +1674,7 @@ span,
     width: 171px;
     position: absolute;
     left: 9px;
-    bottom: 6.5%;
+    top: 10px;
   }
 
   html {
@@ -2280,11 +2276,6 @@ span,
     -webkit-transition: all 1s;
   }
 
-  .addtopicstuff {
-    /* display: flex;
-  margin-bottom: -9px; */
-  }
-
   .App-header h3 {
     color: #333;
     font-size: 20px;
@@ -2304,11 +2295,6 @@ span,
     border: 0px !important;
     font-size: 17px;
     color: #002e76;
-  }
-
-  .dropdown {
-    /* padding-right: 60px;
-    margin-top: -1.5px; */
   }
 
   a {

@@ -344,6 +344,8 @@ class App extends Component {
     });
   };
 
+
+
   handleLoginSubmit = (event, loginInfo) => {
     event.preventDefault();
     fetch("https://fetch-backend-api.herokuapp.com/login", {
@@ -599,7 +601,10 @@ class App extends Component {
             </>
           )}
         </Switch>
-        <Footer />
+        <Footer
+          currentUser={this.state.currentUser}
+          handleLogout={this.handleLogout}
+        />
       </div>
     );
   }
