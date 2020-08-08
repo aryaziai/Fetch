@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import Slider from "react-animated-slider";
-// import "react-animated-slider/build/horizontal.css";
 import Testimonials from "./Testimonials";
+
+
 
 export default class Welcome extends Component {
   render() {
@@ -61,6 +61,10 @@ export default class Welcome extends Component {
         </div>
         <h1 className="finalh1">Testimonials</h1>
         <Testimonials />
+        {/* <Footer
+          currentUser={this.props.currentUser}
+          handleLogout={this.props.handleLogout}
+        /> */}
       </div>
     );
   }

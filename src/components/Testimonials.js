@@ -26,7 +26,7 @@ export default class Testimonials extends Component {
         </div>
 
         <div>
-          <img src="/images//daniel.png" />
+          <img src="/images/daniel.png" />
           <div className="myCarousel">
             <h3>Daniel Keystone</h3>
             <h4>Designer</h4>

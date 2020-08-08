@@ -1,24 +1,26 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import props from 'prop-types';
 
-export default class Footer extends Component {
+// import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { withRouter } from "react-router-dom";
+
+class Footer extends Component {
   loginLogic = () => {
     // if not logged in
-    if (Object.keys(this.state.currentUser).length === 0) {
+    if (Object.keys(this.props.currentUser).length === 0) {
       return (
         <>
           <div
-            className="topcoolbutton"
+            className="footer-account"
             onClick={() => this.props.history.push("/login")}
           >
-            <p>Sign In</p>
+            <a>Sign In</a>
           </div>
           <div
-            className="topcoolbuttonjaz"
+            className="footer-account"
             onClick={() => this.props.history.push("/signup")}
           >
-            <p>Sign Up</p>
+            <a>Sign Up</a>
           </div>
         </>
       );
@@ -26,13 +28,13 @@ export default class Footer extends Component {
       return (
         <div>
           <p
-            className="dropdown-item"
+            className="footer-account"
             onClick={() => this.props.history.push("/profile")}
           >
-            Edit Profile
+            <a>Edit Profile</a>
           </p>
-          <p className="dropdown-item" onClick={this.props.handleLogout}>
-            Logout
+          <p className="footer-account" onClick={this.props.handleLogout}>
+            <a>Sign Out</a>
           </p>
         </div>
       );
@@ -40,15 +42,19 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <section>
+      <>
         <img
           src="/images/scroll.png"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="scrollTop"
           alt="ScrollTop"
         />
+
         <div className="Footer">
           <div className="inner-footer">
+            <br />
+            <br />
+            <br />
             <div className="footer-items">
               <Link to="/">
                 <img
@@ -60,25 +66,28 @@ export default class Footer extends Component {
             </div>
             <div className="footer-items">
               <h3>Account</h3>
-              <div class="border"></div>
+              <div className="border"></div>
 
-              {this.loginlogic}
+              {this.loginLogic()}
             </div>
             <div className="footer-items">
               <h3>Resources</h3>
-              <div class="border"></div>
-              TBA
+              <div className="border"></div>
+              <a href="https://gnews.io/" target="_blank">
+                GNews API
+              </a>
             </div>
             <div className="footer-items">
               <h3>Contact Us</h3>
-              <div class="border"></div>
-              <ul>
-                <li>support@fetchnow.org</li>
-              </ul>
+              <div className="border"></div>
+
+              <a>Customer Service</a>
             </div>
           </div>
         </div>
-      </section>
+      </>
     );
   }
 }
+
+export default withRouter(Footer);

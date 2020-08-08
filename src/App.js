@@ -344,8 +344,6 @@ class App extends Component {
     });
   };
 
-
-
   handleLoginSubmit = (event, loginInfo) => {
     event.preventDefault();
     fetch("https://fetch-backend-api.herokuapp.com/login", {
@@ -440,6 +438,7 @@ class App extends Component {
 
   render() {
     return (
+      <>
       <div className="App">
         <Navbar
           currentUser={this.state.currentUser}
@@ -447,6 +446,7 @@ class App extends Component {
           fetchFromSearch={this.fetchFromSearch}
           searchQuery={this.state.searchQuery}
         />
+
 
         <Switch>
           <Route exact path="/" component={Welcome} />
@@ -601,11 +601,16 @@ class App extends Component {
             </>
           )}
         </Switch>
-        <Footer
-          currentUser={this.state.currentUser}
-          handleLogout={this.handleLogout}
-        />
+      
+   
       </div>
+           <Footer
+           currentUser={this.state.currentUser}
+           handleLogout={this.handleLogout}
+           fetchFromSearch={this.fetchFromSearch}
+           searchQuery={this.state.searchQuery}
+         />
+         </>
     );
   }
 }

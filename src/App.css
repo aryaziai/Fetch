@@ -14,9 +14,14 @@ code {
     monospace;
 }
 
-.footer {
+a {
+  color: #002e76;
+  text-decoration: none !important;
+}
+
+.Footer {
   width: 100%;
-  border-top: 1px solid #ddd;
+  padding-bottom: 2%;
 }
 
 .footer_logo {
@@ -31,13 +36,22 @@ code {
   flex-wrap: wrap;
   box-sizing: border-box;
   justify-content: center;
+  border-top: 1px solid #e4e4e4dd;
+  /* background: #fafafa; */
 }
 
 .border {
   height: 2px;
-  width: 54px;
+  width: 94px;
   background: #002e75;
-  margin: 10px auto 20px;
+  margin: 12.5px auto;
+}
+
+.footer-account {
+  text-align: left;
+  margin: 7px auto;
+  width: 83px;
+  cursor: pointer;
 }
 
 .footer-items h3 {
@@ -58,7 +72,7 @@ li {
   width: 25%;
   padding: 10px 20px;
   box-sizing: border-box;
-  /* text-align: left; */
+  text-align: center;
 }
 
 .searchTitle {
@@ -131,7 +145,7 @@ span,
 
 .welcome {
   background: #fff;
-  padding-bottom: 150px;
+  padding-bottom: 10%;
 }
 
 .carousel .slide {
@@ -351,7 +365,7 @@ span,
     text-align: center;
     color: #333;
     background: #fafafa;
-    min-height: 914px;
+    min-height: 1150px;
   }
   .logincontainer {
     background-color: #fafafa;
@@ -1369,6 +1383,9 @@ span,
   .footer-items {
     width: 100%;
   }
+  .footer-account {
+    text-align: center;
+  }
   .topicsphone {
     position: absolute;
     top: 105px;
@@ -2297,9 +2314,6 @@ span,
     color: #002e76;
   }
 
-  a {
-    color: #002e76;
-  }
   .dropdown-menu.show {
     width: 139px;
     background: #ffff;

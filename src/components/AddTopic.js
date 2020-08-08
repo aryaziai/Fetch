@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
-// import "../MobileHide.css";
 
 export default class AddTopic extends Component {
   constructor(props) {
