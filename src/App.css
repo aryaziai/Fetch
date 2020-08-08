@@ -15,8 +15,15 @@ code {
 }
 
 a {
+  color: #222;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.caption a {
+  font-weight: 100;
   color: #002e76;
-  text-decoration: none !important;
+  text-decoration: underline;
 }
 
 .Footer {
@@ -49,7 +56,7 @@ a {
 
 .footer-account {
   text-align: left;
-  margin: 7px auto;
+  margin: 7px auto 10px auto;
   width: 83px;
   cursor: pointer;
 }
@@ -365,7 +372,7 @@ span,
     text-align: center;
     color: #333;
     background: #fafafa;
-    min-height: 1150px;
+    min-height: 1200px;
   }
   .logincontainer {
     background-color: #fafafa;
@@ -1160,9 +1167,6 @@ span,
     margin-top: -1.5px;
   }
 
-  a {
-    color: #002e76;
-  }
   .dropdown-menu.show {
     width: 139px;
     background: #ffff;
@@ -1545,7 +1549,7 @@ span,
     text-align: center;
     color: #333;
     background: #fafafa;
-    min-height: 700px;
+    min-height: 1050px;
   }
   .logincontainer {
     background-color: #fafafa;
