@@ -556,7 +556,7 @@ span,
     font-weight: 700;
     font-size: 35px;
     color: #002e76;
-    margin-bottom: 59px;
+    margin-bottom: 70px;
   }
 
   .brandimages {
@@ -568,7 +568,7 @@ span,
     padding-right: 6%;
     max-height: 124px;
     display: flex;
-    margin-bottom: 180px;
+    margin-bottom: 200px;
     margin-top: 41px;
   }
 
@@ -587,10 +587,10 @@ span,
 
   .brands h1,
   .finalh1 {
-    font-size: 41px;
+    font-size: 38px;
     font-weight: 200;
-    margin-top: 15px;
-    margin-bottom: 40px;
+    margin-top: 12px;
+    margin-bottom: 45px;
     color: #333;
   }
 
