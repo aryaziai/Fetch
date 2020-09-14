@@ -2,15 +2,15 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -207,7 +207,7 @@ span,
 }
 
 .myCarousel p:before {
-  content: "“";
+  content: '“';
   color: #aaa;
   font-size: 26px;
   font-family: monospace;
@@ -222,7 +222,7 @@ span,
   max-height: 67px;
 }
 .myCarousel p:after {
-  content: "”";
+  content: '”';
   color: #aaa;
   font-size: 26px;
   font-family: monospace;
@@ -341,8 +341,8 @@ span,
     margin-right: -15%;
   }
 
-  img[src=""],
-  img[src="null"] {
+  img[src=''],
+  img[src='null'] {
     display: none;
   }
 
@@ -475,7 +475,7 @@ span,
 
   input:after {
     color: red;
-    content: "*";
+    content: '*';
   }
 
   .btn.btn-primary-submit {
@@ -1051,7 +1051,7 @@ span,
   }
 
   .searchBar {
-    background-image: url("https://cdn0.iconfinder.com/data/icons/network-technology-1/24/50-512.png");
+    background-image: url('https://cdn0.iconfinder.com/data/icons/network-technology-1/24/50-512.png');
     background-repeat: no-repeat;
     background-position: 97.5% 8.5px;
     background-size: 18px;
@@ -1088,7 +1088,7 @@ span,
     margin-top: 18%;
   }
   .lds-dual-ring:after {
-    content: " ";
+    content: ' ';
     display: block;
     width: 64px;
     height: 64px;
@@ -1129,7 +1129,7 @@ span,
   }
 
   .add-topic img:after {
-    content: "\A";
+    content: '\A';
     position: absolute;
     width: 100%;
     height: 100%;
@@ -1176,7 +1176,7 @@ span,
     background: padding-box padding-box rgb(255, 255, 255);
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
-    left: 0px;
+    left: 0;
     transform: translate3d(1294px, 53px, 0px);
     margin-top: 12px;
   }
@@ -1515,8 +1515,8 @@ span,
     margin-right: -15%;
   }
 
-  img[src=""],
-  img[src="null"] {
+  img[src=''],
+  img[src='null'] {
     display: none;
   }
 
@@ -1659,7 +1659,7 @@ span,
 
   input:after {
     color: red;
-    content: "*";
+    content: '*';
   }
 
   .btn.btn-primary-submit {
@@ -1863,7 +1863,7 @@ span,
   .create_experience {
     padding-top: 133px;
     padding-bottom: 100px;
-    background-image: url("images/hero_1.png");
+    background-image: url('images/hero_1.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #fff;
@@ -2207,7 +2207,7 @@ span,
   }
 
   .searchBar {
-    background-image: url("https://cdn0.iconfinder.com/data/icons/network-technology-1/24/50-512.png");
+    background-image: url('https://cdn0.iconfinder.com/data/icons/network-technology-1/24/50-512.png');
     background-repeat: no-repeat;
     background-position: 96.5% 8.5px;
     background-size: 18px;
@@ -2244,7 +2244,7 @@ span,
     margin-top: 18%;
   }
   .lds-dual-ring:after {
-    content: " ";
+    content: ' ';
     display: block;
     width: 64px;
     height: 64px;
@@ -2285,7 +2285,7 @@ span,
   }
 
   .add-topic img:after {
-    content: "\A";
+    content: '\A';
     position: absolute;
     width: 100%;
     height: 100%;
