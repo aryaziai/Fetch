@@ -601,8 +601,8 @@ class App extends Component {
             </>
           )}
         </Switch>
-      
-   
+
+
       </div>
            <Footer
            currentUser={this.state.currentUser}
