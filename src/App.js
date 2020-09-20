@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import Welcome from "./components/Welcome";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import Topic from "./components/Topic";
-import AddTopic from "./components/AddTopic";
-import UserProfile from "./components/UserProfile";
-import Sidebar from "./containers/Sidebar";
-import Category from "./containers/Category";
-import Navbar from "./containers/Navbar";
-import Feed from "./containers/Feed";
-import Footer from "./containers/Footer";
-import Search from "./containers/Search";
-import { Route, withRouter, Redirect, Switch } from "react-router-dom";
+import React, { Component } from 'react';
+import Welcome from './components/Welcome';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Topic from './components/Topic';
+import AddTopic from './components/AddTopic';
+import UserProfile from './components/UserProfile';
+import Sidebar from './containers/Sidebar';
+import Category from './containers/Category';
+import Navbar from './containers/Navbar';
+import Feed from './containers/Feed';
+import Footer from './containers/Footer';
+import Search from './containers/Search';
+import { Route, withRouter, Redirect, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -29,9 +29,9 @@ class App extends Component {
   handleSignupSubmit = (event, SignupInfo) => {
     // first function called when signing up
     event.preventDefault();
-    fetch("https://fetch-backend-api.herokuapp.com/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    fetch('https://fetch-backend-api.herokuapp.com/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         user: SignupInfo,
       }),
@@ -39,9 +39,9 @@ class App extends Component {
       .then((resp) => resp.json())
       .then((json) => {
         if (json.error) {
-          document.getElementById("login-error").innerText = json.error;
+          document.getElementById('login-error').innerText = json.error;
         } else {
-          localStorage.setItem("token", json.jwt);
+          localStorage.setItem('token', json.jwt);
           this.setState({
             currentUser: {
               id: json.user.data.attributes.id,
@@ -54,17 +54,17 @@ class App extends Component {
   };
 
   createTrendingTopic = () => {
-    fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
-      method: "POST",
+    fetch('https://fetch-backend-api.herokuapp.com/add-topic', {
+      method: 'POST',
       headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
-        Authorization: localStorage.getItem("token"),
+        'Content-type': 'application/json',
+        Accept: 'application/json',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         topic: {
-          topic_title: "Trending",
-          logo: "/images/google_logo.jpg",
+          topic_title: 'Trending',
+          logo: '/images/google_logo.jpg',
           user_id: this.state.currentUser.id,
           page_size: null,
           plus: null,
@@ -77,7 +77,7 @@ class App extends Component {
         this.followTrending(data.topic.data.attributes.id);
       })
       .then(() => {
-        this.props.history.push("/feed");
+        this.props.history.push('/feed');
       });
   };
 
@@ -85,7 +85,7 @@ class App extends Component {
     // google =
     //   "https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?pageSize=5&country=us&apiKey=07af66c02837407a82106528c10d64c5";
     let gnews =
-      "https://gnews.io/api/v3/top-news?token=64243ba45d1d1b0e5f111a63d4e13678";
+      'https://gnews.io/api/v4/search?q=example&lang=en&token=64243ba45d1d1b0e5f111a63d4e13678';
     //testing gnews.io now since NEWSAPI changed pricing plan.. gnews image=required parameter. not working so far. contacted gnews
     fetch(gnews) // cors anywhere => https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
       .then((res) => res.json())
@@ -97,19 +97,19 @@ class App extends Component {
   };
 
   postTrendingTopicToOurApi = (result, topicId) => {
-    fetch("https://fetch-backend-api.herokuapp.com/posts", {
-      method: "POST",
+    fetch('https://fetch-backend-api.herokuapp.com/posts', {
+      method: 'POST',
       headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
-        Authorization: localStorage.getItem("token"),
+        'Content-type': 'application/json',
+        Accept: 'application/json',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         topic_id: topicId,
         post: {
           caption: result.title,
           source: result.source.name,
-          image_url: result.urlToImage,
+          image_url: result.image,
           url: result.url,
           published_at: result.publishedAt,
         },
@@ -117,12 +117,12 @@ class App extends Component {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        fetch("https://fetch-backend-api.herokuapp.com/post_topics", {
-          method: "POST",
+        fetch('https://fetch-backend-api.herokuapp.com/post_topics', {
+          method: 'POST',
           headers: {
-            "Content-type": "application/json",
-            Accept: "application/json",
-            Authorization: localStorage.getItem("token"),
+            'Content-type': 'application/json',
+            Accept: 'application/json',
+            Authorization: localStorage.getItem('token'),
           },
           body: JSON.stringify({
             post_topic: {
@@ -141,13 +141,13 @@ class App extends Component {
   handleSubmitTopic = (event, socialInput) => {
     // before creating posttopic make sure you run this and also make sure POSTING to POST MODEL is done.
     event.preventDefault();
-    socialInput.topic_title !== ""
-      ? fetch("https://fetch-backend-api.herokuapp.com/add-topic", {
-          method: "POST",
+    socialInput.topic_title !== ''
+      ? fetch('https://fetch-backend-api.herokuapp.com/add-topic', {
+          method: 'POST',
           headers: {
-            "Content-type": "application/json",
-            Accept: "application/json",
-            Authorization: localStorage.getItem("token"),
+            'Content-type': 'application/json',
+            Accept: 'application/json',
+            Authorization: localStorage.getItem('token'),
           },
           body: JSON.stringify({
             topic: {
@@ -164,15 +164,15 @@ class App extends Component {
             this.fetchFromGoogle(topicID); // took out topicID
           })
           .then(() => {
-            this.props.history.push("/feed"); // this.props.history.push("/feed"); needs .then
+            this.props.history.push('/feed'); // this.props.history.push("/feed"); needs .then
           })
-      : window.alert("Topic title cannot be empty");
+      : window.alert('Topic title cannot be empty');
   };
 
   fetchFromGoogle = () => {
     // eslint-disable-next-line
     this.state.topicsFollowed.map((topic) => {
-      let plus = topic.plus === true ? "+" : "";
+      let plus = topic.plus === true ? '+' : '';
 
       // let google_news = `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?language=${topic.language}&pageSize=${topic.page_size}&q=${plus}${topic.topic_title}&sortBy=${topic.sort_by}&excludeDomains=slashdot.org&apiKey=07af66c02837407a82106528c10d64c5`;
       let gnews = `https://gnews.io/api/v3/search?q=${topic.topic_title}&lang=${topic.language}&max=${topic.page_size}&token=64243ba45d1d1b0e5f111a63d4e13678`;
@@ -188,19 +188,19 @@ class App extends Component {
   };
 
   postToOurApi = (result, topicId) => {
-    fetch("https://fetch-backend-api.herokuapp.com/posts", {
-      method: "POST",
+    fetch('https://fetch-backend-api.herokuapp.com/posts', {
+      method: 'POST',
       headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
-        Authorization: localStorage.getItem("token"),
+        'Content-type': 'application/json',
+        Accept: 'application/json',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         topic_id: topicId,
         post: {
           caption: result.title,
           source: result.source.name,
-          image_url: result.urlToImage,
+          image_url: result.image,
           url: result.url,
           published_at: result.publishedAt,
         },
@@ -209,12 +209,12 @@ class App extends Component {
       .then((resp) => resp.json())
       .then((resp) => {
         if (resp.post) {
-          fetch("https://fetch-backend-api.herokuapp.com/post_topics", {
-            method: "POST",
+          fetch('https://fetch-backend-api.herokuapp.com/post_topics', {
+            method: 'POST',
             headers: {
-              "Content-type": "application/json",
-              Accept: "application/json",
-              Authorization: localStorage.getItem("token"), // test out without this later.
+              'Content-type': 'application/json',
+              Accept: 'application/json',
+              Authorization: localStorage.getItem('token'), // test out without this later.
             },
             body: JSON.stringify({
               post_topic: {
@@ -235,11 +235,11 @@ class App extends Component {
   fetchToTopicId = () => {
     this.state.topicsFollowed.forEach((topic) => {
       fetch(`https://fetch-backend-api.herokuapp.com/topics/${topic.id}`, {
-        method: "GET",
+        method: 'GET',
         headers: {
-          "Content-type": "application/json",
-          Accept: "application/json",
-          Authorization: localStorage.getItem("token"),
+          'Content-type': 'application/json',
+          Accept: 'application/json',
+          Authorization: localStorage.getItem('token'),
         },
       })
         .then((resp) => resp.json())
@@ -266,21 +266,21 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch("https://fetch-backend-api.herokuapp.com/re_auth", {
+    fetch('https://fetch-backend-api.herokuapp.com/re_auth', {
       // fetch GET would only need 1 argument. the rest need 2
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
-        Authorization: localStorage.getItem("token"),
+        'Content-type': 'application/json',
+        Accept: 'application/json',
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then((res) => res.json())
       .catch((error) => {
         if (error) {
-          return window.alert("Server is starting up");
+          return window.alert('Server is starting up');
         } else {
-          return window.alert("Oh my. Something has gone terribly wrong.");
+          return window.alert('Oh my. Something has gone terribly wrong.');
         }
       })
       .then((json) => {
@@ -330,11 +330,11 @@ class App extends Component {
   deletePostFromTopic = (event) => {
     event.preventDefault();
     fetch(`https://fetch-backend-api.herokuapp.com/posts/${event.target.id}`, {
-      method: "delete",
+      method: 'delete',
       headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
-        Authorization: localStorage.getItem("token"),
+        'Content-type': 'application/json',
+        Accept: 'application/json',
+        Authorization: localStorage.getItem('token'),
       },
     });
     this.setState({
@@ -346,11 +346,11 @@ class App extends Component {
 
   handleLoginSubmit = (event, loginInfo) => {
     event.preventDefault();
-    fetch("https://fetch-backend-api.herokuapp.com/login", {
-      method: "POST",
+    fetch('https://fetch-backend-api.herokuapp.com/login', {
+      method: 'POST',
       headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
+        'Content-type': 'application/json',
+        Accept: 'application/json',
       },
       body: JSON.stringify({
         auth: {
@@ -364,9 +364,9 @@ class App extends Component {
       .then((resp) => resp.json())
       .then((json) => {
         if (json.error) {
-          document.getElementById("login-error").innerText = json.error;
+          document.getElementById('login-error').innerText = json.error;
         } else {
-          localStorage.setItem("token", json.jwt);
+          localStorage.setItem('token', json.jwt);
           this.setState({
             currentUser: {
               id: json.user.data.attributes.id,
@@ -376,7 +376,7 @@ class App extends Component {
             },
           });
           this.fetchToTopicId();
-          this.props.history.push("/feed");
+          this.props.history.push('/feed');
         }
       });
   };
@@ -394,11 +394,11 @@ class App extends Component {
   deleteTopic = (event) => {
     event.preventDefault();
     fetch(`https://fetch-backend-api.herokuapp.com/topics/${event.target.id}`, {
-      method: "delete",
+      method: 'delete',
       headers: {
-        "Content-type": "application/json",
-        Accept: "application/json",
-        Authorization: localStorage.getItem("token"),
+        'Content-type': 'application/json',
+        Accept: 'application/json',
+        Authorization: localStorage.getItem('token'),
       },
     });
     this.setState({
@@ -406,7 +406,7 @@ class App extends Component {
         (x) => x.id !== parseInt(event.target.id)
       ),
     });
-    this.props.history.push("/feed");
+    this.props.history.push('/feed');
   };
 
   handleLogout = () => {
@@ -419,11 +419,12 @@ class App extends Component {
       loading: false,
       searchPosts: [],
     });
-    this.props.history.push("/");
+    this.props.history.push('/');
   };
 
   handleCategoryClick(categoryName) {
     // let google = `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&category=${categoryName}&pageSize=6&apiKey=07af66c02837407a82106528c10d64c5`;
+
     let gnews = `https://gnews.io/api/v3/topics/${categoryName}?&max=6&token=64243ba45d1d1b0e5f111a63d4e13678`;
     fetch(gnews)
       .then((resp) => resp.json())
@@ -439,178 +440,184 @@ class App extends Component {
   render() {
     return (
       <>
-      <div className="App">
-        <Navbar
+        <div className='App'>
+          <Navbar
+            currentUser={this.state.currentUser}
+            handleLogout={this.handleLogout}
+            fetchFromSearch={this.fetchFromSearch}
+            searchQuery={this.state.searchQuery}
+          />
+
+          <Switch>
+            <Route exact path='/' component={Welcome} />
+
+            <Route
+              exact
+              path='/login'
+              render={(props) => (
+                <Login {...props} handleLoginSubmit={this.handleLoginSubmit} />
+              )}
+            />
+            <Route
+              exact
+              path='/signup'
+              render={(props) => (
+                <Signup
+                  {...props}
+                  handleSignupSubmit={this.handleSignupSubmit}
+                />
+              )}
+            />
+
+            {this.state.loading === false ? (
+              Object.keys(this.state.currentUser).length !== 0 ? (
+                <React.Fragment>
+                  <Route
+                    exact
+                    path='/feed'
+                    render={(props) => (
+                      <Feed
+                        {...props}
+                        delayFetch={this.delayFetch}
+                        topicsFollowed={this.state.topicsFollowed}
+                        fetchFromGoogle={this.fetchFromGoogle}
+                        fetchToTopicId={this.fetchToTopicId}
+                        allTopicPosts={this.state.allTopicPosts}
+                        deletePostFromTopic={this.deletePostFromTopic}
+                      />
+                    )}
+                  />
+
+                  <Route
+                    path='/search/'
+                    render={(props) => (
+                      <Search
+                        {...props}
+                        currentUser={this.state.currentUser}
+                        searchPosts={this.state.searchPosts}
+                        deletePostFromCategory={this.deletePostFromCategory}
+                        fetchFromGoogle={this.fetchFromGoogle}
+                      />
+                    )}
+                  />
+
+                  <Route
+                    path='/category/'
+                    render={(props) => (
+                      <Category
+                        {...props}
+                        currentUser={this.state.currentUser}
+                        categoryPosts={this.state.categoryPosts}
+                        deletePostFromCategory={this.deletePostFromCategory}
+                      />
+                    )}
+                  />
+                  {this.props.location.pathname.split('/').slice(-1)[0] ===
+                    'feed' || window.innerWidth > 1034 ? (
+                    <div className='category'>
+                      <h3>Categories</h3>
+                      <div className='catItems'>
+                        <p
+                          onClick={(e) => this.handleCategoryClick('business')}
+                        >
+                          #Business
+                        </p>
+                        <p
+                          onClick={(e) =>
+                            this.handleCategoryClick('entertainment')
+                          }
+                        >
+                          #Entertainment
+                        </p>
+                        <p onClick={(e) => this.handleCategoryClick('world')}>
+                          #World
+                        </p>
+                        <p onClick={(e) => this.handleCategoryClick('health')}>
+                          #Health
+                        </p>
+                        <p onClick={(e) => this.handleCategoryClick('science')}>
+                          #Science
+                        </p>
+                        <p onClick={(e) => this.handleCategoryClick('sports')}>
+                          #Sports
+                        </p>
+                        <p
+                          onClick={(e) =>
+                            this.handleCategoryClick('technology')
+                          }
+                        >
+                          #Technology
+                        </p>
+                      </div>
+                    </div>
+                  ) : null}
+
+                  <Sidebar
+                    currentUser={this.state.currentUser}
+                    topicsFollowed={this.state.topicsFollowed}
+                    updateStateOfTopicsFollowed={
+                      this.updateStateOfTopicsFollowed
+                    }
+                  />
+
+                  <Route
+                    path='/topic'
+                    render={(props) => (
+                      <Topic
+                        {...props}
+                        fetchFromGoogle={this.fetchFromGoogle}
+                        topicsFollowed={this.state.topicsFollowed}
+                        allTopicPosts={this.state.allTopicPosts}
+                        deletePostFromTopic={this.deletePostFromTopic}
+                        deleteTopic={this.deleteTopic}
+                      />
+                    )}
+                  />
+
+                  <Route
+                    exact
+                    path='/add-topic'
+                    render={(props) => (
+                      <AddTopic
+                        {...props}
+                        currentUser={this.state.currentUser}
+                        handleSubmitTopic={this.handleSubmitTopic}
+                        updateStateOfTopicsFollowed={
+                          this.updateStateOfTopicsFollowed
+                        }
+                      />
+                    )}
+                  />
+
+                  <Route
+                    exact
+                    path='/profile'
+                    render={(props) => (
+                      <UserProfile
+                        {...props}
+                        currentUser={this.state.currentUser}
+                        handleLogout={this.handleLogout}
+                      />
+                    )}
+                  />
+                </React.Fragment>
+              ) : (
+                <Redirect to='/' />
+              )
+            ) : (
+              <>
+                <div className='lds-dual-ring'></div>
+              </>
+            )}
+          </Switch>
+        </div>
+        <Footer
           currentUser={this.state.currentUser}
           handleLogout={this.handleLogout}
           fetchFromSearch={this.fetchFromSearch}
           searchQuery={this.state.searchQuery}
         />
-
-
-        <Switch>
-          <Route exact path="/" component={Welcome} />
-
-          <Route
-            exact
-            path="/login"
-            render={(props) => (
-              <Login {...props} handleLoginSubmit={this.handleLoginSubmit} />
-            )}
-          />
-          <Route
-            exact
-            path="/signup"
-            render={(props) => (
-              <Signup {...props} handleSignupSubmit={this.handleSignupSubmit} />
-            )}
-          />
-
-          {this.state.loading === false ? (
-            Object.keys(this.state.currentUser).length !== 0 ? (
-              <React.Fragment>
-                <Route
-                  exact
-                  path="/feed"
-                  render={(props) => (
-                    <Feed
-                      {...props}
-                      delayFetch={this.delayFetch}
-                      topicsFollowed={this.state.topicsFollowed}
-                      fetchFromGoogle={this.fetchFromGoogle}
-                      fetchToTopicId={this.fetchToTopicId}
-                      allTopicPosts={this.state.allTopicPosts}
-                      deletePostFromTopic={this.deletePostFromTopic}
-                    />
-                  )}
-                />
-
-                <Route
-                  path="/search/"
-                  render={(props) => (
-                    <Search
-                      {...props}
-                      currentUser={this.state.currentUser}
-                      searchPosts={this.state.searchPosts}
-                      deletePostFromCategory={this.deletePostFromCategory}
-                      fetchFromGoogle={this.fetchFromGoogle}
-                    />
-                  )}
-                />
-
-                <Route
-                  path="/category/"
-                  render={(props) => (
-                    <Category
-                      {...props}
-                      currentUser={this.state.currentUser}
-                      categoryPosts={this.state.categoryPosts}
-                      deletePostFromCategory={this.deletePostFromCategory}
-                    />
-                  )}
-                />
-                {this.props.location.pathname.split("/").slice(-1)[0] ===
-                  "feed" || window.innerWidth > 1034 ? (
-                  <div className="category">
-                    <h3>Categories</h3>
-                    <div className="catItems">
-                      <p onClick={(e) => this.handleCategoryClick("business")}>
-                        #Business
-                      </p>
-                      <p
-                        onClick={(e) =>
-                          this.handleCategoryClick("entertainment")
-                        }
-                      >
-                        #Entertainment
-                      </p>
-                      <p onClick={(e) => this.handleCategoryClick("world")}>
-                        #World
-                      </p>
-                      <p onClick={(e) => this.handleCategoryClick("health")}>
-                        #Health
-                      </p>
-                      <p onClick={(e) => this.handleCategoryClick("science")}>
-                        #Science
-                      </p>
-                      <p onClick={(e) => this.handleCategoryClick("sports")}>
-                        #Sports
-                      </p>
-                      <p
-                        onClick={(e) => this.handleCategoryClick("technology")}
-                      >
-                        #Technology
-                      </p>
-                    </div>
-                  </div>
-                ) : null}
-
-                <Sidebar
-                  currentUser={this.state.currentUser}
-                  topicsFollowed={this.state.topicsFollowed}
-                  updateStateOfTopicsFollowed={this.updateStateOfTopicsFollowed}
-                />
-
-                <Route
-                  path="/topic"
-                  render={(props) => (
-                    <Topic
-                      {...props}
-                      fetchFromGoogle={this.fetchFromGoogle}
-                      topicsFollowed={this.state.topicsFollowed}
-                      allTopicPosts={this.state.allTopicPosts}
-                      deletePostFromTopic={this.deletePostFromTopic}
-                      deleteTopic={this.deleteTopic}
-                    />
-                  )}
-                />
-
-                <Route
-                  exact
-                  path="/add-topic"
-                  render={(props) => (
-                    <AddTopic
-                      {...props}
-                      currentUser={this.state.currentUser}
-                      handleSubmitTopic={this.handleSubmitTopic}
-                      updateStateOfTopicsFollowed={
-                        this.updateStateOfTopicsFollowed
-                      }
-                    />
-                  )}
-                />
-
-                <Route
-                  exact
-                  path="/profile"
-                  render={(props) => (
-                    <UserProfile
-                      {...props}
-                      currentUser={this.state.currentUser}
-                      handleLogout={this.handleLogout}
-                    />
-                  )}
-                />
-              </React.Fragment>
-            ) : (
-              <Redirect to="/" />
-            )
-          ) : (
-            <>
-              <div className="lds-dual-ring"></div>
-            </>
-          )}
-        </Switch>
-
-
-      </div>
-           <Footer
-           currentUser={this.state.currentUser}
-           handleLogout={this.handleLogout}
-           fetchFromSearch={this.fetchFromSearch}
-           searchQuery={this.state.searchQuery}
-         />
-         </>
+      </>
     );
   }
 }
